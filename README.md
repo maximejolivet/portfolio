@@ -1,2 +1,2 @@
 # portfolio
-Maxime JOLIVET
+Maxime Jolivet
