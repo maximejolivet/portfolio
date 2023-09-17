@@ -1,0 +1,40 @@
+/* =============================================
+=                  Transitions                =
+============================================= */
+
+/* ----------  Transitions de pages  ---------- */
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 75ms;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+/* ----------  Basic Transition  ---------- */
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 120ms ease-in-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+/* ----------  Slide effects  ---------- */
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 120ms ease-out;
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  transform: translateY(100%);
+  opacity: 0;
+}

@@ -1,0 +1,66 @@
+/* =============================================
+=                   Titres                    =
+============================================= */
+
+.title-1 {
+  font-size: theme("fontSize.28");
+  line-height: theme("lineHeight.32");
+  font-weight: theme("fontWeight.bold");
+}
+
+.title-2 {
+  font-size: theme("fontSize.18");
+  line-height: theme("lineHeight.22");
+  font-weight: theme("fontWeight.bold");
+}
+
+.title-3 {
+  font-size: theme("fontSize.16");
+  line-height: theme("lineHeight.20");
+  font-weight: theme("fontWeight.bold");
+}
+
+/* =============================================
+=                    Textes                   =
+============================================= */
+
+.paragraph {
+  font-size: theme("fontSize.14");
+  line-height: theme("lineHeight.22");
+  font-weight: theme("fontWeight.normal");
+}
+
+.mention {
+  font-size: theme("fontSize.12");
+  line-height: theme("lineHeight.16");
+  font-weight: theme("fontWeight.normal");
+}
+
+/* =============================================
+=                   Icones                    =
+============================================= */
+
+/* Positionement des icones dans un conteneur relatif */
+.icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =============================================
+=            Containers & wrappers            =
+============================================= */
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: theme("spacing.12");
+}

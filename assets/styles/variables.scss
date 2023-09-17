@@ -1,0 +1,12 @@
+/* =============================================
+=               Variables Root                =
+============================================= */
+
+:root {
+  --color-primary: theme("colors.primary.default");
+  --color-secondary: theme("colors.secondary.default");
+  --color-success: theme("colors.success.default");
+  --color-info: theme("colors.info.default");
+  --color-warning: theme("colors.warning.default");
+  --color-danger: theme("colors.danger.default");
+}
