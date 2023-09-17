@@ -1,15 +1,47 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "version": "1.0.0",
+  "repository": "git@github.com:maximejolivet/portfolio.git",
+  "author": "Maxime JOLIVET <mjolivet@gingerminds.fr>",
+  "license": "MIT",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "yarn lint:js && yarn lint:prettier",
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "nuxt": "^3.7.1"
+    "@nuxt/devtools": "^0.8.3",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/i18n": "^8.0.0-beta.10",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/test-utils": "^2.2.6",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vitest": "^0.0.21",
+    "jsdom": "^20.0.3",
+    "nuxt": "^3.7.1",
+    "postcss": "^8.4.29",
+    "prettier": "^3.0.3",
+    "sass": "^1.67.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard-scss": "^7.0.1",
+    "typescript": "^4.9.4",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-stylelint": "^5.1.1",
+    "vitest": "^0.26.2"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.11"
   }
 }

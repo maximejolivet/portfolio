@@ -1,0 +1,16 @@
+/* =============================================
+=             Classes utilitaires             =
+============================================= */
+
+// Absolument positionné au centre
+.inset-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Centré horizontalement avec margin
+.m-0-auto {
+  margin: 0 auto;
+}
