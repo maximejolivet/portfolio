@@ -7,9 +7,9 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-16",
       viewport: "width=device-width, initial-scale=1",
-      title: "Nuxt 3 Starter Kit",
+      title: "Maxime Jolivet - Développeur web",
       meta: [
-        { name: "description", content: "My amazing Nuxt 3 application." },
+        { name: "description", content: "Développeur web, Webdesigner" },
       ],
       htmlAttrs: {
         lang: "fr",

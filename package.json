@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "repository": "git@github.com:maximejolivet/portfolio.git",
-  "author": "Maxime JOLIVET <mjolivet@gingerminds.fr>",
+  "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "nuxt build",
