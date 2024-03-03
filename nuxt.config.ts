@@ -5,12 +5,10 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      charset: "utf-16",
+      charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       title: "Maxime Jolivet - Développeur web",
-      meta: [
-        { name: "description", content: "Développeur web, Webdesigner" },
-      ],
+      meta: [{ name: "description", content: "Développeur web, Webdesigner" }],
       htmlAttrs: {
         lang: "fr",
         style: "font-size: 1rem",

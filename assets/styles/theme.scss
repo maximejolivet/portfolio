@@ -64,3 +64,14 @@
 .container {
   padding: theme("spacing.12");
 }
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  img {
+    width: 200px;
+  }
+}
