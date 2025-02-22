@@ -6,51 +6,41 @@
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "deploy": "nuxt build && nuxt generate && firebase deploy",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
-    "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
+    "lint": "eslint .",
+    "lintfix": "eslint . --fix"
+  },
+  "engines": {
+    "node": "22.x.x"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^0.8.3",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@nuxtjs/i18n": "^8.0.0-beta.10",
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "@nuxt/content": "1.15.1",
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/feed": "^2.0.0",
-    "@nuxtjs/firebase": "8.2.2",
-    "@nuxtjs/pwa": "^3.3.5",
-    "@nuxtjs/robots": "^2.5.0",
-    "@nuxtjs/sitemap": "^2.4.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/test-utils": "^2.2.6",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-vitest": "^0.0.21",
-    "jsdom": "^20.0.3",
-    "nuxt": "^3.7.1",
-    "postcss": "^8.4.29",
-    "prettier": "^3.0.3",
-    "sass": "^1.67.0",
-    "stylelint": "^15.10.3",
-    "stylelint-config-recommended-vue": "^1.4.0",
-    "stylelint-config-standard-scss": "^7.0.1",
-    "typescript": "^4.9.4",
-    "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-stylelint": "^5.1.1",
-    "vitest": "^0.26.2"
+    "@nuxt/eslint": "^0.7.5",
+    "@pinia/nuxt": "^0.9.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/eslint": "^9.6.1",
+    "@typescript-eslint/eslint-plugin": "8.21.0",
+    "@typescript-eslint/parser": "8.19.1",
+    "@vueuse/core": "^12.4.0",
+    "@vueuse/nuxt": "^12.4.0",
+    "conventional-changelog-atom": "^5.0.0",
+    "eslint": "^9.18.0",
+    "lint-staged": "^15.4.1",
+    "nuxt": "3.15.2",
+    "nuxt-security": "^2.1.5",
+    "pinia": "^2.1.7",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "5.7.3"
   },
-  "dependencies": {
-    "@headlessui/vue": "^1.7.16",
-    "@nuxtjs/fontawesome": "^1.1.2",
-    "@pinia/nuxt": "^0.4.11"
+  "lint-staged": {
+    "*.(json|js|ts|vue)": [
+      "eslint --fix"
+    ]
   }
 }
