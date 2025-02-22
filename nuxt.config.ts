@@ -30,11 +30,10 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ['~/assets/css/main.css', '~/assets/css/transition.css'],
+  css: ['~/assets/css/main.css'],
   devServer: {
     port: 8000,
   },
-  compatibilityDate: '2025-01-09',
   vite: {
     plugins: [tailwindcss()],
   },
