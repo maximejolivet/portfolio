@@ -19,15 +19,22 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Boilerplate',
-      link: [{ rel: 'icon', type: 'image/ico', href: '/favicon.png' }],
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+      title: "Maxime Jolivet - Développeur web",
+      link: [{ rel: 'icon', type: 'image/ico', href: '/favicon.ico' }], 
       meta: [
+        { name: "description", content: "Développeur web, Webdesigner" },
         {
           name: 'viewport',
           content:
             'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
         },
       ],
+      htmlAttrs: {
+        //lang: "fr",
+        style: "font-size: 1rem",
+      },
     },
   },
   css: ['~/assets/css/main.css'],
