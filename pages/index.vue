@@ -1,8 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <template>
-  <div class="bg-gray-200 text-gray-700 font-bold px-3 py-2">
-    Maxime
+  <div class="bg-black">
+    <h1 class="sr-only">
+      Maxime Jolivet - Développeur web fullstack
+    </h1>
+    <div class="flex items-center justify-center h-screen">
+      <img src="/maxime.svg" alt="Maxime Jolivet" width="200" height="200" />
+    </div>
   </div>
 </template>
 
