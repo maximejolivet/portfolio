@@ -1,4 +1,4 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 SSR
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -19,6 +19,25 @@ yarn install
 # bun
 bun install
 ```
+
+## Update Dependencies
+To update the dependencies in your Nuxt 3 project, you can use the `npm-check-updates` tool. This tool helps you to easily check for and update outdated dependencies in your `package.json` file.
+
+```bash
+# Install the tool globally
+npm install -g npm-check-updates
+
+# Check which packages can be updated
+ncu
+
+# Update the versions in package.json
+ncu -u
+
+# Reinstall dependencies with the updated versions
+npm install
+```
+
+
 
 ## Development Server
 
