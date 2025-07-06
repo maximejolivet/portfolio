@@ -1,4 +1,4 @@
-# Portfolio /// Nuxt 3 SSR
+# Portfolio - Maxime JOLIVET // Nuxt 3 SSR
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
