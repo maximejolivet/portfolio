@@ -1,0 +1,14 @@
+{
+  "home": {
+    "en": "/",
+    "fr": "/"
+  },
+  "about": {
+    "en": "/about",
+    "fr": "/a-propos"
+  },
+  "contact": {
+    "en": "/contact",
+    "fr": "/contact"
+  }
+}
