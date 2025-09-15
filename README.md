@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 # Portfolio - Maxime JOLIVET // Nuxt 3 SSR
+=======
+# Portfolio /// Nuxt 4 SSR
+>>>>>>> develop
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
@@ -21,7 +25,7 @@ bun install
 ```
 
 ## Update Dependencies
-To update the dependencies in your Nuxt 3 project, you can use the `npm-check-updates` tool. This tool helps you to easily check for and update outdated dependencies in your `package.json` file.
+To update the dependencies in your Nuxt 4 project, you can use the `npm-check-updates` tool. This tool helps you to easily check for and update outdated dependencies in your `package.json` file.
 
 ```bash
 # Install the tool globally
