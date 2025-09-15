@@ -9,12 +9,6 @@ export default withNuxt(
       'no-console': [2, { allow: ['error', 'info', 'warn'] }],
       'no-lonely-if': 'off',
       'semi': [2, 'never'],
-      'vue/component-tags-order': [
-        'error',
-        {
-          order: ['script:not([setup])', 'script[setup]', 'template', 'style'],
-        },
-      ],
       'vue/html-indent': 'off',
       'vue/html-self-closing': 'off',
       'vue/max-attributes-per-line': 'off',
