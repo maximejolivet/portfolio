@@ -1,4 +1,9 @@
 {
   "welcome": "Welcome",
-  "about": "About me"
+  "about": "About me",
+  "error": {
+    "back_home": "Back to home",
+    "page_not_found": "Page not found",
+    "generic": "Something went wrong"
+  }
 }
