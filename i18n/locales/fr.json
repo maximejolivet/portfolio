@@ -1,4 +1,9 @@
 {
   "welcome": "Bienvenue",
-  "about": "À propos de moi"
+  "about": "À propos de moi",
+  "error": {
+    "back_home": "Retour à l'accueil",
+    "page_not_found": "Page non trouvée",
+    "generic": "Une erreur est survenue"
+  }
 }
