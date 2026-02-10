@@ -7,15 +7,10 @@ export default defineNuxtConfig({
     'nuxt-security',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
+    '@nuxtjs/sitemap',
   ],
 
-  imports: {
-    // dirs: ['composables/**'],
-  },
-
-  devtools: {
-    enabled: false,
-  },
+  devtools: { enabled: true },
 
   app: {
     head: {
@@ -27,8 +22,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Développeur web, Webdesigner' },
         {
           name: 'viewport',
-          content:
-                        'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
+          content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
         },
       ],
       htmlAttrs: {
@@ -41,9 +35,6 @@ export default defineNuxtConfig({
 
   devServer: {
     port: 8000,
-  },
-  nitro: {
-    compatibilityDate: '2025-09-14',
   },
 
   vite: {
