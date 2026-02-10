@@ -7,15 +7,10 @@ export default defineNuxtConfig({
     'nuxt-security',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
+    '@nuxtjs/sitemap',
   ],
 
-  imports: {
-    // dirs: ['composables/**'],
-  },
-
-  devtools: {
-    enabled: false,
-  },
+  devtools: { enabled: true },
 
   app: {
     head: {
@@ -27,8 +22,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Développeur web, Webdesigner' },
         {
           name: 'viewport',
-          content:
-                        'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
+          content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
         },
       ],
       htmlAttrs: {
@@ -41,9 +35,6 @@ export default defineNuxtConfig({
 
   devServer: {
     port: 8000,
-  },
-  nitro: {
-    compatibilityDate: '2025-09-14',
   },
 
   vite: {
@@ -102,25 +93,25 @@ export default defineNuxtConfig({
           // unsafe-inline    => Fallback value, will be ignored by almost any browser (level 2)
           // strict-dynamic   => Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
           // nonce-{{nonce}}  => Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
-          '\'self\'',
-          '\'unsafe-inline\'',
-          '\'strict-dynamic\'',
-          '\'nonce-{{nonce}}\'',
+          "'self'",
+          "'unsafe-inline'",
+          "'strict-dynamic'",
+          "'nonce-{{nonce}}'",
         ],
         'style-src': [
           // self           => Enables loading of stylesheets hosted on same origin
           // unsafe-inline  => Recommended default for most Nuxt apps
-          '\'self\'',
+          "'self'",
           'fonts.googleapis.com',
-          '\'unsafe-inline\'',
+          "'unsafe-inline'",
         ],
         // img-src => Add relevant https://... sources if you load images from external sources
-        'base-uri': ['\'none\''],
-        'img-src': ['\'self\'', 'data:'],
-        'font-src': ['\'self\'', 'fonts.gstatic.com'],
-        'object-src': ['\'none\''],
-        'script-src-attr': ['\'none\''],
-        'frame-ancestors': ['\'self\''],
+        'base-uri': ["'none'"],
+        'img-src': ["'self'", 'data:'],
+        'font-src': ["'self'", 'fonts.gstatic.com'],
+        'object-src': ["'none'"],
+        'script-src-attr': ["'none'"],
+        'frame-ancestors': ["'self'"],
         'upgrade-insecure-requests': true,
       },
       permissionsPolicy: {

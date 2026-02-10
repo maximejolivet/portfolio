@@ -6,7 +6,7 @@
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "deploy": "nuxt build && nuxt generate && firebase deploy",
+    "deploy": "nuxt build && nuxt generate",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -16,11 +16,12 @@
     "lintfix": "eslint . --fix"
   },
   "engines": {
-    "node": "23.x.x"
+    "node": "22.x.x"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.13.0",
-    "@nuxtjs/i18n": "^10.2.1",
+    "@nuxt/eslint": "^1.14.0",
+    "@nuxtjs/i18n": "^10.2.3",
+    "@nuxtjs/sitemap": "^7.6.0",
     "@pinia/nuxt": "^0.11.3",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/postcss": "^4.1.18",
@@ -28,16 +29,16 @@
     "@types/eslint": "^9.6.1",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
-    "@vueuse/core": "^14.1.0",
-    "@vueuse/nuxt": "^14.1.0",
-    "autoprefixer": "^10.4.23",
+    "@vueuse/core": "^14.2.0",
+    "@vueuse/nuxt": "^14.2.0",
+    "autoprefixer": "^10.4.24",
     "conventional-changelog-atom": "^5.0.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-vue": "^10.7.0",
     "lint-staged": "^16.2.7",
-    "nuxt": "^4.3.0",
+    "nuxt": "^4.3.1",
     "nuxt-security": "^2.5.1",
     "pinia": "^3.0.4",
     "postcss": "^8.5.6",
