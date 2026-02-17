@@ -3,7 +3,10 @@
   "about": "À propos de moi",
   "error": {
     "back_home": "Retour à l'accueil",
-    "page_not_found": "Page non trouvée",
+    "return": "Retour",
+    "page_not_found": "Oups… cette page s’est perdue dans le multivers 👽",
+    "page_not_found_random_page": "Page au hasard 🎲",
+    "page_not_found_description": "On a cherché partout. Même sous le canapé.",
     "generic": "Une erreur est survenue"
   }
 }
