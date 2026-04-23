@@ -32,7 +32,11 @@ useSeoMeta({
         </NuxtLink>
       </div>
     </div>
-    <iframe src="/cv-maximejolivet-developpeur.pdf" class="flex-1 w-full border-0"
-      title="CV Maxime Jolivet — Développeur web fullstack" />
+    <iframe
+      credentialless
+      src="/cv-maximejolivet-developpeur.pdf"
+      class="flex-1 w-full border-0"
+      title="CV Maxime Jolivet — Développeur web fullstack"
+    />
   </div>
 </template>
