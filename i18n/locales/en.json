@@ -1,6 +1,9 @@
 {
   "welcome": "Welcome",
   "about": "About me",
+  "cv": {
+    "download": "Télécharger le PDF"
+  },
   "error": {
     "back_home": "Back to home",
     "return": "Return",
