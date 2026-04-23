@@ -7,10 +7,10 @@ const availableLocales = computed(() => {
 })
 
 useSeoMeta({
-  title: 'CV - Maxime Jolivet',
-  ogTitle: 'CV - Maxime Jolivet, Développeur web full-stack',
-  description: 'Développeur web full-stack senior PHP - JavaScript / Expert Drupal - Consultez le CV de Maxime Jolivet 🚀',
-  ogDescription: 'Développeur web full-stack senior PHP - JavaScript / Expert Drupal - Consultez le CV de Maxime Jolivet 🚀',
+  title: 'Curriculum vitæ - Maxime Jolivet',
+  ogTitle: 'CV - Maxime Jolivet, Développeur web full-stack senior PHP - JavaScript / Expert Drupal',
+  description: "Développeur web avec 9 ans d'expérience en agence digitale, solides bases en informatique et développement web - Consultez le CV de Maxime Jolivet 🚀",
+  ogDescription: "Développeur web avec 9 ans d'expérience en agence digitale, solides bases en informatique et développement web - Consultez le CV de Maxime Jolivet 🚀",
   ogImage: 'https://maximejolivet.fr/open-graph-maximejolivet.jpg',
   ogType: 'website',
   twitterCard: 'summary_large_image',
@@ -19,19 +19,7 @@ useSeoMeta({
 
 <template>
   <div class="flex flex-col h-screen bg-black">
-    <div class="flex items-center justify-between px-6 py-3">
-      <h1 class="text-white text-sm font-medium">Maxime Jolivet - CV</h1>
-      <div class="flex items-center gap-4">
-        <a href="/cv-maximejolivet-developpeur.pdf" download
-          class="text-white/60 text-sm hover:text-white transition-colors">
-          {{ $t('cv.download') }}
-        </a>
-        <NuxtLink v-for="loc in availableLocales" :key="loc.code" :to="switchLocalePath(loc.code)"
-          class="text-white/60 text-sm hover:text-white transition-colors">
-          {{ loc.name }}
-        </NuxtLink>
-      </div>
-    </div>
+    <h1 class="sr-only">Maxime Jolivet - Curriculum vitæ</h1>
     <iframe credentialless src="/cv-maximejolivet-developpeur.pdf" class="flex-1 w-full border-0"
       title="CV Maxime Jolivet - Développeur web full-stack" />
   </div>
