@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+# Portfolio - Maxime JOLIVET // Nuxt 3 SSR
+=======
 # Portfolio /// Nuxt 4 SSR
+>>>>>>> develop
 
 Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
