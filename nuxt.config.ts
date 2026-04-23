@@ -1,17 +1,18 @@
 import tailwindcss from '@tailwindcss/vite'
-import routes from './routes.json'
+import routes from './routes/routes.json'
 
 export default defineNuxtConfig({
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'storeToRefs'] }],
+    '@nuxt/ui',
+    '@nuxt/content',
+    '@nuxtjs/color-mode',
     'nuxt-security',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
     '@nuxtjs/sitemap',
   ],
-
   devtools: { enabled: true },
-
   app: {
     head: {
       charset: 'utf-8',
@@ -30,20 +31,16 @@ export default defineNuxtConfig({
       },
     },
   },
-
   css: ['~/assets/css/main.css'],
-
   devServer: {
     port: 8000,
   },
-
   vite: {
     plugins: [tailwindcss()],
     css: {
       devSourcemap: false,
     },
   },
-
   typescript: {
     tsConfig: {
       compilerOptions: {
@@ -52,7 +49,6 @@ export default defineNuxtConfig({
       },
     },
   },
-
   eslint: {
     config: {
       stylistic: {
@@ -69,6 +65,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'prefix',
     defaultLocale: 'fr',
+    pages: routes,
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
       { code: 'fr', language: 'fr-FR', name: 'French', file: 'fr.json' },
@@ -78,10 +75,7 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root', // recommended
     },
-    customRoutes: 'config', // disable custom route with page components
-    pages: routes,
   },
-
   security: {
     nonce: true,
     rateLimiter: false,
