@@ -87,6 +87,7 @@ export default defineNuxtConfig({
     rateLimiter: false,
     csrf: true,
     headers: {
+      crossOriginEmbedderPolicy: false,
       contentSecurityPolicy: {
         'script-src': [
           // self             => Fallback value, will be ignored by most modern browsers (level 3)
