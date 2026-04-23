@@ -7,10 +7,10 @@ const availableLocales = computed(() => {
 })
 
 useSeoMeta({
-  title: 'CV — Maxime Jolivet',
-  ogTitle: 'CV — Maxime Jolivet, Développeur web fullstack',
-  description: 'Développeur web fullstack — Consultez mon CV de Maxime Jolivet.',
-  ogDescription: 'Développeur web fullstack — Consultez mon CV de Maxime Jolivet.',
+  title: 'CV - Maxime Jolivet',
+  ogTitle: 'CV - Maxime Jolivet, Développeur web full-stack',
+  description: 'Développeur web full-stack senior PHP - JavaScript / Expert Drupal - Consultez le CV de Maxime Jolivet 🚀',
+  ogDescription: 'Développeur web full-stack senior PHP - JavaScript / Expert Drupal - Consultez le CV de Maxime Jolivet 🚀',
   ogImage: 'https://maximejolivet.fr/open-graph-maximejolivet.jpg',
   ogType: 'website',
   twitterCard: 'summary_large_image',
@@ -20,7 +20,7 @@ useSeoMeta({
 <template>
   <div class="flex flex-col h-screen bg-black">
     <div class="flex items-center justify-between px-6 py-3">
-      <h1 class="text-white text-sm font-medium">Maxime Jolivet — CV</h1>
+      <h1 class="text-white text-sm font-medium">Maxime Jolivet - CV</h1>
       <div class="flex items-center gap-4">
         <a href="/cv-maximejolivet-developpeur.pdf" download
           class="text-white/60 text-sm hover:text-white transition-colors">
@@ -32,11 +32,7 @@ useSeoMeta({
         </NuxtLink>
       </div>
     </div>
-    <iframe
-      credentialless
-      src="/cv-maximejolivet-developpeur.pdf"
-      class="flex-1 w-full border-0"
-      title="CV Maxime Jolivet — Développeur web fullstack"
-    />
+    <iframe credentialless src="/cv-maximejolivet-developpeur.pdf" class="flex-1 w-full border-0"
+      title="CV Maxime Jolivet - Développeur web full-stack" />
   </div>
 </template>
