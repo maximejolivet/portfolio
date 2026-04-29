@@ -6,6 +6,12 @@ const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value)
 })
 
+useHead({
+  meta: [
+    { name: 'robots', content: 'noindex, nofollow' }
+  ]
+})
+
 useSeoMeta({
   title: 'Curriculum vitæ - Maxime Jolivet',
   ogTitle: 'CV - Maxime Jolivet, Développeur web full-stack senior PHP - JavaScript / Expert Drupal',

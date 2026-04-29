@@ -2,6 +2,7 @@
   "welcome": "Bienvenue",
   "about": "À propos de moi",
   "cv": {
+    "read": "Consulter mon curriculum vitae",
     "download": "Télécharger le PDF"
   },
   "error": {
