@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Portfolio - Maxime JOLIVET // Nuxt 3 SSR
-=======
-# Portfolio /// Nuxt 4 SSR
->>>>>>> develop
+# Portfolio - Maxime JOLIVET // Nuxt 4 SSR
 
 Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -25,6 +21,7 @@ bun install
 ```
 
 ## Update Dependencies
+
 To update the dependencies in your Nuxt 4 project, you can use the `npm-check-updates` tool. This tool helps you to easily check for and update outdated dependencies in your `package.json` file.
 
 ```bash
