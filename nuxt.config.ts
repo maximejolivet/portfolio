@@ -117,7 +117,7 @@ export default defineNuxtConfig({
         ],
         // img-src => Add relevant https://... sources if you load images from external sources
         'base-uri': ['\'none\''],
-        'img-src': ['\'self\'', 'data:'],
+        'img-src': ["'self'", 'data:', 'blob:'],
         'font-src': ['\'self\'', 'fonts.gstatic.com'],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
