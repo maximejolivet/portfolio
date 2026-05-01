@@ -22,7 +22,7 @@ useSeoMeta({
 <template>
   <div class="flex flex-col h-full bg-black">
     <h1 class="sr-only">Maxime Jolivet - Curriculum vitæ</h1>
-    <pdfjs-viewer-element src="/cv-maximejolivet-developpeur.pdf" viewer-css-theme="DARK" zoom="page-fit" :locale="lang"
-      class="flex-1 w-full h-full h-screen border-0" />
+    <pdfjs-viewer-element src="/cv-maximejolivet-developpeur.pdf" viewer-css-theme="DARK" zoom="auto" :locale="lang"
+      class="flex-1 w-full h-screen border-0" />
   </div>
 </template>
