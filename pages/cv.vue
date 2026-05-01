@@ -1,10 +1,6 @@
 <script setup>
 const { locale, locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
-
-const availableLocales = computed(() => {
-  return locales.value.filter((i) => i.code !== locale.value)
-})
+const lang = locale._value;
 
 useHead({
   meta: [
@@ -24,9 +20,9 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="flex flex-col h-screen bg-black">
+  <div class="flex flex-col h-full bg-black">
     <h1 class="sr-only">Maxime Jolivet - Curriculum vitæ</h1>
-    <iframe credentialless src="/cv-maximejolivet-developpeur.pdf" class="flex-1 w-full border-0"
-      title="CV Maxime Jolivet - Développeur web full-stack" />
+    <pdfjs-viewer-element src="/cv-maximejolivet-developpeur.pdf" viewer-css-theme="DARK" zoom="page-fit" :locale="lang"
+      class="flex-1 w-full h-full h-screen border-0" />
   </div>
 </template>

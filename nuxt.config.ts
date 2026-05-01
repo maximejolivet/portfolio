@@ -10,6 +10,12 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === 'pdfjs-viewer-element',
+    },
+  },
+
   devtools: { enabled: true },
 
   app: {
@@ -41,6 +47,9 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
     css: {
       devSourcemap: false,
+    },
+    optimizeDeps: {
+      exclude: ['pdfjs-viewer-element'],
     },
   },
 
