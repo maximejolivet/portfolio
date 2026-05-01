@@ -50,6 +50,10 @@ export default defineNuxtConfig({
     },
     optimizeDeps: {
       exclude: ['pdfjs-viewer-element'],
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+      ],
     },
   },
 
