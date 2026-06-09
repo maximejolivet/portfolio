@@ -1,0 +1,2482 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "nuxt_ci_cd_pipeline",
+        "label": "Nuxt CI/CD GitHub Pages Pipeline",
+        "nodes": [
+          "nuxtjs_workflow",
+          "nuxtjs_workflow_build_job",
+          "nuxtjs_workflow_deploy_job",
+          "nuxtjs_workflow_github_pages"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml"
+      },
+      {
+        "id": "i18n_dual_locale_sync",
+        "label": "i18n Dual Locale Synchronization (en + fr always updated together)",
+        "nodes": [
+          "skill_add_translation_skill",
+          "skill_add_translation_en_json",
+          "skill_add_translation_fr_json"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": ".claude/skills/add-translation/SKILL.md"
+      },
+      {
+        "id": "deploy_pipeline",
+        "label": "Deploy Pipeline (skill + npm command + GitHub Actions + GitHub Pages)",
+        "nodes": [
+          "skill_deploy_skill",
+          "skill_deploy_github_actions",
+          "skill_deploy_github_pages"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": ".claude/skills/deploy/SKILL.md"
+      },
+      {
+        "id": "portfolio_project_skills",
+        "label": "Portfolio Project Governed by Skills and Deployment Workflow",
+        "nodes": [
+          "claude_md_portfolio_project",
+          "claude_md_deployment_workflow",
+          "claude_md_i18n_system"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "CLAUDE.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "settings.json",
+      "file_type": "code",
+      "source_file": ".claude/settings.json",
+      "source_location": "L1",
+      "id": "claude_settings",
+      "community": 9,
+      "norm_label": "settings.json"
+    },
+    {
+      "label": "hooks",
+      "file_type": "code",
+      "source_file": ".claude/settings.json",
+      "source_location": "L2",
+      "id": "claude_settings_hooks",
+      "community": 9,
+      "norm_label": "hooks"
+    },
+    {
+      "label": "PostToolUse",
+      "file_type": "code",
+      "source_file": ".claude/settings.json",
+      "source_location": "L3",
+      "id": "claude_settings_hooks_posttooluse",
+      "community": 9,
+      "norm_label": "posttooluse"
+    },
+    {
+      "label": "settings.local.json",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L1",
+      "id": "claude_settings_local",
+      "community": 10,
+      "norm_label": "settings.local.json"
+    },
+    {
+      "label": "permissions",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L2",
+      "id": "claude_settings_local_permissions",
+      "community": 10,
+      "norm_label": "permissions"
+    },
+    {
+      "label": "allow",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "id": "claude_settings_local_permissions_allow",
+      "community": 10,
+      "norm_label": "allow"
+    },
+    {
+      "label": "app.vue",
+      "file_type": "code",
+      "source_file": "app.vue",
+      "source_location": "L1",
+      "id": "app",
+      "community": 13,
+      "norm_label": "app.vue"
+    },
+    {
+      "label": "error.vue",
+      "file_type": "code",
+      "source_file": "error.vue",
+      "source_location": "L1",
+      "id": "error",
+      "community": 14,
+      "norm_label": "error.vue"
+    },
+    {
+      "label": "eslint.config.mjs",
+      "file_type": "code",
+      "source_file": "eslint.config.mjs",
+      "source_location": "L1",
+      "id": "eslint_config",
+      "community": 15,
+      "norm_label": "eslint.config.mjs"
+    },
+    {
+      "label": "i18n.config.ts",
+      "file_type": "code",
+      "source_file": "i18n.config.ts",
+      "source_location": "L1",
+      "id": "i18n_config",
+      "community": 16,
+      "norm_label": "i18n.config.ts"
+    },
+    {
+      "label": "en.json",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L1",
+      "id": "locales_en",
+      "community": 1,
+      "norm_label": "en.json"
+    },
+    {
+      "label": "welcome",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L2",
+      "id": "locales_en_welcome",
+      "community": 1,
+      "norm_label": "welcome"
+    },
+    {
+      "label": "about",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L3",
+      "id": "locales_en_about",
+      "community": 1,
+      "norm_label": "about"
+    },
+    {
+      "label": "cv",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L4",
+      "id": "locales_en_cv",
+      "community": 1,
+      "norm_label": "cv"
+    },
+    {
+      "label": "read",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L5",
+      "id": "locales_en_cv_read",
+      "community": 1,
+      "norm_label": "read"
+    },
+    {
+      "label": "download",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L6",
+      "id": "locales_en_cv_download",
+      "community": 1,
+      "norm_label": "download"
+    },
+    {
+      "label": "error",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L8",
+      "id": "locales_en_error",
+      "community": 1,
+      "norm_label": "error"
+    },
+    {
+      "label": "back_home",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L9",
+      "id": "locales_en_error_back_home",
+      "community": 1,
+      "norm_label": "back_home"
+    },
+    {
+      "label": "return",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L10",
+      "id": "locales_en_error_return",
+      "community": 1,
+      "norm_label": "return"
+    },
+    {
+      "label": "page_not_found",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L11",
+      "id": "locales_en_error_page_not_found",
+      "community": 1,
+      "norm_label": "page_not_found"
+    },
+    {
+      "label": "page_not_found_random_page",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L12",
+      "id": "locales_en_error_page_not_found_random_page",
+      "community": 1,
+      "norm_label": "page_not_found_random_page"
+    },
+    {
+      "label": "page_not_found_description",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L13",
+      "id": "locales_en_error_page_not_found_description",
+      "community": 1,
+      "norm_label": "page_not_found_description"
+    },
+    {
+      "label": "generic",
+      "file_type": "code",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L14",
+      "id": "locales_en_error_generic",
+      "community": 1,
+      "norm_label": "generic"
+    },
+    {
+      "label": "fr.json",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L1",
+      "id": "locales_fr",
+      "community": 2,
+      "norm_label": "fr.json"
+    },
+    {
+      "label": "welcome",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L2",
+      "id": "locales_fr_welcome",
+      "community": 2,
+      "norm_label": "welcome"
+    },
+    {
+      "label": "about",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L3",
+      "id": "locales_fr_about",
+      "community": 2,
+      "norm_label": "about"
+    },
+    {
+      "label": "cv",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L4",
+      "id": "locales_fr_cv",
+      "community": 2,
+      "norm_label": "cv"
+    },
+    {
+      "label": "read",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L5",
+      "id": "locales_fr_cv_read",
+      "community": 2,
+      "norm_label": "read"
+    },
+    {
+      "label": "download",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L6",
+      "id": "locales_fr_cv_download",
+      "community": 2,
+      "norm_label": "download"
+    },
+    {
+      "label": "error",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L8",
+      "id": "locales_fr_error",
+      "community": 2,
+      "norm_label": "error"
+    },
+    {
+      "label": "back_home",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L9",
+      "id": "locales_fr_error_back_home",
+      "community": 2,
+      "norm_label": "back_home"
+    },
+    {
+      "label": "return",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L10",
+      "id": "locales_fr_error_return",
+      "community": 2,
+      "norm_label": "return"
+    },
+    {
+      "label": "page_not_found",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L11",
+      "id": "locales_fr_error_page_not_found",
+      "community": 2,
+      "norm_label": "page_not_found"
+    },
+    {
+      "label": "page_not_found_random_page",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L12",
+      "id": "locales_fr_error_page_not_found_random_page",
+      "community": 2,
+      "norm_label": "page_not_found_random_page"
+    },
+    {
+      "label": "page_not_found_description",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L13",
+      "id": "locales_fr_error_page_not_found_description",
+      "community": 2,
+      "norm_label": "page_not_found_description"
+    },
+    {
+      "label": "generic",
+      "file_type": "code",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L14",
+      "id": "locales_fr_error_generic",
+      "community": 2,
+      "norm_label": "generic"
+    },
+    {
+      "label": "default.vue",
+      "file_type": "code",
+      "source_file": "layouts/default.vue",
+      "source_location": "L1",
+      "id": "layouts_default",
+      "community": 17,
+      "norm_label": "default.vue"
+    },
+    {
+      "label": "nuxt.config.ts",
+      "file_type": "code",
+      "source_file": "nuxt.config.ts",
+      "source_location": "L1",
+      "id": "nuxt_config",
+      "community": 7,
+      "norm_label": "nuxt.config.ts"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package",
+      "community": 4,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "package_name",
+      "community": 4,
+      "norm_label": "name"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "package_private",
+      "community": 4,
+      "norm_label": "private"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "package_version",
+      "community": 4,
+      "norm_label": "version"
+    },
+    {
+      "label": "repository",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "package_repository",
+      "community": 4,
+      "norm_label": "repository"
+    },
+    {
+      "label": "author",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "package_author",
+      "community": 4,
+      "norm_label": "author"
+    },
+    {
+      "label": "license",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "id": "package_license",
+      "community": 4,
+      "norm_label": "license"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "package_scripts",
+      "community": 5,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "deploy",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "package_scripts_deploy",
+      "community": 5,
+      "norm_label": "deploy"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "id": "package_scripts_build",
+      "community": 5,
+      "norm_label": "build"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "id": "package_scripts_dev",
+      "community": 5,
+      "norm_label": "dev"
+    },
+    {
+      "label": "generate",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "id": "package_scripts_generate",
+      "community": 5,
+      "norm_label": "generate"
+    },
+    {
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "id": "package_scripts_preview",
+      "community": 5,
+      "norm_label": "preview"
+    },
+    {
+      "label": "postinstall",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "id": "package_scripts_postinstall",
+      "community": 5,
+      "norm_label": "postinstall"
+    },
+    {
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "id": "package_scripts_lint",
+      "community": 5,
+      "norm_label": "lint"
+    },
+    {
+      "label": "lintfix",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "id": "package_scripts_lintfix",
+      "community": 5,
+      "norm_label": "lintfix"
+    },
+    {
+      "label": "engines",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "id": "package_engines",
+      "community": 4,
+      "norm_label": "engines"
+    },
+    {
+      "label": "node",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "id": "package_engines_node",
+      "community": 4,
+      "norm_label": "node"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "id": "package_devdependencies",
+      "community": 0,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@nuxt/eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "id": "package_devdependencies_nuxt_eslint",
+      "community": 0,
+      "norm_label": "@nuxt/eslint"
+    },
+    {
+      "label": "@nuxtjs/i18n",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "id": "package_devdependencies_nuxtjs_i18n",
+      "community": 0,
+      "norm_label": "@nuxtjs/i18n"
+    },
+    {
+      "label": "@nuxtjs/sitemap",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "id": "package_devdependencies_nuxtjs_sitemap",
+      "community": 0,
+      "norm_label": "@nuxtjs/sitemap"
+    },
+    {
+      "label": "@pinia/nuxt",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "id": "package_devdependencies_pinia_nuxt",
+      "community": 0,
+      "norm_label": "@pinia/nuxt"
+    },
+    {
+      "label": "@tailwindcss/forms",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "id": "package_devdependencies_tailwindcss_forms",
+      "community": 0,
+      "norm_label": "@tailwindcss/forms"
+    },
+    {
+      "label": "@tailwindcss/postcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "id": "package_devdependencies_tailwindcss_postcss",
+      "community": 0,
+      "norm_label": "@tailwindcss/postcss"
+    },
+    {
+      "label": "@tailwindcss/vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "id": "package_devdependencies_tailwindcss_vite",
+      "community": 0,
+      "norm_label": "@tailwindcss/vite"
+    },
+    {
+      "label": "@types/eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "id": "package_devdependencies_types_eslint",
+      "community": 0,
+      "norm_label": "@types/eslint"
+    },
+    {
+      "label": "@typescript-eslint/eslint-plugin",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "id": "package_devdependencies_typescript_eslint_eslint_plugin",
+      "community": 0,
+      "norm_label": "@typescript-eslint/eslint-plugin"
+    },
+    {
+      "label": "@typescript-eslint/parser",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "id": "package_devdependencies_typescript_eslint_parser",
+      "community": 0,
+      "norm_label": "@typescript-eslint/parser"
+    },
+    {
+      "label": "@vueuse/core",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "id": "package_devdependencies_vueuse_core",
+      "community": 0,
+      "norm_label": "@vueuse/core"
+    },
+    {
+      "label": "@vueuse/nuxt",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "id": "package_devdependencies_vueuse_nuxt",
+      "community": 0,
+      "norm_label": "@vueuse/nuxt"
+    },
+    {
+      "label": "autoprefixer",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "id": "package_devdependencies_autoprefixer",
+      "community": 0,
+      "norm_label": "autoprefixer"
+    },
+    {
+      "label": "conventional-changelog-atom",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "id": "package_devdependencies_conventional_changelog_atom",
+      "community": 0,
+      "norm_label": "conventional-changelog-atom"
+    },
+    {
+      "label": "eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L36",
+      "id": "package_devdependencies_eslint",
+      "community": 0,
+      "norm_label": "eslint"
+    },
+    {
+      "label": "eslint-config-prettier",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "id": "package_devdependencies_eslint_config_prettier",
+      "community": 0,
+      "norm_label": "eslint-config-prettier"
+    },
+    {
+      "label": "eslint-plugin-prettier",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "id": "package_devdependencies_eslint_plugin_prettier",
+      "community": 0,
+      "norm_label": "eslint-plugin-prettier"
+    },
+    {
+      "label": "eslint-plugin-vue",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "id": "package_devdependencies_eslint_plugin_vue",
+      "community": 0,
+      "norm_label": "eslint-plugin-vue"
+    },
+    {
+      "label": "lint-staged",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L40",
+      "id": "package_devdependencies_lint_staged",
+      "community": 0,
+      "norm_label": "lint-staged"
+    },
+    {
+      "label": "nuxt",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L41",
+      "id": "package_devdependencies_nuxt",
+      "community": 0,
+      "norm_label": "nuxt"
+    },
+    {
+      "label": "nuxt-security",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "id": "package_devdependencies_nuxt_security",
+      "community": 0,
+      "norm_label": "nuxt-security"
+    },
+    {
+      "label": "pdfjs-viewer-element",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L43",
+      "id": "package_devdependencies_pdfjs_viewer_element",
+      "community": 0,
+      "norm_label": "pdfjs-viewer-element"
+    },
+    {
+      "label": "pinia",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L44",
+      "id": "package_devdependencies_pinia",
+      "community": 0,
+      "norm_label": "pinia"
+    },
+    {
+      "label": "postcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L45",
+      "id": "package_devdependencies_postcss",
+      "community": 0,
+      "norm_label": "postcss"
+    },
+    {
+      "label": "prettier",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L46",
+      "id": "package_devdependencies_prettier",
+      "community": 0,
+      "norm_label": "prettier"
+    },
+    {
+      "label": "tailwindcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L47",
+      "id": "package_devdependencies_tailwindcss",
+      "community": 0,
+      "norm_label": "tailwindcss"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L48",
+      "id": "package_devdependencies_typescript",
+      "community": 0,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L49",
+      "id": "package_devdependencies_vite",
+      "community": 0,
+      "norm_label": "vite"
+    },
+    {
+      "label": "vue-i18n",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L50",
+      "id": "package_devdependencies_vue_i18n",
+      "community": 0,
+      "norm_label": "vue-i18n"
+    },
+    {
+      "label": "lint-staged",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L52",
+      "id": "package_lint_staged",
+      "community": 4,
+      "norm_label": "lint-staged"
+    },
+    {
+      "label": "*.(json|js|ts|vue)",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L53",
+      "id": "package_lint_staged_json_js_ts_vue",
+      "community": 4,
+      "norm_label": "*.(json|js|ts|vue)"
+    },
+    {
+      "label": "cv.vue",
+      "file_type": "code",
+      "source_file": "pages/cv.vue",
+      "source_location": "L1",
+      "id": "pages_cv",
+      "community": 18,
+      "norm_label": "cv.vue"
+    },
+    {
+      "label": "index.vue",
+      "file_type": "code",
+      "source_file": "pages/index.vue",
+      "source_location": "L1",
+      "id": "pages_index",
+      "community": 19,
+      "norm_label": "index.vue"
+    },
+    {
+      "label": "pdfjs-viewer.client.ts",
+      "file_type": "code",
+      "source_file": "plugins/pdfjs-viewer.client.ts",
+      "source_location": "L1",
+      "id": "plugins_pdfjs_viewer_client",
+      "community": 20,
+      "norm_label": "pdfjs-viewer.client.ts"
+    },
+    {
+      "label": "routes.json",
+      "file_type": "code",
+      "source_file": "routes.json",
+      "source_location": "L1",
+      "id": "routes",
+      "community": 7,
+      "norm_label": "routes.json"
+    },
+    {
+      "label": "home",
+      "file_type": "code",
+      "source_file": "routes.json",
+      "source_location": "L2",
+      "id": "routes_home",
+      "community": 7,
+      "norm_label": "home"
+    },
+    {
+      "label": "en",
+      "file_type": "code",
+      "source_file": "routes.json",
+      "source_location": "L3",
+      "id": "routes_home_en",
+      "community": 7,
+      "norm_label": "en"
+    },
+    {
+      "label": "fr",
+      "file_type": "code",
+      "source_file": "routes.json",
+      "source_location": "L4",
+      "id": "routes_home_fr",
+      "community": 7,
+      "norm_label": "fr"
+    },
+    {
+      "label": "cv",
+      "file_type": "code",
+      "source_file": "routes.json",
+      "source_location": "L6",
+      "id": "routes_cv",
+      "community": 7,
+      "norm_label": "cv"
+    },
+    {
+      "label": "en",
+      "file_type": "code",
+      "source_file": "routes.json",
+      "source_location": "L7",
+      "id": "routes_cv_en",
+      "community": 7,
+      "norm_label": "en"
+    },
+    {
+      "label": "fr",
+      "file_type": "code",
+      "source_file": "routes.json",
+      "source_location": "L8",
+      "id": "routes_cv_fr",
+      "community": 7,
+      "norm_label": "fr"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "server/tsconfig.json",
+      "source_location": "L1",
+      "id": "server_tsconfig",
+      "community": 11,
+      "norm_label": "tsconfig.json"
+    },
+    {
+      "label": "extends",
+      "file_type": "code",
+      "source_file": "server/tsconfig.json",
+      "source_location": "L2",
+      "id": "server_tsconfig_extends",
+      "community": 11,
+      "norm_label": "extends"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L1",
+      "id": "tsconfig",
+      "community": 12,
+      "norm_label": "tsconfig.json"
+    },
+    {
+      "label": "extends",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "id": "tsconfig_extends",
+      "community": 12,
+      "norm_label": "extends"
+    },
+    {
+      "label": "Deploy Nuxt site to Pages Workflow",
+      "file_type": "code",
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "nuxtjs_workflow",
+      "community": 3,
+      "norm_label": "deploy nuxt site to pages workflow"
+    },
+    {
+      "label": "CI Build Job",
+      "file_type": "concept",
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": "jobs.build",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "nuxtjs_workflow_build_job",
+      "community": 3,
+      "norm_label": "ci build job"
+    },
+    {
+      "label": "CI Deploy Job",
+      "file_type": "concept",
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": "jobs.deploy",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "nuxtjs_workflow_deploy_job",
+      "community": 3,
+      "norm_label": "ci deploy job"
+    },
+    {
+      "label": "GitHub Pages Deployment Target",
+      "file_type": "concept",
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "nuxtjs_workflow_github_pages",
+      "community": 3,
+      "norm_label": "github pages deployment target"
+    },
+    {
+      "label": "Portfolio README - Maxime Jolivet Nuxt 4 SSR",
+      "file_type": "document",
+      "source_file": "/Users/maxime/Sites/portfolio/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Maxime Jolivet",
+      "contributor": null,
+      "id": "readme_portfolio",
+      "community": 3,
+      "norm_label": "portfolio readme - maxime jolivet nuxt 4 ssr"
+    },
+    {
+      "label": "Nuxt 4 SSR Framework",
+      "file_type": "concept",
+      "source_file": "/Users/maxime/Sites/portfolio/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_nuxt4_ssr",
+      "community": 3,
+      "norm_label": "nuxt 4 ssr framework"
+    },
+    {
+      "label": "robots.txt SEO Configuration",
+      "file_type": "document",
+      "source_file": "/Users/maxime/Sites/portfolio/public/robots.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "robots_txt",
+      "community": 3,
+      "norm_label": "robots.txt seo configuration"
+    },
+    {
+      "label": "Allow All Crawlers Policy",
+      "file_type": "rationale",
+      "source_file": "/Users/maxime/Sites/portfolio/public/robots.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "robots_allow_all",
+      "community": 3,
+      "norm_label": "allow all crawlers policy"
+    },
+    {
+      "label": "CV Maxime Jolivet Developpeur PDF",
+      "file_type": "document",
+      "source_file": "/Users/maxime/Sites/portfolio/public/cv-maximejolivet-developpeur.pdf",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Maxime Jolivet",
+      "contributor": null,
+      "id": "public_cv_pdf",
+      "community": 3,
+      "norm_label": "cv maxime jolivet developpeur pdf"
+    },
+    {
+      "label": "Portfolio Favicon",
+      "file_type": "image",
+      "source_file": "/Users/maxime/Sites/portfolio/public/favicon.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "public_favicon",
+      "community": 21,
+      "norm_label": "portfolio favicon"
+    },
+    {
+      "label": "Maxime SVG Illustration",
+      "file_type": "image",
+      "source_file": "/Users/maxime/Sites/portfolio/public/maxime.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "public_maxime_svg",
+      "community": 3,
+      "norm_label": "maxime svg illustration"
+    },
+    {
+      "label": "Open Graph Image - Maxime Jolivet",
+      "file_type": "image",
+      "source_file": "/Users/maxime/Sites/portfolio/public/open-graph-maximejolivet.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "public_og_image",
+      "community": 3,
+      "norm_label": "open graph image - maxime jolivet"
+    },
+    {
+      "label": "Portfolio Project (Nuxt 4 SSR)",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "1-50",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Maxime",
+      "contributor": null,
+      "id": "claude_md_portfolio_project",
+      "community": 6,
+      "norm_label": "portfolio project (nuxt 4 ssr)"
+    },
+    {
+      "label": "i18n Localization System",
+      "file_type": "concept",
+      "source_file": "CLAUDE.md",
+      "source_location": "32-35",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_md_i18n_system",
+      "community": 8,
+      "norm_label": "i18n localization system"
+    },
+    {
+      "label": "Deployment Workflow (develop \u2192 master \u2192 GitHub Pages)",
+      "file_type": "concept",
+      "source_file": "CLAUDE.md",
+      "source_location": "44-45",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_md_deployment_workflow",
+      "community": 6,
+      "norm_label": "deployment workflow (develop \u2192 master \u2192 github pages)"
+    },
+    {
+      "label": "Code Style Configuration",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": "22-29",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_md_code_style",
+      "community": 6,
+      "norm_label": "code style configuration"
+    },
+    {
+      "label": "Non-Obvious Nuxt Gotchas",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": "38-43",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_md_nuxt_gotchas",
+      "community": 6,
+      "norm_label": "non-obvious nuxt gotchas"
+    },
+    {
+      "label": "add-translation Skill",
+      "file_type": "document",
+      "source_file": ".claude/skills/add-translation/SKILL.md",
+      "source_location": "1-19",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skill_add_translation_skill",
+      "community": 8,
+      "norm_label": "add-translation skill"
+    },
+    {
+      "label": "deploy Skill",
+      "file_type": "document",
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "1-18",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skill_deploy_skill",
+      "community": 6,
+      "norm_label": "deploy skill"
+    },
+    {
+      "label": "i18n/en.json Locale File",
+      "file_type": "code",
+      "source_file": ".claude/skills/add-translation/SKILL.md",
+      "source_location": "12",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skill_add_translation_en_json",
+      "community": 8,
+      "norm_label": "i18n/en.json locale file"
+    },
+    {
+      "label": "i18n/fr.json Locale File",
+      "file_type": "code",
+      "source_file": ".claude/skills/add-translation/SKILL.md",
+      "source_location": "13",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skill_add_translation_fr_json",
+      "community": 8,
+      "norm_label": "i18n/fr.json locale file"
+    },
+    {
+      "label": "npm run deploy Command",
+      "file_type": "concept",
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skill_deploy_npm_deploy",
+      "community": 6,
+      "norm_label": "npm run deploy command"
+    },
+    {
+      "label": "GitHub Actions Workflow",
+      "file_type": "concept",
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "17",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skill_deploy_github_actions",
+      "community": 6,
+      "norm_label": "github actions workflow"
+    },
+    {
+      "label": "GitHub Pages Hosting",
+      "file_type": "concept",
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "skill_deploy_github_pages",
+      "community": 6,
+      "norm_label": "github pages hosting"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "claude_settings",
+      "target": "claude_settings_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "claude_settings_hooks",
+      "target": "claude_settings_hooks_posttooluse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "claude_settings_local",
+      "target": "claude_settings_local_permissions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "claude_settings_local_permissions",
+      "target": "claude_settings_local_permissions_allow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "locales_en",
+      "target": "locales_en_about",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "locales_en",
+      "target": "locales_en_cv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "locales_en",
+      "target": "locales_en_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "locales_en",
+      "target": "locales_en_welcome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "locales_en_cv",
+      "target": "locales_en_cv_download",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "locales_en_cv",
+      "target": "locales_en_cv_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "locales_en_error",
+      "target": "locales_en_error_back_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "locales_en_error",
+      "target": "locales_en_error_generic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "locales_en_error",
+      "target": "locales_en_error_page_not_found",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "locales_en_error",
+      "target": "locales_en_error_page_not_found_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "locales_en_error",
+      "target": "locales_en_error_page_not_found_random_page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/en.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "locales_en_error",
+      "target": "locales_en_error_return",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "locales_fr",
+      "target": "locales_fr_about",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "locales_fr",
+      "target": "locales_fr_cv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "locales_fr",
+      "target": "locales_fr_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "locales_fr",
+      "target": "locales_fr_welcome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "locales_fr_cv",
+      "target": "locales_fr_cv_download",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "locales_fr_cv",
+      "target": "locales_fr_cv_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "locales_fr_error",
+      "target": "locales_fr_error_back_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "locales_fr_error",
+      "target": "locales_fr_error_generic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "locales_fr_error",
+      "target": "locales_fr_error_page_not_found",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "locales_fr_error",
+      "target": "locales_fr_error_page_not_found_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "locales_fr_error",
+      "target": "locales_fr_error_page_not_found_random_page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "i18n/locales/fr.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "locales_fr_error",
+      "target": "locales_fr_error_return",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "nuxt.config.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "nuxt_config",
+      "target": "routes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_author",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_engines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_license",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_lint_staged",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_deploy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_generate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_lintfix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_postinstall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_preview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "package_engines",
+      "target": "package_engines_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_autoprefixer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_conventional_changelog_atom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint_config_prettier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint_plugin_prettier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint_plugin_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_lint_staged",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nuxt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nuxt_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nuxt_security",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nuxtjs_i18n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nuxtjs_sitemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_pdfjs_viewer_element",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_pinia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_pinia_nuxt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_postcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_prettier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tailwindcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tailwindcss_forms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tailwindcss_postcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tailwindcss_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_types_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_typescript_eslint_eslint_plugin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_typescript_eslint_parser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vue_i18n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vueuse_core",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vueuse_nuxt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "package_lint_staged",
+      "target": "package_lint_staged_json_js_ts_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "routes.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes",
+      "target": "routes_cv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "routes.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "routes",
+      "target": "routes_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "routes.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_home",
+      "target": "routes_home_en",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "routes.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_home",
+      "target": "routes_home_fr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "routes.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_cv",
+      "target": "routes_cv_en",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "routes.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_cv",
+      "target": "routes_cv_fr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "server_tsconfig",
+      "target": "server_tsconfig_extends",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tsconfig",
+      "target": "tsconfig_extends",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": "jobs.build",
+      "weight": 1.0,
+      "source": "nuxtjs_workflow",
+      "target": "nuxtjs_workflow_build_job"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": "jobs.deploy",
+      "weight": 1.0,
+      "source": "nuxtjs_workflow",
+      "target": "nuxtjs_workflow_deploy_job"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "nuxtjs_workflow",
+      "target": "readme_nuxt4_ssr"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": "jobs.deploy.needs",
+      "weight": 1.0,
+      "source": "nuxtjs_workflow_build_job",
+      "target": "nuxtjs_workflow_deploy_job"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml",
+      "source_location": "jobs.deploy.environment",
+      "weight": 1.0,
+      "source": "nuxtjs_workflow_deploy_job",
+      "target": "nuxtjs_workflow_github_pages"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "/Users/maxime/Sites/portfolio/public/cv-maximejolivet-developpeur.pdf",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "public_cv_pdf",
+      "target": "readme_portfolio"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/maxime/Sites/portfolio/public/open-graph-maximejolivet.jpg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "public_og_image",
+      "target": "readme_portfolio"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/maxime/Sites/portfolio/README.md",
+      "source_location": "line 1",
+      "weight": 1.0,
+      "source": "readme_portfolio",
+      "target": "readme_nuxt4_ssr"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/maxime/Sites/portfolio/public/robots.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "robots_txt",
+      "target": "robots_allow_all"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "/Users/maxime/Sites/portfolio/public/robots.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "robots_allow_all",
+      "target": "public_og_image"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "/Users/maxime/Sites/portfolio/public/maxime.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "public_maxime_svg",
+      "target": "public_og_image"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "22-29",
+      "weight": 1.0,
+      "source": "claude_md_portfolio_project",
+      "target": "claude_md_code_style"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "44-45",
+      "weight": 1.0,
+      "source": "claude_md_portfolio_project",
+      "target": "claude_md_deployment_workflow"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "32-35",
+      "weight": 1.0,
+      "source": "claude_md_portfolio_project",
+      "target": "claude_md_i18n_system"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "38-43",
+      "weight": 1.0,
+      "source": "claude_md_portfolio_project",
+      "target": "claude_md_nuxt_gotchas"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "11",
+      "weight": 1.0,
+      "source": "skill_deploy_npm_deploy",
+      "target": "claude_md_portfolio_project"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "35",
+      "weight": 1.0,
+      "source": "claude_md_i18n_system",
+      "target": "skill_add_translation_en_json"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "35",
+      "weight": 1.0,
+      "source": "claude_md_i18n_system",
+      "target": "skill_add_translation_fr_json"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/add-translation/SKILL.md",
+      "source_location": "1-19",
+      "weight": 1.0,
+      "source": "skill_add_translation_skill",
+      "target": "claude_md_i18n_system"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "CLAUDE.md",
+      "source_location": "44-45",
+      "weight": 1.0,
+      "source": "claude_md_deployment_workflow",
+      "target": "skill_deploy_github_actions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "44",
+      "weight": 1.0,
+      "source": "claude_md_deployment_workflow",
+      "target": "skill_deploy_github_pages"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "1-18",
+      "weight": 1.0,
+      "source": "skill_deploy_skill",
+      "target": "claude_md_deployment_workflow"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/add-translation/SKILL.md",
+      "source_location": "12",
+      "weight": 1.0,
+      "source": "skill_add_translation_skill",
+      "target": "skill_add_translation_en_json"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/add-translation/SKILL.md",
+      "source_location": "13",
+      "weight": 1.0,
+      "source": "skill_add_translation_skill",
+      "target": "skill_add_translation_fr_json"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "17",
+      "weight": 1.0,
+      "source": "skill_deploy_skill",
+      "target": "skill_deploy_github_actions"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "1",
+      "weight": 1.0,
+      "source": "skill_deploy_skill",
+      "target": "skill_deploy_github_pages"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/deploy/SKILL.md",
+      "source_location": "11",
+      "weight": 1.0,
+      "source": "skill_deploy_skill",
+      "target": "skill_deploy_npm_deploy"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "nuxt_ci_cd_pipeline",
+      "label": "Nuxt CI/CD GitHub Pages Pipeline",
+      "nodes": [
+        "nuxtjs_workflow",
+        "nuxtjs_workflow_build_job",
+        "nuxtjs_workflow_deploy_job",
+        "nuxtjs_workflow_github_pages"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml"
+    },
+    {
+      "id": "i18n_dual_locale_sync",
+      "label": "i18n Dual Locale Synchronization (en + fr always updated together)",
+      "nodes": [
+        "skill_add_translation_skill",
+        "skill_add_translation_en_json",
+        "skill_add_translation_fr_json"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/add-translation/SKILL.md"
+    },
+    {
+      "id": "deploy_pipeline",
+      "label": "Deploy Pipeline (skill + npm command + GitHub Actions + GitHub Pages)",
+      "nodes": [
+        "skill_deploy_skill",
+        "skill_deploy_github_actions",
+        "skill_deploy_github_pages"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/deploy/SKILL.md"
+    },
+    {
+      "id": "portfolio_project_skills",
+      "label": "Portfolio Project Governed by Skills and Deployment Workflow",
+      "nodes": [
+        "claude_md_portfolio_project",
+        "claude_md_deployment_workflow",
+        "claude_md_i18n_system"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md"
+    }
+  ],
+  "built_at_commit": "56b4e4abc3e92c4fb28b77b35998137213c26006"
+}

@@ -1,0 +1,137 @@
+{
+  "/Users/maxime/Sites/portfolio/app.vue": {
+    "mtime": 1781016493.336221,
+    "ast_hash": "edd4158b4afddc73c4ecc65a56888ba4",
+    "semantic_hash": "edd4158b4afddc73c4ecc65a56888ba4"
+  },
+  "/Users/maxime/Sites/portfolio/error.vue": {
+    "mtime": 1776960706.2153049,
+    "ast_hash": "a92c3b927c77bc181a71db2047bdc033",
+    "semantic_hash": "a92c3b927c77bc181a71db2047bdc033"
+  },
+  "/Users/maxime/Sites/portfolio/eslint.config.mjs": {
+    "mtime": 1769459452.993929,
+    "ast_hash": "d17ac3addb0b9c6957fcffe7d7c68322",
+    "semantic_hash": "d17ac3addb0b9c6957fcffe7d7c68322"
+  },
+  "/Users/maxime/Sites/portfolio/i18n.config.ts": {
+    "mtime": 1781016574.788599,
+    "ast_hash": "3550a88521271b02f2168a7cc0a06ba1",
+    "semantic_hash": "3550a88521271b02f2168a7cc0a06ba1"
+  },
+  "/Users/maxime/Sites/portfolio/i18n/locales/en.json": {
+    "mtime": 1778598967.026901,
+    "ast_hash": "15c36f00524f58278f9193025f0ef27b",
+    "semantic_hash": "15c36f00524f58278f9193025f0ef27b"
+  },
+  "/Users/maxime/Sites/portfolio/i18n/locales/fr.json": {
+    "mtime": 1778598967.027587,
+    "ast_hash": "e37e0afc3063ca6d1265c76c94210243",
+    "semantic_hash": "e37e0afc3063ca6d1265c76c94210243"
+  },
+  "/Users/maxime/Sites/portfolio/layouts/default.vue": {
+    "mtime": 1769459452.9956946,
+    "ast_hash": "270c9263b22c60e8ee1f5a4c75bb7b46",
+    "semantic_hash": "270c9263b22c60e8ee1f5a4c75bb7b46"
+  },
+  "/Users/maxime/Sites/portfolio/nuxt.config.ts": {
+    "mtime": 1778575090.2112727,
+    "ast_hash": "5bb603790b2719530f6b1348d0264765",
+    "semantic_hash": "5bb603790b2719530f6b1348d0264765"
+  },
+  "/Users/maxime/Sites/portfolio/package.json": {
+    "mtime": 1778575090.2171583,
+    "ast_hash": "a83152d23ea7ea22b8e52af33b01a3ad",
+    "semantic_hash": "a83152d23ea7ea22b8e52af33b01a3ad"
+  },
+  "/Users/maxime/Sites/portfolio/pages/cv.vue": {
+    "mtime": 1781014389.5995822,
+    "ast_hash": "a232e6b22364abc32bd54170ae0c0d89",
+    "semantic_hash": "a232e6b22364abc32bd54170ae0c0d89"
+  },
+  "/Users/maxime/Sites/portfolio/pages/index.vue": {
+    "mtime": 1778598967.0297887,
+    "ast_hash": "b56e22dd98b4abfdd3dcea253de0b60a",
+    "semantic_hash": "b56e22dd98b4abfdd3dcea253de0b60a"
+  },
+  "/Users/maxime/Sites/portfolio/plugins/pdfjs-viewer.client.ts": {
+    "mtime": 1777656213.9260075,
+    "ast_hash": "6eb8b408d6dbd286a315bf668782932d",
+    "semantic_hash": "6eb8b408d6dbd286a315bf668782932d"
+  },
+  "/Users/maxime/Sites/portfolio/routes.json": {
+    "mtime": 1776960120.8198113,
+    "ast_hash": "d2420ea65c0240129d62f95cf33253e4",
+    "semantic_hash": "d2420ea65c0240129d62f95cf33253e4"
+  },
+  "/Users/maxime/Sites/portfolio/server/tsconfig.json": {
+    "mtime": 1769459453.006885,
+    "ast_hash": "32a978380246c0479e2c9fb9dd0cf7ab",
+    "semantic_hash": "32a978380246c0479e2c9fb9dd0cf7ab"
+  },
+  "/Users/maxime/Sites/portfolio/tsconfig.json": {
+    "mtime": 1769459453.0071673,
+    "ast_hash": "0fac5c1cfa8521b2091133f39e89c39d",
+    "semantic_hash": "0fac5c1cfa8521b2091133f39e89c39d"
+  },
+  "/Users/maxime/Sites/portfolio/.github/workflows/nuxtjs.yml": {
+    "mtime": 1776933100.1083186,
+    "ast_hash": "60ef1a8bf83a1d8c153ce3d7bfaf2c72",
+    "semantic_hash": "60ef1a8bf83a1d8c153ce3d7bfaf2c72"
+  },
+  "/Users/maxime/Sites/portfolio/README.md": {
+    "mtime": 1778598967.0154803,
+    "ast_hash": "389c9a9b1456be432b2576bbeee9007c",
+    "semantic_hash": "389c9a9b1456be432b2576bbeee9007c"
+  },
+  "/Users/maxime/Sites/portfolio/public/robots.txt": {
+    "mtime": 1769459453.006269,
+    "ast_hash": "4efeaa2b8729d550b5629b5992f45682",
+    "semantic_hash": "4efeaa2b8729d550b5629b5992f45682"
+  },
+  "/Users/maxime/Sites/portfolio/public/cv-maximejolivet-developpeur.pdf": {
+    "mtime": 1781014389.610791,
+    "ast_hash": "4989fed879d93ccced225fc69db65eb6",
+    "semantic_hash": "4989fed879d93ccced225fc69db65eb6"
+  },
+  "/Users/maxime/Sites/portfolio/public/favicon.png": {
+    "mtime": 1769459453.0057003,
+    "ast_hash": "d4feaa2c81a193749f09dee5786364f2",
+    "semantic_hash": "d4feaa2c81a193749f09dee5786364f2"
+  },
+  "/Users/maxime/Sites/portfolio/public/maxime.svg": {
+    "mtime": 1769459453.0060246,
+    "ast_hash": "d5005019e6cf6f370801b4b2bc32a0c0",
+    "semantic_hash": "d5005019e6cf6f370801b4b2bc32a0c0"
+  },
+  "/Users/maxime/Sites/portfolio/public/open-graph-maximejolivet.jpg": {
+    "mtime": 1776960539.8833787,
+    "ast_hash": "29d10883c22224d339b3342c81ac6572",
+    "semantic_hash": "29d10883c22224d339b3342c81ac6572"
+  },
+  "/Users/maxime/Sites/portfolio/.claude/settings.json": {
+    "mtime": 1781016477.296765,
+    "ast_hash": "b19d4740c761cbb9e00a4339e3e72ae1",
+    "semantic_hash": "b19d4740c761cbb9e00a4339e3e72ae1"
+  },
+  "/Users/maxime/Sites/portfolio/.claude/settings.local.json": {
+    "mtime": 1781016292.0380213,
+    "ast_hash": "15c5131da76d3e016ccc5014dad6951a",
+    "semantic_hash": "15c5131da76d3e016ccc5014dad6951a"
+  },
+  "/Users/maxime/Sites/portfolio/.claude/skills/add-translation/SKILL.md": {
+    "mtime": 1781016253.2927306,
+    "ast_hash": "ddf78ecd74b309617d4a08499375aed2",
+    "semantic_hash": "ddf78ecd74b309617d4a08499375aed2"
+  },
+  "/Users/maxime/Sites/portfolio/.claude/skills/deploy/SKILL.md": {
+    "mtime": 1781016245.2932646,
+    "ast_hash": "a3f0bd828385b8637d7a572476ea6283",
+    "semantic_hash": "a3f0bd828385b8637d7a572476ea6283"
+  },
+  "/Users/maxime/Sites/portfolio/CLAUDE.md": {
+    "mtime": 1781016193.1933444,
+    "ast_hash": "39d0fcccf218c1ae1dd814889392b3c5",
+    "semantic_hash": "39d0fcccf218c1ae1dd814889392b3c5"
+  }
+}
