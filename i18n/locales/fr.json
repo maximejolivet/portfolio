@@ -5,6 +5,51 @@
     "read": "Consulter mon curriculum vitae",
     "download": "Télécharger le PDF"
   },
+  "dev": {
+    "title": "Projets Dev",
+    "subtitle": "Une sélection de projets que j'ai réalisés.",
+    "cta": "Voir mes projets",
+    "live": "Démo",
+    "source": "Code",
+    "back": "Retour à l'accueil",
+    "projects": {
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "Ce site — un portfolio statique bilingue construit avec Nuxt 4 et déployé sur GitHub Pages via GitHub Actions."
+      },
+      "ecommerce": {
+        "title": "Plateforme E-Commerce",
+        "description": "Application e-commerce full-stack avec catalogue produits, panier et paiement Stripe. Construit avec Vue 3 et Node.js."
+      },
+      "api": {
+        "title": "Boilerplate API REST",
+        "description": "Starter Node.js prêt pour la production avec auth JWT, cache Redis, rate limiting et Docker Compose."
+      },
+      "taskmanager": {
+        "title": "Gestionnaire de Tâches",
+        "description": "Gestionnaire de tâches style Kanban avec synchronisation temps réel via Supabase, drag-and-drop et collaboration d'équipe."
+      },
+      "cli": {
+        "title": "CLI Dev Toolkit",
+        "description": "Outil en ligne de commande pour automatiser les workflows de développement — scaffolding, git hooks et templates de projets. Écrit en Rust."
+      },
+      "designsystem": {
+        "title": "Design System",
+        "description": "Bibliothèque de composants et tokens de design construits avec Vue 3 et Storybook, publiés sur NPM et documentés avec VitePress."
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Réflexions et actualités du monde du développement web.",
+    "back": "Retour à l'accueil",
+    "back_to_list": "Retour aux articles",
+    "read_more": "Lire la suite",
+    "loading": "Chargement des articles...",
+    "empty": "Aucun article pour le moment, revenez bientôt.",
+    "error": "Une erreur est survenue lors du chargement des articles.",
+    "not_found": "Cet article n'existe pas."
+  },
   "error": {
     "back_home": "Retour à l'accueil",
     "return": "Retour",
