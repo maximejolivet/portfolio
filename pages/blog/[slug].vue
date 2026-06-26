@@ -2,38 +2,9 @@
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
-const supabase = useSupabase()
 
-interface Article {
-  slug_fr: string
-  slug_en: string
-  title_fr: string
-  title_en: string
-  excerpt_fr: string
-  excerpt_en: string
-  content_fr: string
-  content_en: string
-  cover_image_url: string | null
-  published_at: string
-}
-
-const { data: article, pending, error, status } = await useAsyncData<Article | null>(
-  `article-${locale.value}-${route.params.slug}`,
-  async () => {
-    const slugColumn = locale.value === 'en' ? 'slug_en' : 'slug_fr'
-    const { data, error: supabaseError } = await supabase
-      .from('articles')
-      // eslint-disable-next-line max-len
-      .select('slug_fr, slug_en, title_fr, title_en, excerpt_fr, excerpt_en, content_fr, content_en, cover_image_url, published_at')
-      .eq(slugColumn, route.params.slug)
-      .lte('published_at', new Date().toISOString())
-      .maybeSingle()
-
-    if (supabaseError) throw supabaseError
-    return data
-  },
-  { server: false, watch: [locale] },
-)
+const slug = Array.isArray(route.params.slug) ? route.params.slug[0] ?? '' : route.params.slug
+const { data: article, pending, error, status } = await useArticle(slug)
 
 const title = computed(() => {
   if (!article.value) return ''
@@ -46,7 +17,7 @@ const excerpt = computed(() => {
 const paragraphs = computed(() => {
   if (!article.value) return []
   const content = locale.value === 'en' ? article.value.content_en : article.value.content_fr
-  return content.split(/\n\s*\n/).filter((paragraph) => paragraph.trim().length > 0)
+  return content.split(/\n\s*\n/).filter((paragraph: string) => paragraph.trim().length > 0)
 })
 
 const formattedDate = computed(() => {
@@ -97,7 +68,7 @@ useSeoMeta({
           class="mt-8 w-full rounded-xl object-cover"
         />
         <div class="mt-8 space-y-4 leading-relaxed text-gray-300">
-          <p v-for="(paragraph, index) in paragraphs" :key="index">
+          <p v-for="paragraph in paragraphs" :key="paragraph">
             {{ paragraph }}
           </p>
         </div>

@@ -8,9 +8,10 @@ useSeoMeta({
   description: () => t('dev.subtitle'),
 })
 
-const projectKeys = ['portfolio', 'ecommerce', 'api', 'taskmanager', 'cli', 'designsystem']
+const projectKeys = ['portfolio', 'ecommerce', 'api', 'taskmanager', 'cli', 'designsystem'] as const
+type ProjectKey = (typeof projectKeys)[number]
 
-const projectMeta: Record<string, { tags: string[], live?: string, source?: string }> = {
+const projectMeta: Record<ProjectKey, { tags: string[], live?: string, source?: string }> = {
   portfolio: {
     tags: ['Nuxt 4', 'TypeScript', 'Tailwind', 'GitHub Pages'],
     source: 'https://github.com/maximejolivet/portfolio',

@@ -28,7 +28,7 @@ const router = useRouter()
 
 const randomPage = () => {
   const pages = ['/', '/blog', '/dev']
-  const pick = pages[Math.floor(Math.random() * pages.length)]
+  const pick = pages[Math.floor(Math.random() * pages.length)] ?? '/'
   router.push(pick)
 }
 

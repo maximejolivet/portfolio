@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-const supabase = useSupabase()
 
 useSeoMeta({
   title: () => `${t('blog.title')} — Maxime Jolivet`,
@@ -9,37 +8,13 @@ useSeoMeta({
   description: () => t('blog.subtitle'),
 })
 
-interface Article {
-  slug_fr: string
-  slug_en: string
-  title_fr: string
-  title_en: string
-  excerpt_fr: string
-  excerpt_en: string
-  cover_image_url: string | null
-  published_at: string
-}
+const { data: articles, pending, error } = await useArticles()
 
-const { data: articles, pending, error } = await useAsyncData<Article[]>(
-  'articles',
-  async () => {
-    const { data, error: supabaseError } = await supabase
-      .from('articles')
-      // eslint-disable-next-line max-len
-      .select('slug_fr, slug_en, title_fr, title_en, excerpt_fr, excerpt_en, cover_image_url, published_at')
-      .order('published_at', { ascending: false })
-
-    if (supabaseError) throw supabaseError
-    return data ?? []
-  },
-  { server: false, default: () => [] },
-)
-
-const title = (article: Article) =>
-  locale.value === 'en' ? article.title_en : article.title_fr
-const excerpt = (article: Article) =>
-  locale.value === 'en' ? article.excerpt_en : article.excerpt_fr
-const slug = (article: Article) =>
+const title = (article: ArticleSummary) =>
+  (locale.value === 'en' ? article.title_en : article.title_fr) || article.title_fr
+const excerpt = (article: ArticleSummary) =>
+  (locale.value === 'en' ? article.excerpt_en : article.excerpt_fr) || article.excerpt_fr
+const slug = (article: ArticleSummary) =>
   locale.value === 'en' ? article.slug_en : article.slug_fr
 
 const formattedDate = (value: string) =>
@@ -73,7 +48,7 @@ const formattedDate = (value: string) =>
       <div v-else class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         <NuxtLink
           v-for="article in articles"
-          :key="article.slug_fr"
+          :key="article.id"
           :to="localePath(`/blog/${slug(article)}`)"
           class="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-white/5
             transition hover:bg-white/10"

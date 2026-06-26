@@ -67,8 +67,7 @@ export default defineNuxtConfig({
   typescript: {
     tsConfig: {
       compilerOptions: {
-        strict: false,
-        strictNullChecks: true,
+        strict: true,
       },
     },
   },
