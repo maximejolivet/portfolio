@@ -13,7 +13,7 @@
           {{ $t('error.back_home') }}
         </NuxtLink>
 
-        <button @click="randomPage" class="px-6 py-3 border border-white/30 rounded-xl hover:bg-white/10 transition">
+        <button class="px-6 py-3 border border-white/30 rounded-xl hover:bg-white/10 transition" @click="randomPage">
           {{ $t('error.page_not_found_random_page') }}
         </button>
       </div>
@@ -27,7 +27,7 @@
 const router = useRouter()
 
 const randomPage = () => {
-  const pages = ['/', '/blog', '/contact']
+  const pages = ['/', '/blog', '/dev']
   const pick = pages[Math.floor(Math.random() * pages.length)]
   router.push(pick)
 }

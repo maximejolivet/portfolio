@@ -6,5 +6,17 @@
   "cv": {
     "en": "/cv",
     "fr": "/cv"
+  },
+  "dev": {
+    "en": "/dev",
+    "fr": "/dev"
+  },
+  "blog": {
+    "en": "/blog",
+    "fr": "/blog"
+  },
+  "blog-slug": {
+    "en": "/blog/[slug]",
+    "fr": "/blog/[slug]"
   }
 }

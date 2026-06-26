@@ -10,12 +10,6 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
-  vue: {
-    compilerOptions: {
-      isCustomElement: (tag) => tag === 'pdfjs-viewer-element',
-    },
-  },
-
   devtools: { enabled: true },
 
   app: {
@@ -38,6 +32,19 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === 'pdfjs-viewer-element',
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      supabaseUrl: '',
+      supabaseKey: '',
+    },
+  },
 
   devServer: {
     port: 8000,
@@ -121,7 +128,8 @@ export default defineNuxtConfig({
         ],
         // img-src => Add relevant https://... sources if you load images from external sources
         'base-uri': ['\'none\''],
-        'img-src': ["'self'", 'data:', 'blob:'],
+        'img-src': ['\'self\'', 'data:', 'blob:', '*.supabase.co'],
+        'connect-src': ['\'self\'', '*.supabase.co'],
         'font-src': ['\'self\'', 'fonts.gstatic.com'],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
