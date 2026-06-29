@@ -7,9 +7,9 @@
     "en": "/cv",
     "fr": "/cv"
   },
-  "dev": {
-    "en": "/dev",
-    "fr": "/dev"
+  "projects": {
+    "en": "/projects",
+    "fr": "/projects"
   },
   "blog": {
     "en": "/blog",

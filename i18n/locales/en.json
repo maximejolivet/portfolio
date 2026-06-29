@@ -1,43 +1,123 @@
 {
   "welcome": "Welcome",
   "about": "About me",
-  "cv": {
-    "read": "View my curriculum vitae",
-    "download": "Download PDF"
+  "seo": {
+    "homeTitle": "Senior full-stack web developer - PHP / JavaScript / Drupal & WordPress expert"
   },
-  "dev": {
-    "title": "Dev Projects",
-    "subtitle": "A selection of things I've built.",
-    "cta": "See my projects",
-    "live": "Live",
-    "source": "Source",
-    "back": "Back to home",
-    "projects": {
-      "portfolio": {
-        "title": "Portfolio",
-        "description": "This very site — a bilingual static portfolio built with Nuxt 4, deployed to GitHub Pages via GitHub Actions."
+  "a11y": {
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "projects": "Projects",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "footer": {
+    "tagline": "Senior full-stack web developer / Lead Dev / Tech Lead",
+    "rights": "",
+    "backToTop": "Back to top"
+  },
+  "hero": {
+    "eyebrow": "Senior full-stack web developer",
+    "titleStart": "I build and maintain",
+    "titleHighlight": "product sites, brand sites, user interfaces,",
+    "titleEnd": "e-commerce platforms and business tools.",
+    "subtitle": "10 years of experience, mostly in digital agencies. Strong PHP and JavaScript skills, CMS expertise applied to complex, demanding projects, with constant attention to code quality and the long-term reliability of technical choices.",
+    "ctaSecondary": "See my projects",
+    "scrollHint": "Explore"
+  },
+  "aboutSection": {
+    "eyebrow": "About",
+    "titleStart": "A developer who thinks",
+    "titleHighlight": "user experience",
+    "titleEnd": ", not just code.",
+    "paragraph1": "For 10 years I've supported B2B companies across every sector on complex web projects, from technical scoping through to maintenance.",
+    "paragraph2": "A Drupal and WordPress expert, comfortable with modern PHP/JavaScript stacks, I build websites and web apps meant to last: fast, accessible, and easy to evolve.",
+    "highlight1": "10 years of experience in digital agencies",
+    "highlight2": "Drupal & WordPress expert, strong in PHP & JavaScript",
+    "highlight3": "Performance and accessibility-first approach",
+    "imageAlt": "Portrait of Maxime Jolivet",
+    "tags": {
+      "conceptionUiUx": "Design & UI/UX",
+      "problemSolving": "Problem solving",
+      "webDev": "Web development",
+      "cloudDevops": "Cloud & DevOps",
+      "aiAutomation": "AI & Automation",
+      "vibeCoding": "Vibe coding / Low-code"
+    }
+  },
+  "techSection": {
+    "eyebrow": "Tech stack",
+    "titleStart": "Modern,",
+    "titleHighlight": "proven",
+    "titleEnd": "tools.",
+    "categories": {
+      "languages": {
+        "label": "Languages",
+        "description": "The languages I use day to day to build robust applications."
       },
-      "ecommerce": {
-        "title": "E-Commerce Platform",
-        "description": "Full-stack e-commerce app with product catalog, cart, and Stripe checkout. Built with Vue 3 and Node.js."
+      "frontend": {
+        "label": "Frontend",
+        "description": "Modern, fast and accessible interfaces."
       },
-      "api": {
-        "title": "REST API Boilerplate",
-        "description": "Production-ready Node.js API starter with JWT auth, Redis caching, rate limiting, and Docker Compose."
+      "backend": {
+        "label": "Backend",
+        "description": "PHP frameworks for solid, maintainable architectures."
       },
-      "taskmanager": {
-        "title": "Task Manager App",
-        "description": "Kanban-style task manager with real-time sync via Supabase, drag-and-drop, and team collaboration."
+      "cms": {
+        "label": "CMS & Low-code",
+        "description": "Content management and rapid prototyping depending on the project."
       },
-      "cli": {
-        "title": "CLI Dev Toolkit",
-        "description": "Command-line tool for automating common dev workflows — file scaffolding, git hooks, and project templates. Written in Rust."
+      "database": {
+        "label": "Databases",
+        "description": "Relational and NoSQL storage depending on the project's needs."
       },
-      "designsystem": {
-        "title": "Design System",
-        "description": "Component library and design tokens built with Vue 3 and Storybook, published to NPM and documented with VitePress."
+      "devops": {
+        "label": "DevOps & Cloud",
+        "description": "Deployment, hosting and cloud infrastructure."
+      },
+      "security": {
+        "label": "Security & quality",
+        "description": "Security best practices and code quality."
+      },
+      "testing": {
+        "label": "Testing",
+        "description": "Tools to keep code reliable before going live."
+      },
+      "tools": {
+        "label": "Tools",
+        "description": "My day-to-day working environment."
       }
     }
+  },
+  "projectsPage": {
+    "title": "Projects",
+    "eyebrow": "Projects",
+    "titleStart": "A selection of",
+    "titleHighlight": "clients I've supported",
+    "titleEnd": "",
+    "subtitle": "Over 10 years supporting businesses across every sector on their web projects."
+  },
+  "projectsSection": {
+    "eyebrow": "Projects I've contributed to",
+    "titleStart": "Companies across",
+    "titleHighlight": "every B2B sector",
+    "titleEnd": "",
+    "sectors": {
+      "construction": "Construction & Housing",
+      "energy": "Local Authorities & Energy",
+      "industry": "Industry & Automotive",
+      "agriculture": "Agriculture & Food industry",
+      "health": "Health & Wellbeing",
+      "services": "Services",
+      "finance": "Banking, Insurance & Mutual"
+    }
+  },
+  "cv": {
+    "read": "Curriculum vitae",
+    "download": "Download PDF"
   },
   "blog": {
     "title": "Blog",

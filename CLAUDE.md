@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Personal portfolio — Nuxt 4 SSR, deployed as a static site to GitHub Pages via `nuxt generate`.
+Personal portfolio - Nuxt 4 SSR, deployed as a static site to GitHub Pages via `nuxt generate`.
 
 ## Commands
 
@@ -36,9 +36,9 @@ Translation files live in `i18n/`. Always update **both** `i18n/en.json` and `i1
 
 ## Non-Obvious Gotchas
 
-- **PDF.js**: `pdfjs-viewer-element` is a custom element excluded from Vite optimization — do not add it to `optimizeDeps`.
+- **PDF.js**: `pdfjs-viewer-element` is a custom element excluded from Vite optimization - do not add it to `optimizeDeps`.
 - **CSP with nonce**: `nuxt-security` enforces a strict Content Security Policy with nonce support. Adding inline scripts or styles requires nonce wiring.
-- **TypeScript**: `tsconfig.json` extends `.nuxt/tsconfig.json` (auto-generated) — don't edit `.nuxt/tsconfig.json` directly.
+- **TypeScript**: `tsconfig.json` extends `.nuxt/tsconfig.json` (auto-generated) - don't edit `.nuxt/tsconfig.json` directly.
 
 ## Deployment
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+definePageMeta({ layout: 'home' })
+
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
@@ -35,7 +37,7 @@ watch(status, () => {
 }, { immediate: true })
 
 useSeoMeta({
-  title: () => `${article.value ? title.value : t('blog.title')} — Maxime Jolivet`,
+  title: () => `${article.value ? title.value : t('blog.title')} - Maxime Jolivet`,
   ogTitle: () => (article.value ? title.value : t('blog.title')),
   description: () => excerpt.value || t('blog.subtitle'),
   ogImage: () => article.value?.cover_image_url ?? undefined,
@@ -43,13 +45,13 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="min-h-screen bg-black px-6 py-16 md:py-24">
+  <div class="min-h-screen px-6 pt-32 pb-16 md:pb-24">
     <div class="mx-auto max-w-2xl">
       <NuxtLink
         :to="localePath('/blog')"
         class="mb-10 inline-flex items-center gap-2 text-sm text-gray-500 transition
           hover:text-white"
-      >
+>
         ← {{ $t('blog.back_to_list') }}
       </NuxtLink>
 

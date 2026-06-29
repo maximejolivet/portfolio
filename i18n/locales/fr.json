@@ -1,43 +1,123 @@
 {
   "welcome": "Bienvenue",
   "about": "À propos de moi",
-  "cv": {
-    "read": "Consulter mon curriculum vitae",
-    "download": "Télécharger le PDF"
+  "seo": {
+    "homeTitle": "Développeur web full-stack senior PHP / JavaScript / Expert Drupal - Wordpress"
   },
-  "dev": {
-    "title": "Projets Dev",
-    "subtitle": "Une sélection de projets que j'ai réalisés.",
-    "cta": "Voir mes projets",
-    "live": "Démo",
-    "source": "Code",
-    "back": "Retour à l'accueil",
-    "projects": {
-      "portfolio": {
-        "title": "Portfolio",
-        "description": "Ce site — un portfolio statique bilingue construit avec Nuxt 4 et déployé sur GitHub Pages via GitHub Actions."
+  "a11y": {
+    "skipToContent": "Aller au contenu"
+  },
+  "nav": {
+    "home": "Accueil",
+    "blog": "Blog",
+    "projects": "Projets",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "footer": {
+    "tagline": "Développeur web full-stack senior / Lead Dev / Tech lead",
+    "rights": "",
+    "backToTop": "Retour en haut"
+  },
+  "hero": {
+    "eyebrow": "Développeur web full-stack senior",
+    "titleStart": "Je développe et maintiens des",
+    "titleHighlight": "sites produits, de marque, dʼinterfaces utilisateur,",
+    "titleEnd": "e-commerce et dʼoutils métiers.",
+    "subtitle": "10 ans d'expérience, principalement en agence digitale. Solides compétences PHP et JavaScript, expertise CMS appliquée à des projets complexes et exigeants, avec un souci constant de la qualité du code et de la pérennité des choix techniques.",
+    "ctaSecondary": "Voir les projets",
+    "scrollHint": "Découvrir"
+  },
+  "aboutSection": {
+    "eyebrow": "À propos",
+    "titleStart": "Un développeur qui pense",
+    "titleHighlight": "expérience utilisateur",
+    "titleEnd": ", pas juste code.",
+    "paragraph1": "Depuis 10 ans, j'accompagne des entreprises B2B de tous secteurs sur des projets web complexes, du cadrage technique jusqu'à la maintenance. ",
+    "paragraph2": "Expert Drupal et WordPress, à l'aise sur les stacks PHP / JavaScript modernes, je conçois des sites et applications web faits pour durer : performants, accessibles, et faciles à faire évoluer.",
+    "highlight1": "10 ans d'expérience en agence digitale",
+    "highlight2": "Expert Drupal, Wordpress solide en PHP & JavaScript",
+    "highlight3": "Approche orientée performance et accessibilité",
+    "imageAlt": "Portrait de Maxime Jolivet",
+    "tags": {
+      "conceptionUiUx": "Conception UI/UX Design",
+      "problemSolving": "Résolution de problèmes",
+      "webDev": "Développement web",
+      "cloudDevops": "Cloud & DevOps",
+      "aiAutomation": "IA & Automatisation",
+      "vibeCoding": "Vibe coding / Low Code"
+    }
+  },
+  "techSection": {
+    "eyebrow": "Stack technique",
+    "titleStart": "Des outils",
+    "titleHighlight": "modernes",
+    "titleEnd": "et éprouvés.",
+    "categories": {
+      "languages": {
+        "label": "Langages",
+        "description": "Les langages que j'utilise au quotidien pour construire des applications robustes."
       },
-      "ecommerce": {
-        "title": "Plateforme E-Commerce",
-        "description": "Application e-commerce full-stack avec catalogue produits, panier et paiement Stripe. Construit avec Vue 3 et Node.js."
+      "frontend": {
+        "label": "Frontend",
+        "description": "Interfaces modernes, rapides et accessibles."
       },
-      "api": {
-        "title": "Boilerplate API REST",
-        "description": "Starter Node.js prêt pour la production avec auth JWT, cache Redis, rate limiting et Docker Compose."
+      "backend": {
+        "label": "Backend",
+        "description": "Frameworks PHP pour des architectures solides et maintenables."
       },
-      "taskmanager": {
-        "title": "Gestionnaire de Tâches",
-        "description": "Gestionnaire de tâches style Kanban avec synchronisation temps réel via Supabase, drag-and-drop et collaboration d'équipe."
+      "cms": {
+        "label": "CMS & Low-code",
+        "description": "Gestion de contenu et prototypage rapide selon les besoins du projet."
       },
-      "cli": {
-        "title": "CLI Dev Toolkit",
-        "description": "Outil en ligne de commande pour automatiser les workflows de développement — scaffolding, git hooks et templates de projets. Écrit en Rust."
+      "database": {
+        "label": "Bases de données",
+        "description": "Stockage relationnel et NoSQL selon les besoins du projet."
       },
-      "designsystem": {
-        "title": "Design System",
-        "description": "Bibliothèque de composants et tokens de design construits avec Vue 3 et Storybook, publiés sur NPM et documentés avec VitePress."
+      "devops": {
+        "label": "DevOps & Cloud",
+        "description": "Déploiement, hébergement et infrastructure cloud."
+      },
+      "security": {
+        "label": "Sécurité & qualité",
+        "description": "Bonnes pratiques de sécurité et de qualité de code."
+      },
+      "testing": {
+        "label": "Tests",
+        "description": "Outils pour fiabiliser le code avant la mise en production."
+      },
+      "tools": {
+        "label": "Outils",
+        "description": "Mon environnement de travail au quotidien."
       }
     }
+  },
+  "projectsPage": {
+    "title": "Projets",
+    "eyebrow": "Projets",
+    "titleStart": "Une sélection de",
+    "titleHighlight": "clients accompagnés",
+    "titleEnd": "",
+    "subtitle": "Plus de 10 ans à accompagner des entreprises de tous secteurs sur leurs projets web."
+  },
+  "projectsSection": {
+    "eyebrow": "Les projets auxquels j'ai collaboré",
+    "titleStart": "Des entreprises de",
+    "titleHighlight": "tous secteurs B2B",
+    "titleEnd": "",
+    "sectors": {
+      "construction": "Bâtiment & Habitat",
+      "energy": "Collectivités & Énergie",
+      "industry": "Industrie & Automotive",
+      "agriculture": "Agriculture & Agroalimentaire",
+      "health": "Santé & Bien-être",
+      "services": "Services",
+      "finance": "Banque, Assurance & Mutuelle"
+    }
+  },
+  "cv": {
+    "read": "Curriculum vitae",
+    "download": "Télécharger le PDF"
   },
   "blog": {
     "title": "Blog",
