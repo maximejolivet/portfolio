@@ -29,7 +29,7 @@ useParallax(bgRef, { distance: -50 })
 
         <div class="mt-6 flex flex-wrap items-center gap-4">
           <AnimationsMagneticButton>
-            <UiButton :to="localePath('/projects')" variant="primary">
+            <UiButton :to="localePath('projects')" variant="primary">
               {{ $t('hero.ctaSecondary') }}
               <UiAppIcon icon="lucide:arrow-right" class="h-4 w-4" />
             </UiButton>
