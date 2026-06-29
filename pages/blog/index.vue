@@ -1,10 +1,12 @@
 <script setup lang="ts">
+definePageMeta({ layout: 'home' })
+
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
 useSeoMeta({
-  title: () => `${t('blog.title')} — Maxime Jolivet`,
-  ogTitle: () => `${t('blog.title')} — Maxime Jolivet`,
+  title: () => `${t('blog.title')} - Maxime Jolivet`,
+  ogTitle: () => `${t('blog.title')} - Maxime Jolivet`,
   description: () => t('blog.subtitle'),
 })
 
@@ -26,7 +28,7 @@ const formattedDate = (value: string) =>
 </script>
 
 <template>
-  <div class="min-h-screen bg-black px-6 py-16 md:py-24">
+  <div class="min-h-screen px-6 pt-32 pb-16 md:pb-24">
     <div class="mx-auto max-w-5xl">
       <NuxtLink
         :to="localePath('/')"
