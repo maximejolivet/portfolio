@@ -10,7 +10,7 @@ const isScrolled = computed(() => y.value > 24)
 
 <template>
   <header
-    class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+    class="sticky top-0 z-50 transition-all duration-300"
     :class="isScrolled ? 'glass-strong py-3' : 'bg-transparent py-5'"
   >
     <UiContainer class="flex items-center justify-between">

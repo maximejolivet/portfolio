@@ -16,6 +16,7 @@ useSeoMeta({
 
 <template>
   <div>
+    <UiConstructionBanner />
     <SectionsHeroSection />
     <SectionsAboutSection />
     <SectionsTechStackSection />

@@ -7,6 +7,9 @@
   "a11y": {
     "skipToContent": "Aller au contenu"
   },
+  "construction": {
+    "message": "Mon site est en cours de construction."
+  },
   "nav": {
     "home": "Accueil",
     "blog": "Blog",
