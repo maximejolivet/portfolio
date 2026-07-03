@@ -14,11 +14,9 @@ const tag = computed(() => (props.to ? NuxtLinkComponent : props.href ? 'a' : 'b
 const isExternal = computed(() => props.href?.startsWith('http'))
 
 const variantClasses: Record<string, string> = {
-  primary:
-    'bg-white text-ink-950 hover:scale-[1.03]'
-    + ' hover:shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)]',
-  secondary: 'glass text-white hover:bg-white/10 hover:scale-[1.03]',
-  ghost: 'text-white/70 hover:text-white',
+  primary: 'bg-accent text-canvas hover:bg-accent/90',
+  secondary: 'border border-white/15 text-fg hover:border-white/30',
+  ghost: 'text-fg-muted hover:text-fg',
 }
 </script>
 
@@ -29,8 +27,9 @@ const variantClasses: Record<string, string> = {
     :href="href"
     :target="isExternal ? '_blank' : undefined"
     :rel="isExternal ? 'noopener noreferrer' : undefined"
-    class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold
-      transition duration-300 ease-out"
+    class="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium
+      transition duration-150 ease-out focus-visible:outline focus-visible:outline-2
+      focus-visible:outline-offset-2 focus-visible:outline-accent"
     :class="variantClasses[variant]"
   >
     <slot />
