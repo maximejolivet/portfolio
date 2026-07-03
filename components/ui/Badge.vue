@@ -2,8 +2,8 @@
 
 <template>
   <span
-    class="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium
-      tracking-wide text-white/80 uppercase"
+    class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1.5
+      font-mono text-xs font-medium tracking-wide text-fg-muted uppercase"
   >
     <slot />
   </span>
