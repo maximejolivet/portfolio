@@ -9,12 +9,12 @@ const localePath = useLocalePath()
 <template>
   <NuxtLink
     :to="localePath(to)"
-    class="group relative text-sm font-medium text-white/70 transition hover:text-white"
-    active-class="text-white"
+    class="group relative text-sm font-medium text-fg-muted transition hover:text-fg"
+    active-class="text-fg"
   >
     <slot />
     <span
-      class="absolute -bottom-1.5 left-0 h-px w-0 bg-gold-400 transition-all duration-300
+      class="absolute -bottom-1.5 left-0 h-px w-0 bg-accent transition-all duration-150
         group-hover:w-full"
     />
   </NuxtLink>
