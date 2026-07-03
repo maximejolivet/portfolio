@@ -11,14 +11,14 @@ const year = new Date().getFullYear()
       class="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between
         sm:text-left"
     >
-      <p class="text-sm text-white/50">{{ $t('footer.tagline') }}</p>
+      <p class="text-sm text-fg-muted">{{ $t('footer.tagline') }}</p>
 
       <div class="flex items-center gap-4">
         <a
           :href="`mailto:${CONTACT_EMAIL}`"
           aria-label="Email"
-          class="glass flex h-10 w-10 items-center justify-center rounded-full text-white/70
-            transition hover:text-white"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15
+            text-fg-muted transition hover:border-white/30 hover:text-fg"
         >
           <UiAppIcon icon="lucide:mail" class="h-4 w-4" />
         </a>
@@ -29,14 +29,14 @@ const year = new Date().getFullYear()
           target="_blank"
           rel="noopener noreferrer"
           :aria-label="social.label"
-          class="glass flex h-10 w-10 items-center justify-center rounded-full text-white/70
-            transition hover:text-white"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15
+            text-fg-muted transition hover:border-white/30 hover:text-fg"
         >
           <UiAppIcon :icon="social.icon" class="h-4 w-4" />
         </a>
       </div>
 
-      <p class="text-sm text-white/40">© {{ year }} Maxime Jolivet</p>
+      <p class="text-sm text-fg-muted">© {{ year }} Maxime Jolivet</p>
     </UiContainer>
   </footer>
 </template>
