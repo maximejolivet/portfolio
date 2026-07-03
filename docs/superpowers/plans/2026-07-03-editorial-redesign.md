@@ -939,35 +939,64 @@ git commit -m "Rewrite Projects page components in editorial style"
 ### Task 9: CV page background
 
 **Files:**
-- Modify: `pages/cv.vue:23`
+- Modify: `pages/cv.vue` (full rewrite)
 
 **Interfaces:**
-- No prop/logic changes — only the root `<div>` background class.
+- No behavior changes — `useHead`, `useSeoMeta`, and the `pdfjs-viewer-element` usage stay identical. This task fixes 4 pre-existing lint errors in this file (unused `locales` var, three lines over 100 chars) while it's already being touched, since the plan's lint-clean verification would otherwise fail on baseline issues unrelated to this task.
 
-- [ ] **Step 1: Update the root `div` class in `pages/cv.vue`**
-
-Find:
+- [ ] **Step 1: Rewrite `pages/cv.vue`**
 
 ```vue
-  <div class="flex flex-col h-full bg-black">
-```
+<script setup>
+const { locale } = useI18n()
+const lang = locale._value
 
-Replace with:
+useHead({
+  meta: [
+    { name: 'robots', content: 'noindex, nofollow' },
+  ],
+})
 
-```vue
+useSeoMeta({
+  title: 'Curriculum vitæ - Maxime Jolivet',
+  ogTitle:
+    'CV - Maxime Jolivet, Développeur web full-stack senior PHP - JavaScript / Expert Drupal',
+  description:
+    'Développeur web avec 10 ans d\'expérience en agence digitale, solides bases en '
+    + 'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
+  ogDescription:
+    'Développeur web avec 10 ans d\'expérience en agence digitale, solides bases en '
+    + 'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
+  ogImage: 'https://maximejolivet.fr/open-graph-maximejolivet.jpg',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+})
+</script>
+
+<template>
   <div class="flex flex-col h-full bg-canvas">
+    <h1 class="sr-only">Maxime Jolivet - Curriculum vitæ</h1>
+    <pdfjs-viewer-element
+      src="/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-tech-lead.pdf"
+      viewer-css-theme="DARK"
+      zoom="auto"
+      :locale="lang"
+      class="flex-1 w-full h-screen border-0"
+    />
+  </div>
+</template>
 ```
 
 - [ ] **Step 2: Verify**
 
 Run: `npx eslint pages/cv.vue`
-Expected: no errors.
+Expected: no errors (2 pre-existing warnings — `vue/first-attribute-linebreak` and `vue/html-closing-bracket-newline` style — no longer apply since the element is now multi-line; if any warning remains it does not block, only errors do).
 
 - [ ] **Step 3: Commit**
 
 ```bash
 git add pages/cv.vue
-git commit -m "Match CV page background to canvas token"
+git commit -m "Match CV page background to canvas token, fix pre-existing lint errors"
 ```
 
 ---
@@ -1137,8 +1166,11 @@ git commit -m "Restyle blog article page to editorial theme"
 
 - [ ] **Step 1: Delete the dead component and composable files**
 
+`components/ui/CodeWindow.vue` is currently untracked (never committed), so it's removed with a plain `rm`, not `git rm`. Every other file below is tracked.
+
 ```bash
-git rm components/ui/CodeWindow.vue components/ui/GradientText.vue components/ui/GlowCard.vue
+rm -f components/ui/CodeWindow.vue
+git rm components/ui/GradientText.vue components/ui/GlowCard.vue
 git rm components/animations/AnimatedGradientBg.vue components/animations/MagneticButton.vue components/animations/ScrollReveal.vue
 git rm composables/useGsap.ts composables/useParallax.ts composables/useScrollReveal.ts
 git rm plugins/gsap.client.ts
