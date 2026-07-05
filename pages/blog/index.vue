@@ -32,44 +32,46 @@ const formattedDate = (value: string) =>
     <div class="mx-auto max-w-5xl">
       <NuxtLink
         :to="localePath('/')"
-        class="mb-10 inline-flex items-center gap-2 text-sm text-gray-500 transition
-          hover:text-white"
+        class="mb-10 inline-flex items-center gap-2 text-sm text-fg-muted transition
+          hover:text-fg"
       >
         ← {{ $t('blog.back') }}
       </NuxtLink>
 
-      <h1 class="text-3xl font-black tracking-tight text-white md:text-4xl">
+      <h1 class="text-3xl font-extrabold tracking-tight text-fg md:text-4xl">
         {{ $t('blog.title') }}
       </h1>
-      <p class="mt-3 text-gray-400">{{ $t('blog.subtitle') }}</p>
+      <p class="mt-3 text-fg-muted">{{ $t('blog.subtitle') }}</p>
 
-      <p v-if="pending" class="mt-12 text-gray-500">{{ $t('blog.loading') }}</p>
-      <p v-else-if="error" class="mt-12 text-gray-500">{{ $t('blog.error') }}</p>
-      <p v-else-if="!articles.length" class="mt-12 text-gray-500">{{ $t('blog.empty') }}</p>
+      <p v-if="pending" class="mt-12 text-fg-muted">{{ $t('blog.loading') }}</p>
+      <p v-else-if="error" class="mt-12 text-fg-muted">{{ $t('blog.error') }}</p>
+      <p v-else-if="!articles.length" class="mt-12 text-fg-muted">{{ $t('blog.empty') }}</p>
 
       <div v-else class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         <NuxtLink
           v-for="article in articles"
           :key="article.id"
           :to="localePath(`/blog/${slug(article)}`)"
-          class="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-white/5
-            transition hover:bg-white/10"
+          class="flex flex-col overflow-hidden rounded-xl border border-white/10 transition
+            hover:border-white/20"
         >
           <img
             v-if="article.cover_image_url"
             :src="article.cover_image_url"
             :alt="title(article)"
-            class="h-40 w-full object-cover"
+            class="h-40 w-full object-cover grayscale"
           />
           <div class="flex flex-1 flex-col p-6">
-            <p class="text-xs text-gray-500">{{ formattedDate(article.published_at) }}</p>
-            <h2 class="mt-2 text-lg font-semibold text-white">
+            <p class="font-mono text-xs text-fg-muted">
+              {{ formattedDate(article.published_at) }}
+            </p>
+            <h2 class="mt-2 text-lg font-semibold text-fg">
               {{ title(article) }}
             </h2>
-            <p class="mt-2 flex-1 text-sm text-gray-400">
+            <p class="mt-2 flex-1 text-sm text-fg-muted">
               {{ excerpt(article) }}
             </p>
-            <span class="mt-4 text-sm text-white underline hover:no-underline">
+            <span class="mt-4 text-sm text-accent underline hover:no-underline">
               {{ $t('blog.read_more') }}
             </span>
           </div>
