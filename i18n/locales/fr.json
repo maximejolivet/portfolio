@@ -23,10 +23,9 @@
     "backToTop": "Retour en haut"
   },
   "hero": {
-    "eyebrow": "Développeur web full-stack senior",
-    "titleStart": "Je développe et maintiens des",
-    "titleHighlight": "sites produits, de marque, dʼinterfaces utilisateur,",
-    "titleEnd": "e-commerce et dʼoutils métiers.",
+    "role": "Développeur web full-stack senior",
+    "location": "Nantes · Rennes, France",
+    "bio": "Je développe et maintiens des sites produits, de marque, dʼinterfaces utilisateur, e-commerce et dʼoutils métiers.",
     "subtitle": "10 ans d'expérience, principalement en agence digitale. Solides compétences PHP et JavaScript, expertise CMS appliquée à des projets complexes et exigeants, avec un souci constant de la qualité du code et de la pérennité des choix techniques.",
     "ctaSecondary": "Voir les projets",
     "scrollHint": "Découvrir"
@@ -92,6 +91,49 @@
       "tools": {
         "label": "Outils",
         "description": "Mon environnement de travail au quotidien."
+      }
+    }
+  },
+  "experienceSection": {
+    "eyebrow": "Parcours",
+    "titleStart": "Dix ans à",
+    "titleHighlight": "construire pour de vrais clients",
+    "titleEnd": ".",
+    "items": {
+      "gingerminds": {
+        "period": "2017 — Aujourd'hui",
+        "title": "Développeur full-stack senior, Tech Lead",
+        "organization": "Gingerminds",
+        "location": "Nantes (Hybride) · Agence digitale",
+        "description": "Tech lead sur des projets clients récurrents et historiques. Développement et maintenance des Starter Kits internes WordPress & Drupal, revues de code et audits qualité (performance, accessibilité)."
+      },
+      "donJigiFest": {
+        "period": "Sept. 2017 — Avr. 2021",
+        "title": "Webdesigner, Développeur web",
+        "organization": "Don Jigi Fest",
+        "location": "Vitré (Hybride) · Festival, bénévolat",
+        "description": "Conception et développement du site internet du festival de musique pour les éditions 2018, 2019 et 2020."
+      },
+      "greentech": {
+        "period": "Janv. 2016",
+        "title": "Webdesigner, Développeur web",
+        "organization": "Greentech",
+        "location": "Dakar, Sénégal · Stage",
+        "description": "Conception et développement d'un site e-commerce sur mesure avec réservation en click and collect en magasin."
+      },
+      "laSalleSaintJoseph": {
+        "period": "Janv. 2015",
+        "title": "Développeur web full-stack",
+        "organization": "Groupe Scolaire La Salle Saint Joseph",
+        "location": "Argentré-du-Plessis · Stage",
+        "description": "Conception et développement d'un portail d'information multi-site et d'un blog d'actualité avec référencement SEO."
+      },
+      "chSimoneVeil": {
+        "period": "Janv. 2014",
+        "title": "Développeur web back-end",
+        "organization": "Centre Hospitalier Simone Veil",
+        "location": "Vitré · Stage",
+        "description": "Maintenance corrective et évolutive d'une application métier interne de gestion de demandes de transport sanitaire."
       }
     }
   },
