@@ -23,10 +23,9 @@
     "backToTop": "Back to top"
   },
   "hero": {
-    "eyebrow": "Senior full-stack web developer",
-    "titleStart": "I build and maintain",
-    "titleHighlight": "product sites, brand sites, user interfaces,",
-    "titleEnd": "e-commerce platforms and business tools.",
+    "role": "Senior Full-Stack Web Developer",
+    "location": "Nantes · Rennes, France",
+    "bio": "I build and maintain product sites, brand sites, user interfaces, e-commerce platforms and business tools.",
     "subtitle": "10 years of experience, mostly in digital agencies. Strong PHP and JavaScript skills, CMS expertise applied to complex, demanding projects, with constant attention to code quality and the long-term reliability of technical choices.",
     "ctaSecondary": "See the projects",
     "scrollHint": "Explore"
@@ -92,6 +91,49 @@
       "tools": {
         "label": "Tools",
         "description": "My day-to-day working environment."
+      }
+    }
+  },
+  "experienceSection": {
+    "eyebrow": "Career",
+    "titleStart": "Ten years of",
+    "titleHighlight": "building for real clients",
+    "titleEnd": ".",
+    "items": {
+      "gingerminds": {
+        "period": "2017 — Present",
+        "title": "Senior Full-Stack Developer, Tech Lead",
+        "organization": "Gingerminds",
+        "location": "Nantes (Hybrid) · Digital agency",
+        "description": "Tech lead on recurring, long-standing client projects. Built and maintained the internal WordPress & Drupal starter kits, ran code quality reviews and performance / accessibility audits."
+      },
+      "donJigiFest": {
+        "period": "Sep 2017 — Apr 2021",
+        "title": "Webdesigner, Web Developer",
+        "organization": "Don Jigi Fest",
+        "location": "Vitré (Hybrid) · Music festival, volunteer",
+        "description": "Designed and built the festival's website for the 2018, 2019 and 2020 editions."
+      },
+      "greentech": {
+        "period": "Jan 2016",
+        "title": "Webdesigner, Web Developer",
+        "organization": "Greentech",
+        "location": "Dakar, Senegal · Internship",
+        "description": "Designed and built a custom e-commerce site with in-store click-and-collect reservation."
+      },
+      "laSalleSaintJoseph": {
+        "period": "Jan 2015",
+        "title": "Full-Stack Web Developer",
+        "organization": "Groupe Scolaire La Salle Saint Joseph",
+        "location": "Argentré-du-Plessis · Internship",
+        "description": "Designed and built a multi-site information portal and news blog with SEO."
+      },
+      "chSimoneVeil": {
+        "period": "Jan 2014",
+        "title": "Back-End Web Developer",
+        "organization": "Centre Hospitalier Simone Veil",
+        "location": "Vitré · Internship",
+        "description": "Corrective and evolutive maintenance of an internal medical-transport request management application."
       }
     }
   },
