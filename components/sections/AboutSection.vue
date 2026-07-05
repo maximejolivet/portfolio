@@ -13,42 +13,43 @@ const tagKeys = [
 
 <template>
   <LayoutPageSection id="about">
-    <div class="grid items-center gap-16 lg:grid-cols-2">
-      <AnimationsScrollReveal :y="24">
-        <div class="relative mx-auto w-full max-w-sm">
-          <div class="bg-gradient-aurora absolute -inset-6 -z-10 rounded-4xl opacity-60 blur-2xl" />
-          <UiGlowCard glow="gold" class="p-3">
-            <NuxtImg
-              src="/maximejolivet.jpeg"
-              :alt="$t('aboutSection.imageAlt')"
-              width="480"
-              height="480"
-              loading="lazy"
-              class="aspect-square w-full rounded-xl object-cover"
-            />
-          </UiGlowCard>
+    <div class="grid items-start gap-16 lg:grid-cols-[240px_1fr]">
+      <div class="mx-auto w-full max-w-[240px] lg:mx-0">
+        <div class="overflow-hidden rounded-2xl border border-white/10 p-2">
+          <NuxtImg
+            src="/maximejolivet.jpeg"
+            :alt="$t('aboutSection.imageAlt')"
+            width="240"
+            height="240"
+            loading="lazy"
+            class="aspect-square w-full rounded-xl object-cover grayscale"
+          />
         </div>
-      </AnimationsScrollReveal>
+      </div>
 
-      <AnimationsScrollReveal :y="24" :delay="0.1">
+      <div>
         <UiSectionHeading :eyebrow="$t('aboutSection.eyebrow')">
           <template #title>
             {{ $t('aboutSection.titleStart') }}
-            <UiGradientText>{{ $t('aboutSection.titleHighlight') }}</UiGradientText>
+            <span class="text-accent">{{ $t('aboutSection.titleHighlight') }}</span>
             {{ $t('aboutSection.titleEnd') }}
           </template>
         </UiSectionHeading>
 
-        <p class="mt-6 text-white/60">{{ $t('aboutSection.paragraph1') }}</p>
-        <p class="mt-4 text-white/60">{{ $t('aboutSection.paragraph2') }}</p>
+        <p class="mt-6 max-w-2xl text-base text-fg-muted sm:text-lg">
+          {{ $t('aboutSection.paragraph1') }}
+        </p>
+        <p class="mt-4 max-w-2xl text-base text-fg-muted sm:text-lg">
+          {{ $t('aboutSection.paragraph2') }}
+        </p>
 
-        <ul class="mt-8 space-y-3">
+        <ul class="mt-6 list-none space-y-2">
           <li
             v-for="key in highlightKeys"
             :key="key"
-            class="flex items-start gap-3 text-sm text-white/80"
+            class="flex items-start gap-2 text-sm text-fg-muted"
           >
-            <UiAppIcon icon="lucide:check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-gold-400" />
+            <UiAppIcon icon="lucide:check" class="mt-0.5 h-4 w-4 shrink-0 text-accent" />
             {{ $t(`aboutSection.${key}`) }}
           </li>
         </ul>
@@ -57,12 +58,13 @@ const tagKeys = [
           <span
             v-for="key in tagKeys"
             :key="key"
-            class="glass rounded-full px-4 py-1.5 text-sm text-white/70"
+            class="rounded-full border border-white/15 px-4 py-1.5 font-mono text-xs
+              text-fg-muted"
           >
             {{ $t(`aboutSection.tags.${key}`) }}
           </span>
         </div>
-      </AnimationsScrollReveal>
+      </div>
     </div>
   </LayoutPageSection>
 </template>
