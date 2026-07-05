@@ -49,27 +49,27 @@ useSeoMeta({
     <div class="mx-auto max-w-2xl">
       <NuxtLink
         :to="localePath('/blog')"
-        class="mb-10 inline-flex items-center gap-2 text-sm text-gray-500 transition
-          hover:text-white"
->
+        class="mb-10 inline-flex items-center gap-2 text-sm text-fg-muted transition
+          hover:text-fg"
+      >
         ← {{ $t('blog.back_to_list') }}
       </NuxtLink>
 
-      <p v-if="pending" class="text-gray-500">{{ $t('blog.loading') }}</p>
-      <p v-else-if="error" class="text-gray-500">{{ $t('blog.error') }}</p>
+      <p v-if="pending" class="text-fg-muted">{{ $t('blog.loading') }}</p>
+      <p v-else-if="error" class="text-fg-muted">{{ $t('blog.error') }}</p>
 
       <template v-else-if="article">
-        <p class="text-xs text-gray-500">{{ formattedDate }}</p>
-        <h1 class="mt-2 text-3xl font-black tracking-tight text-white md:text-4xl">
+        <p class="font-mono text-xs text-fg-muted">{{ formattedDate }}</p>
+        <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-fg md:text-4xl">
           {{ title }}
         </h1>
         <img
           v-if="article.cover_image_url"
           :src="article.cover_image_url"
           :alt="title"
-          class="mt-8 w-full rounded-xl object-cover"
+          class="mt-8 w-full rounded-xl object-cover grayscale"
         />
-        <div class="mt-8 space-y-4 leading-relaxed text-gray-300">
+        <div class="mt-8 space-y-4 leading-relaxed text-fg-muted">
           <p v-for="paragraph in paragraphs" :key="paragraph">
             {{ paragraph }}
           </p>
