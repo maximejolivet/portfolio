@@ -10,17 +10,12 @@ defineProps<{
 
 <template>
   <LayoutPageSection class="pt-40 pb-12">
-    <AnimationsScrollReveal :y="20">
-      <UiBadge>{{ eyebrow }}</UiBadge>
-      <h1
-        class="font-display mt-6 max-w-2xl text-4xl font-semibold tracking-tight text-white
-          sm:text-5xl"
-      >
-        {{ titleStart }}
-        <UiGradientText>{{ titleHighlight }}</UiGradientText>
-        {{ titleEnd }}
-      </h1>
-      <p v-if="subtitle" class="mt-5 max-w-xl text-lg text-white/60">{{ subtitle }}</p>
-    </AnimationsScrollReveal>
+    <UiBadge>{{ eyebrow }}</UiBadge>
+    <h1 class="mt-6 max-w-2xl text-4xl font-extrabold tracking-tight text-fg sm:text-5xl">
+      {{ titleStart }}
+      <span class="text-accent">{{ titleHighlight }}</span>
+      {{ titleEnd }}
+    </h1>
+    <p v-if="subtitle" class="mt-5 max-w-xl text-lg text-fg-muted">{{ subtitle }}</p>
   </LayoutPageSection>
 </template>
