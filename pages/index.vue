@@ -19,6 +19,7 @@ useSeoMeta({
     <UiConstructionBanner />
     <SectionsHeroSection />
     <SectionsAboutSection />
+    <SectionsExperienceSection />
     <SectionsTechStackSection />
   </div>
 </template>

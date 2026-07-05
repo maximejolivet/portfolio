@@ -19,9 +19,10 @@ export interface TechCategory {
 
 export interface TimelineItem {
   id: string
-  period: string
+  periodKey: string
   titleKey: string
   organizationKey: string
+  locationKey: string
   descriptionKey: string
 }
 
