@@ -1,6 +1,4 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'home' })
-
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
