@@ -7,21 +7,22 @@ defineProps<{
 </script>
 
 <template>
-  <UiGlowCard glow="emerald">
+  <div class="rounded-2xl border border-white/10 p-6 transition hover:border-white/20">
     <div
-      class="glass flex h-20 w-20 items-center justify-center rounded-2xl text-gold-400"
+      class="flex h-16 w-16 items-center justify-center rounded-xl border border-white/15
+        text-accent"
     >
-      <UiAppIcon :icon="icon" class="h-11 w-11" />
+      <UiAppIcon :icon="icon" class="h-8 w-8" />
     </div>
-    <h3 class="font-display mt-4 text-lg font-semibold text-white">{{ title }}</h3>
+    <h3 class="mt-4 text-lg font-semibold text-fg">{{ title }}</h3>
     <div class="mt-4 flex flex-wrap gap-2">
       <span
         v-for="client in clients"
         :key="client"
-        class="rounded-full bg-white/10 px-4 py-1.5 text-sm text-white/70"
+        class="rounded-full border border-white/10 px-4 py-1.5 text-sm text-fg-muted"
       >
         {{ client }}
       </span>
     </div>
-  </UiGlowCard>
+  </div>
 </template>
