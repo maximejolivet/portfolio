@@ -39,6 +39,7 @@ Translation files live in `i18n/`. Always update **both** `i18n/en.json` and `i1
 - **PDF.js**: `pdfjs-viewer-element` is a custom element excluded from Vite optimization - do not add it to `optimizeDeps`.
 - **CSP with nonce**: `nuxt-security` enforces a strict Content Security Policy with nonce support. Adding inline scripts or styles requires nonce wiring.
 - **TypeScript**: `tsconfig.json` extends `.nuxt/tsconfig.json` (auto-generated) - don't edit `.nuxt/tsconfig.json` directly.
+- **`nuxt dev` fork pool crash**: `@nuxt/cli`'s dev-server "fork pool" warm-up (enabled by default) can crash with `spawn EBADF` on Node 24 shortly after startup. `npm run dev` runs `nuxt dev --no-fork` to disable it; only downside is slower full-process restarts on `nuxt.config.ts` changes.
 
 ## Deployment
 
@@ -46,4 +47,4 @@ Branch `master` triggers the GitHub Pages deployment via GitHub Actions (`npm ru
 
 ## Node
 
-Requires Node 22 (`engines.node: "22.x.x"`).
+Requires Node 24 (`engines.node: "24.x.x"`).
