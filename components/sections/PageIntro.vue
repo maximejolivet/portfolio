@@ -9,13 +9,13 @@ defineProps<{
 </script>
 
 <template>
-  <LayoutPageSection class="pt-40 pb-12">
+  <LayoutPageSection>
     <UiBadge>{{ eyebrow }}</UiBadge>
-    <h1 class="mt-6 max-w-2xl text-4xl font-extrabold tracking-tight text-fg sm:text-5xl">
+    <h1>
       {{ titleStart }}
-      <span class="text-accent">{{ titleHighlight }}</span>
+      <span>{{ titleHighlight }}</span>
       {{ titleEnd }}
     </h1>
-    <p v-if="subtitle" class="mt-5 max-w-xl text-lg text-fg-muted">{{ subtitle }}</p>
+    <p v-if="subtitle">{{ subtitle }}</p>
   </LayoutPageSection>
 </template>
