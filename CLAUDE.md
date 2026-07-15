@@ -46,4 +46,4 @@ Branch `master` triggers the GitHub Pages deployment via GitHub Actions (`npm ru
 
 ## Node
 
-Requires Node 22 (`engines.node: "22.x.x"`).
+Requires Node 24 (`engines.node: "24.x.x"`).
