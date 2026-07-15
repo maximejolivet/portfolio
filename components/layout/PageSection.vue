@@ -9,7 +9,7 @@ withDefaults(
 </script>
 
 <template>
-  <section :id="id" class="relative py-20 sm:py-28">
+  <section :id="id">
     <UiContainer v-if="!bare">
       <slot />
     </UiContainer>

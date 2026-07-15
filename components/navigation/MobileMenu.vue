@@ -9,32 +9,21 @@ function close() {
 </script>
 
 <template>
-  <div class="md:hidden">
+  <div>
     <button
       type="button"
-      class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15
-        text-fg transition hover:border-white/30"
       :aria-label="isOpen ? $t('nav.closeMenu') : $t('nav.openMenu')"
       @click="isOpen = !isOpen"
     >
-      <UiAppIcon :icon="isOpen ? 'lucide:x' : 'lucide:menu'" class="h-5 w-5" />
+      <UiAppIcon :icon="isOpen ? 'lucide:x' : 'lucide:menu'" />
     </button>
 
-    <Transition
-      enter-active-class="transition duration-150 ease-out"
-      enter-from-class="opacity-0 -translate-y-2"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition duration-100 ease-in"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 -translate-y-2"
-    >
+    <Transition>
       <div
         v-if="isOpen"
-        class="absolute inset-x-4 top-20 z-40 flex flex-col gap-4 rounded-2xl border
-          border-white/10 bg-surface p-6"
       >
-        <NavigationNavLink :to="'/'" class="flex items-center gap-2" @click="close">
-          <UiAppIcon icon="lucide:home" class="h-4 w-4" />
+        <NavigationNavLink :to="'/'" @click="close">
+          <UiAppIcon icon="lucide:home" />
           {{ $t('nav.home') }}
         </NavigationNavLink>
         <NavigationNavLink
@@ -45,7 +34,7 @@ function close() {
         >
           {{ $t(item.labelKey) }}
         </NavigationNavLink>
-        <NavigationLocaleSwitcher class="w-fit" />
+        <NavigationLocaleSwitcher />
       </div>
     </Transition>
   </div>

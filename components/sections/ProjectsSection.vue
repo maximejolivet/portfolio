@@ -6,15 +6,15 @@ const { t } = useI18n()
 
 <template>
   <LayoutPageSection id="projects-list">
-    <UiSectionHeading :eyebrow="$t('projectsSection.eyebrow')" align="center" class="mx-auto">
+    <UiSectionHeading :eyebrow="$t('projectsSection.eyebrow')">
       <template #title>
         {{ $t('projectsSection.titleStart') }}
-        <span class="text-accent">{{ $t('projectsSection.titleHighlight') }}</span>
+        <span>{{ $t('projectsSection.titleHighlight') }}</span>
         {{ $t('projectsSection.titleEnd') }}
       </template>
     </UiSectionHeading>
 
-    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div>
       <CardsClientSectorCard
         v-for="sector in CLIENT_SECTORS"
         :key="sector.id"

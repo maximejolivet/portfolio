@@ -1,4 +1,3 @@
-import tailwindcss from '@tailwindcss/vite'
 import routes from './routes.json'
 
 export default defineNuxtConfig({
@@ -18,18 +17,7 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'Maxime Jolivet - Développeur web',
-      link: [
-        { rel: 'icon', type: 'image/ico', href: '/favicon.ico' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href:
-            'https://fonts.googleapis.com/css2'
-            + '?family=Inter:wght@400;500;600;700;800'
-            + '&family=JetBrains+Mono:wght@400;500&display=swap',
-        },
-      ],
+      link: [{ rel: 'icon', type: 'image/ico', href: '/favicon.ico' }],
       meta: [
         { name: 'description', content: 'Développeur web, Webdesigner' },
         {
@@ -38,13 +26,8 @@ export default defineNuxtConfig({
         },
         { name: 'robots', content: 'noindex, nofollow' },
       ],
-      htmlAttrs: {
-        style: 'font-size: 1rem',
-      },
     },
   },
-
-  css: ['~/assets/css/main.css'],
 
   vue: {
     compilerOptions: {
@@ -64,10 +47,6 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    plugins: [tailwindcss()],
-    css: {
-      devSourcemap: false,
-    },
     optimizeDeps: {
       exclude: ['pdfjs-viewer-element'],
       include: [
@@ -135,14 +114,13 @@ export default defineNuxtConfig({
           // self           => Enables loading of stylesheets hosted on same origin
           // unsafe-inline  => Recommended default for most Nuxt apps
           '\'self\'',
-          'fonts.googleapis.com',
           '\'unsafe-inline\'',
         ],
         // img-src => Add relevant https://... sources if you load images from external sources
         'base-uri': ['\'none\''],
         'img-src': ['\'self\'', 'data:', 'blob:', '*.supabase.co'],
         'connect-src': ['\'self\'', '*.supabase.co'],
-        'font-src': ['\'self\'', 'fonts.gstatic.com'],
+        'font-src': ['\'self\''],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
         'frame-src': ['\'self\''],
