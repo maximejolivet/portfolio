@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite'
 import routes from './routes.json'
 
 export default defineNuxtConfig({
@@ -11,6 +12,8 @@ export default defineNuxtConfig({
   ],
 
   devtools: { enabled: true },
+
+  css: ['~/assets/css/main.css'],
 
   app: {
     head: {
@@ -47,6 +50,7 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    plugins: [tailwindcss()],
     optimizeDeps: {
       exclude: ['pdfjs-viewer-element'],
       include: [
