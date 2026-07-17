@@ -14,12 +14,14 @@ useSeoMeta({
 
 <template>
   <div>
-    <UiConstructionBanner />
+    <SectionsIntroOverlay />
     <SectionsHeroSection />
     <SectionsAboutSection />
     <SectionsExperienceSection />
     <SectionsTechStackSection />
+    <SectionsProjectsSection />
+    <SectionsNowSection />
+    <SectionsBlogPreviewSection />
+    <SectionsContactSection />
   </div>
 </template>
-
-<style scoped></style>

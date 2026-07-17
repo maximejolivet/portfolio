@@ -23,6 +23,7 @@
     "@iconify-json/logos": "^1.2.11",
     "@iconify-json/lucide": "^1.2.117",
     "@nuxt/eslint": "^1.16.0",
+    "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^10.4.1",
     "@nuxtjs/sitemap": "^8.2.2",
     "@pinia/nuxt": "^1.0.0",
@@ -55,7 +56,13 @@
     ]
   },
   "dependencies": {
+    "@lucide/vue": "^1.24.0",
     "@nuxt/image": "^2.0.0",
-    "@supabase/supabase-js": "^2.110.6"
+    "@supabase/supabase-js": "^2.110.6",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "reka-ui": "^2.10.1",
+    "swiper": "^14.0.5",
+    "tailwind-merge": "^3.6.0"
   }
 }

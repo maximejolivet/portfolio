@@ -1,6 +1,6 @@
 ---
 name: nuxt-ui
-description: Build UIs with @nuxt/ui v4 — 125+ accessible Vue components with Tailwind CSS theming. Use when creating interfaces, customizing themes to match a brand, building forms, or composing layouts like dashboards, docs sites, and chat interfaces.
+description: Build UIs with @nuxt/ui v4 - 125+ accessible Vue components with Tailwind CSS theming. Use when creating interfaces, customizing themes to match a brand, building forms, or composing layouts like dashboards, docs sites, and chat interfaces.
 ---
 
 # Nuxt UI
@@ -11,7 +11,7 @@ Vue component library built on [Reka UI](https://reka-ui.com/) + [Tailwind CSS](
 
 For component API details (props, slots, events, full documentation, examples), use the [Nuxt UI MCP server](https://ui.nuxt.com/docs/getting-started/ai/mcp). If not already configured, add it:
 
-**Cursor** — `.cursor/mcp.json`:
+**Cursor** - `.cursor/mcp.json`:
 
 ```json
 { "mcpServers": { "nuxt-ui": { "type": "http", "url": "https://ui.nuxt.com/mcp" } } }
@@ -24,50 +24,50 @@ claude mcp add --transport http nuxt-ui https://ui.nuxt.com/mcp
 ```
 
 Key MCP tools:
-- `search_components` — find components by name, description, or category (no params = list all)
-- `search_composables` — find composables by name or description (no params = list all)
-- `search_icons` — search Iconify icons (defaults to `lucide`), returns `i-{prefix}-{name}` names
-- `get_component` — full component documentation with usage examples
-- `get_component_metadata` — props, slots, events (lightweight, no docs content)
-- `get_example` — real-world code examples
+- `search_components` - find components by name, description, or category (no params = list all)
+- `search_composables` - find composables by name or description (no params = list all)
+- `search_icons` - search Iconify icons (defaults to `lucide`), returns `i-{prefix}-{name}` names
+- `get_component` - full component documentation with usage examples
+- `get_component_metadata` - props, slots, events (lightweight, no docs content)
+- `get_example` - real-world code examples
 
 When you need to know **what a component accepts** or **how its API works**, use the MCP. This skill teaches you **when to use which component** and **how to build well**.
 
 ## Core rules (always apply)
 
-1. **Always wrap the app in `UApp`** — required for toasts, tooltips, and programmatic overlays. Accepts a `locale` prop for i18n.
-2. **Always use semantic colors** — `text-default`, `bg-elevated`, `border-muted`, etc. Never use raw Tailwind palette colors like `text-gray-500`.
-3. **Read generated theme files for slot names** — Nuxt: `.nuxt/ui/<component>.ts`, Vue: `node_modules/.nuxt-ui/ui/<component>.ts`. These show every slot, variant, and default class for any component.
+1. **Always wrap the app in `UApp`** - required for toasts, tooltips, and programmatic overlays. Accepts a `locale` prop for i18n.
+2. **Always use semantic colors** - `text-default`, `bg-elevated`, `border-muted`, etc. Never use raw Tailwind palette colors like `text-gray-500`.
+3. **Read generated theme files for slot names** - Nuxt: `.nuxt/ui/<component>.ts`, Vue: `node_modules/.nuxt-ui/ui/<component>.ts`. These show every slot, variant, and default class for any component.
 4. **Override priority** (highest wins): `ui` prop / `class` prop → global config → theme defaults.
-5. **Icons use `i-{collection}-{name}` format** — `lucide` is the default collection. Use the MCP `search_icons` tool to find icons, or browse at [icones.js.org](https://icones.js.org).
+5. **Icons use `i-{collection}-{name}` format** - `lucide` is the default collection. Use the MCP `search_icons` tool to find icons, or browse at [icones.js.org](https://icones.js.org).
 
 ## How to use this skill
 
-Based on the task, load the relevant reference files **before writing any code**. Don't load everything — only what's needed.
+Based on the task, load the relevant reference files **before writing any code**. Don't load everything - only what's needed.
 
 ### Reference files
 
-**Guidelines** — design decisions and conventions:
-- [design-system](references/guidelines/design-system.md) — semantic colors, theming, brand customization, variants, the `ui` prop
-- [component-selection](references/guidelines/component-selection.md) — decision matrices: when to use Modal vs Slideover, Select vs SelectMenu, Toast vs Alert, etc.
-- [conventions](references/guidelines/conventions.md) — coding patterns, slot naming, items arrays, composables, keyboard shortcuts
-- [forms](references/guidelines/forms.md) — form validation, field layout, error handling, Standard Schema
+**Guidelines** - design decisions and conventions:
+- [design-system](references/guidelines/design-system.md) - semantic colors, theming, brand customization, variants, the `ui` prop
+- [component-selection](references/guidelines/component-selection.md) - decision matrices: when to use Modal vs Slideover, Select vs SelectMenu, Toast vs Alert, etc.
+- [conventions](references/guidelines/conventions.md) - coding patterns, slot naming, items arrays, composables, keyboard shortcuts
+- [forms](references/guidelines/forms.md) - form validation, field layout, error handling, Standard Schema
 
-**Layouts** — full page structure patterns:
-- [landing](references/layouts/landing.md) — landing pages, blog, changelog, pricing
-- [dashboard](references/layouts/dashboard.md) — admin UI with sidebar and panels
-- [docs](references/layouts/docs.md) — documentation sites with navigation and TOC
-- [chat](references/layouts/chat.md) — AI chat with Vercel AI SDK
-- [editor](references/layouts/editor.md) — rich text editor with toolbars
+**Layouts** - full page structure patterns:
+- [landing](references/layouts/landing.md) - landing pages, blog, changelog, pricing
+- [dashboard](references/layouts/dashboard.md) - admin UI with sidebar and panels
+- [docs](references/layouts/docs.md) - documentation sites with navigation and TOC
+- [chat](references/layouts/chat.md) - AI chat with Vercel AI SDK
+- [editor](references/layouts/editor.md) - rich text editor with toolbars
 
-**Recipes** — complete patterns for common tasks:
-- [data-tables](references/recipes/data-tables.md) — tables with filters, pagination, sorting, selection
-- [auth](references/recipes/auth.md) — login, signup, forgot password forms
-- [overlays](references/recipes/overlays.md) — modals, slideovers, drawers, command palette
-- [navigation](references/recipes/navigation.md) — headers, sidebars, breadcrumbs, tabs
+**Recipes** - complete patterns for common tasks:
+- [data-tables](references/recipes/data-tables.md) - tables with filters, pagination, sorting, selection
+- [auth](references/recipes/auth.md) - login, signup, forgot password forms
+- [overlays](references/recipes/overlays.md) - modals, slideovers, drawers, command palette
+- [navigation](references/recipes/navigation.md) - headers, sidebars, breadcrumbs, tabs
 
 **Quick reference:**
-- [components](references/components.md) — categorized component index for finding the right component name
+- [components](references/components.md) - categorized component index for finding the right component name
 
 ### Routing table
 

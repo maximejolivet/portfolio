@@ -4,7 +4,23 @@ const localePath = useLocalePath()
 const route = useRoute()
 
 const slug = Array.isArray(route.params.slug) ? route.params.slug[0] ?? '' : route.params.slug
-const { data: article, pending, error, status } = await useArticle(slug)
+
+const article = ref<Article | null>(null)
+const pending = ref(false)
+const error = ref<unknown>(null)
+const status = ref<'idle' | 'pending' | 'success' | 'error'>('idle')
+
+try {
+  const result = await useArticle(slug)
+  article.value = result.data.value
+  pending.value = result.pending.value
+  error.value = result.error.value
+  status.value = result.status.value
+}
+catch (fetchError) {
+  error.value = fetchError
+  status.value = 'error'
+}
 
 const title = computed(() => {
   if (!article.value) return ''
@@ -44,32 +60,48 @@ useSeoMeta({
 
 <template>
   <div>
-    <div>
-      <NuxtLink
-        :to="localePath('/blog')"
-      >
-        ← {{ $t('blog.back_to_list') }}
-      </NuxtLink>
-
-      <p v-if="pending">{{ $t('blog.loading') }}</p>
-      <p v-else-if="error">{{ $t('blog.error') }}</p>
-
-      <template v-else-if="article">
-        <p>{{ formattedDate }}</p>
-        <h1>
-          {{ title }}
-        </h1>
-        <img
-          v-if="article.cover_image_url"
-          :src="article.cover_image_url"
-          :alt="title"
-        />
-        <div>
-          <p v-for="paragraph in paragraphs" :key="paragraph">
-            {{ paragraph }}
-          </p>
+    <LayoutPageSection bare>
+      <UiContainer class="max-w-[880px]">
+        <div class="pb-12 pt-16">
+          <NuxtLink
+            :to="localePath('blog')"
+            class="font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+          >
+            ← {{ $t('blog.back_to_list') }}
+          </NuxtLink>
         </div>
-      </template>
-    </div>
+
+        <p v-if="pending" class="pb-20 text-center font-mono text-sm text-muted-foreground">
+          {{ $t('blog.loading') }}
+        </p>
+        <p v-else-if="error" class="pb-20 text-center font-mono text-sm text-muted-foreground">
+          {{ $t('blog.error') }}
+        </p>
+
+        <template v-else-if="article">
+          <span class="font-mono text-[0.7812rem] text-subtle">{{ formattedDate }}</span>
+          <h1
+            class="mt-3 text-balance font-sans text-[clamp(2.125rem,4.2vw,3.125rem)] font-bold leading-[1.1] tracking-[-1px] text-foreground"
+          >
+            {{ title }}
+          </h1>
+          <img
+            v-if="article.cover_image_url"
+            :src="article.cover_image_url"
+            :alt="title"
+            class="mt-10 w-full rounded-2xl border border-border object-cover"
+          />
+          <div class="mt-10 flex flex-col gap-5 pb-24">
+            <p
+              v-for="paragraph in paragraphs"
+              :key="paragraph"
+              class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground"
+            >
+              {{ paragraph }}
+            </p>
+          </div>
+        </template>
+      </UiContainer>
+    </LayoutPageSection>
   </div>
 </template>

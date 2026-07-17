@@ -1,1 +1,155 @@
 @import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+
+  --color-primary: var(--gold);
+  --color-primary-foreground: var(--on-primary);
+
+  --color-secondary: var(--card);
+  --color-secondary-foreground: var(--ink);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--bg);
+
+  --color-mint: var(--mint);
+
+  --color-muted: var(--card);
+  --color-muted-foreground: var(--sub);
+  --color-subtle: var(--subtle);
+  --color-stripe: var(--stripe);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--ink);
+
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-panel-foreground: var(--on-panel);
+
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--accent);
+
+  --color-destructive: #c65b4f;
+
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.4;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.3125rem;
+  --text-xl--line-height: 1.4;
+  --text-2xl: 1.5625rem;
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 1.9375rem;
+  --text-3xl--line-height: 1.2;
+
+  --radius: 1rem;
+  --radius-sm: calc(var(--radius) - 0.5rem);
+  --radius-md: calc(var(--radius) - 0.25rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+
+  --animate-marquee: marquee 26s linear infinite;
+  --animate-blink: blink 1.1s step-end infinite;
+  --animate-pulse-dot: pulse-dot 1.6s ease-in-out infinite;
+  --animate-logo-letters: logo-letters 3s ease-in-out infinite;
+}
+
+:root {
+  --bg: #f3f4f0;
+  --ink: #1d3540;
+  --gold: #efc78a;
+  /* Always dark: text sitting on --gold, which stays light in both themes. */
+  --on-primary: #1d3540;
+  /* Always light: text sitting on --panel / --panel-2, which stay dark in both themes. */
+  --on-panel: #f3f4f0;
+  --accent: #2e6475;
+  --mint: #7fd9c4;
+  --sub: rgba(29, 53, 64, 0.62);
+  --subtle: rgba(29, 53, 64, 0.45);
+  --line: rgba(29, 53, 64, 0.16);
+  --card: #fbfcfa;
+  --panel: #24414f;
+  --panel-2: #16303c;
+  --stripe: rgba(29, 53, 64, 0.09);
+  color-scheme: light;
+}
+
+:root[data-theme='night'] {
+  --bg: #152833;
+  --ink: #f3f4f0;
+  --accent: #7fd9c4;
+  --sub: rgba(243, 244, 240, 0.62);
+  --subtle: rgba(243, 244, 240, 0.42);
+  --line: rgba(243, 244, 240, 0.16);
+  --card: #1e3945;
+  --panel: #10202a;
+  --panel-2: #0d1b23;
+  --stripe: rgba(243, 244, 240, 0.07);
+  color-scheme: dark;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes logo-letters {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.82);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+  }
+}

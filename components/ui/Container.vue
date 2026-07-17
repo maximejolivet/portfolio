@@ -1,14 +1,17 @@
 <script setup lang="ts">
-withDefaults(
+import { cn } from '~/lib/utils'
+
+const props = withDefaults(
   defineProps<{
     as?: string
+    class?: string
   }>(),
   { as: 'div' },
 )
 </script>
 
 <template>
-  <component :is="as">
+  <component :is="as" :class="cn('mx-auto w-full max-w-[1180px] px-8', props.class)">
     <slot />
   </component>
 </template>

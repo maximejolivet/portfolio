@@ -9,11 +9,33 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/sitemap',
     '@nuxt/image',
+    '@nuxtjs/google-fonts',
   ],
 
   devtools: { enabled: true },
 
   css: ['~/assets/css/main.css'],
+
+  components: {
+    dirs: [
+      {
+        path: '~/components',
+        ignore: ['**/ui/shadcn/**'],
+      },
+    ],
+  },
+
+  googleFonts: {
+    download: true,
+    display: 'swap',
+    families: {
+      'Space Grotesk': [500, 600, 700],
+      'JetBrains Mono': {
+        wght: [400, 500, 700],
+        ital: [400],
+      },
+    },
+  },
 
   app: {
     head: {
@@ -34,7 +56,7 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => tag === 'pdfjs-viewer-element',
+      isCustomElement: (tag) => tag === 'pdfjs-viewer-element' || tag.startsWith('swiper-'),
     },
   },
 
