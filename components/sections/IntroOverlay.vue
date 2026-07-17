@@ -4,6 +4,7 @@ const SESSION_KEY = 'mj_intro_shown'
 const pct = ref(0)
 const fading = ref(false)
 const visible = ref(false)
+const detailsVisible = ref(false)
 
 let interval: ReturnType<typeof setInterval> | undefined
 
@@ -14,7 +15,7 @@ function finish() {
   fading.value = true
   setTimeout(() => {
     visible.value = false
-  }, 480)
+  }, 500)
 }
 
 function onKey(e: KeyboardEvent) {
@@ -43,13 +44,17 @@ onMounted(() => {
     // ignore storage errors (private browsing)
   }
 
+  setTimeout(() => {
+    detailsVisible.value = true
+  }, 350)
+
   interval = setInterval(() => {
-    pct.value = Math.min(100, pct.value + 2)
+    pct.value = Math.min(100, pct.value + 1)
     if (pct.value >= 100) {
       if (interval) clearInterval(interval)
-      setTimeout(finish, 350)
+      setTimeout(finish, 500)
     }
-  }, 26)
+  }, 190)
 
   window.addEventListener('keydown', onKey)
 })
@@ -63,26 +68,30 @@ onUnmounted(() => {
 <template>
   <div
     v-if="visible"
-    class="fixed inset-0 z-[1000] flex cursor-pointer flex-col items-center justify-center bg-panel transition-opacity duration-[450ms] ease-out"
+    class="fixed inset-0 z-[1000] flex cursor-pointer flex-col items-center justify-center bg-panel transition-opacity duration-[500ms] ease-out"
     :class="fading ? 'opacity-0' : 'opacity-100'"
     @click="finish"
   >
-    <div class="absolute left-8 top-7 flex items-center gap-2.5">
+    <div
+      class="absolute left-8 top-7 flex items-center gap-2.5 transition-opacity duration-500 ease-out"
+      :class="detailsVisible ? 'opacity-100' : 'opacity-0'"
+    >
       <UiLogoMark :size="30" class="text-panel-foreground" />
       <span class="font-mono text-[0.75rem] font-medium text-panel-foreground/60">maximejolivet.fr</span>
     </div>
 
-    <div
-      class="text-center font-sans text-[clamp(3.375rem,9.2vw,8rem)] font-bold uppercase leading-[0.98] tracking-[-3px] text-panel-foreground"
-    >
-      {{ $t('intro.title') }}<br>
-      <span class="text-mint">{{ $t('intro.subtitle') }}</span>
-    </div>
+    <UiLogoMark :size="140" class="animate-intro-logo-in text-panel-foreground" />
 
-    <div class="absolute bottom-8 left-8 font-mono text-[0.875rem] font-semibold text-primary">
+    <div
+      class="absolute bottom-8 left-8 font-mono text-[0.875rem] font-semibold text-primary transition-opacity duration-500 ease-out"
+      :class="detailsVisible ? 'opacity-100' : 'opacity-0'"
+    >
       {{ pct }}%<span class="animate-blink text-panel-foreground"> ▎</span>
     </div>
-    <div class="absolute bottom-8 font-mono text-[0.7188rem] font-medium tracking-[2px] text-panel-foreground/45">
+    <div
+      class="absolute bottom-8 font-mono text-[0.7188rem] font-medium tracking-[2px] text-panel-foreground/45 transition-opacity duration-500 ease-out"
+      :class="detailsVisible ? 'opacity-100' : 'opacity-0'"
+    >
       {{ $t('intro.skipHint') }}
     </div>
   </div>
