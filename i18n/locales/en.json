@@ -7,15 +7,22 @@
   "a11y": {
     "skipToContent": "Skip to content"
   },
-  "construction": {
-    "message": "Currently under development."
+  "intro": {
+    "title": "Portfolio",
+    "subtitle": "loading up",
+    "skipHint": "SPACE OR ESC TO SKIP · TAP TO SKIP"
   },
   "nav": {
     "home": "Home",
     "blog": "Blog",
     "projects": "Projects",
+    "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
+  },
+  "theme": {
+    "day": "Day mode",
+    "night": "Night mode"
   },
   "footer": {
     "tagline": "Senior full-stack web developer / Lead Dev / Tech Lead",
@@ -23,12 +30,13 @@
     "backToTop": "Back to top"
   },
   "hero": {
+    "greeting": "Hi, I'm Maxime",
     "role": "Senior Full-Stack Web Developer",
     "location": "Nantes · Rennes, France",
     "bio": "I build and maintain product sites, brand sites, user interfaces, e-commerce platforms and business tools.",
     "subtitle": "10 years of experience, mostly in digital agencies. Strong PHP and JavaScript skills, CMS expertise applied to complex, demanding projects, with constant attention to code quality and the long-term reliability of technical choices.",
     "ctaSecondary": "See the projects",
-    "scrollHint": "Explore"
+    "ctaContact": "get in touch"
   },
   "aboutSection": {
     "eyebrow": "About",
@@ -74,7 +82,15 @@
       },
       "database": {
         "label": "Databases",
-        "description": "Relational and NoSQL storage depending on the project's needs."
+        "description": "Relational and key-value storage depending on the project's needs."
+      },
+      "ai": {
+        "label": "AI & Automation",
+        "description": "Skills around LLMs and generative AI applied to software development."
+      },
+      "aiTools": {
+        "label": "AI Tools",
+        "description": "AI assistants and agents built into my day-to-day workflow."
       },
       "devops": {
         "label": "DevOps & Cloud",
@@ -101,14 +117,24 @@
     "titleEnd": ".",
     "items": {
       "gingerminds": {
-        "period": "2017 — Present",
+        "period": "2017 - Present",
         "title": "Senior Full-Stack Developer, Tech Lead",
         "organization": "Gingerminds",
         "location": "Nantes (Hybrid) · Digital agency",
-        "description": "Tech lead on recurring, long-standing client projects. Built and maintained the internal WordPress & Drupal starter kits, ran code quality reviews and performance / accessibility audits."
+        "intro": "Tech lead on recurring, long-running client projects. Design and maintenance of internal WordPress & Drupal starter kits, code reviews and performance / accessibility audits.",
+        "points": [
+          "Develop and maintain product sites, brand sites, user interfaces, e-commerce platforms and business tools",
+          "Act as Tech Lead / Lead Dev on recurring client projects, share best practices, support teams",
+          "Handle corrective, evolutive and application maintenance by analyzing and resolving technical issues, bugs and incidents",
+          "Industrialize internal starter kits (WordPress and Drupal): standardization, CI/CD and reusable components for project foundations",
+          "Carry out code reviews and quality audits (performance, SEO, security, RGAA accessibility)",
+          "Implement tracking and analytics solutions to measure and optimize site performance (Matomo, Google Analytics)",
+          "Keep an active watch on new practices and share knowledge within a multidisciplinary team",
+          "Take part in agency life: onboarding, CSE member, and member of the Happiness team in charge of wellbeing initiatives"
+        ]
       },
       "donJigiFest": {
-        "period": "Sep 2017 — Apr 2021",
+        "period": "Sep 2017 - Apr 2021",
         "title": "Webdesigner, Web Developer",
         "organization": "Don Jigi Fest",
         "location": "Vitré (Hybrid) · Music festival, volunteer",
@@ -138,18 +164,21 @@
     }
   },
   "projectsPage": {
-    "title": "Projects",
-    "eyebrow": "Projects",
-    "titleStart": "A selection of",
-    "titleHighlight": "clients I've supported",
-    "titleEnd": "",
-    "subtitle": "Over 10 years supporting businesses across every sector on their web projects."
+    "eyebrow": "PROJECTS",
+    "title": "Selected work",
+    "subtitle": "First case study live - more write-ups coming soon.",
+    "ctaTitle": "Got a project in mind",
+    "backToList": "all projects",
+    "viewProject": "view project",
+    "capturesPending": "screenshots coming soon",
+    "underConstruction": "Under construction",
+    "underConstructionNote": "Full case study coming soon."
   },
-  "projectsSection": {
+  "clientsSection": {
+    "introTitle": "A selection of clients I've supported",
+    "introSubtitle": "Over 10 years supporting businesses across every sector on their web projects.",
     "eyebrow": "Projects I've contributed to",
-    "titleStart": "Companies across",
-    "titleHighlight": "every B2B sector",
-    "titleEnd": "",
+    "title": "Companies across every B2B sector",
     "sectors": {
       "construction": "Construction & Housing",
       "energy": "Local Authorities & Energy",
@@ -160,16 +189,119 @@
       "finance": "Banking, Insurance & Mutual"
     }
   },
+  "projects": {
+    "vygon": {
+      "type": "Drupal platform",
+      "title": "Vygon - multi-country platform",
+      "tagline": "Corporate site and product catalog for Vygon, an international medical device manufacturer present in over 120 countries.",
+      "impact": "International platform still in production",
+      "contexte": "Vygon designs and distributes medical devices across many specialties (vascular access, enteral nutrition, anaesthesia, surgery...), through subsidiaries and distributors in over 120 countries. The site needed to reflect a dense product catalog while staying consistent from one country to the next.",
+      "solution": "A Drupal platform organized as per-country sites (dedicated subdomains), with a shared multilingual content architecture and a product catalog structured by medical specialty.",
+      "points": [
+        "Multi-site Drupal architecture with one subdomain per country",
+        "Shared multilingual content management across markets",
+        "Product catalog structured across around ten medical specialties",
+        "Common editorial templates keeping brand consistency between countries"
+      ],
+      "resultat": "A robust platform, deployed across many countries, that still serves as Vygon's international showcase today.",
+      "role": "Drupal developer",
+      "duree": "long-running project",
+      "equipe": "agency team"
+    },
+    "pileje": {
+      "type": "brand site",
+      "title": "PiLeJe Micronutrition",
+        "tagline": "",
+      "impact": "",
+      "contexte": "",
+        "solution": "","points": [
+        "",
+        "",
+        "",
+       ""
+      ],
+      "resultat": "","role": "", "duree": "", "equipe": ""
+    }
+    },
+    "saur": {
+      "type": "business tool",
+      "title": "Saur & Nijhuis",
+      "tagline": "",
+      "impact": "",
+      "contexte": "",
+        "solution": "","points": [
+        "",
+        "",
+        "",
+       ""
+      ],
+      "resultat": "","role": "", "duree": "", "equipe": ""
+
+    
+  },
+  "home": {
+    "projects": {
+      "sectionTitle": "Projects",
+      "viewAll": "all projects →"
+    },
+    "now": {
+      "sectionTitle": "Right now",
+      "items": {
+        "building": {
+          "label": "BUILDING",
+          "title": "maximejolivet.fr v2",
+          "detail": "this site, as it happens"
+        },
+        "reading": {
+          "label": "LEARNING",
+          "title": "Symfony, AI",
+          "detail": "continuous upskilling"
+        },
+        "listening": {
+          "label": "LISTENING",
+          "title": "Tomorrowland Playlist",
+          "detail": "Spotify"
+        },
+        "shipped": {
+          "label": "LATEST SHIP",
+          "title": "Multisite Drupal CI/CD pipeline",
+          "detail": "deployed without a cold sweat"
+        }
+      }
+    },
+    "blog": {
+      "sectionTitle": "Blog",
+      "viewAll": "all articles →"
+    },
+    "contact": {
+      "eyebrow": "CONTACT",
+     "title": "Let's build what's next together",
+"subtitle": "Senior Full-Stack Web Developer · Lead Developer · Tech Lead · AI & Prompt Engineering",
+"bookCall": "Book a meeting"
+    }
+  },
+  "projectDetail": {
+    "context": "The context",
+    "solution": "What I built",
+    "result": "The result",
+    "specSheet": "SPEC SHEET",
+    "year": "year",
+    "role": "role",
+    "duration": "duration",
+    "team": "team",
+    "prev": "previous project",
+    "next": "next project"
+  },
   "cv": {
     "read": "Curriculum vitae",
     "download": "Download PDF"
   },
   "blog": {
-    "title": "Blog",
-    "subtitle": "Thoughts and news from the web dev world.",
-    "back": "Back to home",
-    "back_to_list": "Back to articles",
-    "read_more": "Read more",
+    "eyebrow": "BLOG - NOTES FROM THE FIELD",
+    "title": "What the code teaches me",
+    "subtitle": "Practical insights from real-world experience with migrations, modern CSS, developer tooling, and AI. No listicles—just thoughtful analysis, hands-on experiments, and proven solutions from real projects.",
+    "back_to_list": "all articles",
+    "read_more": "read the article →",
     "loading": "Loading articles...",
     "empty": "No articles yet, check back soon.",
     "error": "Something went wrong while loading articles.",

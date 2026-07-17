@@ -11,16 +11,16 @@
 ## Global Constraints
 
 - No semicolons, single quotes, trailing commas in multiline, 2-space indent (from `CLAUDE.md` / `eslint.config.mjs`).
-- Reuse existing i18n keys in `i18n/locales/en.json` / `i18n/locales/fr.json` as-is — no key renames, no new keys added.
+- Reuse existing i18n keys in `i18n/locales/en.json` / `i18n/locales/fr.json` as-is - no key renames, no new keys added.
 - No new page routes, no routing changes.
 - Dark mode only, no light mode, no theme toggle.
 - Design tokens (from the approved spec `docs/superpowers/specs/2026-07-03-editorial-redesign-design.md`):
   - `--color-canvas: #0a0a0a` (page background)
   - `--color-surface: #141414` (cards / raised surfaces)
   - `--color-fg: #f5f5f5` (primary text)
-  - `--color-fg-muted: #a3a3a3` (secondary/meta text — single named gray, not scattered opacity values)
-  - `--color-accent: #f59e0b` (links, CTAs, focus rings, active states — never decorative)
-  - Borders: 1px hairline, `border-white/10` (default) / `border-white/15` or `/20` for slightly stronger emphasis on hover — no glow, no blur.
+  - `--color-fg-muted: #a3a3a3` (secondary/meta text - single named gray, not scattered opacity values)
+  - `--color-accent: #f59e0b` (links, CTAs, focus rings, active states - never decorative)
+  - Borders: 1px hairline, `border-white/10` (default) / `border-white/15` or `/20` for slightly stronger emphasis on hover - no glow, no blur.
   - Fonts: `--font-sans` stays Inter; `--font-mono` becomes `'JetBrains Mono'` (replaces `Space Grotesk`, which is dropped).
 - No entrance/scroll animations. Only hover/focus CSS transitions, 100–150ms, `ease-out`. All interactive elements get a visible 2px `accent` focus ring.
 - `gsap` and `motion-v` must have zero remaining imports anywhere in the repo by the end of this plan, and are removed from `package.json`.
@@ -34,8 +34,8 @@
 - Modify: `nuxt.config.ts:20-26` (Google Fonts `<link>` href)
 
 **Interfaces:**
-- Produces: Tailwind utility classes used by every later task — `bg-canvas`, `bg-surface`, `text-fg`, `text-fg-muted`, `text-accent`, `bg-accent`, `border-accent`, `font-mono` (now JetBrains Mono), `font-sans` (Inter, unchanged).
-- Removes: `bg-ink-950`, `text-gold-*`, `text-emerald-*`, `font-display`, `glass`, `glass-strong`, `text-gradient`, `bg-gradient-aurora`, `glow-gold`, `glow-emerald`, `animate-gradient-pan`, `animate-float-slow` — none of these utility names may appear anywhere after Task 12.
+- Produces: Tailwind utility classes used by every later task - `bg-canvas`, `bg-surface`, `text-fg`, `text-fg-muted`, `text-accent`, `bg-accent`, `border-accent`, `font-mono` (now JetBrains Mono), `font-sans` (Inter, unchanged).
+- Removes: `bg-ink-950`, `text-gold-*`, `text-emerald-*`, `font-display`, `glass`, `glass-strong`, `text-gradient`, `bg-gradient-aurora`, `glow-gold`, `glow-emerald`, `animate-gradient-pan`, `animate-float-slow` - none of these utility names may appear anywhere after Task 12.
 
 - [ ] **Step 1: Rewrite `assets/css/main.css`**
 
@@ -123,7 +123,7 @@ git commit -m "Replace design tokens with editorial dark theme"
 
 ---
 
-### Task 2: Core UI primitives — Button, Badge, SectionHeading, ConstructionBanner
+### Task 2: Core UI primitives - Button, Badge, SectionHeading, ConstructionBanner
 
 **Files:**
 - Modify: `components/ui/Button.vue`
@@ -133,7 +133,7 @@ git commit -m "Replace design tokens with editorial dark theme"
 
 **Interfaces:**
 - Consumes: tokens from Task 1 (`bg-canvas`, `text-fg`, `text-fg-muted`, `bg-accent`, `text-accent`, `font-mono`).
-- Produces: no prop/API changes to any of these four components — `UiButton :variant="'primary'|'secondary'|'ghost'"`, `UiBadge` (slot only), `UiSectionHeading :eyebrow :align="'left'|'center'"` (title/subtitle slots), `UiConstructionBanner` (no props) all keep their existing public interface, so no consumer in a later task needs changes beyond what's already planned there.
+- Produces: no prop/API changes to any of these four components - `UiButton :variant="'primary'|'secondary'|'ghost'"`, `UiBadge` (slot only), `UiSectionHeading :eyebrow :align="'left'|'center'"` (title/subtitle slots), `UiConstructionBanner` (no props) all keep their existing public interface, so no consumer in a later task needs changes beyond what's already planned there.
 
 - [ ] **Step 1: Rewrite `components/ui/Button.vue`**
 
@@ -818,7 +818,7 @@ git commit -m "Rewrite Tech Stack section as a flat tag grid"
 
 ---
 
-### Task 8: Projects page — PageIntro, ProjectsSection, ClientSectorCard
+### Task 8: Projects page - PageIntro, ProjectsSection, ClientSectorCard
 
 **Files:**
 - Modify: `components/sections/PageIntro.vue`
@@ -829,7 +829,7 @@ git commit -m "Rewrite Tech Stack section as a flat tag grid"
 - `PageIntro` props unchanged: `eyebrow: string`, `titleStart: string`, `titleHighlight: string`, `titleEnd?: string`, `subtitle?: string`.
 - `ClientSectorCard` props unchanged: `title: string`, `icon: string`, `clients: string[]`.
 - Consumes: `CLIENT_SECTORS` from `~/constants/clients` (unchanged shape), `UiSectionHeading`, `UiBadge`, `UiAppIcon`, `LayoutPageSection`.
-- `pages/projects.vue` is not modified — it already calls `SectionsPageIntro` and `SectionsProjectsSection` with the same prop names, so no changes ripple to it.
+- `pages/projects.vue` is not modified - it already calls `SectionsPageIntro` and `SectionsProjectsSection` with the same prop names, so no changes ripple to it.
 
 - [ ] **Step 1: Rewrite `components/sections/PageIntro.vue`**
 
@@ -942,7 +942,7 @@ git commit -m "Rewrite Projects page components in editorial style"
 - Modify: `pages/cv.vue` (full rewrite)
 
 **Interfaces:**
-- No behavior changes — `useHead`, `useSeoMeta`, and the `pdfjs-viewer-element` usage stay identical. This task fixes 4 pre-existing lint errors in this file (unused `locales` var, three lines over 100 chars) while it's already being touched, since the plan's lint-clean verification would otherwise fail on baseline issues unrelated to this task.
+- No behavior changes - `useHead`, `useSeoMeta`, and the `pdfjs-viewer-element` usage stay identical. This task fixes 4 pre-existing lint errors in this file (unused `locales` var, three lines over 100 chars) while it's already being touched, since the plan's lint-clean verification would otherwise fail on baseline issues unrelated to this task.
 
 - [ ] **Step 1: Rewrite `pages/cv.vue`**
 
@@ -990,7 +990,7 @@ useSeoMeta({
 - [ ] **Step 2: Verify**
 
 Run: `npx eslint pages/cv.vue`
-Expected: no errors (2 pre-existing warnings — `vue/first-attribute-linebreak` and `vue/html-closing-bracket-newline` style — no longer apply since the element is now multi-line; if any warning remains it does not block, only errors do).
+Expected: no errors (2 pre-existing warnings - `vue/first-attribute-linebreak` and `vue/html-closing-bracket-newline` style - no longer apply since the element is now multi-line; if any warning remains it does not block, only errors do).
 
 - [ ] **Step 3: Commit**
 
@@ -1007,7 +1007,7 @@ git commit -m "Match CV page background to canvas token, fix pre-existing lint e
 - Modify: `pages/blog/index.vue`
 
 **Interfaces:**
-- No script/data-fetching changes — `useArticles()`, `title()`, `excerpt()`, `slug()`, `formattedDate()` all stay exactly as they are. Only the `<template>` classes change.
+- No script/data-fetching changes - `useArticles()`, `title()`, `excerpt()`, `slug()`, `formattedDate()` all stay exactly as they are. Only the `<template>` classes change.
 
 - [ ] **Step 1: Replace the `<template>` block in `pages/blog/index.vue`**
 
@@ -1089,7 +1089,7 @@ git commit -m "Restyle blog index page to editorial theme"
 - Modify: `pages/blog/[slug].vue`
 
 **Interfaces:**
-- No script/data-fetching changes — `useArticle()`, `title`, `excerpt`, `paragraphs`, `formattedDate` computed refs stay exactly as they are. Only the `<template>` classes change.
+- No script/data-fetching changes - `useArticle()`, `title`, `excerpt`, `paragraphs`, `formattedDate` computed refs stay exactly as they are. Only the `<template>` classes change.
 
 - [ ] **Step 1: Replace the `<template>` block in `pages/blog/[slug].vue`**
 
@@ -1162,7 +1162,7 @@ git commit -m "Restyle blog article page to editorial theme"
 - Modify: `package.json` (remove `gsap`, `motion-v` from `dependencies`)
 
 **Interfaces:**
-- This task has no consumers left by design — Tasks 4 through 11 already removed every usage of these components/composables. This task only deletes now-dead files and confirms it with a repo-wide search.
+- This task has no consumers left by design - Tasks 4 through 11 already removed every usage of these components/composables. This task only deletes now-dead files and confirms it with a repo-wide search.
 
 - [ ] **Step 1: Delete the dead component and composable files**
 
@@ -1206,7 +1206,7 @@ Expected: `package-lock.json` updates, removing `gsap`, `motion-v`, and their no
 - [ ] **Step 4: Confirm no remaining references anywhere in source**
 
 Run: `grep "gsap|motion-v|CodeWindow|GradientText|GlowCard|ScrollReveal|MagneticButton|AnimatedGradientBg|useParallax|useGsap|useScrollReveal" . -t vue -t ts`
-Expected: no matches under `components/`, `composables/`, `pages/`, `layouts/`, `plugins/`, `constants/`, `types/` (only `.nuxt/` generated types may still mention them until the next `nuxt prepare`/dev run regenerates them, and `package-lock.json`/`node_modules` references from unrelated packages are expected — those are not source code).
+Expected: no matches under `components/`, `composables/`, `pages/`, `layouts/`, `plugins/`, `constants/`, `types/` (only `.nuxt/` generated types may still mention them until the next `nuxt prepare`/dev run regenerates them, and `package-lock.json`/`node_modules` references from unrelated packages are expected - those are not source code).
 
 - [ ] **Step 5: Full build verification**
 
@@ -1220,8 +1220,8 @@ Expected: build succeeds with no errors, producing static output.
 
 - Start `npm run dev`, open `http://localhost:8000/fr` and `http://localhost:8000/en`.
 - Check Home, `/projects`, `/cv`, `/blog`, and one `/blog/<slug>` article render with the new dark editorial theme (no leftover gold/emerald colors, no glass/blur, no gradient text).
-- Resize to 375px width — confirm no horizontal scroll, text remains readable.
-- Tab through the page with keyboard only — confirm a visible amber focus ring appears on every link/button/nav item.
+- Resize to 375px width - confirm no horizontal scroll, text remains readable.
+- Tab through the page with keyboard only - confirm a visible amber focus ring appears on every link/button/nav item.
 - Stop the dev server.
 
 - [ ] **Step 7: Commit**
@@ -1233,7 +1233,7 @@ git commit -m "Remove GSAP and motion-v, delete dead animation components"
 
 ## Self-Review Notes
 
-- **Spec coverage:** every section of the design spec (tokens, components removed/kept/rewritten, pages, animation, technical cleanup, testing) maps to a task above — Task 1 (tokens/fonts), Task 2 (primitives), Task 3 (nav/layout), Tasks 4–7 (Home sections), Task 8 (Projects), Task 9 (CV), Tasks 10–11 (Blog), Task 12 (cleanup + QA).
+- **Spec coverage:** every section of the design spec (tokens, components removed/kept/rewritten, pages, animation, technical cleanup, testing) maps to a task above - Task 1 (tokens/fonts), Task 2 (primitives), Task 3 (nav/layout), Tasks 4–7 (Home sections), Task 8 (Projects), Task 9 (CV), Tasks 10–11 (Blog), Task 12 (cleanup + QA).
 - **Ordering guarantees buildability:** Task 12 (file deletion) is last and only removes files whose last real usage was eliminated in Tasks 4–8, confirmed via a repo-wide search before writing this plan.
 - **No new i18n keys:** every task reuses existing keys already present in `i18n/locales/en.json` / `i18n/locales/fr.json`; no translation file changes are part of this plan.
-- **Type/shape consistency:** `EXPERIENCE_TIMELINE` (Task 6) and `TECH_CATEGORIES` (Task 7) item shapes match `types/content.types.ts` (`TimelineItem`, `TechCategory`) exactly as already defined — no changes to `types/content.types.ts` or `constants/*.ts` are needed anywhere in this plan.
+- **Type/shape consistency:** `EXPERIENCE_TIMELINE` (Task 6) and `TECH_CATEGORIES` (Task 7) item shapes match `types/content.types.ts` (`TimelineItem`, `TechCategory`) exactly as already defined - no changes to `types/content.types.ts` or `constants/*.ts` are needed anywhere in this plan.

@@ -2,6 +2,7 @@ export interface NavItem {
   id: string
   labelKey: string
   to: string
+  hash?: string
 }
 
 export interface TechItem {
@@ -22,8 +23,11 @@ export interface TimelineItem {
   periodKey: string
   titleKey: string
   organizationKey: string
+  organizationUrl: string
   locationKey: string
-  descriptionKey: string
+  descriptionKey?: string
+  introKey?: string
+  descriptionPointsKeys?: string[]
 }
 
 export interface ClientSector {

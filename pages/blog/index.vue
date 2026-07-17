@@ -8,7 +8,19 @@ useSeoMeta({
   description: () => t('blog.subtitle'),
 })
 
-const { data: articles, pending, error } = await useArticles()
+const articles = ref<ArticleSummary[]>([])
+const pending = ref(false)
+const error = ref<unknown>(null)
+
+try {
+  const result = await useArticles()
+  articles.value = result.data.value
+  pending.value = result.pending.value
+  error.value = result.error.value
+}
+catch (fetchError) {
+  error.value = fetchError
+}
 
 const title = (article: ArticleSummary) =>
   (locale.value === 'en' ? article.title_en : article.title_fr) || article.title_fr
@@ -27,49 +39,48 @@ const formattedDate = (value: string) =>
 
 <template>
   <div>
-    <div>
-      <NuxtLink
-        :to="localePath('/')"
-      >
-        ← {{ $t('blog.back') }}
-      </NuxtLink>
+    <SectionsPageIntro
+      :eyebrow="$t('blog.eyebrow')"
+      :title="$t('blog.title')"
+      :subtitle="$t('blog.subtitle')"
+    />
 
-      <h1>
-        {{ $t('blog.title') }}
-      </h1>
-      <p>{{ $t('blog.subtitle') }}</p>
+    <LayoutPageSection bare>
+      <UiContainer class="max-w-[880px]">
+        <p v-if="pending" class="py-10 text-center font-mono text-sm text-muted-foreground">
+          {{ $t('blog.loading') }}
+        </p>
+        <p v-else-if="error" class="py-10 text-center font-mono text-sm text-muted-foreground">
+          {{ $t('blog.error') }}
+        </p>
+        <p v-else-if="!articles.length" class="py-10 text-center font-mono text-sm text-muted-foreground">
+          {{ $t('blog.empty') }}
+        </p>
 
-      <p v-if="pending">{{ $t('blog.loading') }}</p>
-      <p v-else-if="error">{{ $t('blog.error') }}</p>
-      <p v-else-if="!articles.length">{{ $t('blog.empty') }}</p>
-
-      <div v-else>
-        <NuxtLink
-          v-for="article in articles"
-          :key="article.id"
-          :to="localePath(`/blog/${slug(article)}`)"
-        >
-          <img
-            v-if="article.cover_image_url"
-            :src="article.cover_image_url"
-            :alt="title(article)"
-          />
-          <div>
-            <p>
+        <div v-else class="flex flex-col pb-20">
+          <NuxtLink
+            v-for="article in articles"
+            :key="article.id"
+            :to="localePath(`/blog/${slug(article)}`)"
+            class="flex flex-col gap-2.5 border-b border-border py-7"
+          >
+            <div class="font-mono text-[0.7812rem] text-subtle">
               {{ formattedDate(article.published_at) }}
-            </p>
-            <h2>
+            </div>
+            <h2
+              class="text-balance font-sans text-[1.5625rem] font-bold leading-[1.25] tracking-[-0.5px] text-foreground hover:text-accent"
+            >
               {{ title(article) }}
             </h2>
-            <p>
+            <p class="text-pretty font-sans text-sm leading-[1.65] text-muted-foreground">
               {{ excerpt(article) }}
             </p>
-            <span>
+            <span class="mt-0.5 font-mono text-[0.8438rem] font-semibold text-accent">
               {{ $t('blog.read_more') }}
             </span>
-          </div>
-        </NuxtLink>
-      </div>
-    </div>
+          </NuxtLink>
+        </div>
+      </UiContainer>
+    </LayoutPageSection>
   </div>
 </template>

@@ -86,17 +86,17 @@
 - None detected.
 
 ## Hyperedges (group relationships)
-- **Deploy Pipeline (skill + npm command + GitHub Actions + GitHub Pages)** — skill_deploy_skill, skill_deploy_github_actions, skill_deploy_github_pages [EXTRACTED 1.00]
-- **Nuxt CI/CD GitHub Pages Pipeline** — nuxtjs_workflow, nuxtjs_workflow_build_job, nuxtjs_workflow_deploy_job, nuxtjs_workflow_github_pages [EXTRACTED 1.00]
-- **Animation Component System (gradient bg, magnetic button, scroll reveal)** — animations_animatedgradientbg, animations_magneticbutton, animations_scrollreveal [INFERRED 0.95]
-- **Persistent Page Shell (app root, header, footer)** — app, layout_appheader, layout_appfooter [INFERRED 0.95]
-- **Scroll-Driven Entrance Animation Pattern (all page sections using ScrollReveal)** — sections_herosection, sections_aboutsection, sections_projectssection, sections_techstacksection, sections_pageintro [EXTRACTED 1.00]
-- **GSAP scroll animation system** —  [INFERRED 0.95]
-- **Supabase blog data access layer** —  [EXTRACTED 1.00]
-- **i18n bilingual translation system** —  [EXTRACTED 1.00]
-- **PDF.js custom element integration: dynamic import in client plugin, excluded from Vite optimization, rendered in CV page** — plugins_pdfjs_viewer_client_plugin, nuxt_config_pdfjs_vite_exclusion, pages_cv_page [INFERRED 0.85]
-- **i18n routing and key management: prefix strategy in nuxt config drives route definitions in routes.json, managed by add-translation skill** — nuxt_config_i18n_prefix_strategy, routes_i18n_config, claude_skills_add_translation_skill_doc [INFERRED 0.85]
-- **Supabase blog data layer: useArticle and useArticles composables tested with mocked SupabaseClient in parallel spec files** — composables_usearticle_composable, test_usearticle_spec_suite, test_usearticles_spec_suite [INFERRED 0.85]
+- **Deploy Pipeline (skill + npm command + GitHub Actions + GitHub Pages)** - skill_deploy_skill, skill_deploy_github_actions, skill_deploy_github_pages [EXTRACTED 1.00]
+- **Nuxt CI/CD GitHub Pages Pipeline** - nuxtjs_workflow, nuxtjs_workflow_build_job, nuxtjs_workflow_deploy_job, nuxtjs_workflow_github_pages [EXTRACTED 1.00]
+- **Animation Component System (gradient bg, magnetic button, scroll reveal)** - animations_animatedgradientbg, animations_magneticbutton, animations_scrollreveal [INFERRED 0.95]
+- **Persistent Page Shell (app root, header, footer)** - app, layout_appheader, layout_appfooter [INFERRED 0.95]
+- **Scroll-Driven Entrance Animation Pattern (all page sections using ScrollReveal)** - sections_herosection, sections_aboutsection, sections_projectssection, sections_techstacksection, sections_pageintro [EXTRACTED 1.00]
+- **GSAP scroll animation system** -  [INFERRED 0.95]
+- **Supabase blog data access layer** -  [EXTRACTED 1.00]
+- **i18n bilingual translation system** -  [EXTRACTED 1.00]
+- **PDF.js custom element integration: dynamic import in client plugin, excluded from Vite optimization, rendered in CV page** - plugins_pdfjs_viewer_client_plugin, nuxt_config_pdfjs_vite_exclusion, pages_cv_page [INFERRED 0.85]
+- **i18n routing and key management: prefix strategy in nuxt config drives route definitions in routes.json, managed by add-translation skill** - nuxt_config_i18n_prefix_strategy, routes_i18n_config, claude_skills_add_translation_skill_doc [INFERRED 0.85]
+- **Supabase blog data layer: useArticle and useArticles composables tested with mocked SupabaseClient in parallel spec files** - composables_usearticle_composable, test_usearticle_spec_suite, test_usearticles_spec_suite [INFERRED 0.85]
 
 ## Communities (69 total, 22 thin omitted)
 
@@ -186,7 +186,7 @@ Nodes (4): Drupal, Drupal Développeur Back-End Certification, Trained People, W
 
 ### Community 23 - "Personal Brand"
 Cohesion: 0.67
-Nodes (4): Maxime Jolivet — Person, Personal Brand — Approachable Creative Professional, Maxime Jolivet — Professional Headshot, Presentation Style — Casual-Professional, Warm Studio Setting
+Nodes (4): Maxime Jolivet - Person, Personal Brand - Approachable Creative Professional, Maxime Jolivet - Professional Headshot, Presentation Style - Casual-Professional, Warm Studio Setting
 
 ### Community 24 - "Deployment Skill"
 Cohesion: 0.50
@@ -207,7 +207,7 @@ Nodes (3): Nuxt, React, Vue.js
 ## Knowledge Gaps
 - **304 isolated node(s):** `PostToolUse`, `allow`, `isExternal`, `ParallaxOptions`, `ScrollRevealOptions` (+299 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **22 thin communities (<3 nodes) omitted from report** - run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_

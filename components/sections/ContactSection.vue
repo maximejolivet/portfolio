@@ -1,0 +1,37 @@
+<script setup lang="ts">
+import { CAL_BOOKING_URL, CONTACT_EMAIL } from '~/constants/contact'
+import { SOCIAL_LINKS } from '~/constants/social'
+</script>
+
+<template>
+  <LayoutPageSection id="contact" class="flex flex-col items-center gap-5 py-28 text-center">
+     <UiLogoMark :size="88" class="mx-auto mb-8 text-accent" />
+    <span class="font-mono text-[0.875rem] font-bold text-accent">{{ $t('home.contact.eyebrow') }}</span>
+    <h2
+      class="text-balance font-sans text-[clamp(2.375rem,4.6vw,3.5rem)] font-bold leading-[1.05] tracking-[-1.8px] text-foreground"
+    >
+      {{ $t('home.contact.title') }}<span class="text-accent">.</span>
+    </h2>
+    <p class="max-w-[460px] py-8 mx-auto text-pretty font-sans text-[1rem] leading-[1.7] text-muted-foreground">
+      {{ $t('home.contact.subtitle') }}
+    </p>
+    <div class="mt-2 flex flex-wrap items-center justify-center gap-6">
+      <UiButton :href="`mailto:${CONTACT_EMAIL}`">
+        {{ CONTACT_EMAIL }}
+      </UiButton>
+      <UiButton :href="CAL_BOOKING_URL" variant="pill-outline">
+        {{ $t('home.contact.bookCall') }}
+      </UiButton>
+      <a
+        v-for="social in SOCIAL_LINKS"
+        :key="social.id"
+        :href="social.href"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono text-[0.875rem] font-semibold text-muted-foreground hover:text-accent"
+      >
+        {{ social.label }} ↗
+      </a>
+    </div>
+  </LayoutPageSection>
+</template>
