@@ -13,13 +13,15 @@
         {{ $t('error.back_home') }}
       </UiButton>
 
-      <button
+      <UiButton
         type="button"
-        class="font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+        variant="link"
+        size="xs"
+        class="h-auto p-0 font-mono text-xs font-semibold text-muted-foreground hover:text-accent hover:no-underline"
         @click="randomPage"
       >
         {{ $t('error.page_not_found_random_page') }}
-      </button>
+      </UiButton>
     </div>
 
     <p class="font-mono text-[0.75rem] text-subtle">404: CAFEE_NOT_FOUND</p>
