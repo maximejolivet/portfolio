@@ -30,14 +30,14 @@ Le logo n'utilise **qu'une seule couleur** (`currentColor`) — il hérite toujo
 
 ### Variantes
 
-| Variante | Description | Statut |
-|---|---|---|
-| **Version couleur / marque** | `currentColor` réglé sur `--gold` ou `--ink` selon le contexte | ✅ Existe (usage actuel dans la nav) |
-| **Version claire (fond sombre)** | `currentColor` réglé sur `--on-panel` (`#F3F4F0`) | ✅ Native via `currentColor`, aucun asset séparé requis |
-| **Version sombre (fond clair)** | `currentColor` réglé sur `--ink` (`#1D3540`) | ✅ Native via `currentColor` |
-| **Version monochrome** | Le logo *est* nativement monochrome — une seule couleur à la fois, jamais de dégradé ni de bicolore | ✅ Par construction |
-| **Wordmark (logo + nom)** | "Maxime Jolivet" à côté du monogramme, en Space Grotesk 600 | ⚠️ À produire — actuellement le monogramme est utilisé seul dans la nav, le nom complet apparaît en texte séparé (hero) |
-| **Favicon** | Version simplifiée pour petites tailles (16-32px) | ✅ Existe (`public/favicon.ico`, `public/favicon.png`, `public/maxime.svg`) — à vérifier que le detail du M reste lisible à 16px |
+| Variante                         | Description                                                                                         | Statut                                                                                                                           |
+| -------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Version couleur / marque**     | `currentColor` réglé sur `--gold` ou `--ink` selon le contexte                                      | ✅ Existe (usage actuel dans la nav)                                                                                             |
+| **Version claire (fond sombre)** | `currentColor` réglé sur `--on-panel` (`#F3F4F0`)                                                   | ✅ Native via `currentColor`, aucun asset séparé requis                                                                          |
+| **Version sombre (fond clair)**  | `currentColor` réglé sur `--ink` (`#1D3540`)                                                        | ✅ Native via `currentColor`                                                                                                     |
+| **Version monochrome**           | Le logo _est_ nativement monochrome — une seule couleur à la fois, jamais de dégradé ni de bicolore | ✅ Par construction                                                                                                              |
+| **Wordmark (logo + nom)**        | "Maxime Jolivet" à côté du monogramme, en Space Grotesk 600                                         | ⚠️ À produire — actuellement le monogramme est utilisé seul dans la nav, le nom complet apparaît en texte séparé (hero)          |
+| **Favicon**                      | Version simplifiée pour petites tailles (16-32px)                                                   | ✅ Existe (`public/favicon.ico`, `public/favicon.png`, `public/maxime.svg`) — à vérifier que le detail du M reste lisible à 16px |
 
 ### Zone de protection
 
@@ -123,14 +123,14 @@ The logo uses **only one color** (`currentColor`) — it always inherits the sur
 
 ### Variants
 
-| Variant | Description | Status |
-|---|---|---|
-| **Color / brand version** | `currentColor` set to `--gold` or `--ink` depending on context | ✅ Exists (current nav usage) |
-| **Light version (dark background)** | `currentColor` set to `--on-panel` (`#F3F4F0`) | ✅ Native via `currentColor`, no separate asset needed |
-| **Dark version (light background)** | `currentColor` set to `--ink` (`#1D3540`) | ✅ Native via `currentColor` |
-| **Monochrome version** | The logo *is* natively monochrome — one color at a time, never a gradient or two-tone | ✅ By construction |
-| **Wordmark (logo + name)** | "Maxime Jolivet" next to the monogram, in Space Grotesk 600 | ⚠️ To be produced — currently the monogram is used alone in nav, the full name appears as separate text (hero) |
-| **Favicon** | Simplified version for small sizes (16-32px) | ✅ Exists (`public/favicon.ico`, `public/favicon.png`, `public/maxime.svg`) — verify the M detail stays legible at 16px |
+| Variant                             | Description                                                                           | Status                                                                                                                  |
+| ----------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Color / brand version**           | `currentColor` set to `--gold` or `--ink` depending on context                        | ✅ Exists (current nav usage)                                                                                           |
+| **Light version (dark background)** | `currentColor` set to `--on-panel` (`#F3F4F0`)                                        | ✅ Native via `currentColor`, no separate asset needed                                                                  |
+| **Dark version (light background)** | `currentColor` set to `--ink` (`#1D3540`)                                             | ✅ Native via `currentColor`                                                                                            |
+| **Monochrome version**              | The logo _is_ natively monochrome — one color at a time, never a gradient or two-tone | ✅ By construction                                                                                                      |
+| **Wordmark (logo + name)**          | "Maxime Jolivet" next to the monogram, in Space Grotesk 600                           | ⚠️ To be produced — currently the monogram is used alone in nav, the full name appears as separate text (hero)          |
+| **Favicon**                         | Simplified version for small sizes (16-32px)                                          | ✅ Exists (`public/favicon.ico`, `public/favicon.png`, `public/maxime.svg`) — verify the M detail stays legible at 16px |
 
 ### Clear space
 

@@ -50,7 +50,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     dureeKey: 'projects.saur.duree',
     equipeKey: 'projects.saur.equipe',
   },
-   {
+  {
     id: 'vygon',
     slug: 'vygon',
     year: '2024',
@@ -60,7 +60,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     company: 'Vygon',
     employer: 'Gingerminds',
     image: '/projects/vygon.jpg',
-    tags: ['Drupal', 'Multilingue', 'Multi-site', 'Catalogue produits', 'Site corporate', 'Site de marque'],
+    tags: [
+      'Drupal',
+      'Multilingue',
+      'Multi-site',
+      'Catalogue produits',
+      'Site corporate',
+      'Site de marque',
+    ],
     typeKey: 'projects.vygon.type',
     titleKey: 'projects.vygon.title',
     taglineKey: 'projects.vygon.tagline',

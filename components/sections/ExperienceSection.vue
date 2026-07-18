@@ -6,11 +6,18 @@ const { t } = useI18n()
 
 <template>
   <LayoutPageSection id="experience" class="pt-24">
-    <UiSectionHeading :title="$t('experienceSection.eyebrow')" icon="lucide:briefcase" diamond="mint" />
+    <UiSectionHeading
+      :title="$t('experienceSection.eyebrow')"
+      icon="lucide:briefcase"
+      diamond="mint"
+    />
 
-    <p class="-mt-6 mb-6 max-w-[560px] text-pretty font-sans text-[1rem] leading-[1.6] text-muted-foreground">
+    <p
+      class="-mt-6 mb-6 max-w-[560px] text-pretty font-sans text-[1rem] leading-[1.6] text-muted-foreground"
+    >
       {{ $t('experienceSection.titleStart') }}
-      <span class="text-primary">{{ $t('experienceSection.titleHighlight') }}</span>{{ $t('experienceSection.titleEnd') }}
+      <span class="text-primary">{{ $t('experienceSection.titleHighlight') }}</span
+      >{{ $t('experienceSection.titleEnd') }}
     </p>
 
     <ol class="flex flex-col">
@@ -27,10 +34,16 @@ const { t } = useI18n()
           <p class="font-mono text-xs text-muted-foreground">
             {{ t(item.organizationKey) }} · {{ t(item.locationKey) }}
           </p>
-           <p v-if="item.introKey" class="text-pretty font-bold text-sm leading-[1.6] text-muted-foreground">
+          <p
+            v-if="item.introKey"
+            class="text-pretty font-bold text-sm leading-[1.6] text-muted-foreground"
+          >
             {{ t(item.introKey) }}
           </p>
-            <p v-if="item.descriptionKey" class="text-pretty text-sm font-sans leading-[1.6] text-muted-foreground">
+          <p
+            v-if="item.descriptionKey"
+            class="text-pretty text-sm font-sans leading-[1.6] text-muted-foreground"
+          >
             {{ t(item.descriptionKey) }}
           </p>
           <ul v-else-if="item.descriptionPointsKeys" class="mt-1 flex flex-col gap-2">

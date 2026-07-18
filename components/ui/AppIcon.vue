@@ -12,6 +12,6 @@ const data = computed(() => resolveIcon(props.icon))
     :viewBox="`0 0 ${data.width} ${data.height}`"
     fill="currentColor"
     aria-hidden="true"
-    v-html="data.body"
+    :innerHTML="data.body"
   />
 </template>

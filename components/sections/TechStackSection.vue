@@ -4,6 +4,12 @@ import { TECH_CATEGORIES } from '~/constants/techstack'
 const { t } = useI18n()
 
 const LABEL_COLORS = ['text-[#c99a4a]', 'text-[#4d94ab]', 'text-[#3fa98c]']
+
+const caption = computed(() =>
+  [t('techSection.titleStart'), t('techSection.titleHighlight'), t('techSection.titleEnd')]
+    .join(' ')
+    .toLowerCase(),
+)
 </script>
 
 <template>
@@ -12,7 +18,7 @@ const LABEL_COLORS = ['text-[#c99a4a]', 'text-[#4d94ab]', 'text-[#3fa98c]']
       :title="$t('techSection.eyebrow')"
       icon="lucide:code"
       diamond="mint"
-      :caption="`${$t('techSection.titleStart')} ${$t('techSection.titleHighlight')} ${$t('techSection.titleEnd')}`.toLowerCase()"
+      :caption="caption"
     />
 
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

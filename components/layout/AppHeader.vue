@@ -30,9 +30,15 @@ onUnmounted(() => {
   >
     <div class="mx-auto flex h-full max-w-[1180px] items-center justify-between px-8">
       <div class="flex items-center gap-4">
-        <NuxtLink :to="localePath('/')" aria-label="Maxime Jolivet" class="flex items-center gap-2.5">
+        <NuxtLink
+          :to="localePath('/')"
+          aria-label="Maxime Jolivet"
+          class="flex items-center gap-2.5"
+        >
           <UiLogoMark :size="36" class="text-foreground" />
-          <span class="font-sans text-sm font-bold tracking-tight text-foreground">maximejolivet</span>
+          <span class="font-sans text-sm font-bold tracking-tight text-foreground"
+            >maximejolivet</span
+          >
         </NuxtLink>
       </div>
 
@@ -55,7 +61,12 @@ onUnmounted(() => {
 
         <span class="hidden text-border md:inline">|</span>
 
-        <UiButton :to="localePath('/cv')" size="pill-md" icon="lucide:arrow-right" class="hidden md:inline-flex">
+        <UiButton
+          :to="localePath('/cv')"
+          size="pill-md"
+          icon="lucide:arrow-right"
+          class="hidden md:inline-flex"
+        >
           {{ $t('cv.read') }}
         </UiButton>
 

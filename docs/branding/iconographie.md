@@ -17,23 +17,23 @@ Les icônes ne sont **pas** importées individuellement composant par composant 
 
 Hérité directement du style Lucide : **outline (contour), pas de remplissage plein**, sauf exceptions explicites (voir logo, chevrons décoratifs).
 
-| Propriété | Valeur |
-|---|---|
-| **Style** | Trait (stroke-based), contour uniquement |
-| **Épaisseur de trait** | 2px (standard Lucide, non surchargé) |
-| **Rayon des angles (cap/join)** | `round` (arrondi) — cohérent avec le cercle organique du logo et les radius généreux du design system |
-| **Grille source** | 24×24px (grille native Lucide) |
-| **Couleur** | Toujours `currentColor` — jamais de couleur codée en dur sur une icône, elle hérite du texte parent |
-| **Remplissage** | Aucun remplissage plein par défaut ; le composant force `fill="currentColor"` au niveau du SVG racine mais les tracés Lucide eux-mêmes restent des strokes fins, pas des silhouettes pleines |
+| Propriété                       | Valeur                                                                                                                                                                                       |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Style**                       | Trait (stroke-based), contour uniquement                                                                                                                                                     |
+| **Épaisseur de trait**          | 2px (standard Lucide, non surchargé)                                                                                                                                                         |
+| **Rayon des angles (cap/join)** | `round` (arrondi) — cohérent avec le cercle organique du logo et les radius généreux du design system                                                                                        |
+| **Grille source**               | 24×24px (grille native Lucide)                                                                                                                                                               |
+| **Couleur**                     | Toujours `currentColor` — jamais de couleur codée en dur sur une icône, elle hérite du texte parent                                                                                          |
+| **Remplissage**                 | Aucun remplissage plein par défaut ; le composant force `fill="currentColor"` au niveau du SVG racine mais les tracés Lucide eux-mêmes restent des strokes fins, pas des silhouettes pleines |
 
 ### Tailles standard
 
-| Taille | Classe Tailwind | Usage |
-|---|---|---|
-| 12px | `size-3` | Icône dans badge |
-| 16px | `size-4` | Icône dans bouton standard |
-| 32px | `size-8` | Icône d'en-tête de section (`SectionHeading`) |
-| 40-56px | `size-10`/`size-14` | Icônes de FAB (boutons d'action flottants) |
+| Taille  | Classe Tailwind     | Usage                                         |
+| ------- | ------------------- | --------------------------------------------- |
+| 12px    | `size-3`            | Icône dans badge                              |
+| 16px    | `size-4`            | Icône dans bouton standard                    |
+| 32px    | `size-8`            | Icône d'en-tête de section (`SectionHeading`) |
+| 40-56px | `size-10`/`size-14` | Icônes de FAB (boutons d'action flottants)    |
 
 ### Formes
 
@@ -78,23 +78,23 @@ Icons are **not** imported individually component-by-component: `AppIcon.vue` dy
 
 Directly inherited from the Lucide style: **outline (stroke-based), no solid fill**, aside from explicit exceptions (see logo, decorative chevrons).
 
-| Property | Value |
-|---|---|
-| **Style** | Stroke-based, outline only |
-| **Stroke weight** | 2px (Lucide standard, not overridden) |
-| **Corner radius (cap/join)** | `round` — consistent with the logo's organic circle and the design system's generous radii |
-| **Source grid** | 24×24px (native Lucide grid) |
-| **Color** | Always `currentColor` — never a hardcoded color on an icon, it inherits from parent text |
-| **Fill** | No solid fill by default; the component forces `fill="currentColor"` at the root SVG level, but Lucide's own paths remain thin strokes, not solid silhouettes |
+| Property                     | Value                                                                                                                                                         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Style**                    | Stroke-based, outline only                                                                                                                                    |
+| **Stroke weight**            | 2px (Lucide standard, not overridden)                                                                                                                         |
+| **Corner radius (cap/join)** | `round` — consistent with the logo's organic circle and the design system's generous radii                                                                    |
+| **Source grid**              | 24×24px (native Lucide grid)                                                                                                                                  |
+| **Color**                    | Always `currentColor` — never a hardcoded color on an icon, it inherits from parent text                                                                      |
+| **Fill**                     | No solid fill by default; the component forces `fill="currentColor"` at the root SVG level, but Lucide's own paths remain thin strokes, not solid silhouettes |
 
 ### Standard sizes
 
-| Size | Tailwind class | Usage |
-|---|---|---|
-| 12px | `size-3` | Icon inside a badge |
-| 16px | `size-4` | Icon inside a standard button |
-| 32px | `size-8` | Section header icon (`SectionHeading`) |
-| 40-56px | `size-10`/`size-14` | FAB icons (floating action buttons) |
+| Size    | Tailwind class      | Usage                                  |
+| ------- | ------------------- | -------------------------------------- |
+| 12px    | `size-3`            | Icon inside a badge                    |
+| 16px    | `size-4`            | Icon inside a standard button          |
+| 32px    | `size-8`            | Section header icon (`SectionHeading`) |
+| 40-56px | `size-10`/`size-14` | FAB icons (floating action buttons)    |
 
 ### Shapes
 

@@ -6,7 +6,9 @@ const LOCALES = ['fr', 'en'] as const
 </script>
 
 <template>
-  <div class="flex items-center gap-0.5 rounded-full border border-border p-0.5 font-mono text-xs font-semibold">
+  <div
+    class="flex items-center gap-0.5 rounded-full border border-border p-0.5 font-mono text-xs font-semibold"
+  >
     <NuxtLink
       v-for="code in LOCALES"
       :key="code"

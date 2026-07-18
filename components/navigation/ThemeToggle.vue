@@ -7,7 +7,11 @@ const { theme } = useThemeMode()
     <button
       type="button"
       class="flex items-center justify-center rounded-full p-1.5 transition-colors"
-      :class="theme === 'day' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-accent'"
+      :class="
+        theme === 'day'
+          ? 'bg-primary text-primary-foreground'
+          : 'text-muted-foreground hover:text-accent'
+      "
       :aria-label="$t('theme.day')"
       :aria-pressed="theme === 'day'"
       @click="theme = 'day'"
@@ -17,7 +21,11 @@ const { theme } = useThemeMode()
     <button
       type="button"
       class="flex items-center justify-center rounded-full p-1.5 transition-colors"
-      :class="theme === 'night' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-accent'"
+      :class="
+        theme === 'night'
+          ? 'bg-primary text-primary-foreground'
+          : 'text-muted-foreground hover:text-accent'
+      "
       :aria-label="$t('theme.night')"
       :aria-pressed="theme === 'night'"
       @click="theme = 'night'"

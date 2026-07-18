@@ -34,7 +34,8 @@ onUnmounted(() => {
         :aria-label="$t('home.contact.bookCall')"
         :data-cal-link="CAL_LINK"
         :data-cal-namespace="CAL_NAMESPACE"
-        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+        data-cal-config='{"layout":"month_view",
+          "useSlotsViewOnSmallScreen":"true"}'
       >
         <UiAppIcon icon="lucide:calendar" class="size-4 md:size-5" />
       </button>

@@ -17,8 +17,7 @@ try {
   articles.value = result.data.value
   pending.value = result.pending.value
   error.value = result.error.value
-}
-catch (fetchError) {
+} catch (fetchError) {
   error.value = fetchError
 }
 
@@ -53,7 +52,10 @@ const formattedDate = (value: string) =>
         <p v-else-if="error" class="py-10 text-center font-mono text-sm text-muted-foreground">
           {{ $t('blog.error') }}
         </p>
-        <p v-else-if="!articles.length" class="py-10 text-center font-mono text-sm text-muted-foreground">
+        <p
+          v-else-if="!articles.length"
+          class="py-10 text-center font-mono text-sm text-muted-foreground"
+        >
           {{ $t('blog.empty') }}
         </p>
 
@@ -75,7 +77,9 @@ const formattedDate = (value: string) =>
             <p class="text-pretty font-sans text-sm leading-[1.65] text-muted-foreground">
               {{ excerpt(article) }}
             </p>
-            <span class="mt-0.5 inline-flex items-center gap-1 font-mono text-[0.8438rem] font-semibold text-accent">
+            <span
+              class="mt-0.5 inline-flex items-center gap-1 font-mono text-[0.8438rem] font-semibold text-accent"
+            >
               {{ $t('blog.read_more') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
             </span>
           </NuxtLink>

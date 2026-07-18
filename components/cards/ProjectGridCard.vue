@@ -10,12 +10,17 @@ const localePath = useLocalePath()
 
 const NuxtLinkComponent = resolveComponent('NuxtLink')
 const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-primary'))
+const projectTo = computed(() =>
+  props.project.live
+    ? localePath({ name: 'projects-slug', params: { slug: props.project.slug } })
+    : undefined,
+)
 </script>
 
 <template>
   <component
     :is="project.live ? NuxtLinkComponent : 'div'"
-    :to="project.live ? localePath({ name: 'projects-slug', params: { slug: project.slug } }) : undefined"
+    :to="projectTo"
     class="group flex flex-col gap-3.5"
     :class="{ 'opacity-60': !project.live }"
   >
@@ -29,7 +34,9 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
     <UiImagePlaceholder
       v-else
       :dot-class="dotClass"
-      :label="project.live ? $t('projectsPage.capturesPending') : $t('projectsPage.underConstruction')"
+      :label="
+        project.live ? $t('projectsPage.capturesPending') : $t('projectsPage.underConstruction')
+      "
       class="aspect-video"
     />
     <div class="flex flex-col gap-1.5">
@@ -41,8 +48,16 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
       </div>
       <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
         <span v-if="project.company">{{ project.company }}</span>
-        <UiBadge :class="project.category === 'pro' ? 'bg-primary/16 text-primary' : 'bg-mint/16 text-mint'">
-          {{ project.category === 'pro' ? $t('projectsPage.categoryPro') : $t('projectsPage.categoryPersonal') }}
+        <UiBadge
+          :class="
+            project.category === 'pro' ? 'bg-primary/16 text-primary' : 'bg-mint/16 text-mint'
+          "
+        >
+          {{
+            project.category === 'pro'
+              ? $t('projectsPage.categoryPro')
+              : $t('projectsPage.categoryPersonal')
+          }}
         </UiBadge>
       </div>
     </div>

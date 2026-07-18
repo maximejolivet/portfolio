@@ -46,7 +46,8 @@ watch([categoryFilter, employerFilter], () => {
     <SectionsPageIntro :eyebrow="$t('projectsPage.eyebrow')" :title="$t('projectsPage.title')">
       <template #subtitle>
         {{ $t('projectsPage.subtitle') }}
-        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleSectors') }}</strong>.
+        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleSectors') }}</strong
+        >.
         <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleClosing') }}</strong>
       </template>
     </SectionsPageIntro>
@@ -102,7 +103,11 @@ watch([categoryFilter, employerFilter], () => {
               type="button"
               :aria-label="$t('projectsPage.viewList')"
               class="flex size-10 items-center justify-center rounded-full border border-border transition-colors cursor-pointer"
-              :class="viewMode === 'list' ? 'border-accent text-accent' : 'text-muted-foreground hover:text-accent'"
+              :class="
+                viewMode === 'list'
+                  ? 'border-accent text-accent'
+                  : 'text-muted-foreground hover:text-accent'
+              "
               @click="viewMode = 'list'"
             >
               <UiAppIcon icon="lucide:list" class="size-5" />
@@ -111,7 +116,11 @@ watch([categoryFilter, employerFilter], () => {
               type="button"
               :aria-label="$t('projectsPage.viewGrid')"
               class="flex size-10 items-center justify-center rounded-full border border-border transition-colors cursor-pointer"
-              :class="viewMode === 'grid' ? 'border-accent text-accent' : 'text-muted-foreground hover:text-accent'"
+              :class="
+                viewMode === 'grid'
+                  ? 'border-accent text-accent'
+                  : 'text-muted-foreground hover:text-accent'
+              "
               @click="viewMode = 'grid'"
             >
               <UiAppIcon icon="lucide:layout-grid" class="size-5" />
@@ -120,10 +129,18 @@ watch([categoryFilter, employerFilter], () => {
         </div>
 
         <div v-if="viewMode === 'list'" class="flex flex-col gap-4">
-          <CardsProjectCard v-for="project in paginatedProjects" :key="project.id" :project="project" />
+          <CardsProjectCard
+            v-for="project in paginatedProjects"
+            :key="project.id"
+            :project="project"
+          />
         </div>
         <div v-else class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-          <CardsProjectGridCard v-for="project in paginatedProjects" :key="project.id" :project="project" />
+          <CardsProjectGridCard
+            v-for="project in paginatedProjects"
+            :key="project.id"
+            :project="project"
+          />
         </div>
 
         <div v-if="totalPages > 1" class="flex items-center justify-center gap-4">
@@ -155,7 +172,9 @@ watch([categoryFilter, employerFilter], () => {
     <LayoutPageSection bare>
       <UiContainer>
         <section class="flex flex-col items-center gap-4 py-20 text-center">
-          <h2 class="font-sans text-[2.125rem] font-bold leading-[1.1] tracking-[-1px] text-foreground">
+          <h2
+            class="font-sans text-[2.125rem] font-bold leading-[1.1] tracking-[-1px] text-foreground"
+          >
             {{ $t('projectsPage.ctaTitle') }}<span class="text-accent"> ?</span>
           </h2>
           <div class="flex flex-wrap items-center justify-center gap-6">

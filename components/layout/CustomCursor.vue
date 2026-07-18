@@ -49,14 +49,19 @@ onUnmounted(() => {
     <!-- core dot -->
     <div
       class="absolute rounded-full bg-accent transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
-      :class="hovering ? 'size-1.5 -translate-x-1/2 -translate-y-1/2' : 'size-3 -translate-x-1/2 -translate-y-1/2'"
+      :class="
+        hovering
+          ? 'size-1.5 -translate-x-1/2 -translate-y-1/2'
+          : 'size-3 -translate-x-1/2 -translate-y-1/2'
+      "
     />
     <!-- outer ring, pops in with a springy overshoot on hover -->
     <div
       class="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
       :class="
         hovering
-          ? 'size-10 rotate-0 opacity-100 shadow-[0_0_18px_color-mix(in_srgb,var(--accent)_55%,transparent)]'
+          ? 'size-10 rotate-0 opacity-100 ' +
+            'shadow-[0_0_18px_color-mix(in_srgb,var(--accent)_55%,transparent)]'
           : 'size-3 rotate-90 opacity-0'
       "
     />

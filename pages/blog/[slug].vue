@@ -3,7 +3,7 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
 
-const slug = Array.isArray(route.params.slug) ? route.params.slug[0] ?? '' : route.params.slug
+const slug = Array.isArray(route.params.slug) ? (route.params.slug[0] ?? '') : route.params.slug
 
 const article = ref<Article | null>(null)
 const pending = ref(false)
@@ -16,8 +16,7 @@ try {
   pending.value = result.pending.value
   error.value = result.error.value
   status.value = result.status.value
-}
-catch (fetchError) {
+} catch (fetchError) {
   error.value = fetchError
   status.value = 'error'
 }
@@ -44,11 +43,15 @@ const formattedDate = computed(() => {
   )
 })
 
-watch(status, () => {
-  if (status.value === 'success' && !article.value) {
-    showError(createError({ statusCode: 404, statusMessage: t('blog.not_found') }))
-  }
-}, { immediate: true })
+watch(
+  status,
+  () => {
+    if (status.value === 'success' && !article.value) {
+      showError(createError({ statusCode: 404, statusMessage: t('blog.not_found') }))
+    }
+  },
+  { immediate: true },
+)
 
 useSeoMeta({
   title: () => `${article.value ? title.value : t('blog.title')} - Maxime Jolivet`,

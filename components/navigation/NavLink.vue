@@ -9,7 +9,9 @@ const localePath = useLocalePath()
 const route = useRoute()
 
 const target = computed(() => localePath(props.to))
-const resolvedTo = computed(() => (props.hash ? { path: target.value, hash: props.hash } : target.value))
+const resolvedTo = computed(() =>
+  props.hash ? { path: target.value, hash: props.hash } : target.value,
+)
 const isActive = computed(() => !props.hash && route.path === target.value)
 </script>
 

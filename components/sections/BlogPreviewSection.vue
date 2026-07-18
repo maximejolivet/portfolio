@@ -7,8 +7,7 @@ const previewArticles = ref<ArticleSummary[]>([])
 try {
   const { data: articles } = await useArticles()
   previewArticles.value = articles.value.slice(0, 3)
-}
-catch (error) {
+} catch (error) {
   // Supabase isn't configured in this environment - skip the preview gracefully.
   console.error('[home] blog preview unavailable:', (error as Error)?.message ?? error)
 }
@@ -44,8 +43,12 @@ const formattedDate = (value: string) =>
         :to="localePath(`/blog/${slug(article)}`)"
         class="grid items-baseline gap-3 border-b border-border py-5 sm:grid-cols-[120px_1fr]"
       >
-        <span class="font-mono text-[0.7812rem] text-subtle">{{ formattedDate(article.published_at) }}</span>
-        <span class="font-sans text-lg font-bold tracking-[-0.4px] text-foreground hover:text-accent">
+        <span class="font-mono text-[0.7812rem] text-subtle">{{
+          formattedDate(article.published_at)
+        }}</span>
+        <span
+          class="font-sans text-lg font-bold tracking-[-0.4px] text-foreground hover:text-accent"
+        >
           {{ title(article) }}
         </span>
       </NuxtLink>

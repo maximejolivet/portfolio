@@ -1,4 +1,4 @@
-.PHONY: install dev build generate preview deploy lint lintfix test clean
+.PHONY: install dev build generate preview deploy lint lintfix prettier prettier-fix test clean
 
 install:
 	npm install
@@ -23,6 +23,12 @@ lint:
 
 lintfix:
 	npm run lintfix
+
+prettier:
+	npm run prettier
+
+prettier-fix:
+	npm run prettier:fix
 
 test:
 	npm run test
