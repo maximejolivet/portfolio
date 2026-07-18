@@ -5,7 +5,7 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multili
 ![Node.js version](https://img.shields.io/badge/Node-24-5FA04E)
 ![Nuxt version](https://img.shields.io/badge/Nuxt-4-00DC82)
 ![Vue version](https://img.shields.io/badge/Vue-3-4FC08D)
-![TypeScript version](https://img.shields.io/badge/TypeScript-7-3178C6)
+![TypeScript version](https://img.shields.io/badge/TypeScript-5-3178C6)
 ![Vite version](https://img.shields.io/badge/Vite-8-646CFF)
 ![Tailwind version](https://img.shields.io/badge/Tailwind-4-06B6D4)
 ![Pinia version](https://img.shields.io/badge/Pinia-4-FFD859)
@@ -35,12 +35,12 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 ## Pages
 
 | Route (FR)    | Route (EN)    | Contenu                                     |
-| ------------- | ------------- | -------------------------------------------- |
+| ------------- | ------------- | ------------------------------------------- |
 | `/`           | `/`           | Accueil (hero, à propos, expérience, stack) |
-| `/cv`         | `/cv`         | Curriculum vitæ                               |
-| `/projets`    | `/projects`   | Liste des projets                             |
-| `/blog`       | `/blog`       | Liste des articles                            |
-| `/blog/:slug` | `/blog/:slug` | Article de blog                               |
+| `/cv`         | `/cv`         | Curriculum vitæ                             |
+| `/projets`    | `/projects`   | Liste des projets                           |
+| `/blog`       | `/blog`       | Liste des articles                          |
+| `/blog/:slug` | `/blog/:slug` | Article de blog                             |
 
 ## Setup
 
@@ -146,10 +146,35 @@ Le site est déployé sur GitHub Pages via GitHub Actions (`npm run generate`) a
 
 ## Qualité de code
 
+### Linting & formatting
+
 ```bash
-npm run lint       # ESLint
-npm run lintfix    # ESLint --fix (+ Prettier)
-npm run test       # Vitest
+npm run lint           # ESLint only
+npm run lintfix        # ESLint --fix (+ auto-format via Prettier)
+npm run prettier       # Check format (fail on mismatch)
+npm run prettier:fix   # Format files in-place
+npx prettier --check . # Same as npm run prettier
+```
+
+Ou via `Makefile` :
+
+```bash
+make lint          # ESLint only
+make lintfix       # ESLint --fix
+make prettier      # Check format
+make prettier:fix  # Format in-place
+make test          # Vitest
 ```
 
 Pas de point-virgule, guillemets simples, indentation 2 espaces, largeur de ligne 100 (voir `CLAUDE.md` pour le détail des conventions).
+
+## Releases (dev)
+
+Chaque commit bump automatiquement la version patch du `package.json` (hook `pre-commit`) et ajoute un tag ci-dessous (hook `commit-msg`). Historique généré automatiquement, ne pas éditer à la main.
+
+<!-- releases:start -->
+
+![v1.0.2](https://img.shields.io/badge/v1.0.2-2026--07--18-F97316)
+![v1.0.1](https://img.shields.io/badge/v1.0.1-2026--07--18-F97316)
+
+<!-- releases:end -->
