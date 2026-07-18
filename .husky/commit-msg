@@ -1,2 +1,0 @@
-node scripts/update-release-log.mjs "$1"
-git add README.md

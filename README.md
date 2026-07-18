@@ -170,10 +170,12 @@ Pas de point-virgule, guillemets simples, indentation 2 espaces, largeur de lign
 
 ## Releases (dev)
 
-Chaque commit bump automatiquement la version patch du `package.json` (hook `pre-commit`) et ajoute un tag ci-dessous (hook `commit-msg`). Historique généré automatiquement, ne pas éditer à la main.
+Chaque commit bump automatiquement la version patch du `package.json` et ajoute un tag ci-dessous (hook `pre-commit`, `scripts/update-release-log.mjs`). Historique généré automatiquement, ne pas éditer à la main.
 
 <!-- releases:start -->
 
+![v1.0.12](https://img.shields.io/badge/v1.0.12-2026--07--18-F97316)
+![v1.0.11](https://img.shields.io/badge/v1.0.11-2026--07--18-F97316)
 ![v1.0.10](https://img.shields.io/badge/v1.0.10-2026--07--18-F97316)
 ![v1.0.9](https://img.shields.io/badge/v1.0.9-2026--07--18-F97316)
 ![v1.0.7](https://img.shields.io/badge/v1.0.7-2026--07--18-F97316)
@@ -181,7 +183,6 @@ Chaque commit bump automatiquement la version patch du `package.json` (hook `pre
 ![v1.0.5](https://img.shields.io/badge/v1.0.5-2026--07--18-F97316)
 ![v1.0.4](https://img.shields.io/badge/v1.0.4-2026--07--18-F97316)
 ![v1.0.3](https://img.shields.io/badge/v1.0.3-2026--07--18-F97316)
-![v1.0.2](https://img.shields.io/badge/v1.0.2-2026--07--18-F97316)
 ![v1.0.2](https://img.shields.io/badge/v1.0.2-2026--07--18-F97316)
 ![v1.0.1](https://img.shields.io/badge/v1.0.1-2026--07--18-F97316)
 
