@@ -6,15 +6,14 @@ const { t } = useI18n()
 
 <template>
   <LayoutPageSection id="experience" class="pt-24">
-    <UiSectionHeading :title="$t('experienceSection.eyebrow')" diamond="mint" />
+    <UiSectionHeading :title="$t('experienceSection.eyebrow')" icon="lucide:briefcase" diamond="mint" />
 
-    <p class="-mt-6 mb-10 max-w-[560px] text-pretty font-sans text-[1rem] leading-[1.6] text-muted-foreground">
+    <p class="-mt-6 mb-6 max-w-[560px] text-pretty font-sans text-[1rem] leading-[1.6] text-muted-foreground">
       {{ $t('experienceSection.titleStart') }}
-      <span class="text-primary">{{ $t('experienceSection.titleHighlight') }}</span>
-      {{ $t('experienceSection.titleEnd') }}
+      <span class="text-primary">{{ $t('experienceSection.titleHighlight') }}</span>{{ $t('experienceSection.titleEnd') }}
     </p>
 
-    <ol class="flex flex-col divide-y divide-border border-t border-border">
+    <ol class="flex flex-col">
       <li
         v-for="item in EXPERIENCE_TIMELINE"
         :key="item.id"
@@ -38,9 +37,9 @@ const { t } = useI18n()
             <li
               v-for="pointKey in item.descriptionPointsKeys"
               :key="pointKey"
-              class="flex items-baseline gap-2.5 font-sans text-sm leading-[1.5] text-muted-foreground"
+              class="flex items-start gap-2.5 font-sans text-sm leading-[1.5] text-muted-foreground"
             >
-              <span class="text-mint">→</span>
+              <UiAppIcon icon="lucide:arrow-right" class="mt-0.5 size-3.5 shrink-0 text-mint" />
               <span>{{ t(pointKey) }}</span>
             </li>
           </ul>

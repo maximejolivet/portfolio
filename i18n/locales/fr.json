@@ -25,16 +25,18 @@
   "footer": {
     "tagline": "Développeur web full-stack senior / Lead Dev / Tech lead",
     "rights": "",
-    "backToTop": "Retour en haut"
+    "backToTop": "Retour en haut",
+    "legalMentions": "Mentions légales"
   },
   "hero": {
     "greeting": "Bonjour, moi c'est Maxime",
     "role": "Développeur web full-stack senior",
     "location": "Nantes, France",
-    "bio": "Je développe et maintiens des sites produits, de marque, dʼinterfaces utilisateur, e-commerce et dʼoutils métiers.",
+    "bio": "Je développe et maintiens des sites de marque, de produits, dʼinterfaces utilisateur, e-commerce et dʼoutils métiers.",
     "subtitle": "10 ans d'expérience, principalement en agence digitale. Solides compétences PHP et JavaScript, expertise CMS appliquée à des projets complexes et exigeants, avec un souci constant de la qualité du code et de la pérennité des choix techniques.",
     "ctaSecondary": "Voir les projets",
-    "ctaContact": "me contacter"
+    "ctaContact": "me contacter",
+    "underConstructionNote": "site toujours en construction 🚧"
 
   },
   "aboutSection": {
@@ -117,7 +119,7 @@
     "items": {
       "gingerminds": {
         "period": "2017 - 2026",
-        "title": "Développeur web full-stack senior ",
+        "title": "Développeur web full-stack senior",
         "organization": "Gingerminds",
         "location": "Nantes (Hybride) · Agence digitale",
         "intro": "Contribution à plus de 50 projets de clients dans des secteurs variés, Bâtiment, Industrie, Santé, Énergie, Mutuelles et assurances, Agricultures / Agro-alimentaire dont une grande partie est toujours en production aujourd’hui.",
@@ -164,8 +166,15 @@
   },
   "projectsPage": {
     "eyebrow": "PROJETS",
-    "title": "Du travail sélectionné",
-    "subtitle": "Premier projet détaillé en ligne - les autres fiches arrivent bientôt.",
+    "title": "Mes réalisations",
+    "subtitle": "Découvrez une sélection de projets auxquels j'ai participé. Ces références reflètent mon expérience sur des applications et plateformes développées pour des clients des secteurs du",
+    "subtitleSectors": "bâtiment, de l'industrie, de la santé, de l'énergie, des mutuelles et assurances, ainsi que de l'agriculture et de l'agroalimentaire",
+    "subtitleClosing": "Une grande partie de ces solutions est encore utilisée en production aujourd'hui.",
+    "categoryPro": "Pro",
+    "categoryPersonal": "Perso",
+    "filterAll": "Tous",
+    "viewGrid": "Vue grille",
+    "viewList": "Vue liste",
     "ctaTitle": "Un projet en tête",
     "backToList": "tous les projets",
     "viewProject": "voir le projet",
@@ -234,12 +243,30 @@
        ""
       ],
       "resultat": "","role": "", "duree": "", "equipe": ""
+    },
+    "portfolio": {
+      "type": "Nuxt / Vue",
+      "title": "Ce portfolio",
+      "tagline": "Mon site personnel : portfolio, CV interactif et blog technique, conçu et développé de A à Z.",
+      "impact": "En ligne et maintenu en continu",
+      "contexte": "Après plusieurs refontes, je voulais un site qui reflète à la fois mon métier de développeur et ma sensibilité design : rapide, accessible, bilingue, et facile à faire évoluer au fil de mes projets et articles.",
+      "solution": "Un site Nuxt 4 généré statiquement et déployé sur GitHub Pages, avec un design system Tailwind v4 + shadcn-vue, un blog alimenté par Supabase, et une interface entièrement bilingue français/anglais.",
+      "points": [
+        "Nuxt 4 en génération statique (SSG), déployé automatiquement sur GitHub Pages via GitHub Actions",
+        "Design system Tailwind v4 + shadcn-vue (Reka UI), thème clair/sombre",
+        "Blog piloté par Supabase, articles bilingues gérés via une table de données",
+        "Internationalisation complète FR/EN avec routes localisées (/fr, /en)"
+      ],
+      "resultat": "Un site rapide et entièrement statique, facile à maintenir, qui sert à la fois de vitrine, de CV interactif et de terrain d'expérimentation pour de nouvelles pratiques front-end.",
+      "role": "conception & développement full-stack",
+      "duree": "en continu depuis 2026",
+      "equipe": "solo"
     }
   },
   "home": {
     "projects": {
       "sectionTitle": "Projets",
-      "viewAll": "tous les projets →"
+      "viewAll": "tous les projets"
     },
     "now": {
       "sectionTitle": "En ce moment",
@@ -268,12 +295,13 @@
     },
     "blog": {
       "sectionTitle": "Blog",
-      "viewAll": "tout le blog →"
+      "viewAll": "tout le blog"
     },
     "contact": {
       "eyebrow": "CONTACT",
       "title": "Construisons la suite ensemble",
-      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer · Tech Lead · IA & Prompt Engineering",
+      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer",
+      "subtitleSecondary": "Tech Lead · IA & Prompt Engineering",
       "bookCall": "Prendre rendez-vous"
     }
   },
@@ -298,11 +326,65 @@
     "title": "Ce que le code m'apprend",
     "subtitle": "Retours d'expérience concrets sur les migrations, le CSS moderne, l'outillage et l'IA. Pas de listicles, juste des analyses, des expérimentations et des solutions éprouvées sur des projets réels.",
     "back_to_list": "tous les articles",
-    "read_more": "lire l'article →",
+    "read_more": "lire l'article",
     "loading": "Chargement des articles...",
     "empty": "Aucun article pour le moment, revenez bientôt.",
     "error": "Une erreur est survenue lors du chargement des articles.",
     "not_found": "Cet article n'existe pas."
+  },
+  "legalPage": {
+    "eyebrow": "JURIDIQUE",
+    "title": "Mentions légales",
+    "updated": "Dernière mise à jour : juillet 2026",
+    "sections": {
+      "editor": {
+        "title": "Éditeur du site",
+        "intro": "Le présent site est édité à titre personnel par Maxime Jolivet.",
+        "items": ["Nom : Maxime Jolivet", "Email : {email}"]
+      },
+      "publication": {
+        "title": "Directeur de la publication",
+        "body": "Le directeur de la publication est Maxime Jolivet."
+      },
+      "hosting": {
+        "title": "Hébergement",
+        "intro": "Le site est hébergé par Vercel Inc., plateforme d'hébergement SaaS.",
+        "items": ["340 S Lemon Ave #4133", "Walnut, CA 91789", "États-Unis"],
+        "body": "Le déploiement du site est automatisé via GitHub Actions."
+      },
+      "technologies": {
+        "title": "Technologies",
+        "body": "Ce site a été conçu et développé par Maxime Jolivet. Son développement a été orchestré avec l'assistance de Claude (Anthropic) pour certaines étapes de conception, de développement et de rédaction. Les choix techniques, le contenu et la validation finale restent ceux de l'éditeur."
+      },
+      "data": {
+        "title": "Données personnelles",
+        "intro": "Ce site ne collecte aucune donnée personnelle à des fins publicitaires ou de profilage.",
+        "body": "Les seules données susceptibles d'être recueillies sont celles que vous transmettez volontairement par email ou via le formulaire de contact ou de prise de rendez-vous. Elles sont utilisées uniquement pour répondre à votre demande et ne sont ni vendues ni cédées à des tiers.",
+        "closing": "Conformément au Règlement général sur la protection des données (RGPD), vous pouvez exercer vos droits d'accès, de rectification, d'effacement ou d'opposition en écrivant à {email}."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "intro": "Ce site n'utilise pas de cookies publicitaires ni d'outil de mesure d'audience.",
+        "body": "Seuls des cookies strictement nécessaires au fonctionnement du site peuvent être déposés, notamment pour mémoriser votre préférence de langue."
+      },
+      "ip": {
+        "title": "Propriété intellectuelle",
+        "intro": "Sauf mention contraire, l'ensemble des contenus présents sur ce site (textes, images, illustrations, logos, code source et autres éléments) est protégé par le droit de la propriété intellectuelle.",
+        "body": "Toute reproduction, représentation, modification ou diffusion, totale ou partielle, sans autorisation préalable est interdite."
+      },
+      "links": {
+        "title": "Liens hypertextes",
+        "body": "Le site peut contenir des liens vers des sites tiers. L'éditeur ne peut être tenu responsable du contenu ou des pratiques de ces sites externes."
+      },
+      "liability": {
+        "title": "Responsabilité",
+        "body": "Les informations publiées sur ce site sont fournies à titre indicatif. Malgré le soin apporté à leur exactitude, elles peuvent contenir des erreurs ou devenir obsolètes. L'éditeur ne saurait être tenu responsable des conséquences résultant de leur utilisation."
+      },
+      "law": {
+        "title": "Droit applicable",
+        "body": "Les présentes mentions légales sont régies par le droit français."
+      }
+    }
   },
   "error": {
     "back_home": "Retour à l'accueil",

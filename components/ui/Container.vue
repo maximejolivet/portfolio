@@ -11,7 +11,7 @@ const props = withDefaults(
 </script>
 
 <template>
-  <component :is="as" :class="cn('mx-auto w-full max-w-[1180px] px-8', props.class)">
+  <component :is="as" :class="cn('mx-auto w-full max-w-[1180px] px-4', props.class)">
     <slot />
   </component>
 </template>

@@ -36,9 +36,11 @@ function close() {
           :key="item.id"
           :to="item.to"
           :hash="item.hash"
+          :icon="item.icon"
+          :aria-label="item.iconOnly ? $t(item.labelKey) : undefined"
           @click="close"
         >
-          {{ $t(item.labelKey) }}
+          <template v-if="!item.iconOnly">{{ $t(item.labelKey) }}</template>
         </NavigationNavLink>
         <NavigationLocaleSwitcher class="self-start" />
       </div>

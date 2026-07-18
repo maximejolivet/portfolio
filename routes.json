@@ -22,5 +22,9 @@
   "blog-slug": {
     "en": "/blog/[slug]",
     "fr": "/blog/[slug]"
+  },
+  "mentions-legales": {
+    "en": "/legal-notice",
+    "fr": "/mentions-legales"
   }
 }

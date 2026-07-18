@@ -26,7 +26,7 @@ function asDots(text: string) {
 
 <template>
   <div
-    class="flex min-w-0 flex-col justify-center overflow-hidden bg-panel pl-4 pr-0 px-4 py-14 font-mono text-[clamp(0.7812rem,1vw,0.9375rem)] leading-[2.05] text-panel-foreground sm:px-12"
+    class="flex min-w-0 flex-col justify-center overflow-hidden bg-panel pl-4 pr-0 py-14 font-mono text-[clamp(0.7812rem,1vw,0.9375rem)] leading-[2.05] text-panel-foreground md:pl-12"
   >
     <div class="overflow-x-auto">
       <div v-for="(line, i) in lines" :key="i" class="w-max whitespace-pre">
@@ -45,7 +45,7 @@ function asDots(text: string) {
         </template>
         <span
           v-if="line.statusDot"
-          class="ml-2.5 inline-block size-2 animate-pulse-dot rounded-full bg-accent align-middle"
+          class="ml-2.5 inline-block size-2 animate-pulse-dot rounded-full bg-red-500 align-middle"
         />
         <span v-if="line.cursor" class="animate-blink text-panel-foreground"> ▎</span>
         <span class="ml-1 text-panel-foreground/15">¬</span>

@@ -4,6 +4,9 @@ export interface CaseStudy {
   year: string
   dot: 'mint' | 'gold'
   live: boolean
+  category: 'pro' | 'personal'
+  company?: string
+  employer?: string
   image?: string
   tags: string[]
   typeKey: string
@@ -26,6 +29,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2025',
     dot: 'mint',
     live: false,
+    category: 'pro',
+    company: 'Saur',
+    employer: 'Gingerminds',
     tags: ['WordPress'],
     typeKey: 'projects.saur.type',
     titleKey: 'projects.saur.title',
@@ -50,6 +56,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2024',
     dot: 'mint',
     live: true,
+    category: 'pro',
+    company: 'Vygon',
+    employer: 'Gingerminds',
     image: '/projects/vygon.jpg',
     tags: ['Drupal', 'Multilingue', 'Multi-site', 'Catalogue produits', 'Site corporate', 'Site de marque'],
     typeKey: 'projects.vygon.type',
@@ -75,6 +84,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2019',
     dot: 'gold',
     live: false,
+    category: 'pro',
+    company: 'PiLeJe',
+    employer: 'Gingerminds',
     tags: ['Drupal', 'Multilingue', 'Multi-site', 'Site corporate', 'Site de marque'],
     typeKey: 'projects.pileje.type',
     titleKey: 'projects.pileje.title',
@@ -92,5 +104,30 @@ export const CASE_STUDIES: CaseStudy[] = [
     roleKey: 'projects.pileje.role',
     dureeKey: 'projects.pileje.duree',
     equipeKey: 'projects.pileje.equipe',
+  },
+  {
+    id: 'portfolio',
+    slug: 'portfolio',
+    year: '2026',
+    dot: 'mint',
+    live: true,
+    category: 'personal',
+    tags: ['Nuxt 4', 'Vue 3', 'Tailwind v4', 'shadcn-vue', 'Supabase', 'i18n'],
+    typeKey: 'projects.portfolio.type',
+    titleKey: 'projects.portfolio.title',
+    taglineKey: 'projects.portfolio.tagline',
+    impactKey: 'projects.portfolio.impact',
+    contexteKey: 'projects.portfolio.contexte',
+    solutionKey: 'projects.portfolio.solution',
+    pointsKeys: [
+      'projects.portfolio.points.0',
+      'projects.portfolio.points.1',
+      'projects.portfolio.points.2',
+      'projects.portfolio.points.3',
+    ],
+    resultatKey: 'projects.portfolio.resultat',
+    roleKey: 'projects.portfolio.role',
+    dureeKey: 'projects.portfolio.duree',
+    equipeKey: 'projects.portfolio.equipe',
   },
 ]

@@ -2,6 +2,7 @@
 withDefaults(
   defineProps<{
     title: string
+    icon: string
     diamond?: 'gold' | 'mint'
     caption?: string
   }>(),
@@ -10,11 +11,12 @@ withDefaults(
 </script>
 
 <template>
-  <div class="mb-10 flex items-baseline gap-4">
-    <span
-      class="font-sans text-[1rem] font-bold"
+  <div class="mb-10 flex items-center gap-4">
+    <UiAppIcon
+      :icon="icon"
+      class="size-8 shrink-0"
       :class="diamond === 'mint' ? 'text-mint' : 'text-primary'"
-    >◆</span>
+    />
     <h2 class="font-sans text-[2rem] font-bold leading-[1.1] tracking-tight text-foreground">
       {{ title }}
     </h2>

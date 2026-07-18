@@ -65,9 +65,9 @@ useSeoMeta({
         <div class="pb-12 pt-16">
           <NuxtLink
             :to="localePath('blog')"
-            class="font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+            class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
           >
-            ← {{ $t('blog.back_to_list') }}
+            <UiAppIcon icon="lucide:arrow-left" class="size-3" />{{ $t('blog.back_to_list') }}
           </NuxtLink>
         </div>
 

@@ -32,7 +32,7 @@ const dateKey = 'text-rose-300'
 const punct = 'text-destructive/80'
 
 const jsonLines = computed<JsonLine[]>(() => {
-  const experienceRows = EXPERIENCE_TIMELINE.slice(0, 3).map((item) => ({
+  const experienceRows = EXPERIENCE_TIMELINE.map((item) => ({
     period: t(item.periodKey),
     title: t(item.titleKey),
     organization: t(item.organizationKey),
@@ -112,9 +112,18 @@ const jsonLines = computed<JsonLine[]>(() => {
         indent1,
         { text: 'availability', class: key },
         { text: ': ', class: punct },
-        { text: `"${AVAILABILITY_STATUS}"`, class: str },
+        { text: `"${AVAILABILITY_STATUS}"`, class: 'text-mint' },
+        { text: ',', class: punct },
       ],
       statusDot: true,
+    },
+    {
+      tokens: [
+        indent1,
+        { text: 'note', class: key },
+        { text: ': ', class: punct },
+        { text: `"${t('hero.underConstructionNote')}"`, class: str },
+      ],
       cursor: true,
     },
     { tokens: [{ text: '}', class: punct }] },
@@ -124,7 +133,7 @@ const jsonLines = computed<JsonLine[]>(() => {
 
 <template>
   <section>
-    <div class="grid min-h-[620px] md:grid-cols-2">
+    <div class="grid min-h-[620px] md:grid-cols-[2fr_3fr]">
       <div class="flex flex-col justify-center gap-6 px-8 py-16 sm:px-18">
         <h1
           class="text-balance font-sans text-[clamp(2.5rem,4.4vw,3.875rem)] font-bold leading-[1.1] tracking-[-1.8px] text-foreground"
@@ -134,7 +143,7 @@ const jsonLines = computed<JsonLine[]>(() => {
         <p class="max-w-[440px] text-pretty font-sans text-base leading-[1.68] text-muted-foreground">
           {{ $t('hero.bio') }}
         </p>
-        <div class="mt-1.5 flex items-center gap-5">
+        <div class="mt-1.5 flex flex-wrap items-center gap-5">
           <UiButton :to="localePath('projects')" icon="lucide:arrow-right">
             {{ $t('hero.ctaSecondary') }}
           </UiButton>
@@ -160,7 +169,7 @@ const jsonLines = computed<JsonLine[]>(() => {
           :allow-touch-move="false"
           :autoplay="marqueeAutoplay"
         >
-          <swiper-slide v-for="(name, i) in MARQUEE_LOOP_STACK" :key="`${i}-${name}`" class="w-auto">
+          <swiper-slide v-for="(name, i) in MARQUEE_LOOP_STACK" :key="`${i}-${name}`" class="w-auto pl-8">
             <span
               class="whitespace-nowrap font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
             >{{ name.toUpperCase() }}</span>
