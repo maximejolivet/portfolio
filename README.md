@@ -175,6 +175,7 @@ Chaque commit bump automatiquement la version patch du `package.json` (hook `pre
 <!-- releases:start -->
 
 ![v1.0.2](https://img.shields.io/badge/v1.0.2-2026--07--18-F97316)
+![v1.0.2](https://img.shields.io/badge/v1.0.2-2026--07--18-F97316)
 ![v1.0.1](https://img.shields.io/badge/v1.0.1-2026--07--18-F97316)
 
 <!-- releases:end -->
