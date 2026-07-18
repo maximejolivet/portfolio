@@ -46,8 +46,7 @@ watch([categoryFilter, employerFilter], () => {
     <SectionsPageIntro :eyebrow="$t('projectsPage.eyebrow')" :title="$t('projectsPage.title')">
       <template #subtitle>
         {{ $t('projectsPage.subtitle') }}
-        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleSectors') }}</strong
-        >.
+        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleSectors') }}</strong>.
         <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleClosing') }}</strong>
       </template>
     </SectionsPageIntro>
@@ -186,7 +185,7 @@ watch([categoryFilter, employerFilter], () => {
               icon="lucide:arrow-right"
               :data-cal-link="CAL_LINK"
               :data-cal-namespace="CAL_NAMESPACE"
-              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
             >
               {{ $t('home.contact.bookCall') }}
             </UiButton>

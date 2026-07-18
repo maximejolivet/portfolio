@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { NAV_ITEMS } from '~/constants/nav'
 
+const localePath = useLocalePath()
+const route = useRoute()
+
 const isOpen = ref(false)
 
 function close() {
   isOpen.value = false
+}
+
+function isActive(item: (typeof NAV_ITEMS)[number]) {
+  return !item.hash && route.path === localePath(item.to)
 }
 </script>
 
@@ -29,19 +36,26 @@ function close() {
     >
       <div
         v-if="isOpen"
-        class="absolute right-0 top-[calc(100%+10px)] z-50 flex w-48 flex-col gap-4 rounded-2xl border border-border bg-background p-5 shadow-lg"
+        class="absolute right-0 top-[calc(100%+25px)] z-50 flex w-56 flex-col gap-1 rounded-2xl border border-border bg-background p-2 shadow-lg"
       >
-        <NavigationNavLink
+        <NuxtLink
           v-for="item in NAV_ITEMS"
           :key="item.id"
-          :to="item.to"
-          :hash="item.hash"
-          :icon="item.icon"
-          :aria-label="item.iconOnly ? $t(item.labelKey) : undefined"
+          :to="item.hash ? { path: localePath(item.to), hash: item.hash } : localePath(item.to)"
+          class="flex items-center gap-2.5 rounded-full px-3.5 py-2 font-mono text-xs font-semibold transition-colors"
+          :class="
+            isActive(item)
+              ? 'bg-primary text-primary-foreground'
+              : 'text-muted-foreground hover:bg-accent/10 hover:text-accent'
+          "
           @click="close"
         >
-          <template v-if="!item.iconOnly">{{ $t(item.labelKey) }}</template>
-        </NavigationNavLink>
+          <UiAppIcon v-if="item.icon" :icon="item.icon" class="size-3.5" />
+          {{ $t(item.labelKey) }}
+        </NuxtLink>
+
+        <div class="my-1 border-t border-border" />
+
         <NavigationLocaleSwitcher class="self-start" />
       </div>
     </Transition>

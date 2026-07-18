@@ -15,8 +15,8 @@ withDefaults(
   <div
     :class="
       cn(
-        'relative flex items-center justify-center overflow-hidden rounded-2xl border ' +
-          'border-border',
+        'relative flex items-center justify-center overflow-hidden rounded-2xl border '
+          + 'border-border',
         'bg-[repeating-linear-gradient(45deg,var(--stripe)_0_10px,transparent_10px_22px)]',
         $props.class,
       )

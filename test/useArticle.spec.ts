@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { fetchArticle } from '../composables/useArticle'
 
-const mockSupabase = (result: { data: unknown; error: unknown }) => {
+const mockSupabase = (result: { data: unknown, error: unknown }) => {
   const query = {
     select: () => query,
     eq: () => query,

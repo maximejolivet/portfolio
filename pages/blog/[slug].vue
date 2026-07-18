@@ -16,7 +16,8 @@ try {
   pending.value = result.pending.value
   error.value = result.error.value
   status.value = result.status.value
-} catch (fetchError) {
+}
+catch (fetchError) {
   error.value = fetchError
   status.value = 'error'
 }
@@ -65,7 +66,7 @@ useSeoMeta({
   <div>
     <LayoutPageSection bare>
       <UiContainer class="max-w-[880px]">
-        <div class="pb-12 pt-16">
+        <div class="py-8">
           <NuxtLink
             :to="localePath('blog')"
             class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"

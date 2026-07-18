@@ -21,7 +21,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+  <div class="fixed bottom-4 right-4 md:bottom-4 md:right-6 z-50 flex flex-col items-end gap-3">
     <div class="group relative flex items-center">
       <span
         class="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full bg-foreground px-3 py-1.5 font-sans text-xs font-semibold text-background opacity-0 transition-opacity duration-200 group-hover:opacity-100"
@@ -30,12 +30,12 @@ onUnmounted(() => {
       </span>
       <button
         type="button"
-        class="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 md:size-14 cursor-pointer"
+        class="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent md:size-14 cursor-pointer"
         :aria-label="$t('home.contact.bookCall')"
         :data-cal-link="CAL_LINK"
         :data-cal-namespace="CAL_NAMESPACE"
-        data-cal-config='{"layout":"month_view",
-          "useSlotsViewOnSmallScreen":"true"}'
+        data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,
+          &quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
       >
         <UiAppIcon icon="lucide:calendar" class="size-4 md:size-5" />
       </button>
@@ -52,7 +52,7 @@ onUnmounted(() => {
       <button
         v-if="showBackToTop"
         type="button"
-        class="hidden size-14 items-center justify-center rounded-full border border-border bg-background text-foreground shadow-md transition-colors hover:text-accent md:flex cursor-pointer"
+        class="hidden size-14 items-center justify-center rounded-full border border-black bg-background text-foreground shadow-md transition-colors hover:text-accent md:flex cursor-pointer"
         :aria-label="$t('footer.backToTop')"
         @click="scrollToTop"
       >

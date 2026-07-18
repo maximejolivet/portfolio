@@ -17,7 +17,8 @@ try {
   articles.value = result.data.value
   pending.value = result.pending.value
   error.value = result.error.value
-} catch (fetchError) {
+}
+catch (fetchError) {
   error.value = fetchError
 }
 
