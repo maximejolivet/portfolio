@@ -32,7 +32,9 @@ function asDots(text: string) {
       <div v-for="(line, i) in lines" :key="i" class="w-max whitespace-pre">
         <span class="mr-5 inline-block w-6 text-right text-panel-foreground/25">{{ i + 1 }}</span>
         <template v-for="(token, ti) in line.tokens" :key="ti">
-          <span v-if="isIndent(token)" class="text-panel-foreground/20">{{ asDots(token.text) }}</span>
+          <span v-if="isIndent(token)" class="text-panel-foreground/20">{{
+            asDots(token.text)
+          }}</span>
           <a
             v-else-if="token.href"
             :href="token.href"
@@ -40,7 +42,8 @@ function asDots(text: string) {
             rel="noopener noreferrer"
             :class="token.class ?? 'text-panel-foreground/60'"
             class="underline decoration-dotted underline-offset-2 hover:text-mint"
-          >{{ token.text }}</a>
+            >{{ token.text }}</a
+          >
           <span v-else :class="token.class ?? 'text-panel-foreground/60'">{{ token.text }}</span>
         </template>
         <span

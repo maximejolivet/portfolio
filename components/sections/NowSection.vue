@@ -9,7 +9,6 @@ const currentMonth = computed(() =>
     year: 'numeric',
   }).format(new Date()),
 )
-
 </script>
 
 <template>
@@ -21,7 +20,9 @@ const currentMonth = computed(() =>
           {{ $t('home.now.sectionTitle') }}
         </h2>
         <div class="h-px flex-1 bg-panel-foreground/[0.18]" />
-        <span class="hidden font-mono text-xs text-panel-foreground/50 sm:inline">{{ currentMonth }}</span>
+        <span class="hidden font-mono text-xs text-panel-foreground/50 sm:inline">{{
+          currentMonth
+        }}</span>
       </div>
 
       <div class="grid gap-9 sm:grid-cols-2 lg:grid-cols-4">

@@ -21,7 +21,11 @@ const { t } = useI18n()
       <div class="mb-2 font-mono text-xs font-semibold text-subtle">
         {{ $t('clientsSection.eyebrow') }}
       </div>
-      <UiSectionHeading :title="$t('clientsSection.title')" icon="lucide:building-2" diamond="gold" />
+      <UiSectionHeading
+        :title="$t('clientsSection.title')"
+        icon="lucide:building-2"
+        diamond="gold"
+      />
 
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <CardsClientSectorCard

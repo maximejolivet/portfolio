@@ -1,16 +1,12 @@
 // Adds a shields.io badge for the current version to the "Releases (dev)"
-// section of README.md. Invoked by .husky/commit-msg, after .husky/pre-commit
-// has already bumped package.json.
+// section of README.md. Invoked by .husky/pre-commit, right after it bumps
+// package.json - a commit-msg hook can't do this because git already froze
+// the commit tree by the time commit-msg runs, so `git add` there is a no-op.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const commitMsgFile = process.argv[2]
-
-if (!commitMsgFile) {
-  process.exit(0)
-}
 
 const { version } = JSON.parse(readFileSync(path.join(rootDir, 'package.json'), 'utf8'))
 

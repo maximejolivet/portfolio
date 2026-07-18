@@ -21,7 +21,8 @@ const tagKeys = [
           class="text-balance font-sans text-[1.5rem] font-bold leading-[1.35] tracking-[-0.4px] text-foreground"
         >
           {{ $t('aboutSection.titleStart') }}
-          <span class="text-primary">{{ $t('aboutSection.titleHighlight') }}</span>{{ $t('aboutSection.titleEnd') }}
+          <span class="text-primary">{{ $t('aboutSection.titleHighlight') }}</span
+          >{{ $t('aboutSection.titleEnd') }}
         </h3>
 
         <p class="text-pretty font-sans text-[1rem] leading-[1.75] text-muted-foreground">

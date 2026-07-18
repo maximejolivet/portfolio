@@ -140,7 +140,9 @@ const jsonLines = computed<JsonLine[]>(() => {
         >
           {{ $t('hero.greeting') }}<span class="text-accent">.</span>
         </h1>
-        <p class="max-w-[440px] text-pretty font-sans text-base leading-[1.68] text-muted-foreground">
+        <p
+          class="max-w-[440px] text-pretty font-sans text-base leading-[1.68] text-muted-foreground"
+        >
           {{ $t('hero.bio') }}
         </p>
         <div class="mt-1.5 flex flex-wrap items-center gap-5">
@@ -169,10 +171,15 @@ const jsonLines = computed<JsonLine[]>(() => {
           :allow-touch-move="false"
           :autoplay="marqueeAutoplay"
         >
-          <swiper-slide v-for="(name, i) in MARQUEE_LOOP_STACK" :key="`${i}-${name}`" class="w-auto pl-8">
+          <swiper-slide
+            v-for="(name, i) in MARQUEE_LOOP_STACK"
+            :key="`${i}-${name}`"
+            class="w-auto pl-8"
+          >
             <span
               class="whitespace-nowrap font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
-            >{{ name.toUpperCase() }}</span>
+              >{{ name.toUpperCase() }}</span
+            >
           </swiper-slide>
         </swiper-container>
       </div>
@@ -185,7 +192,8 @@ const jsonLines = computed<JsonLine[]>(() => {
                 v-for="name in MARQUEE_STACK"
                 :key="`${rep}-${name}`"
                 class="font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
-              >{{ name.toUpperCase() }}</span>
+                >{{ name.toUpperCase() }}</span
+              >
             </div>
           </div>
         </div>

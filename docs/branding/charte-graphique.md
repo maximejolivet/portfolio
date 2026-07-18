@@ -33,22 +33,22 @@ L'ADN se résume en trois idées :
 
 ### Public cible
 
-| Cible | Ce qu'elle cherche | Ce que le portfolio doit prouver |
-|---|---|---|
-| **Décideurs techniques/marketing en agence ou entreprise B2B** | Un développeur senior fiable pour une mission ou un projet complexe (souvent CMS) | Études de cas concrètes, stack maîtrisée, expérience longue |
-| **Recruteurs / responsables techniques (poste salarié)** | Un profil senior capable d'autonomie et de leadership technique | Parcours (5 postes, `ExperienceSection`), CV téléchargeable, stack complète (`TechStackSection`, 9 catégories) |
+| Cible                                                          | Ce qu'elle cherche                                                                | Ce que le portfolio doit prouver                                                                               |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Décideurs techniques/marketing en agence ou entreprise B2B** | Un développeur senior fiable pour une mission ou un projet complexe (souvent CMS) | Études de cas concrètes, stack maîtrisée, expérience longue                                                    |
+| **Recruteurs / responsables techniques (poste salarié)**       | Un profil senior capable d'autonomie et de leadership technique                   | Parcours (5 postes, `ExperienceSection`), CV téléchargeable, stack complète (`TechStackSection`, 9 catégories) |
 
 Le site ne tranche pas entre les deux cibles — il documente honnêtement un parcours et laisse chaque visiteur y projeter son propre besoin (mission ou embauche).
 
 ### Personnalité de marque
 
-| Trait | Se traduit par | Ne se traduit PAS par |
-|---|---|---|
-| **Rigoureux** | Code den qualité, palette et typo cohérentes partout, accessibilité pensée (contrastes, focus visibles) | Rigidité visuelle, absence de personnalité |
-| **Chaleureux** | Gold + mint, portrait souriant sur fond couleur de marque, formulations directes et personnelles ("Bonjour, moi c'est Maxime") | Familiarité excessive, ton "startup fun" artificiel |
-| **Technique sans être froid** | JetBrains Mono sur les métadonnées (clin d'œil constant au métier), logo en chevrons de code | Jargon technique imposé au visiteur non-dev |
-| **Honnête** | Placeholders explicites ("capture - bientôt"), badge "site en construction 🚧", captures brutes sans mockup | Sur-promesse, mise en scène artificielle du travail |
-| **Discret** | Site volontairement `noindex, nofollow` — pas une vitrine de visibilité SEO mais un support de conversation avec des interlocuteurs déjà en contact | Recherche d'audience large |
+| Trait                         | Se traduit par                                                                                                                                      | Ne se traduit PAS par                               |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| **Rigoureux**                 | Code den qualité, palette et typo cohérentes partout, accessibilité pensée (contrastes, focus visibles)                                             | Rigidité visuelle, absence de personnalité          |
+| **Chaleureux**                | Gold + mint, portrait souriant sur fond couleur de marque, formulations directes et personnelles ("Bonjour, moi c'est Maxime")                      | Familiarité excessive, ton "startup fun" artificiel |
+| **Technique sans être froid** | JetBrains Mono sur les métadonnées (clin d'œil constant au métier), logo en chevrons de code                                                        | Jargon technique imposé au visiteur non-dev         |
+| **Honnête**                   | Placeholders explicites ("capture - bientôt"), badge "site en construction 🚧", captures brutes sans mockup                                         | Sur-promesse, mise en scène artificielle du travail |
+| **Discret**                   | Site volontairement `noindex, nofollow` — pas une vitrine de visibilité SEO mais un support de conversation avec des interlocuteurs déjà en contact | Recherche d'audience large                          |
 
 ### Univers graphique
 
@@ -120,22 +120,22 @@ The DNA boils down to three ideas:
 
 ### Target audience
 
-| Audience | What they're looking for | What the portfolio must prove |
-|---|---|---|
-| **Technical/marketing decision-makers at an agency or B2B company** | A reliable senior developer for a complex mission or project (often CMS) | Concrete case studies, mastered stack, long track record |
-| **Recruiters / technical managers (salaried role)** | A senior profile capable of autonomy and technical leadership | Career path (5 roles, `ExperienceSection`), downloadable CV, full stack breakdown (`TechStackSection`, 9 categories) |
+| Audience                                                            | What they're looking for                                                 | What the portfolio must prove                                                                                        |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| **Technical/marketing decision-makers at an agency or B2B company** | A reliable senior developer for a complex mission or project (often CMS) | Concrete case studies, mastered stack, long track record                                                             |
+| **Recruiters / technical managers (salaried role)**                 | A senior profile capable of autonomy and technical leadership            | Career path (5 roles, `ExperienceSection`), downloadable CV, full stack breakdown (`TechStackSection`, 9 categories) |
 
 The site doesn't pick a side between the two audiences — it honestly documents a career and lets each visitor project their own need onto it (mission or hire).
 
 ### Brand personality
 
-| Trait | Translates into | Does NOT translate into |
-|---|---|---|
-| **Rigorous** | Quality code, palette and type consistent everywhere, accessibility built in (contrasts, visible focus) | Visual rigidity, lack of personality |
-| **Warm** | Gold + mint, smiling portrait on brand-color background, direct and personal phrasing ("Hi, I'm Maxime") | Excessive familiarity, artificial "startup fun" tone |
-| **Technical without being cold** | JetBrains Mono on metadata (a constant nod to the trade), logo built from code chevrons | Technical jargon imposed on non-dev visitors |
-| **Honest** | Explicit placeholders ("capture coming soon"), "site under construction 🚧" badge, raw captures with no mockup staging | Overpromising, artificially staging the work |
-| **Discreet** | Site deliberately set to `noindex, nofollow` — not an SEO visibility showcase but a conversation aid with people already in contact | Chasing broad reach |
+| Trait                            | Translates into                                                                                                                     | Does NOT translate into                              |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| **Rigorous**                     | Quality code, palette and type consistent everywhere, accessibility built in (contrasts, visible focus)                             | Visual rigidity, lack of personality                 |
+| **Warm**                         | Gold + mint, smiling portrait on brand-color background, direct and personal phrasing ("Hi, I'm Maxime")                            | Excessive familiarity, artificial "startup fun" tone |
+| **Technical without being cold** | JetBrains Mono on metadata (a constant nod to the trade), logo built from code chevrons                                             | Technical jargon imposed on non-dev visitors         |
+| **Honest**                       | Explicit placeholders ("capture coming soon"), "site under construction 🚧" badge, raw captures with no mockup staging              | Overpromising, artificially staging the work         |
+| **Discreet**                     | Site deliberately set to `noindex, nofollow` — not an SEO visibility showcase but a conversation aid with people already in contact | Chasing broad reach                                  |
 
 ### Visual world
 

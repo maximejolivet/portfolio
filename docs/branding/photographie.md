@@ -17,16 +17,16 @@ Il n'y a **pas** de photographie de stock, de lifestyle, ou d'illustration déco
 
 ### Portrait de référence (analysé depuis l'asset réel)
 
-| Critère | Traitement observé |
-|---|---|
-| **Fond** | Uni, couleur pleine — **le gold de marque** (`#EFC78A`/`--gold`) directement comme fond de studio, pas un fond neutre gris. Le portrait *porte* la couleur de marque plutôt que de simplement y être posé à côté. |
-| **Cadrage** | Buste serré, tête légèrement au-dessus du centre, format portrait carré/vertical |
-| **Posture** | Face caméra, épaules légèrement de trois-quarts, regard direct |
-| **Expression** | Sourire ouvert, naturel — approchable, pas de pose corporate rigide |
-| **Lumière** | Douce, diffuse, sans ombre dure visible sur le visage — lumière de studio type softbox frontale |
-| **Contraste** | Modéré — la peau garde ses nuances, pas de look "flash direct" écrasé |
-| **Tenue** | Polo noir uni — sobre, professionnel sans costume-cravate, cohérent avec un profil tech/dev plutôt que corporate classique |
-| **Retouche** | Légère, naturelle — pas de lissage de peau excessif ni de correction visible |
+| Critère        | Traitement observé                                                                                                                                                                                                |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Fond**       | Uni, couleur pleine — **le gold de marque** (`#EFC78A`/`--gold`) directement comme fond de studio, pas un fond neutre gris. Le portrait _porte_ la couleur de marque plutôt que de simplement y être posé à côté. |
+| **Cadrage**    | Buste serré, tête légèrement au-dessus du centre, format portrait carré/vertical                                                                                                                                  |
+| **Posture**    | Face caméra, épaules légèrement de trois-quarts, regard direct                                                                                                                                                    |
+| **Expression** | Sourire ouvert, naturel — approchable, pas de pose corporate rigide                                                                                                                                               |
+| **Lumière**    | Douce, diffuse, sans ombre dure visible sur le visage — lumière de studio type softbox frontale                                                                                                                   |
+| **Contraste**  | Modéré — la peau garde ses nuances, pas de look "flash direct" écrasé                                                                                                                                             |
+| **Tenue**      | Polo noir uni — sobre, professionnel sans costume-cravate, cohérent avec un profil tech/dev plutôt que corporate classique                                                                                        |
+| **Retouche**   | Légère, naturelle — pas de lissage de peau excessif ni de correction visible                                                                                                                                      |
 
 ### Ambiance générale
 
@@ -51,12 +51,12 @@ Les seules "textures" du système sont **génératives, pas photographiques** : 
 
 ### Composition et cadrage — captures de projets
 
-| Règle | Détail |
-|---|---|
-| **Ratio** | Format large (paysage), type 16:9 ou proche, pour capture d'écran d'interface |
-| **Cadrage** | Plein cadre du produit — pas de mockup d'appareil (téléphone/laptop en 3D) autour, capture brute présentée dans une carte au radius du design system |
-| **Conteneur** | `rounded-2xl border border-border overflow-hidden` — même traitement de coin que les cartes standard |
-| **Retouche** | Aucune — la capture doit représenter fidèlement le livrable réel, pas une version idéalisée |
+| Règle         | Détail                                                                                                                                               |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Ratio**     | Format large (paysage), type 16:9 ou proche, pour capture d'écran d'interface                                                                        |
+| **Cadrage**   | Plein cadre du produit — pas de mockup d'appareil (téléphone/laptop en 3D) autour, capture brute présentée dans une carte au radius du design system |
+| **Conteneur** | `rounded-2xl border border-border overflow-hidden` — même traitement de coin que les cartes standard                                                 |
+| **Retouche**  | Aucune — la capture doit représenter fidèlement le livrable réel, pas une version idéalisée                                                          |
 
 ### Couleurs dans la photo
 
@@ -99,22 +99,22 @@ photography
 Two clearly distinct categories coexist on the portfolio, each with its own rules:
 
 1. **Personal portrait** — studio, solid background, tight crop. A single real photo of a person on the site (`maximejolivet.jpg`), used consistently across every page that introduces Maxime (about, CV, open graph).
-2. **Project captures** — real screenshots of shipped interfaces (`public/projects/`), no staging, the finished product *is* the photo.
+2. **Project captures** — real screenshots of shipped interfaces (`public/projects/`), no staging, the finished product _is_ the photo.
 
 There is **no** stock photography, lifestyle imagery, or decorative illustration on the site — consistent with a "concrete proof" positioning rather than a "brand mood" one.
 
 ### Reference portrait (analyzed from the real asset)
 
-| Criterion | Observed treatment |
-|---|---|
-| **Background** | Solid, flat color — **the brand's gold** (`#EFC78A`/`--gold`) used directly as the studio backdrop, not a neutral gray. The portrait *wears* the brand color rather than simply sitting next to it. |
-| **Framing** | Tight chest-up crop, head slightly above center, square/vertical portrait format |
-| **Posture** | Facing camera, shoulders slightly three-quarter, direct gaze |
-| **Expression** | Open, natural smile — approachable, no stiff corporate pose |
-| **Lighting** | Soft, diffused, no visible hard shadow on the face — frontal softbox-style studio light |
-| **Contrast** | Moderate — skin retains its natural tonal range, no crushed "direct flash" look |
-| **Attire** | Plain black polo — understated, professional without a suit-and-tie, consistent with a tech/dev profile rather than classic corporate |
-| **Retouching** | Light, natural — no excessive skin smoothing or visible correction |
+| Criterion      | Observed treatment                                                                                                                                                                                  |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Background** | Solid, flat color — **the brand's gold** (`#EFC78A`/`--gold`) used directly as the studio backdrop, not a neutral gray. The portrait _wears_ the brand color rather than simply sitting next to it. |
+| **Framing**    | Tight chest-up crop, head slightly above center, square/vertical portrait format                                                                                                                    |
+| **Posture**    | Facing camera, shoulders slightly three-quarter, direct gaze                                                                                                                                        |
+| **Expression** | Open, natural smile — approachable, no stiff corporate pose                                                                                                                                         |
+| **Lighting**   | Soft, diffused, no visible hard shadow on the face — frontal softbox-style studio light                                                                                                             |
+| **Contrast**   | Moderate — skin retains its natural tonal range, no crushed "direct flash" look                                                                                                                     |
+| **Attire**     | Plain black polo — understated, professional without a suit-and-tie, consistent with a tech/dev profile rather than classic corporate                                                               |
+| **Retouching** | Light, natural — no excessive skin smoothing or visible correction                                                                                                                                  |
 
 ### General mood
 
@@ -139,12 +139,12 @@ The system's only "textures" are **generative, not photographic**: the diagonal 
 
 ### Composition and framing — project captures
 
-| Rule | Detail |
-|---|---|
-| **Ratio** | Wide (landscape) format, roughly 16:9, for interface screenshots |
-| **Framing** | Full-bleed product frame — no 3D device mockup (phone/laptop) around it, a raw capture presented inside a card at the design system's radius |
-| **Container** | `rounded-2xl border border-border overflow-hidden` — same corner treatment as standard cards |
-| **Retouching** | None — the capture must faithfully represent the actual deliverable, not an idealized version |
+| Rule           | Detail                                                                                                                                       |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Ratio**      | Wide (landscape) format, roughly 16:9, for interface screenshots                                                                             |
+| **Framing**    | Full-bleed product frame — no 3D device mockup (phone/laptop) around it, a raw capture presented inside a card at the design system's radius |
+| **Container**  | `rounded-2xl border border-border overflow-hidden` — same corner treatment as standard cards                                                 |
+| **Retouching** | None — the capture must faithfully represent the actual deliverable, not an idealized version                                                |
 
 ### Color in photography
 

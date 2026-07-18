@@ -13,12 +13,10 @@ export const useThemeMode = () => {
       const stored = localStorage.getItem(STORAGE_KEY)
       if (stored === 'day' || stored === 'night') {
         theme.value = stored
-      }
-      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         theme.value = 'night'
       }
-    }
-    catch {
+    } catch {
       // ignore storage errors (private browsing)
     }
 
@@ -26,8 +24,7 @@ export const useThemeMode = () => {
       document.documentElement.dataset.theme = theme.value
       try {
         localStorage.setItem(STORAGE_KEY, theme.value)
-      }
-      catch {
+      } catch {
         // ignore storage errors (private browsing)
       }
     })

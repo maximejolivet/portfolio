@@ -3,6 +3,7 @@
 > Bibliothèque de prompts pour production visuelle assistée par IA. Les prompts sont écrits en anglais (standard du secteur, meilleure fidélité de rendu sur la plupart des moteurs) — les titres de section sont bilingues. Toujours vérifier le résultat contre [palette-couleurs.md](./palette-couleurs.md), [typographie.md](./typographie.md) et [charte-graphique.md](./charte-graphique.md) avant usage. Pour le logo et la photographie, voir aussi [logo.md](./logo.md) et [photographie.md](./photographie.md) (bibliothèques dédiées, plus détaillées).
 
 **Constante de marque à répéter dans chaque prompt** (bloc réutilisable) :
+
 ```
 Brand color palette: warm cream background #F3F4F0 (or deep navy
 #152833 for dark mode), deep ink #1D3540 text, gold #EFC78A primary
@@ -35,7 +36,8 @@ slightly organic hand-drawn circle, flat vector, solid fill only, no
 gradient, no stroke outline, currentColor single-tone, professional
 tech-personal-brand aesthetic, Space Grotesk typography influence
 ```
-*(Bibliothèque complète et variantes : [logo.md](./logo.md))*
+
+_(Bibliothèque complète et variantes : [logo.md](./logo.md))_
 
 ### Icônes / Icons
 
@@ -182,7 +184,7 @@ brand merchandise presentation
 
 ### Moodboard
 
-*(Bibliothèque complète : [moodboard.md](./moodboard.md))*
+_(Bibliothèque complète : [moodboard.md](./moodboard.md))_
 
 ```
 Warm minimalist brand moodboard collage, cream and deep navy color
@@ -195,7 +197,7 @@ professional brand identity board layout
 
 ### Photos marketing / Marketing photography
 
-*(Bibliothèque complète : [photographie.md](./photographie.md))*
+_(Bibliothèque complète : [photographie.md](./photographie.md))_
 
 ```
 Professional studio headshot photography, solid warm gold background

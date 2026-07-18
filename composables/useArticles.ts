@@ -17,7 +17,6 @@ export const fetchArticles = async (supabase: SupabaseClient): Promise<ArticleSu
   const { data, error } = await supabase
     .from('articles')
     .select(
-      // eslint-disable-next-line max-len
       'id, slug_fr, slug_en, title_fr, title_en, excerpt_fr, excerpt_en, cover_image_url, published_at',
     )
     .order('published_at', { ascending: false })

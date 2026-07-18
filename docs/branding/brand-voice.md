@@ -50,7 +50,7 @@ Le site **évite majoritairement l'adresse directe** : les CTA et titres utilise
 
 ### Exemples de slogans
 
-*(Nouveaux, cohérents avec la voix existante — à valider avant usage)*
+_(Nouveaux, cohérents avec la voix existante — à valider avant usage)_
 
 - "Du code qui dure, pas du code qui presse."
 - "Pensé produit. Écrit en PHP et JavaScript."
@@ -58,19 +58,19 @@ Le site **évite majoritairement l'adresse directe** : les CTA et titres utilise
 
 ### Accroches
 
-- "Un développeur qui pense expérience utilisateur, pas juste code." *(existant, `aboutSection`)*
-- "Ce que le code m'apprend." *(existant, titre blog)*
-- "Des sites faits pour durer : performants, accessibles, faciles à faire évoluer." *(existant, `aboutSection.paragraph2`, reformulé en accroche)*
+- "Un développeur qui pense expérience utilisateur, pas juste code." _(existant, `aboutSection`)_
+- "Ce que le code m'apprend." _(existant, titre blog)_
+- "Des sites faits pour durer : performants, accessibles, faciles à faire évoluer." _(existant, `aboutSection.paragraph2`, reformulé en accroche)_
 
 ### CTA
 
-| Contexte | CTA existant | Registre |
-|---|---|---|
-| Contact | "me contacter" | Infinitif, direct |
-| Rendez-vous | "Prendre rendez-vous" | Infinitif, direct |
-| Projets | "Voir les projets" | Infinitif, direct |
-| CV | "Télécharger le PDF" | Infinitif, direct |
-| Blog | "lire l'article" | Infinitif, minuscule |
+| Contexte    | CTA existant          | Registre             |
+| ----------- | --------------------- | -------------------- |
+| Contact     | "me contacter"        | Infinitif, direct    |
+| Rendez-vous | "Prendre rendez-vous" | Infinitif, direct    |
+| Projets     | "Voir les projets"    | Infinitif, direct    |
+| CV          | "Télécharger le PDF"  | Infinitif, direct    |
+| Blog        | "lire l'article"      | Infinitif, minuscule |
 
 **Règle** : CTA toujours à l'infinitif, toujours minuscule sauf en début de composant UI où la casse du composant prime (bouton `pill` vs lien texte).
 
@@ -146,7 +146,7 @@ The site **mostly avoids direct address**: CTAs and headings use infinitives or 
 
 ### Slogan examples
 
-*(New, consistent with the existing voice — validate before use)*
+_(New, consistent with the existing voice — validate before use)_
 
 - "Code that lasts, not code that's rushed."
 - "Product-minded. Written in PHP and JavaScript."
@@ -154,19 +154,19 @@ The site **mostly avoids direct address**: CTAs and headings use infinitives or 
 
 ### Taglines
 
-- "A developer who thinks user experience, not just code." *(existing, `aboutSection`)*
-- "What code teaches me." *(existing, blog title)*
-- "Sites built to last: fast, accessible, easy to evolve." *(existing, `aboutSection.paragraph2`, reworded as a tagline)*
+- "A developer who thinks user experience, not just code." _(existing, `aboutSection`)_
+- "What code teaches me." _(existing, blog title)_
+- "Sites built to last: fast, accessible, easy to evolve." _(existing, `aboutSection.paragraph2`, reworded as a tagline)_
 
 ### CTAs
 
-| Context | Existing CTA | Register |
-|---|---|---|
-| Contact | "contact me" | Direct, infinitive |
-| Booking | "Book a call" | Direct, infinitive |
-| Projects | "See the projects" | Direct, infinitive |
-| CV | "Download the PDF" | Direct, infinitive |
-| Blog | "read the article" | Infinitive, lowercase |
+| Context  | Existing CTA       | Register              |
+| -------- | ------------------ | --------------------- |
+| Contact  | "contact me"       | Direct, infinitive    |
+| Booking  | "Book a call"      | Direct, infinitive    |
+| Projects | "See the projects" | Direct, infinitive    |
+| CV       | "Download the PDF" | Direct, infinitive    |
+| Blog     | "read the article" | Infinitive, lowercase |
 
 **Rule**: CTAs always infinitive, always lowercase except at the start of a UI component where the component's casing takes precedence (`pill` button vs. text link).
 

@@ -10,12 +10,17 @@ const localePath = useLocalePath()
 
 const NuxtLinkComponent = resolveComponent('NuxtLink')
 const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-primary'))
+const projectTo = computed(() =>
+  props.project.live
+    ? localePath({ name: 'projects-slug', params: { slug: props.project.slug } })
+    : undefined,
+)
 </script>
 
 <template>
   <component
     :is="project.live ? NuxtLinkComponent : 'div'"
-    :to="project.live ? localePath({ name: 'projects-slug', params: { slug: project.slug } }) : undefined"
+    :to="projectTo"
     class="group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors duration-300 sm:flex-row"
     :class="project.live ? 'hover:bg-card' : 'opacity-60'"
   >
@@ -29,7 +34,9 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
       <UiImagePlaceholder
         v-else
         :dot-class="dotClass"
-        :label="project.live ? $t('projectsPage.capturesPending') : $t('projectsPage.underConstruction')"
+        :label="
+          project.live ? $t('projectsPage.capturesPending') : $t('projectsPage.underConstruction')
+        "
         class="aspect-video size-full rounded-none border-0 sm:aspect-auto sm:h-full"
       />
       <div
@@ -47,14 +54,25 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
     <div class="flex min-w-0 flex-1 flex-col gap-2.5 p-5">
       <div class="flex flex-wrap items-start justify-between gap-2">
         <span class="flex flex-wrap items-center gap-2.5 font-mono text-[0.7812rem] text-subtle">
-          {{ project.year }} · {{ t(project.typeKey) }}<template v-if="project.company"> · {{ project.company }}</template>
+          {{ project.year }} · {{ t(project.typeKey)
+          }}<template v-if="project.company"> · {{ project.company }} </template>
         </span>
-        <UiBadge :class="project.category === 'pro' ? 'bg-primary/16 text-primary' : 'bg-mint/16 text-mint'">
-          {{ project.category === 'pro' ? $t('projectsPage.categoryPro') : $t('projectsPage.categoryPersonal') }}
+        <UiBadge
+          :class="
+            project.category === 'pro' ? 'bg-primary/16 text-primary' : 'bg-mint/16 text-mint'
+          "
+        >
+          {{
+            project.category === 'pro'
+              ? $t('projectsPage.categoryPro')
+              : $t('projectsPage.categoryPersonal')
+          }}
         </UiBadge>
       </div>
 
-      <h2 class="text-balance font-sans text-xl font-bold leading-[1.25] tracking-[-0.4px] text-foreground">
+      <h2
+        class="text-balance font-sans text-xl font-bold leading-[1.25] tracking-[-0.4px] text-foreground"
+      >
         {{ t(project.titleKey) }}
       </h2>
 

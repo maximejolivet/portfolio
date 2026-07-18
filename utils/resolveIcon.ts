@@ -5,7 +5,7 @@ interface IconCollection {
   prefix: string
   width: number
   height: number
-  icons: Record<string, { body: string, width?: number, height?: number }>
+  icons: Record<string, { body: string; width?: number; height?: number }>
   aliases?: Record<string, { parent: string }>
 }
 

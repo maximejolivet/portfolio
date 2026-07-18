@@ -37,7 +37,6 @@
     "ctaSecondary": "Voir les projets",
     "ctaContact": "me contacter",
     "underConstructionNote": "site toujours en construction 🚧"
-
   },
   "aboutSection": {
     "eyebrow": "À propos",
@@ -222,13 +221,12 @@
       "tagline": "",
       "impact": "",
       "contexte": "",
-        "solution": "","points": [
-        "",
-        "",
-        "",
-       ""
-      ],
-      "resultat": "","role": "", "duree": "", "equipe": ""
+      "solution": "",
+      "points": ["", "", "", ""],
+      "resultat": "",
+      "role": "",
+      "duree": "",
+      "equipe": ""
     },
     "saur": {
       "type": "",
@@ -236,13 +234,12 @@
       "tagline": "",
       "impact": "",
       "contexte": "",
-        "solution": "","points": [
-        "",
-        "",
-        "",
-       ""
-      ],
-      "resultat": "","role": "", "duree": "", "equipe": ""
+      "solution": "",
+      "points": ["", "", "", ""],
+      "resultat": "",
+      "role": "",
+      "duree": "",
+      "equipe": ""
     },
     "portfolio": {
       "type": "Nuxt / Vue",

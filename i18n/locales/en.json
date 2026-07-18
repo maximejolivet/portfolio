@@ -218,16 +218,15 @@
     "pileje": {
       "type": "brand site",
       "title": "PiLeJe Micronutrition",
-        "tagline": "",
+      "tagline": "",
       "impact": "",
       "contexte": "",
-        "solution": "","points": [
-        "",
-        "",
-        "",
-       ""
-      ],
-      "resultat": "","role": "", "duree": "", "equipe": ""
+      "solution": "",
+      "points": ["", "", "", ""],
+      "resultat": "",
+      "role": "",
+      "duree": "",
+      "equipe": ""
     },
     "saur": {
       "type": "business tool",
@@ -235,13 +234,12 @@
       "tagline": "",
       "impact": "",
       "contexte": "",
-        "solution": "","points": [
-        "",
-        "",
-        "",
-       ""
-      ],
-      "resultat": "","role": "", "duree": "", "equipe": ""
+      "solution": "",
+      "points": ["", "", "", ""],
+      "resultat": "",
+      "role": "",
+      "duree": "",
+      "equipe": ""
     },
     "portfolio": {
       "type": "Nuxt / Vue",
@@ -298,10 +296,10 @@
     },
     "contact": {
       "eyebrow": "CONTACT",
-     "title": "Let's build what's next together",
-"subtitle": "Senior Full-Stack Web Developer · Lead Developer · Tech Lead",
-"subtitleSecondary": "AI & Prompt Engineering",
-"bookCall": "Book a meeting"
+      "title": "Let's build what's next together",
+      "subtitle": "Senior Full-Stack Web Developer · Lead Developer · Tech Lead",
+      "subtitleSecondary": "AI & Prompt Engineering",
+      "bookCall": "Book a meeting"
     }
   },
   "projectDetail": {

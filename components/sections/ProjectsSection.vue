@@ -15,9 +15,16 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
 <template>
   <LayoutPageSection id="projects-list" bare class="pt-24">
     <UiContainer>
-      <UiSectionHeading :title="$t('home.projects.sectionTitle')" icon="lucide:folder-open" diamond="gold">
+      <UiSectionHeading
+        :title="$t('home.projects.sectionTitle')"
+        icon="lucide:folder-open"
+        diamond="gold"
+      >
         <template #caption>
-          <NuxtLink :to="localePath('projects')" class="inline-flex items-center gap-1 hover:text-accent">
+          <NuxtLink
+            :to="localePath('projects')"
+            class="inline-flex items-center gap-1 hover:text-accent"
+          >
             {{ $t('home.projects.viewAll') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
           </NuxtLink>
         </template>
@@ -30,7 +37,11 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
           :is="project.live ? NuxtLinkComponent : 'div'"
           v-for="project in previewCaseStudies"
           :key="project.id"
-          :to="project.live ? localePath({ name: 'projects-slug', params: { slug: project.slug } }) : undefined"
+          :to="
+            project.live
+              ? localePath({ name: 'projects-slug', params: { slug: project.slug } })
+              : undefined
+          "
           class="group flex flex-col gap-3.5"
           :class="{ 'opacity-60': !project.live }"
         >
@@ -66,7 +77,11 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
               <span class="font-mono text-[0.7812rem] text-subtle">{{ project.year }}</span>
             </div>
             <div class="font-mono text-xs text-muted-foreground">
-              {{ project.live ? project.tags.slice(0, 2).join(' · ') : $t('projectsPage.underConstruction') }}
+              {{
+                project.live
+                  ? project.tags.slice(0, 2).join(' · ')
+                  : $t('projectsPage.underConstruction')
+              }}
             </div>
           </div>
         </component>

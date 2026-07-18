@@ -5,15 +5,19 @@ import { SOCIAL_LINKS } from '~/constants/social'
 
 <template>
   <LayoutPageSection id="contact" class="flex flex-col items-center gap-5 py-28 text-center">
-     <UiLogoMark :size="88" class="mx-auto mb-8 text-accent" />
-    <span class="font-mono text-[0.875rem] font-bold text-accent">{{ $t('home.contact.eyebrow') }}</span>
+    <UiLogoMark :size="88" class="mx-auto mb-8 text-accent" />
+    <span class="font-mono text-[0.875rem] font-bold text-accent">{{
+      $t('home.contact.eyebrow')
+    }}</span>
     <h2
       class="text-balance font-sans text-[clamp(2.375rem,4.6vw,3.5rem)] font-bold leading-[1.05] tracking-[-1.8px] text-foreground"
     >
       {{ $t('home.contact.title') }}<span class="text-accent">.</span>
     </h2>
-    <p class="max-w-[460px] py-8 mx-auto text-pretty font-sans text-[1rem] leading-[1.7] text-muted-foreground">
-      {{ $t('home.contact.subtitle') }}<br>
+    <p
+      class="max-w-[460px] py-8 mx-auto text-pretty font-sans text-[1rem] leading-[1.7] text-muted-foreground"
+    >
+      {{ $t('home.contact.subtitle') }}<br />
       {{ $t('home.contact.subtitleSecondary') }}
     </p>
     <div class="mt-2 flex flex-wrap items-center justify-center gap-6">
@@ -24,7 +28,8 @@ import { SOCIAL_LINKS } from '~/constants/social'
         variant="pill-outline"
         :data-cal-link="CAL_LINK"
         :data-cal-namespace="CAL_NAMESPACE"
-        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+        data-cal-config='{"layout":"month_view",
+          "useSlotsViewOnSmallScreen":"true"}'
       >
         {{ $t('home.contact.bookCall') }}
       </UiButton>
