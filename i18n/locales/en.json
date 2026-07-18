@@ -25,7 +25,8 @@
   "footer": {
     "tagline": "Senior full-stack web developer / Lead Dev / Tech Lead",
     "rights": "",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "legalMentions": "Legal notice"
   },
   "hero": {
     "greeting": "Hi, I'm Maxime",
@@ -34,7 +35,8 @@
     "bio": "I build and maintain product sites, brand sites, user interfaces, e-commerce platforms and business tools.",
     "subtitle": "10 years of experience, mostly in digital agencies. Strong PHP and JavaScript skills, CMS expertise applied to complex, demanding projects, with constant attention to code quality and the long-term reliability of technical choices.",
     "ctaSecondary": "See the projects",
-    "ctaContact": "get in touch"
+    "ctaContact": "get in touch",
+    "underConstructionNote": "site still under construction 🚧"
   },
   "aboutSection": {
     "eyebrow": "About",
@@ -49,8 +51,8 @@
     "imageAlt": "Portrait of Maxime Jolivet",
     "tags": {
       "conceptionUiUx": "Design & UI/UX",
-      "problemSolving": "Problem solving",
       "webDev": "Web development",
+      "problemSolving": "Problem solving",
       "cloudDevops": "Cloud & DevOps",
       "aiAutomation": "AI & Automation",
       "vibeCoding": "Vibe coding / Low-code"
@@ -163,8 +165,15 @@
   },
   "projectsPage": {
     "eyebrow": "PROJECTS",
-    "title": "Selected work",
-    "subtitle": "First case study live - more write-ups coming soon.",
+    "title": "My work",
+    "subtitle": "Discover a selection of projects I've contributed to. These references reflect my experience on applications and platforms built for clients in the",
+    "subtitleSectors": "construction, industrial, healthcare, energy, insurance and mutual benefit, and agriculture and agri-food sectors",
+    "subtitleClosing": "Much of this work is still running in production today.",
+    "categoryPro": "Pro",
+    "categoryPersonal": "Personal",
+    "filterAll": "All",
+    "viewGrid": "Grid view",
+    "viewList": "List view",
     "ctaTitle": "Got a project in mind",
     "backToList": "all projects",
     "viewProject": "view project",
@@ -219,7 +228,6 @@
        ""
       ],
       "resultat": "","role": "", "duree": "", "equipe": ""
-    }
     },
     "saur": {
       "type": "business tool",
@@ -234,13 +242,30 @@
        ""
       ],
       "resultat": "","role": "", "duree": "", "equipe": ""
-
-    
+    },
+    "portfolio": {
+      "type": "Nuxt / Vue",
+      "title": "This portfolio",
+      "tagline": "My personal site: portfolio, interactive resume and technical blog, designed and built from scratch.",
+      "impact": "Live and actively maintained",
+      "contexte": "After several redesigns, I wanted a site that reflects both my craft as a developer and my design sensibility: fast, accessible, bilingual, and easy to evolve alongside my projects and articles.",
+      "solution": "A Nuxt 4 site statically generated and deployed on GitHub Pages, with a Tailwind v4 + shadcn-vue design system, a Supabase-backed blog, and a fully bilingual French/English interface.",
+      "points": [
+        "Nuxt 4 static site generation (SSG), auto-deployed to GitHub Pages via GitHub Actions",
+        "Tailwind v4 + shadcn-vue (Reka UI) design system, light/dark theme",
+        "Supabase-backed blog, bilingual articles managed through a data table",
+        "Full FR/EN internationalization with localized routes (/fr, /en)"
+      ],
+      "resultat": "A fast, fully static site that's easy to maintain, serving as a showcase, an interactive resume, and a testing ground for new front-end practices.",
+      "role": "full-stack design & development",
+      "duree": "ongoing since 2026",
+      "equipe": "solo"
+    }
   },
   "home": {
     "projects": {
       "sectionTitle": "Projects",
-      "viewAll": "all projects →"
+      "viewAll": "all projects"
     },
     "now": {
       "sectionTitle": "Right now",
@@ -269,12 +294,13 @@
     },
     "blog": {
       "sectionTitle": "Blog",
-      "viewAll": "all articles →"
+      "viewAll": "all articles"
     },
     "contact": {
       "eyebrow": "CONTACT",
      "title": "Let's build what's next together",
-"subtitle": "Senior Full-Stack Web Developer · Lead Developer · Tech Lead · AI & Prompt Engineering",
+"subtitle": "Senior Full-Stack Web Developer · Lead Developer · Tech Lead",
+"subtitleSecondary": "AI & Prompt Engineering",
 "bookCall": "Book a meeting"
     }
   },
@@ -299,11 +325,65 @@
     "title": "What the code teaches me",
     "subtitle": "Practical insights from real-world experience with migrations, modern CSS, developer tooling, and AI. No listicles—just thoughtful analysis, hands-on experiments, and proven solutions from real projects.",
     "back_to_list": "all articles",
-    "read_more": "read the article →",
+    "read_more": "read the article",
     "loading": "Loading articles...",
     "empty": "No articles yet, check back soon.",
     "error": "Something went wrong while loading articles.",
     "not_found": "This article doesn't exist."
+  },
+  "legalPage": {
+    "eyebrow": "LEGAL",
+    "title": "Legal notice",
+    "updated": "Last updated: July 2026",
+    "sections": {
+      "editor": {
+        "title": "Site publisher",
+        "intro": "This site is published on a personal basis by Maxime Jolivet.",
+        "items": ["Name: Maxime Jolivet", "Email: {email}"]
+      },
+      "publication": {
+        "title": "Publication director",
+        "body": "The publication director is Maxime Jolivet."
+      },
+      "hosting": {
+        "title": "Hosting",
+        "intro": "This site is hosted by Vercel Inc., a SaaS hosting platform.",
+        "items": ["340 S Lemon Ave #4133", "Walnut, CA 91789", "USA"],
+        "body": "Site deployment is automated via GitHub Actions."
+      },
+      "technologies": {
+        "title": "Technologies",
+        "body": "This site was designed and developed by Maxime Jolivet. Its development was assisted by Claude (Anthropic) for certain design, development and writing steps. Technical choices, content and final validation remain the publisher's own."
+      },
+      "data": {
+        "title": "Personal data",
+        "intro": "This site does not collect any personal data for advertising or profiling purposes.",
+        "body": "The only data that may be collected is what you voluntarily share by email or through the contact or booking form. It is used solely to respond to your request and is never sold or shared with third parties.",
+        "closing": "In accordance with the General Data Protection Regulation (GDPR), you may exercise your rights of access, rectification, erasure or objection by writing to {email}."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "intro": "This site does not use advertising or audience-measurement cookies.",
+        "body": "Only cookies strictly necessary for the site to function may be used, notably to remember your language preference."
+      },
+      "ip": {
+        "title": "Intellectual property",
+        "intro": "Unless otherwise stated, all content on this site (text, images, illustrations, logos, source code and other elements) is protected by intellectual property law.",
+        "body": "Any reproduction, representation, modification or distribution, in whole or in part, without prior authorization is prohibited."
+      },
+      "links": {
+        "title": "Hyperlinks",
+        "body": "This site may contain links to third-party sites. The publisher cannot be held responsible for the content or practices of these external sites."
+      },
+      "liability": {
+        "title": "Liability",
+        "body": "The information published on this site is provided for informational purposes. Despite efforts to ensure its accuracy, it may contain errors or become outdated. The publisher cannot be held responsible for any consequences resulting from its use."
+      },
+      "law": {
+        "title": "Governing law",
+        "body": "This legal notice is governed by French law."
+      }
+    }
   },
   "error": {
     "back_home": "Back to home",

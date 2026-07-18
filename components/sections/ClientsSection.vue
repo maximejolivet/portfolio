@@ -6,7 +6,7 @@ const { t } = useI18n()
 
 <template>
   <LayoutPageSection bare>
-    <UiContainer class="border-t border-border pt-20">
+    <UiContainer class="pt-20">
       <div class="mb-14 flex flex-col gap-3">
         <h2
           class="text-balance font-sans text-[1.75rem] font-bold leading-[1.2] tracking-[-0.6px] text-foreground"
@@ -21,7 +21,7 @@ const { t } = useI18n()
       <div class="mb-2 font-mono text-xs font-semibold text-subtle">
         {{ $t('clientsSection.eyebrow') }}
       </div>
-      <UiSectionHeading :title="$t('clientsSection.title')" diamond="gold" />
+      <UiSectionHeading :title="$t('clientsSection.title')" icon="lucide:building-2" diamond="gold" />
 
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <CardsClientSectorCard

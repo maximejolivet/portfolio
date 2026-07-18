@@ -13,7 +13,7 @@ const tagKeys = [
 
 <template>
   <LayoutPageSection id="about" class="pt-24">
-    <UiSectionHeading :title="$t('aboutSection.eyebrow')" diamond="gold" />
+    <UiSectionHeading :title="$t('aboutSection.eyebrow')" icon="lucide:user-round" diamond="gold" />
 
     <div class="grid items-start gap-14 md:grid-cols-[1.15fr_.85fr]">
       <div class="flex flex-col gap-5">
@@ -21,8 +21,7 @@ const tagKeys = [
           class="text-balance font-sans text-[1.5rem] font-bold leading-[1.35] tracking-[-0.4px] text-foreground"
         >
           {{ $t('aboutSection.titleStart') }}
-          <span class="text-primary">{{ $t('aboutSection.titleHighlight') }}</span>
-          {{ $t('aboutSection.titleEnd') }}
+          <span class="text-primary">{{ $t('aboutSection.titleHighlight') }}</span>{{ $t('aboutSection.titleEnd') }}
         </h3>
 
         <p class="text-pretty font-sans text-[1rem] leading-[1.75] text-muted-foreground">
@@ -59,7 +58,7 @@ const tagKeys = [
         <div class="absolute -bottom-3 -left-3 z-10 size-10 rounded-full bg-primary" />
         <div class="relative h-[420px] w-full overflow-hidden rounded-[18px]">
           <NuxtImg
-            src="/maximejolivet.jpeg"
+            src="/maximejolivet.jpg"
             :alt="$t('aboutSection.imageAlt')"
             width="640"
             height="640"

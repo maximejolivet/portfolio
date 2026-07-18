@@ -72,7 +72,7 @@
   --on-primary: #1d3540;
   /* Always light: text sitting on --panel / --panel-2, which stay dark in both themes. */
   --on-panel: #f3f4f0;
-  --accent: #2e6475;
+  --accent: #7fd9c4;
   --mint: #7fd9c4;
   --sub: rgba(29, 53, 64, 0.62);
   --subtle: rgba(29, 53, 64, 0.45);
@@ -96,6 +96,11 @@
   --panel-2: #0d1b23;
   --stripe: rgba(243, 244, 240, 0.07);
   color-scheme: dark;
+}
+
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
 }
 
 @keyframes marquee {

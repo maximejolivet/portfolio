@@ -19,13 +19,19 @@ if (index.value === -1) {
 const project = computed(() => CASE_STUDIES[index.value])
 const dotClass = computed(() => (project.value.dot === 'mint' ? 'bg-mint' : 'bg-primary'))
 
-const liveCaseStudies = CASE_STUDIES.filter((p) => p.live)
-const liveIndex = computed(() => liveCaseStudies.findIndex((p) => p.slug === slug.value))
-const hasAdjacentProjects = computed(() => project.value.live && liveCaseStudies.length > 1)
-const prevProject = computed(
-  () => liveCaseStudies[(liveIndex.value - 1 + liveCaseStudies.length) % liveCaseStudies.length],
+const categoryLiveCaseStudies = computed(() =>
+  CASE_STUDIES.filter((p) => p.live && p.category === project.value.category),
 )
-const nextProject = computed(() => liveCaseStudies[(liveIndex.value + 1) % liveCaseStudies.length])
+const liveIndex = computed(() => categoryLiveCaseStudies.value.findIndex((p) => p.slug === slug.value))
+const hasAdjacentProjects = computed(() => project.value.live && categoryLiveCaseStudies.value.length > 1)
+const prevProject = computed(() => {
+  const list = categoryLiveCaseStudies.value
+  return list[(liveIndex.value - 1 + list.length) % list.length]
+})
+const nextProject = computed(() => {
+  const list = categoryLiveCaseStudies.value
+  return list[(liveIndex.value + 1) % list.length]
+})
 
 useSeoMeta({
   title: () => `${t(project.value.titleKey)} - Maxime Jolivet`,
@@ -36,17 +42,39 @@ useSeoMeta({
 <template>
   <div>
     <LayoutPageSection bare>
-      <UiContainer class="max-w-[1080px]">
-        <header class="flex flex-col gap-5 pb-12 pt-16">
-          <NuxtLink
-            :to="localePath('projects')"
-            class="font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
-          >
-            ← {{ $t('projectsPage.backToList') }}
-          </NuxtLink>
+      <UiContainer class="max-w-[1080px] pt-16">
+        <NuxtLink
+          :to="localePath('projects')"
+          class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+        >
+          <UiAppIcon icon="lucide:arrow-left" class="size-3" />{{ $t('projectsPage.backToList') }}
+        </NuxtLink>
+      </UiContainer>
 
-          <span class="font-mono text-xs text-subtle">
-            {{ project.year }} · {{ t(project.typeKey) }}
+      <UiContainer v-if="project.live" class="max-w-[1280px] pt-8">
+        <div class="relative">
+          <div class="absolute -right-3.5 -top-3.5 z-10 size-12 rounded-full" :class="dotClass" />
+          <div
+            v-if="project.image"
+            class="overflow-hidden rounded-[28px] border border-border"
+          >
+            <NuxtImg :src="project.image" :alt="t(project.titleKey)" class="size-full object-cover" />
+          </div>
+          <UiImagePlaceholder
+            v-else
+            :label="$t('projectsPage.capturesPending')"
+            class="h-[280px] rounded-[28px] sm:h-[420px] lg:h-[600px]"
+          />
+        </div>
+      </UiContainer>
+
+      <UiContainer class="max-w-[1080px]">
+        <header class="flex flex-col gap-5 pb-12 pt-10">
+          <span class="flex flex-wrap items-center gap-2.5 font-mono text-xs text-subtle">
+            {{ project.year }} · {{ t(project.typeKey) }}<template v-if="project.company"> · {{ project.company }}</template>
+            <UiBadge :class="project.category === 'pro' ? 'bg-primary/16 text-primary' : 'bg-mint/16 text-mint'">
+              {{ project.category === 'pro' ? $t('projectsPage.categoryPro') : $t('projectsPage.categoryPersonal') }}
+            </UiBadge>
           </span>
 
           <h1
@@ -67,21 +95,6 @@ useSeoMeta({
         </header>
 
         <template v-if="project.live">
-        <div class="relative mb-16">
-          <div class="absolute -right-3.5 -top-3.5 z-10 size-12 rounded-full" :class="dotClass" />
-          <div
-            v-if="project.image"
-            class="h-auto overflow-hidden rounded-2xl border border-border"
-          >
-            <NuxtImg :src="project.image" :alt="t(project.titleKey)" class="size-full object-cover" />
-          </div>
-          <UiImagePlaceholder
-            v-else
-            :label="$t('projectsPage.capturesPending')"
-            class="h-[320px] sm:h-[420px] lg:h-[520px]"
-          />
-        </div>
-
         <section class="grid items-start gap-16 pb-18 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div class="flex flex-col gap-11">
             <div class="flex flex-col gap-3.5">
@@ -104,9 +117,9 @@ useSeoMeta({
                 <div
                   v-for="pointKey in project.pointsKeys"
                   :key="pointKey"
-                  class="flex items-baseline gap-3 font-mono text-[0.9062rem] leading-[1.5] text-foreground"
+                  class="flex items-start gap-3 font-mono text-[0.9062rem] leading-[1.5] text-foreground"
                 >
-                  <span class="text-mint">→</span>
+                  <UiAppIcon icon="lucide:arrow-right" class="mt-1.5 size-3.5 shrink-0 text-mint" />
                   <span>{{ t(pointKey) }}</span>
                 </div>
               </div>
@@ -159,7 +172,9 @@ useSeoMeta({
             :to="localePath({ name: 'projects-slug', params: { slug: prevProject.slug } })"
             class="flex flex-col gap-1.5"
           >
-            <span class="font-mono text-[0.75rem] text-subtle">← {{ $t('projectDetail.prev') }}</span>
+            <span class="inline-flex items-center gap-1 font-mono text-[0.75rem] text-subtle">
+              <UiAppIcon icon="lucide:arrow-left" class="size-3" />{{ $t('projectDetail.prev') }}
+            </span>
             <span class="font-sans text-[1.125rem] font-bold tracking-[-0.3px] text-foreground hover:text-accent">
               {{ t(prevProject.titleKey) }}
             </span>
@@ -168,7 +183,9 @@ useSeoMeta({
             :to="localePath({ name: 'projects-slug', params: { slug: nextProject.slug } })"
             class="flex flex-col items-end gap-1.5 text-right"
           >
-            <span class="font-mono text-[0.75rem] text-subtle">{{ $t('projectDetail.next') }} →</span>
+            <span class="inline-flex items-center gap-1 font-mono text-[0.75rem] text-subtle">
+              {{ $t('projectDetail.next') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
+            </span>
             <span class="font-sans text-[1.125rem] font-bold tracking-[-0.3px] text-foreground hover:text-accent">
               {{ t(nextProject.titleKey) }}
             </span>

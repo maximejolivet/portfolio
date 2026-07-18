@@ -13,5 +13,6 @@
       <slot />
     </main>
     <LayoutAppFooter />
+    <LayoutFloatingActions />
   </div>
 </template>

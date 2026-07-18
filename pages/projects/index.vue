@@ -1,96 +1,152 @@
 <script setup lang="ts">
-import { CAL_BOOKING_URL, CONTACT_EMAIL } from '~/constants/contact'
+import { CAL_LINK, CAL_NAMESPACE, CONTACT_EMAIL } from '~/constants/contact'
 import { CASE_STUDIES } from '~/constants/projects'
 
 const { t } = useI18n()
-const localePath = useLocalePath()
 
 useSeoMeta({
   title: () => `${t('projectsPage.title')} - Maxime Jolivet`,
-  description: () => t('projectsPage.subtitle'),
+  description: () =>
+    `${t('projectsPage.subtitle')} ${t('projectsPage.subtitleSectors')}. ${t('projectsPage.subtitleClosing')}`,
 })
 
-const NuxtLinkComponent = resolveComponent('NuxtLink')
-const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-primary')
+const PAGE_SIZE = 3
+
+const categoryFilter = ref<'all' | 'pro' | 'personal'>('all')
+const employerFilter = ref<string>('all')
+const viewMode = ref<'grid' | 'list'>('list')
+const currentPage = ref(1)
+
+const employers = computed(() =>
+  Array.from(new Set(CASE_STUDIES.map((p) => p.employer).filter((e): e is string => Boolean(e)))),
+)
+
+const filteredProjects = computed(() =>
+  CASE_STUDIES.filter((p) => {
+    if (categoryFilter.value !== 'all' && p.category !== categoryFilter.value) return false
+    if (employerFilter.value !== 'all' && p.employer !== employerFilter.value) return false
+    return true
+  }).sort((a, b) => b.year.localeCompare(a.year)),
+)
+
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredProjects.value.length / PAGE_SIZE)))
+
+const paginatedProjects = computed(() => {
+  const start = (currentPage.value - 1) * PAGE_SIZE
+  return filteredProjects.value.slice(start, start + PAGE_SIZE)
+})
+
+watch([categoryFilter, employerFilter], () => {
+  currentPage.value = 1
+})
 </script>
 
 <template>
   <div>
-    <SectionsPageIntro
-      :eyebrow="$t('projectsPage.eyebrow')"
-      :title="$t('projectsPage.title')"
-      :subtitle="$t('projectsPage.subtitle')"
-    />
+    <SectionsPageIntro :eyebrow="$t('projectsPage.eyebrow')" :title="$t('projectsPage.title')">
+      <template #subtitle>
+        {{ $t('projectsPage.subtitle') }}
+        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleSectors') }}</strong>.
+        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleClosing') }}</strong>
+      </template>
+    </SectionsPageIntro>
 
     <LayoutPageSection bare>
-      <UiContainer class="flex flex-col">
-        <component
-          :is="project.live ? NuxtLinkComponent : 'div'"
-          v-for="(project, i) in CASE_STUDIES"
-          :key="project.id"
-          :to="project.live ? localePath({ name: 'projects-slug', params: { slug: project.slug } }) : undefined"
-          class="group grid items-center gap-8 border-t border-border py-12 transition-colors duration-300 md:grid-cols-2 md:gap-12"
-          :class="project.live ? 'hover:bg-card' : 'opacity-60'"
-        >
-          <div :class="i % 2 === 1 ? 'md:order-2' : ''">
-            <div v-if="project.image" class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border">
-              <NuxtImg
-                :src="project.image"
-                :alt="t(project.titleKey)"
-                class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div
-                class="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/35"
-              >
-                <span
-                  class="flex size-12 scale-75 items-center justify-center rounded-full bg-background/90 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100"
-                >
-                  <UiAppIcon icon="lucide:eye" class="size-5 text-foreground" />
-                </span>
-              </div>
-            </div>
-            <UiImagePlaceholder
-              v-else
-              :dot-class="dotClass(project.dot)"
-              :label="project.live ? $t('projectsPage.capturesPending') : $t('projectsPage.underConstruction')"
-              class="aspect-[16/10] transition-transform duration-500 group-hover:scale-[1.02]"
-            />
+      <UiContainer class="flex flex-col gap-8">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="flex flex-wrap items-center gap-2">
+            <UiButton
+              size="pill-md"
+              :variant="categoryFilter === 'all' ? 'pill' : 'pill-outline'"
+              @click="categoryFilter = 'all'"
+            >
+              {{ $t('projectsPage.filterAll') }}
+            </UiButton>
+            <UiButton
+              size="pill-md"
+              :variant="categoryFilter === 'pro' ? 'pill' : 'pill-outline'"
+              @click="categoryFilter = 'pro'"
+            >
+              {{ $t('projectsPage.categoryPro') }}
+            </UiButton>
+            <UiButton
+              size="pill-md"
+              :variant="categoryFilter === 'personal' ? 'pill' : 'pill-outline'"
+              @click="categoryFilter = 'personal'"
+            >
+              {{ $t('projectsPage.categoryPersonal') }}
+            </UiButton>
+
+            <span class="mx-1 h-5 w-px bg-border" />
+
+            <UiButton
+              size="pill-md"
+              :variant="employerFilter === 'all' ? 'pill' : 'pill-outline'"
+              @click="employerFilter = 'all'"
+            >
+              {{ $t('projectsPage.filterAll') }}
+            </UiButton>
+            <UiButton
+              v-for="employer in employers"
+              :key="employer"
+              size="pill-md"
+              :variant="employerFilter === employer ? 'pill' : 'pill-outline'"
+              @click="employerFilter = employer"
+            >
+              {{ employer }}
+            </UiButton>
           </div>
 
-          <div class="flex flex-col gap-4" :class="i % 2 === 1 ? 'md:order-1' : ''">
-            <span class="flex items-center gap-2.5 font-mono text-[0.7812rem] text-subtle">
-              {{ project.year }} · {{ t(project.typeKey) }}
-              <UiBadge v-if="!project.live">{{ $t('projectsPage.underConstruction') }}</UiBadge>
-            </span>
-            <h2 class="text-balance font-sans text-[1.75rem] font-bold leading-[1.2] tracking-[-0.6px] text-foreground">
-              {{ t(project.titleKey) }}
-            </h2>
-
-            <template v-if="project.live">
-              <p class="text-pretty font-sans text-sm leading-[1.7] text-muted-foreground">
-                {{ t(project.taglineKey) }}
-              </p>
-              <div class="flex items-baseline gap-2.5 font-mono text-[0.875rem] text-foreground">
-                <span class="text-mint">→</span>
-                <span>{{ t(project.impactKey) }}</span>
-              </div>
-              <div class="mt-1 flex flex-wrap gap-2">
-                <UiBadge v-for="tag in project.tags" :key="tag" class="bg-mint/16">
-                  {{ tag }}
-                </UiBadge>
-              </div>
-              <span
-                class="mt-1 flex items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
-              >
-                {{ $t('projectsPage.viewProject') }}
-                <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </span>
-            </template>
-            <p v-else class="font-mono text-sm text-muted-foreground">
-              {{ $t('projectsPage.underConstructionNote') }}
-            </p>
+          <div class="flex items-center gap-1.5">
+            <button
+              type="button"
+              :aria-label="$t('projectsPage.viewList')"
+              class="flex size-10 items-center justify-center rounded-full border border-border transition-colors cursor-pointer"
+              :class="viewMode === 'list' ? 'border-accent text-accent' : 'text-muted-foreground hover:text-accent'"
+              @click="viewMode = 'list'"
+            >
+              <UiAppIcon icon="lucide:list" class="size-5" />
+            </button>
+            <button
+              type="button"
+              :aria-label="$t('projectsPage.viewGrid')"
+              class="flex size-10 items-center justify-center rounded-full border border-border transition-colors cursor-pointer"
+              :class="viewMode === 'grid' ? 'border-accent text-accent' : 'text-muted-foreground hover:text-accent'"
+              @click="viewMode = 'grid'"
+            >
+              <UiAppIcon icon="lucide:layout-grid" class="size-5" />
+            </button>
           </div>
-        </component>
+        </div>
+
+        <div v-if="viewMode === 'list'" class="flex flex-col gap-4">
+          <CardsProjectCard v-for="project in paginatedProjects" :key="project.id" :project="project" />
+        </div>
+        <div v-else class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          <CardsProjectGridCard v-for="project in paginatedProjects" :key="project.id" :project="project" />
+        </div>
+
+        <div v-if="totalPages > 1" class="flex items-center justify-center gap-4">
+          <button
+            type="button"
+            :disabled="currentPage === 1"
+            class="flex size-9 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:text-accent disabled:pointer-events-none disabled:opacity-40"
+            :aria-label="$t('projectDetail.prev')"
+            @click="currentPage--"
+          >
+            <UiAppIcon icon="lucide:arrow-left" class="size-4" />
+          </button>
+          <span class="font-mono text-xs text-subtle">{{ currentPage }} / {{ totalPages }}</span>
+          <button
+            type="button"
+            :disabled="currentPage === totalPages"
+            class="flex size-9 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:text-accent disabled:pointer-events-none disabled:opacity-40"
+            :aria-label="$t('projectDetail.next')"
+            @click="currentPage++"
+          >
+            <UiAppIcon icon="lucide:arrow-right" class="size-4" />
+          </button>
+        </div>
       </UiContainer>
     </LayoutPageSection>
 
@@ -106,7 +162,13 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
             <UiButton :href="`mailto:${CONTACT_EMAIL}`">
               {{ CONTACT_EMAIL }}
             </UiButton>
-            <UiButton :href="CAL_BOOKING_URL" variant="pill-outline" icon="lucide:arrow-right">
+            <UiButton
+              variant="pill-outline"
+              icon="lucide:arrow-right"
+              :data-cal-link="CAL_LINK"
+              :data-cal-namespace="CAL_NAMESPACE"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            >
               {{ $t('home.contact.bookCall') }}
             </UiButton>
           </div>

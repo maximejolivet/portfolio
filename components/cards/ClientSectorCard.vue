@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <UiCard :class="$props.class">
     <div class="flex items-center gap-2.5">
-      <UiAppIcon :icon="icon" class="size-4 text-accent" />
+      <UiAppIcon :icon="icon" class="size-8 text-accent" />
       <h3 class="font-sans text-[0.9375rem] font-bold text-foreground">{{ title }}</h3>
     </div>
     <div class="flex flex-wrap gap-2">

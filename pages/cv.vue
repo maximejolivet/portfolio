@@ -1,4 +1,6 @@
 <script setup>
+import { CAL_LINK, CAL_NAMESPACE } from '~/constants/contact'
+
 definePageMeta({
   layout: 'fullscreen',
 })
@@ -38,5 +40,16 @@ useSeoMeta({
       :locale="lang"
       class="block h-[calc(100vh-58px)] w-full"
     />
+
+    <button
+      type="button"
+      class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-primary px-5 py-3.5 font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105"
+      :data-cal-link="CAL_LINK"
+      :data-cal-namespace="CAL_NAMESPACE"
+      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+    >
+      <UiAppIcon icon="lucide:calendar" class="size-4" />
+      {{ $t('home.contact.bookCall') }}
+    </button>
   </div>
 </template>

@@ -10,6 +10,7 @@ const LABEL_COLORS = ['text-[#c99a4a]', 'text-[#4d94ab]', 'text-[#3fa98c]']
   <LayoutPageSection id="tech" class="pt-24">
     <UiSectionHeading
       :title="$t('techSection.eyebrow')"
+      icon="lucide:code"
       diamond="mint"
       :caption="`${$t('techSection.titleStart')} ${$t('techSection.titleHighlight')} ${$t('techSection.titleEnd')}`.toLowerCase()"
     />

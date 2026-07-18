@@ -15,8 +15,11 @@ defineProps<{
       >
         {{ title }}<span class="text-accent">.</span>
       </h1>
-      <p v-if="subtitle" class="max-w-[520px] text-pretty font-sans text-[1.0312rem] leading-[1.7] text-muted-foreground">
-        {{ subtitle }}
+      <p
+        v-if="subtitle || $slots.subtitle"
+        class="max-w-[720px] text-pretty font-sans text-[1.0312rem] leading-[1.7] text-muted-foreground"
+      >
+        <slot name="subtitle">{{ subtitle }}</slot>
       </p>
     </UiContainer>
   </LayoutPageSection>

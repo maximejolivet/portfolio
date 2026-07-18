@@ -145,11 +145,11 @@ export default defineNuxtConfig({
         // img-src => Add relevant https://... sources if you load images from external sources
         'base-uri': ['\'none\''],
         'img-src': ['\'self\'', 'data:', 'blob:', '*.supabase.co'],
-        'connect-src': ['\'self\'', '*.supabase.co'],
+        'connect-src': ['\'self\'', '*.supabase.co', 'https://app.cal.eu'],
         'font-src': ['\'self\''],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
-        'frame-src': ['\'self\''],
+        'frame-src': ['\'self\'', 'https://app.cal.eu'],
         'frame-ancestors': ['\'self\''],
         'upgrade-insecure-requests': true,
       },

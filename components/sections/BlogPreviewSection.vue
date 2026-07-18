@@ -29,10 +29,10 @@ const formattedDate = (value: string) =>
 
 <template>
   <LayoutPageSection v-if="previewArticles.length" id="blog-preview" class="pt-24">
-    <UiSectionHeading :title="$t('home.blog.sectionTitle')" diamond="gold">
+    <UiSectionHeading :title="$t('home.blog.sectionTitle')" icon="lucide:newspaper" diamond="gold">
       <template #caption>
-        <NuxtLink :to="localePath('blog')" class="hover:text-accent">
-          {{ $t('home.blog.viewAll') }}
+        <NuxtLink :to="localePath('blog')" class="inline-flex items-center gap-1 hover:text-accent">
+          {{ $t('home.blog.viewAll') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
         </NuxtLink>
       </template>
     </UiSectionHeading>

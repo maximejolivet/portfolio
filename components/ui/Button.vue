@@ -34,7 +34,7 @@ const isExternal = computed(() => props.href?.startsWith('http'))
     <UiAppIcon
       v-if="icon"
       :icon="icon"
-      class="size-4 shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-1"
+      class="8 shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-1"
     />
   </component>
 </template>

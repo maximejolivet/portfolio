@@ -3,6 +3,8 @@ export interface NavItem {
   labelKey: string
   to: string
   hash?: string
+  icon?: string
+  iconOnly?: boolean
 }
 
 export interface TechItem {
