@@ -7,6 +7,7 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multili
 ![Vue version](https://img.shields.io/badge/Vue-3-4FC08D)
 ![TypeScript version](https://img.shields.io/badge/TypeScript-7-3178C6)
 ![Vite version](https://img.shields.io/badge/Vite-8-646CFF)
+![Tailwind version](https://img.shields.io/badge/Tailwind-4-06B6D4)
 ![Pinia version](https://img.shields.io/badge/Pinia-4-FFD859)
 ![Supabase](https://img.shields.io/badge/Supabase-2-3ECF8E)
 
