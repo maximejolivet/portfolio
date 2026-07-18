@@ -17,11 +17,7 @@
         {{ $t('error.back_home') }}
       </UiButton>
 
-      <UiButton
-        type="button"
-        variant="pill-outline"
-        @click="randomPage"
-      >
+      <UiButton type="button" variant="pill-outline" @click="randomPage">
         {{ $t('error.page_not_found_random_page') }}
       </UiButton>
     </div>

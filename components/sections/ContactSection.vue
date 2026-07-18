@@ -4,7 +4,10 @@ import { SOCIAL_LINKS } from '~/constants/social'
 </script>
 
 <template>
-  <LayoutPageSection id="contact" class="flex flex-col items-center gap-5 py-28 text-center">
+  <LayoutPageSection
+    id="contact"
+    class="flex flex-col items-center gap-5 py-14 md:py-28 text-center"
+  >
     <UiLogoMark :size="88" class="mx-auto mb-8 text-accent" />
     <span class="font-mono text-[0.875rem] font-bold text-accent">{{
       $t('home.contact.eyebrow')
@@ -28,8 +31,8 @@ import { SOCIAL_LINKS } from '~/constants/social'
         variant="pill-outline"
         :data-cal-link="CAL_LINK"
         :data-cal-namespace="CAL_NAMESPACE"
-        data-cal-config='{"layout":"month_view",
-          "useSlotsViewOnSmallScreen":"true"}'
+        data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,
+          &quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
       >
         {{ $t('home.contact.bookCall') }}
       </UiButton>

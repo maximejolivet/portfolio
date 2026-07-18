@@ -36,7 +36,7 @@
     "subtitle": "10 ans d'expérience, principalement en agence digitale. Solides compétences PHP et JavaScript, expertise CMS appliquée à des projets complexes et exigeants, avec un souci constant de la qualité du code et de la pérennité des choix techniques.",
     "ctaSecondary": "Voir les projets",
     "ctaContact": "me contacter",
-    "underConstructionNote": "site toujours en construction 🚧"
+    "underConstructionNote": "Site toujours en construction 🚧"
   },
   "aboutSection": {
     "eyebrow": "À propos",
@@ -51,8 +51,8 @@
     "imageAlt": "Portrait de Maxime Jolivet",
     "tags": {
       "conceptionUiUx": "Conception UI/UX Design",
-      "problemSolving": "Résolution de problèmes",
       "webDev": "Développement web",
+      "problemSolving": "Résolution de problèmes",
       "cloudDevops": "Cloud & DevOps",
       "aiAutomation": "IA & Automatisation",
       "vibeCoding": "Vibe coding / Low Code"

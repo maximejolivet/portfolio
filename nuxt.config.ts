@@ -128,26 +128,26 @@ export default defineNuxtConfig({
           // unsafe-inline    => Fallback value, will be ignored by almost any browser (level 2)
           // strict-dynamic   => Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
           // nonce-{{nonce}}  => Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
-          "'self'",
-          "'unsafe-inline'",
-          "'strict-dynamic'",
-          "'nonce-{{nonce}}'",
+          '\'self\'',
+          '\'unsafe-inline\'',
+          '\'strict-dynamic\'',
+          '\'nonce-{{nonce}}\'',
         ],
         'style-src': [
           // self           => Enables loading of stylesheets hosted on same origin
           // unsafe-inline  => Recommended default for most Nuxt apps
-          "'self'",
-          "'unsafe-inline'",
+          '\'self\'',
+          '\'unsafe-inline\'',
         ],
         // img-src => Add relevant https://... sources if you load images from external sources
-        'base-uri': ["'none'"],
-        'img-src': ["'self'", 'data:', 'blob:', '*.supabase.co'],
-        'connect-src': ["'self'", '*.supabase.co', 'https://app.cal.eu'],
-        'font-src': ["'self'"],
-        'object-src': ["'none'"],
-        'script-src-attr': ["'none'"],
-        'frame-src': ["'self'", 'https://app.cal.eu'],
-        'frame-ancestors': ["'self'"],
+        'base-uri': ['\'none\''],
+        'img-src': ['\'self\'', 'data:', 'blob:', '*.supabase.co'],
+        'connect-src': ['\'self\'', '*.supabase.co', 'https://app.cal.eu'],
+        'font-src': ['\'self\''],
+        'object-src': ['\'none\''],
+        'script-src-attr': ['\'none\''],
+        'frame-src': ['\'self\'', 'https://app.cal.eu'],
+        'frame-ancestors': ['\'self\''],
         'upgrade-insecure-requests': true,
       },
       permissionsPolicy: {

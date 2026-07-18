@@ -1,16 +1,42 @@
 <script setup lang="ts">
 const HOVER_SELECTOR = 'a, button, [role="button"], input, textarea, select, label'
+const MAX_ANCESTOR_DEPTH = 8
 
 const x = ref(0)
 const y = ref(0)
 const visible = ref(false)
 const enabled = ref(false)
 const hovering = ref(false)
+const onSameColor = ref(false)
+
+let accentRgb = ''
+
+function readAccentRgb() {
+  const probe = document.createElement('span')
+  probe.style.position = 'absolute'
+  probe.style.visibility = 'hidden'
+  probe.style.color = 'var(--accent)'
+  document.body.appendChild(probe)
+  accentRgb = getComputedStyle(probe).color
+  probe.remove()
+}
+
+function backgroundColorAt(el: Element | null): string {
+  let node: Element | null = el
+  for (let depth = 0; node && depth < MAX_ANCESTOR_DEPTH; depth++) {
+    const bg = getComputedStyle(node).backgroundColor
+    if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') return bg
+    node = node.parentElement
+  }
+  return getComputedStyle(document.body).backgroundColor
+}
 
 function onMove(e: MouseEvent) {
   x.value = e.clientX
   y.value = e.clientY
   visible.value = true
+  onSameColor.value
+    = backgroundColorAt(document.elementFromPoint(e.clientX, e.clientY)) === accentRgb
 }
 
 function onLeave() {
@@ -25,6 +51,7 @@ onMounted(() => {
   enabled.value = window.matchMedia('(pointer: fine)').matches
   if (!enabled.value) return
 
+  readAccentRgb()
   document.documentElement.classList.add('custom-cursor-active')
   window.addEventListener('mousemove', onMove)
   window.addEventListener('mouseover', onOver)
@@ -46,24 +73,23 @@ onUnmounted(() => {
     :class="visible ? 'opacity-100' : 'opacity-0'"
     :style="{ transform: `translate3d(${x}px, ${y}px, 0)` }"
   >
-    <!-- core dot -->
+    <!-- core dot: turquoise by default, white when the surface underneath is the same color -->
     <div
-      class="absolute rounded-full bg-accent transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
-      :class="
+      class="absolute rounded-full transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+      :class="[
+        onSameColor ? 'bg-white' : 'bg-accent',
         hovering
-          ? 'size-1.5 -translate-x-1/2 -translate-y-1/2'
-          : 'size-3 -translate-x-1/2 -translate-y-1/2'
-      "
+          ? 'size-4 -translate-x-1/2 -translate-y-1/2'
+          : 'size-3 -translate-x-1/2 -translate-y-1/2',
+      ]"
     />
     <!-- outer ring, pops in with a springy overshoot on hover -->
     <div
-      class="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
-      :class="
-        hovering
-          ? 'size-10 rotate-0 opacity-100 ' +
-            'shadow-[0_0_18px_color-mix(in_srgb,var(--accent)_55%,transparent)]'
-          : 'size-3 rotate-90 opacity-0'
-      "
+      class="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+      :class="[
+        onSameColor ? 'border-white' : 'border-accent',
+        hovering ? 'size-7 rotate-0 opacity-100' : 'size-3 rotate-90 opacity-0',
+      ]"
     />
   </div>
 </template>

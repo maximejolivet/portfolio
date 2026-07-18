@@ -18,7 +18,7 @@ Cette phrase résume la voix entière : elle nomme explicitement ce qu'elle refu
 
 - Phrases courtes à moyennes, peu de subordonnées empilées.
 - Chiffres et faits concrets plutôt qu'adjectifs vagues ("10 ans d'expérience" plutôt que "expérimenté").
-- Auto-dérision légère et honnêteté assumée plutôt que perfection affichée (`hero.underConstructionNote` : "site toujours en construction 🚧").
+- Auto-dérision légère et honnêteté assumée plutôt que perfection affichée (`hero.underConstructionNote` : "Site toujours en construction 🚧").
 - Titres de section en minuscule-sauf-première-lettre, pas de majuscules criardes, sauf les "eyebrows" (labels au-dessus des titres, ex. `PROJETS`, `BLOG - NOTES DE TERRAIN`) qui sont volontairement en capitales — un marqueur typographique de catégorie, pas un cri.
 
 ### Vocabulaire
@@ -114,7 +114,7 @@ That sentence captures the entire voice: it explicitly names what it refuses to 
 
 - Short to medium sentences, few stacked subordinate clauses.
 - Concrete numbers and facts rather than vague adjectives ("10 years of experience" rather than "experienced").
-- Light self-awareness and deliberate honesty rather than displayed perfection (`hero.underConstructionNote`: "site still under construction 🚧").
+- Light self-awareness and deliberate honesty rather than displayed perfection (`hero.underConstructionNote`: "Site still under construction 🚧").
 - Section titles in sentence case, no shouty capitals, except "eyebrows" (labels above headings, e.g. `PROJECTS`, `BLOG - FIELD NOTES`) which are deliberately capitalized — a typographic category marker, not a shout.
 
 ### Vocabulary

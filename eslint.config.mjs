@@ -3,12 +3,12 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 export default withNuxt(
   {
     rules: {
-      camelcase: 'off',
+      'camelcase': 'off',
       'dot-notation': 'off',
       'max-len': 'off',
       'no-console': [2, { allow: ['error', 'info', 'warn'] }],
       'no-lonely-if': 'off',
-      semi: [2, 'never'],
+      'semi': [2, 'never'],
       'vue/html-indent': 'off',
       'vue/html-self-closing': 'off',
       'vue/max-attributes-per-line': 'off',

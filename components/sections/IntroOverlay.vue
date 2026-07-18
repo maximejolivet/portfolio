@@ -29,7 +29,8 @@ onMounted(() => {
   let alreadyShown = false
   try {
     alreadyShown = sessionStorage.getItem(SESSION_KEY) === '1'
-  } catch {
+  }
+  catch {
     alreadyShown = false
   }
 
@@ -38,7 +39,8 @@ onMounted(() => {
   visible.value = true
   try {
     sessionStorage.setItem(SESSION_KEY, '1')
-  } catch {
+  }
+  catch {
     // ignore storage errors (private browsing)
   }
 
@@ -75,9 +77,7 @@ onUnmounted(() => {
       :class="detailsVisible ? 'opacity-100' : 'opacity-0'"
     >
       <UiLogoMark :size="30" class="text-panel-foreground" />
-      <span class="font-mono text-[0.75rem] font-medium text-panel-foreground/60"
-        >maximejolivet.fr</span
-      >
+      <span class="font-mono text-[0.75rem] font-medium text-panel-foreground/60">maximejolivet.fr</span>
     </div>
 
     <UiLogoMark :size="140" class="animate-intro-logo-in text-panel-foreground" />

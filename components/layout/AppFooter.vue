@@ -12,12 +12,12 @@ const localePath = useLocalePath()
       <NuxtLink :to="localePath('mentions-legales')" class="transition-colors hover:text-accent">
         {{ $t('footer.legalMentions') }}
       </NuxtLink>
-      <span>{{ $t('footer.tagline') }}</span>
+      <span class="text-center">{{ $t('footer.tagline') }}</span>
+      <NavigationThemeToggle />
       <div class="flex items-center gap-4">
         <NavigationNavLink v-for="item in NAV_ITEMS" :key="item.id" :to="item.to" :hash="item.hash">
           {{ $t(item.labelKey) }}
         </NavigationNavLink>
-        <NavigationThemeToggle />
       </div>
     </div>
   </footer>

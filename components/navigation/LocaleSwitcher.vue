@@ -16,7 +16,7 @@ const LOCALES = ['fr', 'en'] as const
       class="rounded-full px-2.5 py-1 transition-colors"
       :class="
         code === locale
-          ? 'bg-primary text-primary-foreground'
+          ? 'bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground'
           : 'text-muted-foreground hover:text-accent'
       "
     >

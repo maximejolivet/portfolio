@@ -7,7 +7,8 @@ const previewArticles = ref<ArticleSummary[]>([])
 try {
   const { data: articles } = await useArticles()
   previewArticles.value = articles.value.slice(0, 3)
-} catch (error) {
+}
+catch (error) {
   // Supabase isn't configured in this environment - skip the preview gracefully.
   console.error('[home] blog preview unavailable:', (error as Error)?.message ?? error)
 }

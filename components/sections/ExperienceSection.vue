@@ -16,8 +16,7 @@ const { t } = useI18n()
       class="-mt-6 mb-6 max-w-[560px] text-pretty font-sans text-[1rem] leading-[1.6] text-muted-foreground"
     >
       {{ $t('experienceSection.titleStart') }}
-      <span class="text-primary">{{ $t('experienceSection.titleHighlight') }}</span
-      >{{ $t('experienceSection.titleEnd') }}
+      <span class="text-primary">{{ $t('experienceSection.titleHighlight') }}</span>{{ $t('experienceSection.titleEnd') }}
     </p>
 
     <ol class="flex flex-col">

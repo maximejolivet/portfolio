@@ -17,11 +17,11 @@ useSeoMeta({
   ogTitle:
     'CV - Maxime Jolivet, Développeur web full-stack senior PHP - JavaScript / Expert Drupal',
   description:
-    "Développeur web avec 10 ans d'expérience en agence digitale, solides bases en " +
-    'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
+    'Développeur web avec 10 ans d\'expérience en agence digitale, solides bases en '
+    + 'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
   ogDescription:
-    "Développeur web avec 10 ans d'expérience en agence digitale, solides bases en " +
-    'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
+    'Développeur web avec 10 ans d\'expérience en agence digitale, solides bases en '
+    + 'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
   ogImage: 'https://maximejolivet.fr/open-graph-maximejolivet.jpg',
   ogType: 'website',
   twitterCard: 'summary_large_image',
@@ -44,7 +44,7 @@ useSeoMeta({
       class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-primary px-5 py-3.5 font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105"
       :data-cal-link="CAL_LINK"
       :data-cal-namespace="CAL_NAMESPACE"
-      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+      data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
     >
       <UiAppIcon icon="lucide:calendar" class="size-4" />
       {{ $t('home.contact.bookCall') }}
