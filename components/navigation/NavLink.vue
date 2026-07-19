@@ -31,7 +31,7 @@ const isActive = computed(() => !props.hash && route.path === target.value)
       ],
     ]"
   >
-    <UiAppIcon v-if="icon" :icon="icon" :class="large ? 'relative size-6 top-[2px]' : 'size-6'" />
+    <UiAppIcon v-if="icon" :icon="icon" :class="large ? 'relative size-6 top-[1px]' : 'size-6'" />
     <slot />
   </NuxtLink>
 </template>

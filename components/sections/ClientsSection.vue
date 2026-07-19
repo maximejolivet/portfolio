@@ -6,7 +6,7 @@ const { t } = useI18n()
 
 <template>
   <LayoutPageSection bare>
-    <UiContainer class="pt-20">
+    <UiContainer class="pt-12">
       <div class="mb-14 flex flex-col gap-3">
         <h2
           class="text-balance font-sans text-[1.75rem] font-bold leading-[1.2] tracking-[-0.6px] text-foreground"

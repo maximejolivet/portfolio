@@ -5,9 +5,9 @@ const localePath = useLocalePath()
 </script>
 
 <template>
-  <footer class="border-t border-border px-8 py-6">
+  <footer class="px-8 py-6">
     <div
-      class="mx-auto flex max-w-[1180px] flex-col items-center gap-3 font-mono text-[0.75rem] text-subtle sm:flex-row sm:justify-between sm:gap-4"
+      class="mx-auto flex max-w-[1180px] flex-col items-center gap-3 font-sans text-[0.75rem] text-subtle sm:flex-row sm:justify-between sm:gap-4"
     >
       <NuxtLink :to="localePath('mentions-legales')" class="transition-colors hover:text-accent">
         {{ $t('footer.legalMentions') }}

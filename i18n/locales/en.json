@@ -28,6 +28,11 @@
     "backToTop": "Back to top",
     "legalMentions": "Legal notice"
   },
+  "social": {
+    "github": "View my GitHub",
+    "linkedin": "View my LinkedIn profile",
+    "email": "Contact me"
+  },
   "hero": {
     "greeting": "Hi, I'm Maxime",
     "role": "Senior Full-Stack Web Developer",
@@ -166,12 +171,13 @@
   "projectsPage": {
     "eyebrow": "PROJECTS",
     "title": "My work",
-    "subtitle": "Discover a selection of projects I've contributed to. These references reflect my experience on applications and platforms built for clients in the",
-    "subtitleSectors": "construction, industrial, healthcare, energy, insurance and mutual benefit, and agriculture and agri-food sectors",
-    "subtitleClosing": "Much of this work is still running in production today.",
+    "subtitle": "Discover a selection of projects I've contributed to throughout my professional experience. These projects showcase my work at Gingerminds, where I helped build websites for clients across a range of sectors:",
+    "subtitleSectors": "construction, industry, healthcare, energy, insurance & mutual funds, agriculture and agri-food",
+    "subtitleClosing": "Many of these sites are still in production today, a testament to their durability and reliability.",
+    "subtitlePersonal": "You'll also find a selection of my personal web projects, built as part of my ongoing technology watch and skill development. They let me experiment with new technologies, deepen my knowledge, and continuously grow my skills.",
     "categoryPro": "Pro",
     "categoryPersonal": "Personal",
-    "filterAll": "All",
+    "filterAll": "All", 
     "viewGrid": "Grid view",
     "viewList": "List view",
     "ctaTitle": "Got a project in mind",

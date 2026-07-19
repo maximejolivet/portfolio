@@ -7,7 +7,8 @@ const { t } = useI18n()
 useSeoMeta({
   title: () => `${t('projectsPage.title')} - Maxime Jolivet`,
   description: () =>
-    `${t('projectsPage.subtitle')} ${t('projectsPage.subtitleSectors')}. ${t('projectsPage.subtitleClosing')}`,
+    `${t('projectsPage.subtitle')} ${t('projectsPage.subtitleSectors')}. `
+    + `${t('projectsPage.subtitleClosing')} ${t('projectsPage.subtitlePersonal')}`,
 })
 
 const PAGE_SIZE = 3
@@ -47,7 +48,10 @@ watch([categoryFilter, employerFilter], () => {
       <template #subtitle>
         {{ $t('projectsPage.subtitle') }}
         <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleSectors') }}</strong>.
-        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleClosing') }}</strong>
+        <br /><br />
+        {{ $t('projectsPage.subtitleClosing') }}
+        <br /><br />
+        {{ $t('projectsPage.subtitlePersonal') }}
       </template>
     </SectionsPageIntro>
 
