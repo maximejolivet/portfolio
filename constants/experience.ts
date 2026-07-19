@@ -7,6 +7,7 @@ export const EXPERIENCE_TIMELINE: TimelineItem[] = [
     titleKey: 'experienceSection.items.gingerminds.title',
     organizationKey: 'experienceSection.items.gingerminds.organization',
     organizationUrl: 'https://www.gingerminds.fr/?source=maximejolivet.fr',
+    logo: '/logo-gingerminds.svg',
     locationKey: 'experienceSection.items.gingerminds.location',
     introKey: 'experienceSection.items.gingerminds.intro',
     descriptionPointsKeys: [
