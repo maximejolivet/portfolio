@@ -27,6 +27,7 @@ export interface TimelineItem {
   organizationKey: string
   organizationUrl: string
   locationKey: string
+  logo?: string
   descriptionKey?: string
   introKey?: string
   descriptionPointsKeys?: string[]
