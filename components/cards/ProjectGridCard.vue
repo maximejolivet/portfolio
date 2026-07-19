@@ -6,23 +6,17 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
-const localePath = useLocalePath()
 
-const NuxtLinkComponent = resolveComponent('NuxtLink')
 const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-primary'))
-const projectTo = computed(() =>
-  props.project.live
-    ? localePath({ name: 'projects-slug', params: { slug: props.project.slug } })
-    : undefined,
-)
 </script>
 
 <template>
   <component
-    :is="project.live ? NuxtLinkComponent : 'div'"
-    :to="projectTo"
+    :is="project.websiteUrl ? 'a' : 'div'"
+    :href="project.websiteUrl"
+    :target="project.websiteUrl ? '_blank' : undefined"
+    :rel="project.websiteUrl ? 'noopener noreferrer nofollow' : undefined"
     class="group flex flex-col gap-3.5"
-    :class="{ 'opacity-60': !project.live }"
   >
     <div v-if="project.image" class="aspect-video overflow-hidden rounded-2xl border border-border">
       <NuxtImg
@@ -34,9 +28,7 @@ const projectTo = computed(() =>
     <UiImagePlaceholder
       v-else
       :dot-class="dotClass"
-      :label="
-        project.live ? $t('projectsPage.capturesPending') : $t('projectsPage.underConstruction')
-      "
+      :label="$t('projectsPage.capturesPending')"
       class="aspect-video"
     />
     <div class="flex flex-col gap-1.5">

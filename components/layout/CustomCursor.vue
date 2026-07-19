@@ -69,7 +69,7 @@ onUnmounted(() => {
 <template>
   <div
     v-if="enabled"
-    class="pointer-events-none fixed left-0 top-0 z-[200] transition-opacity duration-150 ease-out"
+    class="pointer-events-none fixed left-0 top-0 z-[2147483647] transition-opacity duration-150 ease-out"
     :class="visible ? 'opacity-100' : 'opacity-0'"
     :style="{ transform: `translate3d(${x}px, ${y}px, 0)` }"
   >

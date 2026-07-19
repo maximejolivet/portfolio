@@ -8,7 +8,6 @@ const previewCaseStudies = CASE_STUDIES.filter((p) => p.category === 'pro')
   .sort((a, b) => b.year.localeCompare(a.year))
   .slice(0, 6)
 
-const NuxtLinkComponent = resolveComponent('NuxtLink')
 const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-primary')
 </script>
 
@@ -34,16 +33,13 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
     <UiContainer>
       <div class="grid gap-7 sm:grid-cols-2">
         <component
-          :is="project.live ? NuxtLinkComponent : 'div'"
+          :is="project.websiteUrl ? 'a' : 'div'"
           v-for="project in previewCaseStudies"
           :key="project.id"
-          :to="
-            project.live
-              ? localePath({ name: 'projects-slug', params: { slug: project.slug } })
-              : undefined
-          "
+          :href="project.websiteUrl"
+          :target="project.websiteUrl ? '_blank' : undefined"
+          :rel="project.websiteUrl ? 'noopener noreferrer nofollow' : undefined"
           class="group flex flex-col gap-3.5"
-          :class="{ 'opacity-60': !project.live }"
         >
           <div class="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
             <NuxtImg
@@ -55,11 +51,9 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
             <UiImagePlaceholder
               v-else
               :dot-class="dotClass(project.dot)"
-              :label="project.live ? undefined : $t('projectsPage.underConstruction')"
               class="size-full rounded-none border-0"
             />
             <div
-              v-if="project.live"
               class="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/35"
             >
               <span
@@ -76,13 +70,19 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
               </span>
               <span class="font-mono text-[0.7812rem] text-subtle">{{ project.year }}</span>
             </div>
-            <div class="font-mono text-xs text-muted-foreground">
-              {{
-                project.live
-                  ? project.tags.slice(0, 2).join(' · ')
-                  : $t('projectsPage.underConstruction')
-              }}
+            <div v-if="project.tags.length" class="font-mono text-xs text-muted-foreground">
+              {{ project.tags.slice(0, 2).join(' · ') }}
             </div>
+            <span
+              v-if="project.websiteUrl"
+              class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
+            >
+              {{ $t('projectsPage.viewProject') }}
+              <UiAppIcon
+                icon="lucide:external-link"
+                class="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </span>
           </div>
         </component>
       </div>

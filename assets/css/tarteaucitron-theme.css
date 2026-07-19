@@ -1,0 +1,148 @@
+/* Reskins tarteaucitron's default yellow/white UI to match the site's own design system.
+   Selectors mirror tarteaucitron's fixed IDs/classes (see public/tarteaucitron/tarteaucitron.js)
+   - !important is required since tarteaucitron's own CSS is injected after this stylesheet
+   and uses equally-specific ID selectors. */
+
+#tarteaucitronRoot {
+  font-family: var(--font-sans) !important;
+}
+
+/* floating card, anchored bottom-left, instead of a full-width bar
+   - the "html body #tarteaucitronRoot" prefix is needed because tarteaucitron itself has a
+   rule scoped to "#tarteaucitronRoot #tarteaucitronAlertBig" (higher specificity than a bare
+   "#tarteaucitronAlertBig"), which otherwise wins over ours despite !important on both. */
+html body #tarteaucitronRoot #tarteaucitronAlertBig {
+  background: var(--card) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18) !important;
+  position: fixed !important;
+  left: 20px !important;
+  right: auto !important;
+  bottom: 20px !important;
+  top: auto !important;
+  transform: none !important;
+  width: calc(100% - 40px) !important;
+  max-width: 380px !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 20px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 10px 12px !important;
+}
+
+/* full-width so it sits on its own line; the CTAs wrap as a group beneath it */
+html body #tarteaucitronRoot #tarteaucitronDisclaimerAlert {
+  color: var(--sub) !important;
+  font-size: 0.875rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  flex-basis: 100% !important;
+  width: 100% !important;
+}
+
+#tarteaucitronDisclaimerAlert a {
+  color: var(--accent) !important;
+}
+
+/* accept buttons (main bar + modal footer) */
+.tarteaucitronAllow {
+  background: var(--gold) !important;
+  color: var(--on-primary) !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  font-family: var(--font-sans) !important;
+  border: 0 !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 10px 18px !important;
+}
+
+/* deny buttons (main bar + modal footer) */
+.tarteaucitronDeny {
+  background: transparent !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  font-family: var(--font-sans) !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 10px 18px !important;
+}
+
+/* "personalize" CTA in the main bar - icon-only circular button, text hidden but kept
+   for the accessible name (tarteaucitron already sets aria-label on this button). */
+html body #tarteaucitronRoot #tarteaucitronCloseAlert {
+  background: transparent !important;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0 !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 999px !important;
+  width: 38px !important;
+  height: 38px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+}
+
+html body #tarteaucitronRoot #tarteaucitronCloseAlert::before {
+  content: '' !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+  width: 15px !important;
+  height: 15px !important;
+  background-color: currentColor !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M9.671 4.136a2.34 2.34 0 0 1 4.659 0a2.34 2.34 0 0 0 3.319 1.915a2.34 2.34 0 0 1 2.33 4.033a2.34 2.34 0 0 0 0 3.831a2.34 2.34 0 0 1-2.33 4.033a2.34 2.34 0 0 0-3.319 1.915a2.34 2.34 0 0 1-4.659 0a2.34 2.34 0 0 0-3.32-1.915a2.34 2.34 0 0 1-2.33-4.033a2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/g%3E%3C/svg%3E")
+    no-repeat center / contain !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M9.671 4.136a2.34 2.34 0 0 1 4.659 0a2.34 2.34 0 0 0 3.319 1.915a2.34 2.34 0 0 1 2.33 4.033a2.34 2.34 0 0 0 0 3.831a2.34 2.34 0 0 1-2.33 4.033a2.34 2.34 0 0 0-3.319 1.915a2.34 2.34 0 0 1-4.659 0a2.34 2.34 0 0 0-3.32-1.915a2.34 2.34 0 0 1-2.33-4.033a2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/g%3E%3C/svg%3E")
+    no-repeat center / contain !important;
+}
+
+/* services modal */
+#tarteaucitron {
+  background: var(--bg) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--line) !important;
+}
+
+#tarteaucitronServices .tarteaucitronMainLine,
+#tarteaucitronServices .tarteaucitronLine {
+  background: var(--card) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+#tarteaucitronServices .tarteaucitronTitle {
+  background: var(--panel) !important;
+  color: var(--on-panel) !important;
+}
+
+#tarteaucitronServices .tarteaucitronTitle a {
+  color: var(--on-panel) !important;
+}
+
+#tarteaucitronBack {
+  background: var(--ink) !important;
+}
+
+/* hide the default floating reopen icon - replaced by our own "manage cookies" link */
+#tarteaucitronIcon {
+  display: none !important;
+}
+
+/* the floating card already has margins built in (left: 20px, width: calc(100% - 40px)),
+   just tighten them slightly on very narrow screens */
+@media screen and (max-width: 420px) {
+  html body #tarteaucitronRoot #tarteaucitronAlertBig {
+    left: 12px !important;
+    bottom: 12px !important;
+    width: calc(100% - 24px) !important;
+  }
+}

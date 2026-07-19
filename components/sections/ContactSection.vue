@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { CAL_LINK, CAL_NAMESPACE, CONTACT_EMAIL } from '~/constants/contact'
 import { SOCIAL_LINKS } from '~/constants/social'
+
+const { refused: calRefused } = useCalConsent()
 </script>
 
 <template>
@@ -28,6 +30,7 @@ import { SOCIAL_LINKS } from '~/constants/social'
         {{ CONTACT_EMAIL }}
       </UiButton>
       <UiButton
+        v-if="!calRefused"
         variant="pill-outline"
         :data-cal-link="CAL_LINK"
         :data-cal-namespace="CAL_NAMESPACE"
