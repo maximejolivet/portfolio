@@ -28,6 +28,11 @@
     "backToTop": "Retour en haut",
     "legalMentions": "Mentions légales"
   },
+  "social": {
+    "github": "Voir mon GitHub",
+    "linkedin": "Voir mon profil LinkedIn",
+    "email": "Contactez-moi"
+  },
   "hero": {
     "greeting": "Bonjour, moi c'est Maxime",
     "role": "Développeur web full-stack senior",
@@ -166,9 +171,10 @@
   "projectsPage": {
     "eyebrow": "PROJETS",
     "title": "Mes réalisations",
-    "subtitle": "Découvrez une sélection de projets auxquels j'ai participé. Ces références reflètent mon expérience sur des applications et plateformes développées pour des clients des secteurs du",
-    "subtitleSectors": "bâtiment, de l'industrie, de la santé, de l'énergie, des mutuelles et assurances, ainsi que de l'agriculture et de l'agroalimentaire",
-    "subtitleClosing": "Une grande partie de ces solutions est encore utilisée en production aujourd'hui.",
+    "subtitle": "Découvrez une sélection de projets auxquels j'ai contribué au cours de mes expériences professionnelles. Ces réalisations illustrent mon travail chez Gingerminds, où j'ai participé au développement de sites web pour des clients issus de secteurs variés :",
+    "subtitleSectors": "bâtiment, industrie, santé, énergie, mutuelles et assurances, agriculture et agroalimentaire",
+    "subtitleClosing": "Une grande partie de ces sites est toujours utilisée en production aujourd'hui, témoignant de leur pérennité et de leur fiabilité.",
+    "subtitlePersonal": "Vous trouverez également une sélection de mes projets web personnels, réalisés dans le cadre de ma veille technologique et de ma montée en compétences. Ils me permettent d'expérimenter de nouvelles technologies, d'approfondir mes connaissances et de développer continuellement mes compétences.",
     "categoryPro": "Pro",
     "categoryPersonal": "Perso",
     "filterAll": "Tous",

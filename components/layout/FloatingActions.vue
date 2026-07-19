@@ -30,7 +30,7 @@ onUnmounted(() => {
       </span>
       <button
         type="button"
-        class="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent md:size-14 cursor-pointer"
+        class="flex size-11 items-center justify-center rounded-full bg-primary border border-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent hover:border-accent md:size-14 cursor-pointer"
         :aria-label="$t('home.contact.bookCall')"
         :data-cal-link="CAL_LINK"
         :data-cal-namespace="CAL_NAMESPACE"
