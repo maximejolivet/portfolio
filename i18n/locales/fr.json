@@ -26,7 +26,8 @@
     "tagline": "Développeur web full-stack senior / Lead Dev / Tech lead",
     "rights": "",
     "backToTop": "Retour en haut",
-    "legalMentions": "Mentions légales"
+    "legalMentions": "Mentions légales",
+    "manageCookies": "Gérer les cookies"
   },
   "social": {
     "github": "Voir mon GitHub",
@@ -222,7 +223,7 @@
       "equipe": "équipe agence"
     },
     "pileje": {
-      "type": "",
+      "type": "Site de marque",
       "title": "PiLeJe Micronutrition",
       "tagline": "",
       "impact": "",
@@ -247,10 +248,167 @@
       "duree": "",
       "equipe": ""
     },
+    "boralex": {
+      "type": "Site institutionnel",
+      "title": "Boralex",
+      "tagline": "Conception et développement du site institutionnel de Boralex, producteur d'énergie renouvelable.",
+      "impact": "Site institutionnel toujours en production",
+      "contexte": "Boralex développe et exploite des installations de production d'énergie renouvelable (éolien, solaire, hydroélectricité, stockage) en Amérique du Nord et en Europe, avec plus de 20 ans de présence en France.",
+      "solution": "Design, développement et référencement (SEO) du site sous Drupal, réalisés par l'agence Gingerminds.",
+      "points": [
+        "Design et direction artistique du site institutionnel",
+        "Développement Drupal",
+        "Référencement naturel (SEO)",
+        ""
+      ],
+      "resultat": "",
+      "role": "développeur",
+      "duree": "",
+      "equipe": "équipe agence"
+    },
+    "groupeTechna": {
+      "type": "Écosystème digital",
+      "title": "Techna - écosystème digital unifié",
+      "tagline": "Consolidation de 6 sites en une plateforme unique pour repositionner Techna, expert indépendant en nutrition animale.",
+      "impact": "Écosystème digital consolidé, toujours en production",
+      "contexte": "Techna, spécialiste indépendant de la nutrition animale (60M€ de CA, 310 collaborateurs), souhaitait renforcer son leadership en France et accélérer son développement à l'international, en resserrant son portefeuille de marques.",
+      "solution": "Unification de la présence digitale du groupe : passage de six sites à un seul, nouvelle identité de marque reflétant l'expertise industrielle et la R&D, architecture de contenu ciblant quatre segments clients (intégrateurs industriels, distributeurs, fabricants d'aliments à la ferme, cavaliers).",
+      "points": [
+        "Rationalisation de six sites en une plateforme unique",
+        "Nouvelle identité de marque reflétant expertise industrielle, innovation et R&D",
+        "Architecture de contenu ciblant quatre segments clients distincts",
+        "Gestion SEO optimisée et mise en avant de l'expertise scientifique"
+      ],
+      "resultat": "Un site stratégique au service de la croissance France et internationale de Techna, avec une gestion SEO optimisée et une mise en avant de l'expertise scientifique en nutrition animale de précision.",
+      "role": "développeur",
+      "duree": "",
+      "equipe": "équipe agence"
+    },
+    "chtiiing": {
+      "type": "Site vitrine",
+      "title": "Chtiiing",
+      "tagline": "Site des Journées nantaises de la créativité, mettant en avant 87 artistes du territoire.",
+      "impact": "Édition 2022, 87 artistes valorisés en ligne",
+      "contexte": "Chtiiing est l'événement phare de la créativité à Nantes, porté par Nantes Métropole et Samoa, réunissant artistes et acteurs créatifs du territoire sur plusieurs jours.",
+      "solution": "Un site WordPress présentant les 87 artistes participants, avec un formulaire de contact dédié à chacun, une navigation aléatoire à travers les allées virtuelles, et l'intégralité des revenus générés reversée aux artistes.",
+      "points": [
+        "Site WordPress mettant en avant 87 artistes",
+        "Formulaires de contact dédiés à chaque artiste",
+        "Navigation aléatoire à travers les allées virtuelles",
+        "100% des revenus générés reversés aux artistes"
+      ],
+      "resultat": "",
+      "role": "développeur",
+      "duree": "",
+      "equipe": "équipe agence"
+    },
+    "lnaSante": {
+      "type": "Écosystème digital",
+      "title": "LNA Santé",
+      "tagline": "Refonte de l'écosystème digital du groupe LNA Santé, entre site corporate et microsites de chaque établissement.",
+      "impact": "Plateforme corporate et microsites toujours en production",
+      "contexte": "Groupe de santé fondé il y a 30 ans (7 500 collaborateurs, 85 établissements en France et en Belgique, 535M€ de CA), LNA Santé devait refondre sa présence digitale pour répondre à des enjeux commerciaux (taux d'occupation) et RH (recrutement).",
+      "solution": "Ateliers avec les parties prenantes et immersions en établissement pour cadrer le besoin, UX/UI pour renforcer le positionnement, plateforme WordPress permettant une gestion de contenu flexible : un site corporate et des microsites personnalisables pour chaque établissement, administrables par une seule personne en interne.",
+      "points": [
+        "Ateliers de cadrage avec les parties prenantes et immersions en établissement",
+        "UX/UI pour renforcer le positionnement du groupe",
+        "Plateforme WordPress : site corporate + microsites par établissement",
+        "Gestion de contenu flexible, administrable par une seule personne"
+      ],
+      "resultat": "Une vitrine complète de l'offre du groupe, positionnée distinctement, générant des leads pour l'occupation des établissements et soutenant le recrutement.",
+      "role": "développeur",
+      "duree": "",
+      "equipe": "équipe agence"
+    },
+    "onetBusiness": {
+      "type": "Site institutionnel",
+      "title": "Onet Business Services",
+      "tagline": "Refonte du site institutionnel du groupe Onet pour une expérience efficace, simple et agréable.",
+      "impact": "Site institutionnel toujours en production",
+      "contexte": "Leader français des services aux entreprises (multiservices, propreté, sécurité, accueil...) et implanté sur des environnements à risques, Onet souhaitait renforcer la visibilité de sa marque et son attractivité employeur via une refonte globale de son site.",
+      "solution": "Ateliers UX pour l'inventaire et la hiérarchisation des contenus, sessions de co-conception des parcours utilisateurs, accompagnement webmarketing. Implémentation sous WordPress/Elementor avec une architecture de contenu structurée par activités.",
+      "points": [
+        "Ateliers UX pour l'inventaire et la hiérarchisation des contenus",
+        "Co-conception des parcours utilisateurs",
+        "Implémentation WordPress / Elementor",
+        "Architecture de contenu structurée par activités du groupe"
+      ],
+      "resultat": "Une identité de marque groupe lisible, mettant en avant les marques filles, les références clients et l'expertise, avec une attractivité employeur renforcée.",
+      "role": "développeur",
+      "duree": "",
+      "equipe": "équipe agence"
+    },
+    "preciaMolen": {
+      "type": "Site institutionnel",
+      "title": "Precia Molen",
+      "tagline": "Site institutionnel de Precia Molen, spécialiste du pesage industriel et commercial.",
+      "impact": "Site institutionnel toujours en production",
+      "contexte": "Precia Molen conçoit des solutions de pesage industriel et commercial (bascules, silos, dosage en continu) depuis plus de 70 ans, avec une présence dans plus de 140 pays.",
+      "solution": "Site développé sous Drupal par l'agence Gingerminds.",
+      "points": ["Développement Drupal", "", "", ""],
+      "resultat": "",
+      "role": "développeur",
+      "duree": "",
+      "equipe": "équipe agence"
+    },
+    "akena": {
+      "type": "Site produits et de marque",
+      "title": "Akena Vérandas",
+      "tagline": "Conception des sites du groupe Akena pour générer des leads qualifiés au service des 70 points de vente du réseau.",
+      "impact": "Plateforme multi-site toujours en production",
+      "contexte": "Leader national de la véranda, pergola et abri de piscine sur mesure depuis 40 ans, Akena avait besoin d'un écosystème digital cohérent entre ses différents sites pour présenter ses réalisations et générer des leads qualifiés pour son réseau de points de vente.",
+      "solution": "Environnement multi-site sous Drupal 8 à architecture modulaire, hiérarchie de contenu repensée pour la génération de leads, identité de marque affinée, stratégie éditoriale intégrée et optimisation mobile poussée. Interfaçage avec l'outil de gestion commerciale OPleads pour accompagner les équipes terrain.",
+      "points": [
+        "Environnement multi-site Drupal 8 à architecture modulaire",
+        "Hiérarchie de contenu repensée pour la génération de leads",
+        "Stratégie éditoriale intégrée et optimisation mobile poussée",
+        "Interfaçage avec l'outil de gestion commerciale OPleads"
+      ],
+      "resultat": "Une plateforme mobile-first qui transforme la visite en lead qualifié, aujourd'hui encore au service de l'acquisition client d'Akena.",
+      "role": "développeur",
+      "duree": "partenariat de plus de 8 ans",
+      "equipe": "équipe agence"
+    },
+    "groupeSamseRecrute": {
+      "type": "Marque employeur",
+      "title": "Groupe SAMSE Recrute",
+      "tagline": "Refonte du site marque employeur du Groupe SAMSE pour répondre à de forts besoins de recrutement sur des métiers en tension.",
+      "impact": "Site marque employeur toujours en production",
+      "contexte": "Acteur majeur de la distribution de matériaux de construction, le Groupe SAMSE devait moderniser son site marque employeur pour renforcer son attractivité sur des postes en tension, tout en conservant l'identité de chacune de ses enseignes.",
+      "solution": "Charte éditoriale pour un discours de marque cohérent, storytelling des métiers en tension, module de « matching » pour évaluer sa compatibilité avec le groupe. Architecture de contenu, UX/UI, CMS Drupal, interfaçage SIRH et SEO.",
+      "points": [
+        "Charte éditoriale pour un discours de marque cohérent",
+        "Storytelling des métiers en tension",
+        "Module de \"matching\" candidat / entreprise",
+        "CMS Drupal, interfaçage SIRH et optimisation SEO"
+      ],
+      "resultat": "Une expérience candidat repensée avec une navigation intuitive et une mise en avant ciblée des offres, au service du recrutement du groupe.",
+      "role": "développeur",
+      "duree": "",
+      "equipe": "équipe agence"
+    },
+    "ludmigo": {
+      "type": "Application SaaS",
+      "title": "Ludmigo",
+      "tagline": "Une plateforme communautaire pour partager et découvrir des jeux de société, et trouver facilement des personnes et des lieux où jouer.",
+      "impact": "Avec Ludmigo, démocratisons le jeu de société !",
+      "contexte": "Que l'on soit débutant ou amateur, ce qui compte c'est l'envie de partager un moment convivial et de se retrouver autour d'un jeu. Cela peut se faire dans des lieux dédiés déjà existants, ou dans des bars que l'on peut accompagner pour développer ce service dans leur établissement.",
+      "solution": "Une application Laravel côté back-end, avec des interfaces Vue côté front-end, pour permettre aux joueurs de trouver des parties et des lieux, et aux établissements de proposer leurs espaces.",
+      "points": [
+        "Mise en relation de joueurs débutants et amateurs autour de parties de jeux de société",
+        "Référencement de lieux dédiés (ludothèques, bars partenaires...)",
+        "Accompagnement des établissements souhaitant développer ce service",
+        "Back-end Laravel, interfaces Vue"
+      ],
+      "resultat": "",
+      "role": "développeur",
+      "duree": "",
+      "equipe": "solo"
+    },
     "portfolio": {
       "type": "Nuxt / Vue",
-      "title": "Ce portfolio",
-      "tagline": "Mon site personnel : portfolio, CV interactif et blog technique, conçu et développé de A à Z.",
+      "title": "Portfolio - Maxime Jolivet",
+      "tagline": "Site personnel : portfolio, CV interactif et blog technique, conçu et développé de A à Z.",
       "impact": "En ligne et maintenu en continu",
       "contexte": "Après plusieurs refontes, je voulais un site qui reflète à la fois mon métier de développeur et ma sensibilité design : rapide, accessible, bilingue, et facile à faire évoluer au fil de mes projets et articles.",
       "solution": "Un site Nuxt 4 généré statiquement et déployé sur GitHub Pages, avec un design system Tailwind v4 + shadcn-vue, un blog alimenté par Supabase, et une interface entièrement bilingue français/anglais.",
@@ -367,8 +525,8 @@
       },
       "cookies": {
         "title": "Cookies",
-        "intro": "Ce site n'utilise pas de cookies publicitaires ni d'outil de mesure d'audience.",
-        "body": "Seuls des cookies strictement nécessaires au fonctionnement du site peuvent être déposés, notamment pour mémoriser votre préférence de langue."
+        "intro": "Ce site utilise Google Tag Manager et le service de prise de rendez-vous Cal.com, susceptibles de déposer des cookies, uniquement après votre consentement.",
+        "body": "Un bandeau vous permet d'accepter, de refuser ou de personnaliser ces cookies dès votre première visite. Vous pouvez modifier vos choix à tout moment via le lien « Gérer les cookies » en bas de page. Seuls des cookies strictement nécessaires au fonctionnement du site (mémorisation de votre langue et de votre consentement) sont déposés sans consentement préalable."
       },
       "ip": {
         "title": "Propriété intellectuelle",

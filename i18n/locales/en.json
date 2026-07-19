@@ -26,7 +26,8 @@
     "tagline": "Senior full-stack web developer / Lead Dev / Tech Lead",
     "rights": "",
     "backToTop": "Back to top",
-    "legalMentions": "Legal notice"
+    "legalMentions": "Legal notice",
+    "manageCookies": "Manage cookies"
   },
   "social": {
     "github": "View my GitHub",
@@ -247,10 +248,167 @@
       "duree": "",
       "equipe": ""
     },
+    "boralex": {
+      "type": "Institutional website",
+      "title": "Boralex",
+      "tagline": "Design and development of the institutional website for Boralex, a renewable energy producer.",
+      "impact": "Institutional site still in production",
+      "contexte": "Boralex develops and operates renewable energy facilities (wind, solar, hydroelectric, storage) across North America and Europe, with over 20 years of presence in France.",
+      "solution": "Design, Drupal development and SEO for the site, delivered by the Gingerminds agency.",
+      "points": [
+        "Art direction and design for the institutional website",
+        "Drupal development",
+        "Search engine optimization (SEO)",
+        ""
+      ],
+      "resultat": "",
+      "role": "developer",
+      "duree": "",
+      "equipe": "agency team"
+    },
+    "groupeTechna": {
+      "type": "Digital ecosystem",
+      "title": "Techna - unified digital ecosystem",
+      "tagline": "Consolidated 6 websites into a single platform to reposition Techna, an independent animal nutrition specialist.",
+      "impact": "Consolidated digital ecosystem, still in production",
+      "contexte": "Techna, an independent animal nutrition specialist (€60M revenue, 310 employees), wanted to strengthen its leadership in France and accelerate international growth by streamlining its brand portfolio.",
+      "solution": "Unified the group's digital presence: consolidated six websites into one, built a new brand identity reflecting industrial expertise and R&D, and structured content around four customer segments (industrial integrators, distributors, farm feed producers, equine enthusiasts).",
+      "points": [
+        "Consolidated six websites into a single platform",
+        "New brand identity reflecting industrial capability, innovation and R&D",
+        "Content architecture targeting four distinct customer segments",
+        "Optimized SEO management and scientific-expertise content"
+      ],
+      "resultat": "A strategic website supporting Techna's growth in France and internationally, with optimized SEO and content highlighting its precision animal nutrition expertise.",
+      "role": "developer",
+      "duree": "",
+      "equipe": "agency team"
+    },
+    "chtiiing": {
+      "type": "Showcase website",
+      "title": "Chtiiing",
+      "tagline": "Website for the Nantes Creativity Days, showcasing 87 local artists.",
+      "impact": "2022 edition, 87 artists showcased online",
+      "contexte": "Chtiiing is Nantes' flagship creativity event, run by Nantes Métropole and Samoa, bringing together artists and creative players from the region over several days.",
+      "solution": "A WordPress site presenting the 87 participating artists, each with a dedicated contact form, random navigation through virtual aisles, and 100% of the generated revenue passed on to the artists.",
+      "points": [
+        "WordPress site showcasing 87 artists",
+        "Dedicated contact form for each artist",
+        "Random navigation through virtual aisles",
+        "100% of generated revenue passed on to the artists"
+      ],
+      "resultat": "",
+      "role": "developer",
+      "duree": "",
+      "equipe": "agency team"
+    },
+    "lnaSante": {
+      "type": "Digital ecosystem",
+      "title": "LNA Santé",
+      "tagline": "Overhauled the LNA Santé group's digital ecosystem, spanning a corporate site and per-facility microsites.",
+      "impact": "Corporate platform and microsites still in production",
+      "contexte": "A 30-year-old French healthcare group (7,500 employees, 85 facilities in France and Belgium, €535M revenue), LNA Santé needed to redesign its digital presence to address both commercial goals (occupancy rates) and HR needs (recruitment).",
+      "solution": "Ran stakeholder workshops and on-site facility immersions to scope the need, led UX/UI work to sharpen positioning, and built a WordPress platform offering flexible content management: one corporate site plus customizable microsites per facility, manageable by a single in-house admin.",
+      "points": [
+        "Stakeholder workshops and on-site facility immersions",
+        "UX/UI work to sharpen the group's positioning",
+        "WordPress platform: corporate site + per-facility microsites",
+        "Flexible content management, run by a single in-house admin"
+      ],
+      "resultat": "A complete showcase of the group's offering with distinctive positioning, generating leads for facility occupancy and supporting recruitment.",
+      "role": "developer",
+      "duree": "",
+      "equipe": "agency team"
+    },
+    "onetBusiness": {
+      "type": "Institutional website",
+      "title": "Onet Business Services",
+      "tagline": "Redesigned the Onet group's institutional website for an efficient, straightforward and pleasant experience.",
+      "impact": "Institutional site still in production",
+      "contexte": "France's leading business-services company (facility management, cleaning, security, reception...), including operations in extreme-environment settings, Onet wanted to strengthen brand visibility and employer appeal through a full site overhaul.",
+      "solution": "UX workshops for content inventory and hierarchy, co-design sessions for user journeys, and webmarketing guidance. Built on WordPress/Elementor with a content architecture structured around the group's business units.",
+      "points": [
+        "UX workshops for content inventory and hierarchy",
+        "Co-design sessions for user journeys",
+        "WordPress / Elementor implementation",
+        "Content architecture structured by business unit"
+      ],
+      "resultat": "A legible group brand identity showcasing subsidiary brands, client references and expertise, with strengthened employer appeal.",
+      "role": "developer",
+      "duree": "",
+      "equipe": "agency team"
+    },
+    "preciaMolen": {
+      "type": "Institutional website",
+      "title": "Precia Molen",
+      "tagline": "Institutional website for Precia Molen, a specialist in industrial and commercial weighing.",
+      "impact": "Institutional site still in production",
+      "contexte": "Precia Molen has designed industrial and commercial weighing solutions (scales, silos, continuous dosing) for over 70 years, with a presence in more than 140 countries.",
+      "solution": "Site built on Drupal by the Gingerminds agency.",
+      "points": ["Drupal development", "", "", ""],
+      "resultat": "",
+      "role": "developer",
+      "duree": "",
+      "equipe": "agency team"
+    },
+    "akena": {
+      "type": "Product & brand site",
+      "title": "Akena Vérandas",
+      "tagline": "Designed the Akena group's websites to generate qualified leads for its 70-strong dealer network.",
+      "impact": "Multi-site platform still in production",
+      "contexte": "National leader in custom-made verandas, pergolas and pool enclosures for 40 years, Akena needed a coherent digital ecosystem across its various sites to showcase its work and generate qualified leads for its dealer network.",
+      "solution": "Multi-site Drupal 8 environment with a modular architecture, content hierarchy rebuilt around lead generation, refined brand identity, integrated editorial strategy and deep mobile optimization. Interfaced with the OPleads commercial tool to support field sales teams.",
+      "points": [
+        "Multi-site Drupal 8 environment with a modular architecture",
+        "Content hierarchy rebuilt around lead generation",
+        "Integrated editorial strategy and deep mobile optimization",
+        "Interfaced with the OPleads commercial management tool"
+      ],
+      "resultat": "A mobile-first platform that turns visits into qualified leads, still driving Akena's customer acquisition today.",
+      "role": "developer",
+      "duree": "8+ year partnership",
+      "equipe": "agency team"
+    },
+    "groupeSamseRecrute": {
+      "type": "Employer brand",
+      "title": "Groupe SAMSE Recrute",
+      "tagline": "Redesigned Groupe SAMSE's employer-brand website to meet strong hiring needs on hard-to-fill roles.",
+      "impact": "Employer-brand site still in production",
+      "contexte": "A major building-materials distribution group, Groupe SAMSE needed to modernize its employer-brand website to boost its appeal for hard-to-fill roles, while preserving the identity of each of its retail brands.",
+      "solution": "An editorial charter for a consistent brand voice, storytelling for in-demand roles, and a \"perfect match\" module to check compatibility with the group. Content architecture, UX/UI, Drupal CMS, HRIS interfacing and SEO.",
+      "points": [
+        "Editorial charter for a consistent brand voice",
+        "Storytelling for in-demand roles",
+        "Candidate/company \"perfect match\" module",
+        "Drupal CMS, HRIS interfacing and SEO optimization"
+      ],
+      "resultat": "A redesigned candidate experience with intuitive navigation and targeted job visibility, supporting the group's recruitment.",
+      "role": "developer",
+      "duree": "",
+      "equipe": "agency team"
+    },
+    "ludmigo": {
+      "type": "SaaS application",
+      "title": "Ludmigo",
+      "tagline": "A community platform for sharing and discovering board games, making it easy to find people and places to play.",
+      "impact": "With Ludmigo, let's democratize board games!",
+      "contexte": "It doesn't matter whether you're a beginner or an amateur, what counts is the desire to share a convivial moment and meet up over a game. This can take place in dedicated venues already present in their town, or in bars that we can help develop this service with in their establishments.",
+      "solution": "A Laravel back-end with Vue-powered interfaces, letting players find games and venues, and letting establishments offer their spaces.",
+      "points": [
+        "Connects beginner and amateur players around board game sessions",
+        "Directory of dedicated venues (game libraries, partner bars...)",
+        "Support for establishments wanting to develop this service",
+        "Laravel back-end, Vue interfaces"
+      ],
+      "resultat": "",
+      "role": "developer",
+      "duree": "",
+      "equipe": "solo"
+    },
     "portfolio": {
       "type": "Nuxt / Vue",
-      "title": "This portfolio",
-      "tagline": "My personal site: portfolio, interactive resume and technical blog, designed and built from scratch.",
+      "title": "Portfolio - Maxime Jolivet",
+      "tagline": "Personal site: portfolio, interactive resume and technical blog, designed and built from scratch.",
       "impact": "Live and actively maintained",
       "contexte": "After several redesigns, I wanted a site that reflects both my craft as a developer and my design sensibility: fast, accessible, bilingual, and easy to evolve alongside my projects and articles.",
       "solution": "A Nuxt 4 site statically generated and deployed on GitHub Pages, with a Tailwind v4 + shadcn-vue design system, a Supabase-backed blog, and a fully bilingual French/English interface.",
@@ -367,8 +525,8 @@
       },
       "cookies": {
         "title": "Cookies",
-        "intro": "This site does not use advertising or audience-measurement cookies.",
-        "body": "Only cookies strictly necessary for the site to function may be used, notably to remember your language preference."
+        "intro": "This site uses Google Tag Manager and the Cal.com scheduling service, which may set cookies, only after you give consent.",
+        "body": "A banner lets you accept, decline, or customize these cookies on your first visit. You can change your choices at any time via the \"Manage cookies\" link at the bottom of the page. Only cookies strictly necessary for the site to function (remembering your language and consent choice) are set without prior consent."
       },
       "ip": {
         "title": "Intellectual property",

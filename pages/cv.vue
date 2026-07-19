@@ -7,6 +7,7 @@ definePageMeta({
 
 const { locale } = useI18n()
 const lang = locale._value
+const { refused: calRefused } = useCalConsent()
 
 useHead({
   meta: [{ name: 'robots', content: 'noindex, nofollow' }],
@@ -40,6 +41,7 @@ useSeoMeta({
     />
 
     <button
+      v-if="!calRefused"
       type="button"
       class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-primary px-5 py-3.5 font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105"
       :data-cal-link="CAL_LINK"

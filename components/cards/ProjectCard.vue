@@ -6,23 +6,18 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
-const localePath = useLocalePath()
 
-const NuxtLinkComponent = resolveComponent('NuxtLink')
 const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-primary'))
-const projectTo = computed(() =>
-  props.project.live
-    ? localePath({ name: 'projects-slug', params: { slug: props.project.slug } })
-    : undefined,
-)
+const tagline = computed(() => t(props.project.taglineKey))
 </script>
 
 <template>
   <component
-    :is="project.live ? NuxtLinkComponent : 'div'"
-    :to="projectTo"
-    class="group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors duration-300 sm:flex-row"
-    :class="project.live ? 'hover:bg-card' : 'opacity-60'"
+    :is="project.websiteUrl ? 'a' : 'div'"
+    :href="project.websiteUrl"
+    :target="project.websiteUrl ? '_blank' : undefined"
+    :rel="project.websiteUrl ? 'noopener noreferrer nofollow' : undefined"
+    class="group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors duration-300 hover:bg-card sm:flex-row"
   >
     <div class="relative w-full shrink-0 overflow-hidden sm:w-64 md:w-80">
       <NuxtImg
@@ -34,13 +29,10 @@ const projectTo = computed(() =>
       <UiImagePlaceholder
         v-else
         :dot-class="dotClass"
-        :label="
-          project.live ? $t('projectsPage.capturesPending') : $t('projectsPage.underConstruction')
-        "
+        :label="$t('projectsPage.capturesPending')"
         class="aspect-video size-full rounded-none border-0 sm:aspect-auto sm:h-full"
       />
       <div
-        v-if="project.live"
         class="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/35"
       >
         <span
@@ -76,31 +68,24 @@ const projectTo = computed(() =>
         {{ t(project.titleKey) }}
       </h2>
 
-      <template v-if="project.live">
-        <p class="text-pretty font-sans text-sm leading-[1.6] text-muted-foreground">
-          {{ t(project.taglineKey) }}
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <UiBadge v-for="tag in project.tags.slice(0, 4)" :key="tag" class="bg-mint/16">
-            {{ tag }}
-          </UiBadge>
-        </div>
-        <span
-          class="mt-1 flex items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
-        >
-          {{ $t('projectsPage.viewProject') }}
-          <UiAppIcon
-            icon="lucide:arrow-right"
-            class="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </span>
-      </template>
-      <div v-else class="flex items-center gap-2">
-        <UiBadge>{{ $t('projectsPage.underConstruction') }}</UiBadge>
-        <p class="font-mono text-sm text-muted-foreground">
-          {{ $t('projectsPage.underConstructionNote') }}
-        </p>
+      <p v-if="tagline" class="text-pretty font-sans text-sm leading-[1.6] text-muted-foreground">
+        {{ tagline }}
+      </p>
+      <div v-if="project.tags.length" class="flex flex-wrap gap-2">
+        <UiBadge v-for="tag in project.tags.slice(0, 4)" :key="tag" class="bg-mint/16">
+          {{ tag }}
+        </UiBadge>
       </div>
+      <span
+        v-if="project.websiteUrl"
+        class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
+      >
+        {{ $t('projectsPage.viewProject') }}
+        <UiAppIcon
+          icon="lucide:external-link"
+          class="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+        />
+      </span>
     </div>
   </component>
 </template>

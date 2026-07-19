@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CAL_LINK, CAL_NAMESPACE } from '~/constants/contact'
 
+const { refused: calRefused } = useCalConsent()
 const showBackToTop = ref(false)
 
 function onScroll() {
@@ -22,7 +23,7 @@ onUnmounted(() => {
 
 <template>
   <div class="fixed bottom-4 right-4 md:bottom-4 md:right-6 z-50 flex flex-col items-end gap-3">
-    <div class="group relative flex items-center">
+    <div v-if="!calRefused" class="group relative flex items-center">
       <span
         class="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full bg-foreground px-3 py-1.5 font-sans text-xs font-semibold text-background opacity-0 transition-opacity duration-200 group-hover:opacity-100"
       >

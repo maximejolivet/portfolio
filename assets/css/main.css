@@ -103,6 +103,16 @@
   cursor: none !important;
 }
 
+/* tarteaucitron ships some panels at the max possible z-index (2147483647), tying with
+   CustomCursor.vue - ties resolve by DOM order in its favor, hiding the cursor. Cap those
+   panels just below our cursor's z-index so it always stays on top. */
+#tarteaucitron,
+#tarteaucitronBack,
+#tarteaucitronAlertSmall,
+#tarteaucitronIcon {
+  z-index: 2147483000 !important;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

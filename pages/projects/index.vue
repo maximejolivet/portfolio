@@ -3,6 +3,9 @@ import { CAL_LINK, CAL_NAMESPACE, CONTACT_EMAIL } from '~/constants/contact'
 import { CASE_STUDIES } from '~/constants/projects'
 
 const { t } = useI18n()
+const { refused: calRefused } = useCalConsent()
+const route = useRoute()
+const router = useRouter()
 
 useSeoMeta({
   title: () => `${t('projectsPage.title')} - Maxime Jolivet`,
@@ -11,12 +14,33 @@ useSeoMeta({
     + `${t('projectsPage.subtitleClosing')} ${t('projectsPage.subtitlePersonal')}`,
 })
 
-const PAGE_SIZE = 3
+const PAGE_SIZE = 9
 
-const categoryFilter = ref<'all' | 'pro' | 'personal'>('all')
-const employerFilter = ref<string>('all')
-const viewMode = ref<'grid' | 'list'>('list')
-const currentPage = ref(1)
+function updateQuery(patch: Record<string, string | undefined>) {
+  const merged = { ...(route.query as Record<string, string>), ...patch }
+  const query = Object.fromEntries(
+    Object.entries(merged).filter(([, value]) => value !== undefined),
+  )
+  router.push({ query })
+}
+
+const categoryFilter = computed<'all' | 'pro' | 'personal'>({
+  get: () =>
+    route.query.category === 'pro' || route.query.category === 'personal'
+      ? route.query.category
+      : 'all',
+  set: (value) => updateQuery({ category: value === 'all' ? undefined : value, page: undefined }),
+})
+
+const employerFilter = computed<string>({
+  get: () => (typeof route.query.employer === 'string' ? route.query.employer : 'all'),
+  set: (value) => updateQuery({ employer: value === 'all' ? undefined : value, page: undefined }),
+})
+
+const viewMode = computed<'grid' | 'list'>({
+  get: () => (route.query.view === 'grid' ? 'grid' : 'list'),
+  set: (value) => updateQuery({ view: value === 'list' ? undefined : value }),
+})
 
 const employers = computed(() =>
   Array.from(new Set(CASE_STUDIES.map((p) => p.employer).filter((e): e is string => Boolean(e)))),
@@ -32,13 +56,17 @@ const filteredProjects = computed(() =>
 
 const totalPages = computed(() => Math.max(1, Math.ceil(filteredProjects.value.length / PAGE_SIZE)))
 
+const currentPage = computed<number>({
+  get: () => {
+    const page = Number(route.query.page)
+    return Number.isFinite(page) && page > 0 ? page : 1
+  },
+  set: (value) => updateQuery({ page: value > 1 ? String(value) : undefined }),
+})
+
 const paginatedProjects = computed(() => {
   const start = (currentPage.value - 1) * PAGE_SIZE
   return filteredProjects.value.slice(start, start + PAGE_SIZE)
-})
-
-watch([categoryFilter, employerFilter], () => {
-  currentPage.value = 1
 })
 </script>
 
@@ -47,8 +75,7 @@ watch([categoryFilter, employerFilter], () => {
     <SectionsPageIntro :eyebrow="$t('projectsPage.eyebrow')" :title="$t('projectsPage.title')">
       <template #subtitle>
         {{ $t('projectsPage.subtitle') }}
-        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleSectors') }}</strong>.
-        <br /><br />
+        <strong class="font-bold text-foreground">{{ $t('projectsPage.subtitleSectors') }}</strong>. <br /><br />
         {{ $t('projectsPage.subtitleClosing') }}
         <br /><br />
         {{ $t('projectsPage.subtitlePersonal') }}
@@ -185,6 +212,7 @@ watch([categoryFilter, employerFilter], () => {
               {{ CONTACT_EMAIL }}
             </UiButton>
             <UiButton
+              v-if="!calRefused"
               variant="pill-outline"
               icon="lucide:arrow-right"
               :data-cal-link="CAL_LINK"
