@@ -21,7 +21,6 @@ useSeoMeta({
     <SectionsProjectsSection />
     <SectionsNowSection />
     <SectionsSocialLinksSection />
-    <SectionsBlogPreviewSection />
     <SectionsContactSection />
   </div>
 </template>
