@@ -68,6 +68,31 @@ const paginatedProjects = computed(() => {
   const start = (currentPage.value - 1) * PAGE_SIZE
   return filteredProjects.value.slice(start, start + PAGE_SIZE)
 })
+
+const resultsAnchor = ref<HTMLElement | null>(null)
+
+function goToPage(page: number) {
+  if (page < 1 || page > totalPages.value || page === currentPage.value) return
+  currentPage.value = page
+  nextTick(() => {
+    resultsAnchor.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+}
+
+const pageItems = computed(() => {
+  const total = totalPages.value
+  const current = currentPage.value
+  const items: Array<number | 'ellipsis'> = []
+  for (let page = 1; page <= total; page++) {
+    if (page === 1 || page === total || Math.abs(page - current) <= 1) {
+      items.push(page)
+    }
+    else if (items[items.length - 1] !== 'ellipsis') {
+      items.push('ellipsis')
+    }
+  }
+  return items
+})
 </script>
 
 <template>
@@ -82,9 +107,11 @@ const paginatedProjects = computed(() => {
       </template>
     </SectionsPageIntro>
 
+    <SectionsClientsSection />
+
     <LayoutPageSection bare>
-      <UiContainer class="flex flex-col gap-8">
-        <div class="flex flex-wrap items-center justify-between gap-4">
+      <UiContainer class="flex flex-col gap-8 mt-12">
+        <div ref="resultsAnchor" class="flex flex-wrap items-center justify-between gap-4">
           <div class="flex flex-wrap items-center gap-2">
             <UiButton
               size="pill-md"
@@ -173,31 +200,52 @@ const paginatedProjects = computed(() => {
           />
         </div>
 
-        <div v-if="totalPages > 1" class="flex items-center justify-center gap-4">
+        <nav
+          v-if="totalPages > 1"
+          class="flex items-center justify-center gap-2"
+          :aria-label="$t('projectsPage.pagination')"
+        >
           <button
             type="button"
             :disabled="currentPage === 1"
             class="flex size-9 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:text-accent disabled:pointer-events-none disabled:opacity-40"
             :aria-label="$t('projectDetail.prev')"
-            @click="currentPage--"
+            @click="goToPage(currentPage - 1)"
           >
             <UiAppIcon icon="lucide:arrow-left" class="size-4" />
           </button>
-          <span class="font-mono text-xs text-subtle">{{ currentPage }} / {{ totalPages }}</span>
+
+          <template v-for="item in pageItems" :key="item">
+            <span v-if="item === 'ellipsis'" class="px-1 font-mono text-xs text-subtle">…</span>
+            <button
+              v-else
+              type="button"
+              class="flex size-9 items-center justify-center rounded-full border font-mono text-xs transition-colors"
+              :class="
+                item === currentPage
+                  ? 'border-accent text-accent'
+                  : 'border-border text-foreground hover:text-accent'
+              "
+              :aria-current="item === currentPage ? 'page' : undefined"
+              :aria-label="`${$t('projectsPage.pageLabel')} ${item}`"
+              @click="goToPage(item)"
+            >
+              {{ item }}
+            </button>
+          </template>
+
           <button
             type="button"
             :disabled="currentPage === totalPages"
             class="flex size-9 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:text-accent disabled:pointer-events-none disabled:opacity-40"
             :aria-label="$t('projectDetail.next')"
-            @click="currentPage++"
+            @click="goToPage(currentPage + 1)"
           >
             <UiAppIcon icon="lucide:arrow-right" class="size-4" />
           </button>
-        </div>
+        </nav>
       </UiContainer>
     </LayoutPageSection>
-
-    <SectionsClientsSection />
 
     <LayoutPageSection bare>
       <UiContainer>

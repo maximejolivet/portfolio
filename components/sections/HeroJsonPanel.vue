@@ -133,9 +133,9 @@ onUnmounted(() => {
           <UiAppIcon icon="lucide:files" class="size-4.5 text-panel-foreground" />
           <UiAppIcon icon="lucide:search" class="size-4.5 text-panel-foreground/35" />
           <UiAppIcon icon="lucide:git-branch" class="size-4.5 text-panel-foreground/35" />
-          <UiAppIcon icon="logos:claude-icon" class="size-4.5" />
-          <UiAppIcon icon="logos:docker-icon" class="size-4.5" />
-          <UiAppIcon icon="logos:figma" class="size-4.5" />
+          <UiAppIcon icon="logos:claude-icon" class="size-4.5 opacity-35 brightness-0 invert" />
+          <UiAppIcon icon="logos:docker-icon" class="size-4.5 opacity-35 brightness-0 invert" />
+          <UiAppIcon icon="logos:figma" class="size-4.5 opacity-35 brightness-0 invert" />
         </div>
         <div class="flex flex-col items-center gap-5">
           <UiAppIcon icon="lucide:user-round" class="size-4.5 text-panel-foreground/35" />

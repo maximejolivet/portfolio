@@ -186,11 +186,11 @@
     "viewProject": "voir le projet",
     "capturesPending": "captures à fournir",
     "underConstruction": "En construction",
-    "underConstructionNote": "Fiche détaillée bientôt disponible."
+    "underConstructionNote": "Fiche détaillée bientôt disponible.",
+    "pagination": "Pagination",
+    "pageLabel": "Page"
   },
   "clientsSection": {
-    "introTitle": "Une sélection de clients accompagnés",
-    "introSubtitle": "Plus de 10 ans à accompagner des entreprises de tous secteurs sur leurs projets web.",
     "eyebrow": "Les projets auxquels j'ai collaboré",
     "title": "Des entreprises de tous secteurs B2B",
     "sectors": {
