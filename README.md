@@ -31,6 +31,7 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 - **Data** : Supabase (articles de blog)
 - **Sécurité** : `nuxt-security` (CSP stricte avec nonce)
 - **SEO** : `@nuxtjs/sitemap`, `@nuxt/image`
+- **Icônes** : collections `@iconify-json/*` (devicon, logos, lucide, material-icon-theme, selfhst, skill-icons), résolues via `utils/resolveIcon.ts` à partir d'un sous-ensemble généré (voir [Icônes](#icônes))
 
 ## Pages
 
@@ -140,6 +141,16 @@ bun run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
+## Icônes
+
+`utils/resolveIcon.ts` ne lit pas directement les paquets `@iconify-json/*` (chaque `icons.json` complet pèse plusieurs Mo, jusqu'à ~31 Mo cumulés) : ça faisait planter `nuxt build`/`nuxt generate` par manque de mémoire. À la place, `scripts/generate-icon-subset.mjs` scanne le code (`icon="prefix:nom"`) et génère `utils/generated/icon-subset.json`, qui ne contient que les icônes réellement utilisées.
+
+```bash
+npm run icons:generate   # ou : make icons
+```
+
+Ce script tourne automatiquement avant `dev`, `build`, `generate`, `deploy` et après `install` (hooks `pre*`/`postinstall` dans `package.json`) — pas besoin de le lancer à la main sauf pour vérifier une icône. `utils/generated/` est gitignoré et régénéré à chaque fois. Si une icône n'apparaît pas, vérifier le préfixe/nom dans le warning affiché par le script.
+
 ## Déploiement
 
 Le site est déployé sur GitHub Pages via GitHub Actions (`npm run generate`) au push sur `master`. La branche de travail est `develop` : pour déployer, ouvrir une PR `develop` → `master`.
@@ -164,6 +175,7 @@ make lintfix       # ESLint --fix
 make prettier      # Check format
 make prettier:fix  # Format in-place
 make test          # Vitest
+make icons         # Régénère utils/generated/icon-subset.json
 ```
 
 Pas de point-virgule, guillemets simples, indentation 2 espaces, largeur de ligne 100 (voir `CLAUDE.md` pour le détail des conventions).
@@ -174,6 +186,7 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.19](https://img.shields.io/badge/v1.0.19-2026--07--20-F97316)
 ![v1.0.18](https://img.shields.io/badge/v1.0.18-2026--07--20-F97316)
 ![v1.0.17](https://img.shields.io/badge/v1.0.17-2026--07--20-F97316)
 ![v1.0.16](https://img.shields.io/badge/v1.0.16-2026--07--19-F97316)

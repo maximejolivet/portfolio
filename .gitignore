@@ -6,6 +6,9 @@
 .cache
 dist
 
+# Generated at build time by scripts/generate-icon-subset.mjs
+utils/generated/
+
 # Node dependencies
 node_modules
 
