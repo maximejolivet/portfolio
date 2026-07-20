@@ -72,7 +72,10 @@ function animateTyping() {
 }
 
 onMounted(() => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !rootEl.value) return
+  const skipAnimation
+    = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      || window.matchMedia('(max-width: 767px)').matches
+  if (skipAnimation || !rootEl.value) return
 
   const observer = new IntersectionObserver(
     ([entry]) => {

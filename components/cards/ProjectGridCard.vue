@@ -25,6 +25,13 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
         class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
     </div>
+    <CardsProjectLogoPlate
+      v-else-if="project.logo"
+      :logo="project.logo"
+      :logo-color="project.logoColor ?? '#1d3540'"
+      :alt="t(project.titleKey)"
+      class="aspect-video"
+    />
     <UiImagePlaceholder
       v-else
       :dot-class="dotClass"

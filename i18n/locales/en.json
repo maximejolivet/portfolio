@@ -178,7 +178,7 @@
     "subtitlePersonal": "You'll also find a selection of my personal web projects, built as part of my ongoing technology watch and skill development. They let me experiment with new technologies, deepen my knowledge, and continuously grow my skills.",
     "categoryPro": "Pro",
     "categoryPersonal": "Personal",
-    "filterAll": "All", 
+    "filterAll": "All",
     "viewGrid": "Grid view",
     "viewList": "List view",
     "ctaTitle": "Got a project in mind",
@@ -201,7 +201,9 @@
       "health": "Health & Wellbeing",
       "services": "Services",
       "finance": "Banking, Insurance & Mutual"
-    }
+    },
+    "seeMore": "See the brands",
+    "seeLess": "Hide the brands"
   },
   "projects": {
     "vygon": {
@@ -236,17 +238,22 @@
       "equipe": ""
     },
     "saur": {
-      "type": "business tool",
+      "type": "Institutional website",
       "title": "Saur & Nijhuis",
-      "tagline": "",
-      "impact": "",
-      "contexte": "",
-      "solution": "",
-      "points": ["", "", "", ""],
+      "tagline": "WordPress institutional website for Saur, an international water management group, and its subsidiary Nijhuis Industries.",
+      "impact": "Institutional site delivered for Saur and Nijhuis Industries",
+      "contexte": "Saur is an international water management group (drinking water production and distribution, wastewater collection and treatment) for local authorities and industrial clients, notably through its subsidiary Nijhuis Industries, specialized in industrial water treatment technologies.",
+      "solution": "Institutional website built on WordPress by the Gingerminds agency, showcasing the activities of the Saur group and its subsidiary Nijhuis Industries.",
+      "points": [
+        "WordPress development",
+        "Design and integration of the institutional website",
+        "Showcasing the group's activities and its Nijhuis subsidiary",
+        ""
+      ],
       "resultat": "",
-      "role": "",
+      "role": "developer",
       "duree": "",
-      "equipe": ""
+      "equipe": "agency team"
     },
     "boralex": {
       "type": "Institutional website",
@@ -386,6 +393,45 @@
       "role": "developer",
       "duree": "",
       "equipe": "agency team"
+    },
+    "donJigiFest": {
+      "type": "Event website",
+      "title": "Don Jigi Fest",
+      "tagline": "Website for the Don Jigi Fest music festival, designed and built for the 2018, 2019 and 2020 editions.",
+      "impact": "Three festival editions supported (2018, 2019, 2020)",
+      "contexte": "Don Jigi Fest is a music festival held in Vitré, run by a volunteer team.",
+      "solution": "Designed and built the festival's website for the 2018, 2019 and 2020 editions, as a volunteer.",
+      "points": ["Designed and built the festival website", "2018, 2019 and 2020 editions", "", ""],
+      "resultat": "",
+      "role": "webdesigner, web developer",
+      "duree": "volunteer, 2018 to 2020 editions",
+      "equipe": "solo"
+    },
+    "greentech": {
+      "type": "E-commerce website",
+      "title": "Greentech",
+      "tagline": "Custom e-commerce site with in-store click-and-collect reservation, for the Greentech retailer in Dakar.",
+      "impact": "E-commerce site delivered with in-store reservation",
+      "contexte": "Greentech is a retailer based in Dakar, Senegal, that wanted to offer an online shopping experience with in-store pickup.",
+      "solution": "Built a custom e-commerce site with a click-and-collect reservation system, as part of an internship.",
+      "points": ["Custom e-commerce site", "In-store click-and-collect reservation", "", ""],
+      "resultat": "",
+      "role": "webdesigner, web developer",
+      "duree": "internship",
+      "equipe": "solo"
+    },
+    "groupeScolaireLaSalleSaintJoseph": {
+      "type": "Institutional portal",
+      "title": "Groupe Scolaire La Salle Saint Joseph",
+      "tagline": "Multi-site information portal and news blog for Groupe Scolaire La Salle Saint Joseph.",
+      "impact": "Multi-site portal delivered with dedicated SEO",
+      "contexte": "Groupe Scolaire La Salle Saint Joseph, in Argentré-du-Plessis, wanted to unify communication across its schools and make it easier to publish news.",
+      "solution": "Full-stack development of a multi-site information portal and a news blog with SEO, as part of an internship.",
+      "points": ["Multi-site information portal", "News blog with SEO", "", ""],
+      "resultat": "",
+      "role": "full-stack web developer",
+      "duree": "internship",
+      "equipe": "solo"
     },
     "ludmigo": {
       "type": "SaaS application",

@@ -6,7 +6,7 @@ const localePath = useLocalePath()
 
 const previewCaseStudies = CASE_STUDIES.filter((p) => p.category === 'pro')
   .sort((a, b) => b.year.localeCompare(a.year))
-  .slice(0, 6)
+  .slice(0, 3)
 
 const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-primary')
 </script>
@@ -31,7 +31,7 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
     </UiContainer>
 
     <UiContainer>
-      <div class="grid gap-7 sm:grid-cols-2">
+      <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
         <component
           :is="project.websiteUrl ? 'a' : 'div'"
           v-for="project in previewCaseStudies"
@@ -47,6 +47,13 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
               :src="project.image"
               :alt="t(project.titleKey)"
               class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <CardsProjectLogoPlate
+              v-else-if="project.logo"
+              :logo="project.logo"
+              :logo-color="project.logoColor ?? '#1d3540'"
+              :alt="t(project.titleKey)"
+              class="size-full rounded-none border-0"
             />
             <UiImagePlaceholder
               v-else
