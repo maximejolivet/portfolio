@@ -137,12 +137,17 @@ html body #tarteaucitronRoot #tarteaucitronCloseAlert::before {
   display: none !important;
 }
 
-/* the floating card already has margins built in (left: 20px, width: calc(100% - 40px)),
-   just tighten them slightly on very narrow screens */
-@media screen and (max-width: 420px) {
+/* below md, the floating "book a call" button sits fixed bottom-4 right-4 (FloatingActions.vue)
+   and tarteaucitron renders with an astronomically high z-index (2147483647 vs our z-50), so
+   without a reserved gap the consent card overlaps it and swallows taps meant for the button
+   - reserve space on the right (button width 44px + right-4 margin 16px + buffer) instead of
+   letting the card span to near-full-width. */
+@media screen and (max-width: 767px) {
   html body #tarteaucitronRoot #tarteaucitronAlertBig {
     left: 12px !important;
+    right: 76px !important;
     bottom: 12px !important;
-    width: calc(100% - 24px) !important;
+    width: auto !important;
+    max-width: none !important;
   }
 }
