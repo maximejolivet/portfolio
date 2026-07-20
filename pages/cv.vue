@@ -48,7 +48,7 @@ useSeoMeta({
       :data-cal-namespace="CAL_NAMESPACE"
       data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
     >
-      <UiAppIcon icon="lucide:calendar" class="size-4" />
+      <UiAppIcon icon="lucide:calendar" class="pointer-events-none size-4" />
       {{ $t('home.contact.bookCall') }}
     </button>
   </div>
