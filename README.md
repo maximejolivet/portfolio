@@ -186,6 +186,7 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.21](https://img.shields.io/badge/v1.0.21-2026--07--20-F97316)
 ![v1.0.20](https://img.shields.io/badge/v1.0.20-2026--07--20-F97316)
 ![v1.0.19](https://img.shields.io/badge/v1.0.19-2026--07--20-F97316)
 ![v1.0.18](https://img.shields.io/badge/v1.0.18-2026--07--20-F97316)

@@ -156,7 +156,7 @@ export default defineNuxtConfig({
           'https://*.google-analytics.com',
           'https://*.analytics.google.com',
         ],
-        'font-src': ['\'self\''],
+        'font-src': ['\'self\'', 'data:'],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
         'frame-src': ['\'self\'', 'https://app.cal.eu'],
