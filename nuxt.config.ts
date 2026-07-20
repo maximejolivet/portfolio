@@ -153,6 +153,8 @@ export default defineNuxtConfig({
           '*.supabase.co',
           'https://app.cal.eu',
           'https://www.googletagmanager.com',
+          'https://*.google-analytics.com',
+          'https://*.analytics.google.com',
         ],
         'font-src': ['\'self\''],
         'object-src': ['\'none\''],
