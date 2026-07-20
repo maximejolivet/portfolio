@@ -186,11 +186,11 @@
     "viewProject": "view project",
     "capturesPending": "screenshots coming soon",
     "underConstruction": "Under construction",
-    "underConstructionNote": "Full case study coming soon."
+    "underConstructionNote": "Full case study coming soon.",
+    "pagination": "Pagination",
+    "pageLabel": "Page"
   },
   "clientsSection": {
-    "introTitle": "A selection of clients I've supported",
-    "introSubtitle": "Over 10 years supporting businesses across every sector on their web projects.",
     "eyebrow": "Projects I've contributed to",
     "title": "Companies across every B2B sector",
     "sectors": {

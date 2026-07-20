@@ -1,5 +1,10 @@
+import deviconData from '@iconify-json/devicon/icons.json'
+import deviconPlainData from '@iconify-json/devicon-plain/icons.json'
 import lucideData from '@iconify-json/lucide/icons.json'
 import logosData from '@iconify-json/logos/icons.json'
+import materialIconThemeData from '@iconify-json/material-icon-theme/icons.json'
+import selfhstData from '@iconify-json/selfhst/icons.json'
+import skillIconsData from '@iconify-json/skill-icons/icons.json'
 
 interface IconCollection {
   prefix: string
@@ -10,8 +15,13 @@ interface IconCollection {
 }
 
 const COLLECTIONS: Record<string, IconCollection> = {
-  lucide: lucideData,
-  logos: logosData,
+  'devicon': deviconData,
+  'devicon-plain': deviconPlainData,
+  'lucide': lucideData,
+  'logos': logosData,
+  'material-icon-theme': materialIconThemeData,
+  'selfhst': selfhstData,
+  'skill-icons': skillIconsData,
 }
 
 export interface ResolvedIcon {

@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "version": "1.0.17",
+  "version": "1.0.18",
   "repository": "git@github.com:maximejolivet/portfolio.git",
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
@@ -58,6 +58,11 @@
     ]
   },
   "dependencies": {
+    "@iconify-json/devicon": "^1.2.62",
+    "@iconify-json/devicon-plain": "^1.2.57",
+    "@iconify-json/material-icon-theme": "^1.2.69",
+    "@iconify-json/selfhst": "^1.2.9",
+    "@iconify-json/skill-icons": "^1.2.4",
     "@lucide/vue": "^1.25.0",
     "@nuxt/image": "^2.0.0",
     "@supabase/supabase-js": "^2.110.7",
