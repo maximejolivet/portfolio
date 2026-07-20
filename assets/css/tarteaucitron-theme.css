@@ -1,153 +1,208 @@
-/* Reskins tarteaucitron's default yellow/white UI to match the site's own design system.
-   Selectors mirror tarteaucitron's fixed IDs/classes (see public/tarteaucitron/tarteaucitron.js)
-   - !important is required since tarteaucitron's own CSS is injected after this stylesheet
-   and uses equally-specific ID selectors. */
+@reference './main.css';
 
 #tarteaucitronRoot {
-  font-family: var(--font-sans) !important;
+  @apply font-sans text-foreground;
 }
 
-/* floating card, anchored bottom-left, instead of a full-width bar
-   - the "html body #tarteaucitronRoot" prefix is needed because tarteaucitron itself has a
-   rule scoped to "#tarteaucitronRoot #tarteaucitronAlertBig" (higher specificity than a bare
-   "#tarteaucitronAlertBig"), which otherwise wins over ours despite !important on both. */
+#tarteaucitronRoot a {
+  @apply text-accent;
+}
+
+#tarteaucitronRoot button {
+  @apply cursor-pointer;
+}
+
+#tarteaucitronRoot a:focus-visible,
+#tarteaucitronRoot button:focus-visible {
+  @apply outline-2 outline-accent outline-offset-2;
+}
+
 html body #tarteaucitronRoot #tarteaucitronAlertBig {
-  background: var(--card) !important;
-  color: var(--ink) !important;
-  border: 1px solid var(--line) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18) !important;
-  position: fixed !important;
-  left: 20px !important;
-  right: auto !important;
-  bottom: 20px !important;
-  top: auto !important;
-  transform: none !important;
-  width: calc(100% - 40px) !important;
-  max-width: 380px !important;
-  border-radius: var(--radius-lg) !important;
-  padding: 20px !important;
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  align-items: center !important;
-  gap: 10px 12px !important;
+  @apply hidden fixed left-3 right-19 bottom-3 z-2147483000 items-center gap-x-3
+    gap-y-2.5 rounded-lg border border-border bg-card p-5 text-sm text-foreground
+    shadow-[0_20px_60px_rgba(0,0,0,0.18)]
+    sm:left-5 sm:right-auto sm:bottom-5 sm:w-[calc(100%-40px)] sm:max-w-95;
 }
 
-/* full-width so it sits on its own line; the CTAs wrap as a group beneath it */
-html body #tarteaucitronRoot #tarteaucitronDisclaimerAlert {
-  color: var(--sub) !important;
-  font-size: 0.875rem !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  text-align: left !important;
-  flex-basis: 100% !important;
-  width: 100% !important;
+html body #tarteaucitronRoot #tarteaucitronAlertBig[style*='display: block'] {
+  @apply flex! flex-row flex-wrap;
 }
 
-#tarteaucitronDisclaimerAlert a {
-  color: var(--accent) !important;
+body.tarteaucitron-modal-open #tarteaucitronRoot #tarteaucitronAlertBig {
+  @apply z-1;
 }
 
-/* accept buttons (main bar + modal footer) */
-.tarteaucitronAllow {
-  background: var(--gold) !important;
-  color: var(--on-primary) !important;
-  border-radius: 999px !important;
-  font-weight: 600 !important;
-  font-family: var(--font-sans) !important;
-  border: 0 !important;
-  width: auto !important;
-  margin: 0 !important;
-  padding: 10px 18px !important;
+#tarteaucitronDisclaimerAlert {
+  @apply w-full basis-full text-[0.875rem] text-muted-foreground;
 }
 
-/* deny buttons (main bar + modal footer) */
+.tarteaucitronAllow,
 .tarteaucitronDeny {
-  background: transparent !important;
-  color: var(--ink) !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 999px !important;
-  font-weight: 600 !important;
-  font-family: var(--font-sans) !important;
-  width: auto !important;
-  margin: 0 !important;
-  padding: 10px 18px !important;
+  @apply m-0 w-auto whitespace-nowrap rounded-full border border-border bg-transparent
+    px-4.5 py-2.5 font-sans text-xs leading-none font-semibold text-foreground;
 }
 
-/* "personalize" CTA in the main bar - icon-only circular button, text hidden but kept
-   for the accessible name (tarteaucitron already sets aria-label on this button). */
-html body #tarteaucitronRoot #tarteaucitronCloseAlert {
-  background: transparent !important;
-  color: var(--ink) !important;
-  text-decoration: none !important;
-  font-family: var(--font-sans) !important;
-  font-size: 0 !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 999px !important;
-  width: 38px !important;
-  height: 38px !important;
-  padding: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: 0 !important;
+.tarteaucitronAllow {
+  @apply border-primary bg-primary text-primary-foreground;
 }
 
-html body #tarteaucitronRoot #tarteaucitronCloseAlert::before {
-  content: '' !important;
-  display: inline-block !important;
-  flex-shrink: 0 !important;
-  width: 15px !important;
-  height: 15px !important;
-  background-color: currentColor !important;
+.tarteaucitronCheck,
+.tarteaucitronCross,
+.tarteaucitronPlus {
+  @apply hidden;
+}
+
+.tarteaucitronIsAllowed .tarteaucitronAllow,
+.tarteaucitronIsDenied .tarteaucitronDeny,
+#tarteaucitronServices_mandatory .tarteaucitronAllow {
+  @apply border-primary bg-primary text-primary-foreground;
+}
+
+.tarteaucitronIsAllowed .tarteaucitronDeny,
+.tarteaucitronIsDenied .tarteaucitronAllow {
+  @apply border-border bg-transparent text-foreground;
+}
+
+#tarteaucitronServices_mandatory .tarteaucitronAllow[disabled],
+#tarteaucitronServices_mandatory .tarteaucitronDeny {
+  @apply cursor-not-allowed opacity-50;
+}
+
+#tarteaucitronCloseAlert {
+  @apply m-0 inline-flex h-9.5 w-9.5 cursor-pointer items-center justify-center
+    rounded-full border border-border bg-transparent p-0 font-sans text-[0px]
+    text-foreground no-underline;
+}
+
+#tarteaucitronCloseAlert::before {
+  @apply inline-block h-3.75 w-3.75 shrink-0 bg-current content-[''];
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M9.671 4.136a2.34 2.34 0 0 1 4.659 0a2.34 2.34 0 0 0 3.319 1.915a2.34 2.34 0 0 1 2.33 4.033a2.34 2.34 0 0 0 0 3.831a2.34 2.34 0 0 1-2.33 4.033a2.34 2.34 0 0 0-3.319 1.915a2.34 2.34 0 0 1-4.659 0a2.34 2.34 0 0 0-3.32-1.915a2.34 2.34 0 0 1-2.33-4.033a2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/g%3E%3C/svg%3E")
-    no-repeat center / contain !important;
+    no-repeat center / contain;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M9.671 4.136a2.34 2.34 0 0 1 4.659 0a2.34 2.34 0 0 0 3.319 1.915a2.34 2.34 0 0 1 2.33 4.033a2.34 2.34 0 0 0 0 3.831a2.34 2.34 0 0 1-2.33 4.033a2.34 2.34 0 0 0-3.319 1.915a2.34 2.34 0 0 1-4.659 0a2.34 2.34 0 0 0-3.32-1.915a2.34 2.34 0 0 1-2.33-4.033a2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/g%3E%3C/svg%3E")
-    no-repeat center / contain !important;
-}
-
-/* services modal */
-#tarteaucitron {
-  background: var(--bg) !important;
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--line) !important;
-}
-
-#tarteaucitronServices .tarteaucitronMainLine,
-#tarteaucitronServices .tarteaucitronLine {
-  background: var(--card) !important;
-  border-bottom: 1px solid var(--line) !important;
-}
-
-#tarteaucitronServices .tarteaucitronTitle {
-  background: var(--panel) !important;
-  color: var(--on-panel) !important;
-}
-
-#tarteaucitronServices .tarteaucitronTitle a {
-  color: var(--on-panel) !important;
+    no-repeat center / contain;
 }
 
 #tarteaucitronBack {
-  background: var(--ink) !important;
+  @apply hidden fixed inset-0 z-2147483000 cursor-pointer bg-black/40 backdrop-blur-sm;
+  -webkit-backdrop-filter: blur(4px);
 }
 
-/* hide the default floating reopen icon - replaced by our own "manage cookies" link */
+#tarteaucitron {
+  @apply hidden fixed top-0 left-1/2 z-2147483001 h-auto w-[min(600px,92vw)]
+    max-h-[min(85vh,700px)] -translate-x-1/2 overflow-hidden rounded-lg bg-card
+    text-foreground shadow-[0_20px_60px_rgba(0,0,0,0.35)]
+    max-sm:left-0 max-sm:h-full max-sm:w-full max-sm:max-h-full max-sm:translate-x-0
+    max-sm:rounded-none;
+}
+
+#tarteaucitronClosePanel {
+  @apply absolute top-3 right-3 z-1 rounded-full border border-border bg-card px-3.5 py-1.5
+    text-[0.75rem] font-semibold text-foreground;
+}
+
+#tarteaucitronServices {
+  @apply flex h-full flex-col;
+}
+
+#tarteaucitronMainLineOffset {
+  @apply flex-none border-b border-border bg-card pt-6 pr-22.5 pb-5 pl-6;
+}
+
+.tarteaucitronH1 {
+  @apply mb-2 block text-[1.125rem] font-bold;
+}
+
+#tarteaucitronInfo {
+  @apply mb-4 block text-[0.875rem] text-muted-foreground;
+}
+
+#tarteaucitronMainLineOffset .tarteaucitronName {
+  @apply hidden;
+}
+
+#tarteaucitronMainLineOffset .tarteaucitronAsk {
+  @apply flex flex-wrap gap-2;
+}
+
+.tarteaucitronBorder {
+  @apply min-h-0 flex-auto overflow-y-auto bg-background;
+}
+
+#tarteaucitronServices .tarteaucitronTitle,
+#tarteaucitronRoot .asCatToggleBtn {
+  @apply block w-full bg-panel px-5 py-3 text-left text-[0.875rem] font-semibold
+    text-panel-foreground;
+}
+
+#tarteaucitronServices .tarteaucitronTitle button {
+  @apply text-left text-inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+#tarteaucitronServices .tarteaucitronLine {
+  @apply flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-b border-border
+    bg-card px-5 py-3.5;
+}
+
+#tarteaucitronServices .tarteaucitronName {
+  @apply flex-[1_1_220px] text-left;
+}
+
+#tarteaucitronServices .tarteaucitronAsk {
+  @apply flex flex-none gap-2;
+}
+
+.tarteaucitronH3 {
+  @apply block text-sm font-semibold;
+}
+
+.tarteaucitronServiceDescription {
+  @apply mt-0.5 block text-xs text-muted-foreground;
+}
+
+.tarteaucitronStatusInfo {
+  @apply mt-1 block text-[0.75rem] text-subtle;
+}
+
+.tarteaucitronReadmoreInfo,
+.tarteaucitronReadmoreOfficial {
+  @apply text-[0.75rem] underline;
+}
+
+#tarteaucitronServices .tarteaucitronTitle {
+  @apply relative;
+}
+
+.tarteaucitronDetails {
+  @apply hidden;
+}
+
+.tarteaucitronInfoBox {
+  @apply absolute top-full right-3 left-3 z-2 mt-1 rounded-md border border-border bg-card
+    px-4 py-3.5 text-xs text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.2)];
+}
+
+#tarteaucitronSave {
+  @apply flex-none border-t border-border bg-card px-6 py-4 text-right;
+}
+
+#tarteaucitronPercentage {
+  @apply hidden fixed top-0 left-0 z-2147483002 h-0.75 w-0 bg-accent;
+}
+
 #tarteaucitronIcon {
-  display: none !important;
+  @apply hidden;
 }
 
-/* below md, the floating "book a call" button sits fixed bottom-4 right-4 (FloatingActions.vue)
-   and tarteaucitron renders with an astronomically high z-index (2147483647 vs our z-50), so
-   without a reserved gap the consent card overlaps it and swallows taps meant for the button
-   - reserve space on the right (button width 44px + right-4 margin 16px + buffer) instead of
-   letting the card span to near-full-width. */
-@media screen and (max-width: 767px) {
-  html body #tarteaucitronRoot #tarteaucitronAlertBig {
-    left: 12px !important;
-    right: 76px !important;
-    bottom: 12px !important;
-    width: auto !important;
-    max-width: none !important;
-  }
+.tac_visually-hidden {
+  @apply sr-only;
+}
+
+html.tarteaucitron-modal-open-noscroll {
+  @apply overflow-hidden;
+}
+
+body.tarteaucitron-modal-open {
+  @apply overflow-hidden;
 }
