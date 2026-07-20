@@ -26,6 +26,13 @@ const tagline = computed(() => t(props.project.taglineKey))
         :alt="t(project.titleKey)"
         class="aspect-video size-full object-cover transition-transform duration-500 group-hover:scale-105 sm:aspect-auto sm:h-full"
       />
+      <CardsProjectLogoPlate
+        v-else-if="project.logo"
+        :logo="project.logo"
+        :logo-color="project.logoColor ?? '#1d3540'"
+        :alt="t(project.titleKey)"
+        class="aspect-video size-full rounded-none border-0 sm:aspect-auto sm:h-full"
+      />
       <UiImagePlaceholder
         v-else
         :dot-class="dotClass"

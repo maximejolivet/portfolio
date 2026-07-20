@@ -127,11 +127,20 @@ onUnmounted(() => {
     <div class="flex min-h-0 flex-1">
       <!-- activity bar -->
       <div
-        class="hidden w-11 shrink-0 flex-col items-center gap-5 border-r border-panel-foreground/10 bg-panel-2 py-4 md:flex"
+        class="hidden h-full w-11 shrink-0 flex-col items-center justify-between border-r border-panel-foreground/10 bg-panel-2 py-4 md:flex"
       >
-        <UiAppIcon icon="lucide:files" class="size-4.5 text-panel-foreground" />
-        <UiAppIcon icon="lucide:search" class="size-4.5 text-panel-foreground/35" />
-        <UiAppIcon icon="lucide:git-branch" class="size-4.5 text-panel-foreground/35" />
+        <div class="flex flex-col items-center gap-5">
+          <UiAppIcon icon="lucide:files" class="size-4.5 text-panel-foreground" />
+          <UiAppIcon icon="lucide:search" class="size-4.5 text-panel-foreground/35" />
+          <UiAppIcon icon="lucide:git-branch" class="size-4.5 text-panel-foreground/35" />
+          <UiAppIcon icon="logos:claude-icon" class="size-4.5" />
+          <UiAppIcon icon="logos:docker-icon" class="size-4.5" />
+          <UiAppIcon icon="logos:figma" class="size-4.5" />
+        </div>
+        <div class="flex flex-col items-center gap-5">
+          <UiAppIcon icon="lucide:user-round" class="size-4.5 text-panel-foreground/35" />
+          <UiAppIcon icon="lucide:settings" class="size-4.5 text-panel-foreground/35" />
+        </div>
       </div>
 
       <!-- file explorer -->

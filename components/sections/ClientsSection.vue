@@ -29,12 +29,11 @@ const { t } = useI18n()
 
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <CardsClientSectorCard
-          v-for="(sector, i) in CLIENT_SECTORS"
+          v-for="sector in CLIENT_SECTORS"
           :key="sector.id"
           :title="t(sector.labelKey)"
           :icon="sector.icon"
           :clients="sector.clients"
-          :class="i === 0 ? 'lg:col-span-2' : ''"
         />
       </div>
     </UiContainer>

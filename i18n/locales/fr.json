@@ -201,7 +201,9 @@
       "health": "Santé & Bien-être",
       "services": "Services",
       "finance": "Banque, Assurance & Mutuelle"
-    }
+    },
+    "seeMore": "Voir les marques",
+    "seeLess": "Masquer les marques"
   },
   "projects": {
     "vygon": {
@@ -236,17 +238,22 @@
       "equipe": ""
     },
     "saur": {
-      "type": "",
+      "type": "Site institutionnel",
       "title": "Saur & Nijhuis",
-      "tagline": "",
-      "impact": "",
-      "contexte": "",
-      "solution": "",
-      "points": ["", "", "", ""],
+      "tagline": "Site institutionnel WordPress pour Saur, groupe international de gestion de l'eau, et sa filiale Nijhuis Industries.",
+      "impact": "Site institutionnel livré pour Saur et Nijhuis Industries",
+      "contexte": "Saur est un groupe international de gestion déléguée de l'eau (production et distribution d'eau potable, collecte et traitement des eaux usées) pour le compte de collectivités et d'industriels, notamment via sa filiale Nijhuis Industries, spécialisée dans les technologies de traitement de l'eau industrielle.",
+      "solution": "Site institutionnel développé sous WordPress par l'agence Gingerminds, présentant les activités du groupe Saur et de sa filiale Nijhuis Industries.",
+      "points": [
+        "Développement WordPress",
+        "Design et intégration du site institutionnel",
+        "Présentation des activités du groupe et de sa filiale Nijhuis",
+        ""
+      ],
       "resultat": "",
-      "role": "",
+      "role": "développeur",
       "duree": "",
-      "equipe": ""
+      "equipe": "équipe agence"
     },
     "boralex": {
       "type": "Site institutionnel",
@@ -386,6 +393,60 @@
       "role": "développeur",
       "duree": "",
       "equipe": "équipe agence"
+    },
+    "donJigiFest": {
+      "type": "Site événementiel",
+      "title": "Don Jigi Fest",
+      "tagline": "Site du festival de musique Don Jigi Fest, conçu et développé pour les éditions 2018, 2019 et 2020.",
+      "impact": "Trois éditions du festival accompagnées (2018, 2019, 2020)",
+      "contexte": "Don Jigi Fest est un festival de musique organisé à Vitré, porté par une équipe bénévole.",
+      "solution": "Conception et développement du site internet du festival pour les éditions 2018, 2019 et 2020, en bénévolat.",
+      "points": [
+        "Conception et développement du site du festival",
+        "Éditions 2018, 2019 et 2020",
+        "",
+        ""
+      ],
+      "resultat": "",
+      "role": "webdesigner, développeur web",
+      "duree": "bénévolat, éditions 2018 à 2020",
+      "equipe": "solo"
+    },
+    "greentech": {
+      "type": "Site e-commerce",
+      "title": "Greentech",
+      "tagline": "Site e-commerce sur mesure avec réservation en click and collect, pour l'enseigne Greentech à Dakar.",
+      "impact": "Site e-commerce livré avec réservation en magasin",
+      "contexte": "Greentech est une enseigne basée à Dakar, au Sénégal, qui souhaitait proposer une expérience d'achat en ligne avec retrait en magasin.",
+      "solution": "Développement d'un site e-commerce sur mesure avec système de réservation en click and collect, réalisé lors d'un stage.",
+      "points": [
+        "Site e-commerce sur mesure",
+        "Réservation en click and collect en magasin",
+        "",
+        ""
+      ],
+      "resultat": "",
+      "role": "webdesigner, développeur web",
+      "duree": "stage",
+      "equipe": "solo"
+    },
+    "groupeScolaireLaSalleSaintJoseph": {
+      "type": "Portail institutionnel",
+      "title": "Groupe Scolaire La Salle Saint Joseph",
+      "tagline": "Portail d'information multi-site et blog d'actualité pour le Groupe Scolaire La Salle Saint Joseph.",
+      "impact": "Portail multi-site livré avec un référencement SEO soigné",
+      "contexte": "Le Groupe Scolaire La Salle Saint Joseph, à Argentré-du-Plessis, souhaitait unifier la communication de ses différents établissements et faciliter la publication d'actualités.",
+      "solution": "Développement full-stack d'un portail d'information multi-site et d'un blog d'actualité avec référencement SEO, réalisé lors d'un stage.",
+      "points": [
+        "Portail d'information multi-site",
+        "Blog d'actualité avec référencement SEO",
+        "",
+        ""
+      ],
+      "resultat": "",
+      "role": "développeur web full-stack",
+      "duree": "stage",
+      "equipe": "solo"
     },
     "ludmigo": {
       "type": "Application SaaS",
