@@ -53,6 +53,7 @@ Translation files live in `i18n/locales/`. Always update **both** `i18n/locales/
 - **TypeScript**: `tsconfig.json` extends `.nuxt/tsconfig.json` (auto-generated) - don't edit `.nuxt/tsconfig.json` directly.
 - **`nuxt dev` fork pool crash**: `@nuxt/cli`'s dev-server "fork pool" warm-up (enabled by default) can crash with `spawn EBADF` on Node 24 shortly after startup. `npm run dev` runs `nuxt dev --no-fork` to disable it; only downside is slower full-process restarts on `nuxt.config.ts` changes.
 - **Deliberately deindexed**: the site sets `robots: noindex, nofollow` in `app.head.meta` (`nuxt.config.ts`) - intentional, not a bug.
+- **Icon subset generation**: `utils/resolveIcon.ts` imports `utils/generated/icon-subset.json` (gitignored), not the full `@iconify-json/*` packages directly - those total ~31MB and previously OOM-crashed `nuxt build`/`nuxt generate`. `scripts/generate-icon-subset.mjs` scans the code for `prefix:name` icon refs and regenerates the subset; it runs automatically via `pre{dev,build,generate,deploy}`/`postinstall` npm hooks (also `make icons`). Don't import an `@iconify-json/*` package's `icons.json` directly elsewhere.
 
 ## Deployment
 
