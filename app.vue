@@ -33,11 +33,20 @@ useHead({
   useExternalJs: false,
   mandatory: true,
   mandatoryCta: true,
-  bodyPosition: "bottom"
+  bodyPosition: "bottom",
+  googleConsentMode: true,
+  softConsentMode: false
 });
 
 tarteaucitron.user.googletagmanagerId = "GTM-WV3GK874";
 (tarteaucitron.job = tarteaucitron.job || []).push("googletagmanager");
+
+document.addEventListener("googletagmanager_consentModeOk", function () {
+  window.tac_gtag && window.tac_gtag("consent", "update", { analytics_storage: "granted" });
+});
+document.addEventListener("googletagmanager_consentModeKo", function () {
+  window.tac_gtag && window.tac_gtag("consent", "update", { analytics_storage: "denied" });
+});
 
 tarteaucitron.services.calcom = {
   "key": "calcom",
