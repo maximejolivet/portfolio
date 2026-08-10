@@ -2,6 +2,9 @@
 
 Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multilingue (FR/EN), généré en statique et déployé sur GitHub Pages.
 
+[![Deploy Nuxt site to Pages](https://github.com/maximejolivet/portfolio/actions/workflows/nuxtjs.yml/badge.svg)](https://github.com/maximejolivet/portfolio/actions/workflows/nuxtjs.yml)
+![License](https://img.shields.io/badge/license-MIT-yellow)
+
 ![Node.js version](https://img.shields.io/badge/Node-24-5FA04E)
 ![Nuxt version](https://img.shields.io/badge/Nuxt-4-00DC82)
 ![Vue version](https://img.shields.io/badge/Vue-3-4FC08D)
@@ -10,15 +13,14 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multili
 ![Tailwind version](https://img.shields.io/badge/Tailwind-4-06B6D4)
 ![Pinia version](https://img.shields.io/badge/Pinia-4-FFD859)
 ![Supabase](https://img.shields.io/badge/Supabase-2-3ECF8E)
+![ESLint](https://img.shields.io/badge/ESLint-10-4B32C3)
+![Vitest](https://img.shields.io/badge/Vitest-4-6E9F18)
+![i18n](https://img.shields.io/badge/i18n-FR%20%2F%20EN-21759B)
 
 ## Claude Code Skills
 
-![brand-guidelines](https://img.shields.io/badge/skill-brand--guidelines-D97757)
-![nuxt-ui](https://img.shields.io/badge/skill-nuxt--ui-00DC82)
-![skill-creator](https://img.shields.io/badge/skill-skill--creator-D97757)
-![theme-factory](https://img.shields.io/badge/skill-theme--factory-D97757)
-![deploy](https://img.shields.io/badge/skill-deploy-21759B)
-![add-translation](https://img.shields.io/badge/skill-add--translation-21759B)
+![github-actions](https://img.shields.io/badge/skill-github--actions-2088FF)
+![semantic-commit-messages](https://img.shields.io/badge/skill-semantic--commit--messages-D97757)
 
 Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -170,12 +172,20 @@ npx prettier --check . # Same as npm run prettier
 Ou via `Makefile` :
 
 ```bash
+make infos         # Infos projet (version, Node, branche...) et liste des commandes
+make install       # npm install
+make dev           # Serveur de dev
+make build         # Build SSR
+make generate      # Build statique (déploiement)
+make preview       # Prévisualiser un build généré
+make deploy        # Build + generate
 make lint          # ESLint only
 make lintfix       # ESLint --fix
 make prettier      # Check format
-make prettier:fix  # Format in-place
+make prettier-fix  # Format in-place
 make test          # Vitest
 make icons         # Régénère utils/generated/icon-subset.json
+make clean         # Supprime .nuxt, .output, node_modules
 ```
 
 Pas de point-virgule, guillemets simples, indentation 2 espaces, largeur de ligne 100 (voir `CLAUDE.md` pour le détail des conventions).
@@ -186,6 +196,7 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.26](https://img.shields.io/badge/v1.0.26-2026--08--10-F97316)
 ![v1.0.25](https://img.shields.io/badge/v1.0.25-2026--07--21-F97316)
 ![v1.0.24](https://img.shields.io/badge/v1.0.24-2026--07--21-F97316)
 ![v1.0.23](https://img.shields.io/badge/v1.0.23-2026--07--20-F97316)
