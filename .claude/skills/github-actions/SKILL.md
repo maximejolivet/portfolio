@@ -1,67 +1,58 @@
 ---
 name: github-actions
-description: Design or review a GitHub Actions workflow for this repo — a Nuxt 4 static site (`nuxt generate`) deployed to GitHub Pages — and general GitHub Actions authoring hygiene (action version pinning, secrets, injection safety, least-privilege permissions). Use when the user asks to create, fix, harden, or extend any workflow (`.github/workflows/*.yml`). Grounded in the working pipeline already in this repo (`.github/workflows/nuxtjs.yml`).
+description: Design or review a GitHub Actions workflow for this repo — general authoring hygiene (action version pinning, secrets, injection safety, least-privilege permissions) for any `.github/workflows/*.yml`. Use when the user asks to create, fix, harden, or extend a workflow. There is currently no deploy workflow in this repo — deployment is handled entirely by Vercel's own Git integration, outside GitHub Actions.
 ---
 
-Act as the person responsible for this pipeline: this is a static site with no server, no database, and no deploy secrets to protect — prefer the boring, already-proven GitHub Pages pattern over a novel one, and don't import complexity (SSH, rsync, CMS post-deploy steps) that doesn't apply here.
+Act as the person responsible for CI hygiene in this repo. There is **no GitHub Actions deploy pipeline** to reason about here — don't invent one or assume a workflow's presence just because a `.github/workflows/` directory might exist.
 
-## 0. What this repo actually deploys
+## 0. How this repo actually deploys — and why that matters for any workflow you write
 
-- **Nuxt 4, shipped static**: `npm run generate` (`nuxt generate`) produces a static site in **`.output/public`** (Nuxt 3/4's actual default output dir — not `dist/`; no `nitro.output.dir`/preset override in `nuxt.config.ts` changes this). A `dist` symlink to `.output/public` may exist in a local checkout for convenience, but it's gitignored and never present on a fresh CI runner — don't reference `./dist` in the workflow, it will silently resolve to nothing there. Uploaded straight to GitHub Pages; no origin server, no database, no CMS, no SSH target.
-- **One workflow, `.github/workflows/nuxtjs.yml`**: triggers on `push` to `master` (see root `CLAUDE.md` — `master` is the deploy branch, `develop` is where work happens; a PR from `develop` → `master` is how a deploy gets triggered) and `workflow_dispatch` for a manual re-run. Don't assume this workflow is "already proven" just because it's the only one in the repo — this pipeline has a track record of silently failing for long stretches (e.g. a deprecated action version going unnoticed, or a build-output path pointing nowhere on CI). Always check `gh run list --workflow=nuxtjs.yml --limit 5` for real recent status before treating it as a known-good baseline.
-- **Auth is OIDC, not a secret**: `permissions: { contents: read, pages: write, id-token: write }` lets `actions/deploy-pages` publish without any stored token — there is no secret to rotate or leak for this workflow specifically.
-- **Node 24** (`engines.node: "24.x.x"` in `package.json`) via `actions/setup-node@v7` with `cache: npm`.
-- **Icon subset generation runs automatically**: `npm run generate`'s `pregenerate` hook calls `scripts/generate-icon-subset.mjs` (see root `CLAUDE.md`, "Icon subset generation") — the CI step `... run generate` already triggers this, no separate workflow step needed. Don't add one.
+- **Hosted on Vercel**, connected via Vercel's own Git integration (configured on Vercel's side, not in this repo). Vercel auto-builds and deploys on push to `master` using its standard Nuxt SSR preset — not a static export, not `npm run generate`/`dist`. See root `CLAUDE.md`, "Deployment".
+- **This repo previously had `.github/workflows/nuxtjs.yml`**, a GitHub Pages deploy workflow — it was removed (it targeted the wrong platform and had been silently failing for a long time before that: a deprecated `actions/upload-artifact@v3` dependency, a wrong output path, and ultimately GitHub Pages was never even enabled in the repo's Settings). Don't recreate a Pages/deploy workflow assuming it's still wanted — deployment is Vercel's job now. If a workflow file reappears requesting Pages, that's very likely someone confusing this repo with a different setup; check with the user before building on that assumption.
+- If the user asks for a GitHub Actions workflow now, it's almost certainly for **CI checks** (lint/test on PRs), not deployment — Vercel already handles previews and production builds on its own.
 
 ## 1. Anti-patterns to catch (general hygiene, check on every `.yml` touched)
 
 Adapted from [DaleStudy/skills](https://github.com/DaleStudy/skills/blob/main/skills/github-actions/SKILL.md) (MIT).
 
-1. **Stale action versions.** The workflow pins `actions/checkout@v7`, `actions/setup-node@v7`, `actions/configure-pages@v6`, `actions/cache@v6`, `actions/upload-pages-artifact@v5`, `actions/deploy-pages@v5`. A stale `upload-pages-artifact` pin is what silently broke every deploy for a long stretch (it dragged in the deprecated, hard-blocked `actions/upload-artifact@v3` internally) — check the real latest tag before pinning or bumping any of these, don't guess:
+1. **Stale action versions.** Check the real latest tag before pinning, don't guess:
    ```bash
    gh release view --repo actions/checkout --json tagName --jq '.tagName'
    ```
-   A quick way to catch this class of failure early: `gh run list --workflow=nuxtjs.yml --limit 5` — a run failing in under ~15s almost always means a setup/action-resolution error, not an actual build/test failure (those take longer).
-2. **Hardcoded secrets.** This workflow doesn't need any right now (OIDC handles Pages auth) — if a future workflow needs one (e.g. a Lighthouse CI token, a Supabase service key for a build-time check), it goes in `${{ secrets.NAME }}`, never a literal. See [Using secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+   For security-sensitive workflows or lower-trust third-party actions, consider [pinning to a commit SHA](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) instead of a tag.
+2. **Hardcoded secrets.** Never write an API key, password, or token as a literal in the YAML — always `${{ secrets.NAME }}`, sourced from repo/org secrets. A lint/test-only workflow needs none by default. See [Using secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
 3. **Injection via untrusted event data.** Interpolating `github.event.*` (issue/PR titles, comment text) directly into a `run:` shell command is a script-injection vector. Pass it through `env:` and reference the environment variable, not the `${{ }}` expression, inside the shell script. See [Script injections](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections).
-4. **Redundant setup for pre-installed tooling.** GitHub-hosted runners ship Node/npm/npx, git, `gh`, curl, jq already — don't add a setup step for something already on the image.
-5. **Cache key correctness.** The build cache keys on `hashFiles('package-lock.json')` — the actual input that should invalidate it. Don't key it on a build-output directory (e.g. `dist`/`.output`); `hashFiles` on a path that doesn't exist yet on a cold run resolves oddly.
+4. **Redundant setup for pre-installed tooling.** GitHub-hosted runners already ship Node.js/npm/npx, git, `gh`, curl, jq — a `setup-node` step is only needed for version pinning/caching, not because Node is otherwise missing.
+5. **Cache key correctness.** Key a dependency cache on the lockfile (`hashFiles('package-lock.json')`), never on a build-output directory — `hashFiles` on a path that doesn't exist yet on a cold run resolves oddly.
 
-**Least privilege:** this repo's workflow already scopes `permissions:` at the workflow level to exactly `contents: read, pages: write, id-token: write` — the minimum for a Pages deploy. Don't broaden it (e.g. `contents: write`) unless a new job genuinely needs to push back to the repo.
+**Least privilege:** declare `permissions:` at the job level with the narrowest scope needed — a lint/test job triggered on `pull_request` needs only `contents: read`. See [Modifying permissions for the GITHUB_TOKEN](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
 
 **Common triggers:**
 
 ```yaml
 on:
-  push: { branches: [master] } # this repo's deploy branch, not main
+  push: { branches: [master] } # this repo's stable branch, not main
   pull_request: { branches: [master] }
   workflow_dispatch:
 ```
 
-## 2. Before changing the deploy workflow
+## 2. If the user asks to add a CI (lint/test) workflow
 
-- **This deploys the live portfolio site.** Per root `CLAUDE.md`, `master` triggers the GitHub Pages deploy automatically on push — merging a PR into `master` (or pushing directly, if ever done) ships to production immediately. Confirm with the user before merging into `master` or manually running `workflow_dispatch`, same caution as running `npm run deploy` locally.
-- **`site.url`** is set in `nuxt.config.ts` (`https://maximejolivet.fr`) — required for sitemaps/OG images to use the real domain instead of a fallback. If a workflow or sitemap-related change ever finds it missing again, that's a real gap worth surfacing to the user, not something to silently paper over in CI.
-- Read `.github/workflows/nuxtjs.yml` itself before proposing a change — it's short (91 lines) and it's the only workflow in the repo; there's no separate CI-only workflow to keep in sync.
+- Job shape: `actions/checkout` → `actions/setup-node` (current major, check via `gh release view`) with `cache: npm` → `npm ci` → `npm run lint` / `npm run test`.
+- `permissions: { contents: read }` is enough — there's no Pages/deploy step to authorize.
+- Node 24 (`engines.node: "24.x.x"` in `package.json`).
+- `npm run generate`'s `pregenerate` npm hook already calls `scripts/generate-icon-subset.mjs` — don't add a separate icon-generation step if a workflow ever runs `npm run generate` (root `CLAUDE.md`, "Icon subset generation").
+- This would run independently of Vercel's own build/preview pipeline — it's an additional check, not something Vercel depends on or vice versa.
 
-## 3. Extending the pipeline (if ever needed)
+## 3. Writing or reviewing any workflow
 
-If the user asks to add CI checks (lint/test) before deploy, or a second workflow for PRs into `master`/`develop`:
-
-- Reuse the same job shape: `actions/checkout` → `actions/setup-node@v7` with `cache: npm` → `npm ci` → `npm run lint` / `npm run test`.
-- A lint/test workflow triggered on `pull_request` needs only `contents: read` — don't carry over `pages:`/`id-token:` permissions from the deploy workflow into a job that never touches Pages.
-- Keep it as a separate job/workflow from the deploy job rather than gating the existing `build`/`deploy` jobs behind new steps — a failing lint step shouldn't block the Pages deploy unless the user explicitly wants lint/test as a deploy gate.
-
-## 4. Writing or reviewing the workflow
-
-- Comment the _why_, not the _what_ — e.g. why the icon-subset step is absent (it's already inside `npm run generate` via the `pregenerate` npm hook, see root `CLAUDE.md`), so a future reader doesn't "fix" that by re-adding it.
+- Comment the _why_, not the _what_.
 - Never add `--no-verify`, disable any check, or skip a step to "make CI green" without understanding why it's failing first.
-- No SSH keys, no rsync, no `wp`/`drush`, no IP whitelisting apply to this repo — if a request seems to assume any of that, the target is probably being confused with a different project.
+- No SSH keys, no rsync, no CMS post-deploy steps (`wp`/`drush`), no Pages/artifact-upload actions apply to this repo — if a request seems to assume any of that, the target is probably being confused with a different project.
 
-## 5. After writing — checklist to hand back to the user
+## 4. After writing — checklist to hand back to the user
 
-- [ ] Action versions checked against latest (`gh release view`), not just left as whatever was already pinned
-- [ ] `permissions:` still minimal for what the job actually does
+- [ ] Action versions checked against latest (`gh release view`), not just guessed
+- [ ] `permissions:` minimal for what the job actually does
 - [ ] No secret introduced unless the workflow genuinely needs one
-- [ ] Confirmed with the user before triggering `workflow_dispatch` or merging into `master` (auto-deploys)
-- [ ] Site checked live over HTTPS after the first successful run of a changed workflow
+- [ ] Confirmed with the user that this workflow is meant to supplement Vercel's deploy, not replace or duplicate it

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Personal portfolio - Nuxt 4 SSR, deployed as a static site to GitHub Pages via `nuxt generate`.
+Personal portfolio - Nuxt 4 SSR, deployed to Vercel (standard SSR build via Vercel's Nuxt preset, not a static export).
 
 ## Commands
 
@@ -57,9 +57,9 @@ Translation files live in `i18n/locales/`. Always update **both** `i18n/locales/
 
 ## Deployment
 
-Branch `master` triggers the GitHub Pages deployment via GitHub Actions (`npm run generate`). Working branch is `develop`. To deploy: open a PR from `develop` → `master`.
+Hosted on **Vercel**, connected via Vercel's own Git integration (not a GitHub Actions workflow — there is none in this repo). Vercel auto-deploys on push to `master` using its standard Nuxt SSR build. Working branch is `develop`. To deploy: open a PR from `develop` → `master`.
 
-- **`nuxt generate` outputs to `.output/public`**, not `dist/` — no `nitro.output.dir`/preset override changes this. A `dist` symlink to `.output/public` may exist locally for convenience but is gitignored and never present on a fresh CI runner; the workflow (`.github/workflows/nuxtjs.yml`) references `.output/public` directly.
+- `npm run generate` (static export, `.output/public`) and `npm run deploy` still exist as local/manual commands but are **not** the production deploy path — Vercel builds SSR directly from `master`, it doesn't consume `dist/` or a static export.
 - `site.url` is set to `https://maximejolivet.fr` in `nuxt.config.ts` (required for sitemaps/OG images).
 
 ## Git commits
