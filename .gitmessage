@@ -1,0 +1,35 @@
+# <type>(<scope>): <emoji> <description>
+#
+# <optional body — explain the what and why, not the how>
+#
+# Verified-by: ESLint <N> errors, vitest <N> passed
+# Refs: #<issue>
+# Closes: #<issue>
+# Co-authored-by: <name> <email>
+#
+# ── Types ──────────────────────────────────────────────
+# feat      ✨  new feature or user-visible change
+# fix       🐛  bug fix
+# refactor  ♻️  rewrite/restructure, no behavior change
+# perf      ⚡️  performance improvement
+# docs      📝  documentation (README, CLAUDE.md, comments)
+# style     💄  formatting only, no logic change
+# test      ✅  add/fix tests (vitest)
+# build     📦  dependencies, build config (vite, nuxt.config.ts)
+# ci        👷  CI/CD pipelines (.github/workflows/)
+# chore     🔧  misc maintenance/config, everything else
+# revert    ⏪  revert a previous commit
+# security  🔒  fix that closes a vulnerability
+#
+# ── Rules ──────────────────────────────────────────────
+# - description: in English, imperative present tense ("add", not
+#   "added"/"adds"), lowercase, no trailing period, ≤ 72 chars
+# - scope: REQUIRED — lowercase area touched (e.g. footer, hero, nav,
+#   i18n, deploy, ci, config, seo, icons, blog, projects), not an
+#   issue number
+# - emoji: optional but recommended, right after the colon
+# - body: optional, wrap at ~72 chars, blank line before it
+# - Verified-by: fill in real counts from `npm run lint` / `npm run
+#   test` output — never write 0 without having run the command
+# - Refs / Closes: optional, GitHub issue number
+# - Co-authored-by: optional, delete if unused
