@@ -59,6 +59,13 @@ Translation files live in `i18n/locales/`. Always update **both** `i18n/locales/
 
 Branch `master` triggers the GitHub Pages deployment via GitHub Actions (`npm run generate`). Working branch is `develop`. To deploy: open a PR from `develop` → `master`.
 
+- **`nuxt generate` outputs to `.output/public`**, not `dist/` — no `nitro.output.dir`/preset override changes this. A `dist` symlink to `.output/public` may exist locally for convenience but is gitignored and never present on a fresh CI runner; the workflow (`.github/workflows/nuxtjs.yml`) references `.output/public` directly.
+- `site.url` is set to `https://maximejolivet.fr` in `nuxt.config.ts` (required for sitemaps/OG images).
+
+## Git commits
+
+Commit message convention documented in `.claude/skills/semantic-commit-messages/SKILL.md` and `.gitmessage` (activated via `git config commit.template .gitmessage`): `type(scope): emoji description`, English, mandatory scope. This is a forward-looking standard, not retrofitted onto older history.
+
 ## Node
 
 Requires Node 24 (`engines.node: "24.x.x"`).
