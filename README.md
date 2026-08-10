@@ -1,8 +1,7 @@
 # Portfolio - Maxime JOLIVET // Nuxt 4 SSR
 
-Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multilingue (FR/EN), généré en statique et déployé sur GitHub Pages.
+Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multilingue (FR/EN), déployé en SSR sur Vercel.
 
-[![Deploy Nuxt site to Pages](https://github.com/maximejolivet/portfolio/actions/workflows/nuxtjs.yml/badge.svg)](https://github.com/maximejolivet/portfolio/actions/workflows/nuxtjs.yml)
 ![License](https://img.shields.io/badge/license-MIT-yellow)
 
 ![Node.js version](https://img.shields.io/badge/Node-24-5FA04E)
@@ -26,7 +25,7 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Stack technique
 
-- **Framework** : [Nuxt 4](https://nuxt.com) (SSR côté dev, généré en site statique pour la prod)
+- **Framework** : [Nuxt 4](https://nuxt.com) (SSR en dev comme en prod, hébergé sur Vercel)
 - **UI** : Vue 3, composants organisés par domaine (`components/sections`, `components/cards`, `components/layout`, `components/ui`, `components/navigation`)
 - **State** : Pinia
 - **i18n** : `@nuxtjs/i18n`, deux locales (`fr` par défaut, `en-US`), préfixe d'URL (`/fr/...`, `/en/...`)
@@ -119,7 +118,7 @@ yarn build
 bun run build
 ```
 
-Generate the static site (used for GitHub Pages deployment):
+Generate a static export (manual/local use only — production on Vercel builds SSR, not this):
 
 ```bash
 npm run generate
@@ -155,7 +154,7 @@ Ce script tourne automatiquement avant `dev`, `build`, `generate`, `deploy` et a
 
 ## Déploiement
 
-Le site est déployé sur GitHub Pages via GitHub Actions (`npm run generate`) au push sur `master`. La branche de travail est `develop` : pour déployer, ouvrir une PR `develop` → `master`.
+Le site est hébergé sur [Vercel](https://vercel.com), connecté via son intégration Git (build SSR standard, pas d'export statique). Déploiement automatique au push sur `master`. La branche de travail est `develop` : pour déployer, ouvrir une PR `develop` → `master`.
 
 ## Qualité de code
 
@@ -176,7 +175,7 @@ make infos         # Infos projet (version, Node, branche...) et liste des comma
 make install       # npm install
 make dev           # Serveur de dev
 make build         # Build SSR
-make generate      # Build statique (déploiement)
+make generate      # Build statique (manuel/local, pas le chemin de prod)
 make preview       # Prévisualiser un build généré
 make deploy        # Build + generate
 make lint          # ESLint only
@@ -196,6 +195,7 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.33](https://img.shields.io/badge/v1.0.33-2026--08--10-F97316)
 ![v1.0.32](https://img.shields.io/badge/v1.0.32-2026--08--10-F97316)
 ![v1.0.31](https://img.shields.io/badge/v1.0.31-2026--08--10-F97316)
 ![v1.0.30](https://img.shields.io/badge/v1.0.30-2026--08--10-F97316)

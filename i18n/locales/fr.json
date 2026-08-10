@@ -117,6 +117,10 @@
       "tools": {
         "label": "Outils",
         "description": "Mon environnement de travail au quotidien."
+      },
+      "watch": {
+        "label": "En veille",
+        "description": "Technologies suivies avec intérêt, pas encore utilisées en production."
       }
     }
   },
@@ -128,7 +132,7 @@
     "items": {
       "gingerminds": {
         "period": "2017 - 2026",
-        "title": "Développeur web full-stack senior",
+        "title": "Développeur web full stack senior PHP - JavaScript / Expert Drupal & Wordpress (Brand Content)",
         "organization": "Gingerminds",
         "location": "Nantes (Hybride) · Agence digitale",
         "intro": "Contribution sur plus de 50 projets clients chez Gingerminds, dans des secteurs variés tels que le bâtiment, l'industrie, la santé, l'énergie, les mutuelles et assurances, ainsi que l'agriculture et l'agroalimentaire, dont une grande partie est toujours en production aujourd'hui.",

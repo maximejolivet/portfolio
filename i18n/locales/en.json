@@ -117,6 +117,10 @@
       "tools": {
         "label": "Tools",
         "description": "My day-to-day working environment."
+      },
+      "watch": {
+        "label": "Watching",
+        "description": "Technologies I'm keeping an eye on, not yet used in production."
       }
     }
   },
@@ -128,7 +132,7 @@
     "items": {
       "gingerminds": {
         "period": "2017 - Present",
-        "title": "Senior Full-Stack Developer, Tech Lead",
+        "title": "Senior Full-Stack Web Developer, PHP - JavaScript / Drupal & WordPress Expert (Brand Content)",
         "organization": "Gingerminds",
         "location": "Nantes (Hybrid) · Digital agency",
         "intro": "Contributed to more than 50 client projects across a range of sectors such as construction, industry, healthcare, energy, insurance & mutual funds, and agriculture and agri-food, many of which are still in production today.",
