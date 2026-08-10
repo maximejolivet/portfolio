@@ -2,7 +2,8 @@
 
 Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multilingue (FR/EN), déployé en SSR sur Vercel.
 
-![License](https://img.shields.io/badge/license-MIT-yellow)
+[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE.md)
+![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
 
 ![Node.js version](https://img.shields.io/badge/Node-24-5FA04E)
 ![Nuxt version](https://img.shields.io/badge/Nuxt-4-00DC82)
@@ -18,8 +19,17 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multili
 
 ## Claude Code Skills
 
+`.claude/skills/` :
+
 ![github-actions](https://img.shields.io/badge/skill-github--actions-2088FF)
 ![semantic-commit-messages](https://img.shields.io/badge/skill-semantic--commit--messages-D97757)
+
+`.agents/skills/` :
+
+![brand-guidelines](https://img.shields.io/badge/skill-brand--guidelines-D97757)
+![nuxt-ui](https://img.shields.io/badge/skill-nuxt--ui-00DC82)
+![skill-creator](https://img.shields.io/badge/skill-skill--creator-D97757)
+![theme-factory](https://img.shields.io/badge/skill-theme--factory-D97757)
 
 Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -195,6 +205,7 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.35](https://img.shields.io/badge/v1.0.35-2026--08--10-F97316)
 ![v1.0.34](https://img.shields.io/badge/v1.0.34-2026--08--10-F97316)
 ![v1.0.33](https://img.shields.io/badge/v1.0.33-2026--08--10-F97316)
 ![v1.0.32](https://img.shields.io/badge/v1.0.32-2026--08--10-F97316)
