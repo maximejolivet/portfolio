@@ -48,6 +48,10 @@ export default defineNuxtConfig({
     },
   },
 
+  site: {
+    url: 'https://maximejolivet.fr',
+  },
+
   runtimeConfig: {
     public: {
       supabaseUrl: '',
