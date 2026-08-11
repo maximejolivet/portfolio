@@ -611,7 +611,7 @@
       },
       "cookies": {
         "title": "Cookies",
-        "intro": "This site uses Google Tag Manager and the Cal.com scheduling service, which may set cookies, only after you give consent.",
+        "intro": "This site uses Google Tag Manager and the Cal.eu scheduling service, which may set cookies, only after you give consent.",
         "body": "A banner lets you accept, decline, or customize these cookies on your first visit. You can change your choices at any time via the \"Manage cookies\" link at the bottom of the page. Only cookies strictly necessary for the site to function (remembering your language and consent choice) are set without prior consent."
       },
       "ip": {

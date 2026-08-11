@@ -611,7 +611,7 @@
       },
       "cookies": {
         "title": "Cookies",
-        "intro": "Ce site utilise Google Tag Manager et le service de prise de rendez-vous Cal.com, susceptibles de déposer des cookies, uniquement après votre consentement.",
+        "intro": "Ce site utilise Google Tag Manager et le service de prise de rendez-vous Cal.eu, susceptibles de déposer des cookies, uniquement après votre consentement.",
         "body": "Un bandeau vous permet d'accepter, de refuser ou de personnaliser ces cookies dès votre première visite. Vous pouvez modifier vos choix à tout moment via le lien « Gérer les cookies » en bas de page. Seuls des cookies strictement nécessaires au fonctionnement du site (mémorisation de votre langue et de votre consentement) sont déposés sans consentement préalable."
       },
       "ip": {

@@ -51,8 +51,8 @@ document.addEventListener("googletagmanager_consentModeKo", function () {
 tarteaucitron.services.calcom = {
   "key": "calcom",
   "type": "api",
-  "name": "Cal.com",
-  "uri": "https://cal.com/privacy",
+  "name": "Cal.eu",
+  "uri": "https://Cal.eu/privacy",
   "needConsent": true,
   "cookies": [],
   "js": function () {
