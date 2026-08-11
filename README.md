@@ -2,32 +2,32 @@
 
 Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multilingue (FR/EN), déployé en SSR sur Vercel.
 
-[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-yellow?logo=opensourceinitiative&logoColor=black)](LICENSE.md)
 ![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
 
-![Node.js version](https://img.shields.io/badge/Node-24-5FA04E)
-![Nuxt version](https://img.shields.io/badge/Nuxt-4-00DC82)
-![Vue version](https://img.shields.io/badge/Vue-3-4FC08D)
-![TypeScript version](https://img.shields.io/badge/TypeScript-5-3178C6)
-![Vite version](https://img.shields.io/badge/Vite-8-646CFF)
-![Tailwind version](https://img.shields.io/badge/Tailwind-4-06B6D4)
-![Pinia version](https://img.shields.io/badge/Pinia-4-FFD859)
-![Supabase](https://img.shields.io/badge/Supabase-2-3ECF8E)
-![ESLint](https://img.shields.io/badge/ESLint-10-4B32C3)
-![Vitest](https://img.shields.io/badge/Vitest-4-6E9F18)
-![i18n](https://img.shields.io/badge/i18n-FR%20%2F%20EN-21759B)
+![Node.js version](https://img.shields.io/badge/Node-24-5FA04E?logo=nodedotjs&logoColor=white)
+![Nuxt version](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxtdotjs&logoColor=white)
+![Vue version](https://img.shields.io/badge/Vue-3-4FC08D?logo=vuedotjs&logoColor=white)
+![TypeScript version](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite version](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![Tailwind version](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)
+![Pinia version](https://img.shields.io/badge/Pinia-4-FFD859?logo=pinia&logoColor=black)
+![Supabase](https://img.shields.io/badge/Supabase-2-3ECF8E?logo=supabase&logoColor=black)
+![ESLint](https://img.shields.io/badge/ESLint-10-4B32C3?logo=eslint&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-4-6E9F18?logo=vitest&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-FR%20%2F%20EN-21759B?logo=googletranslate&logoColor=white)
 
 ## Claude Code Skills
 
 `.claude/skills/` :
 
-![github-actions](https://img.shields.io/badge/skill-github--actions-2088FF)
-![semantic-commit-messages](https://img.shields.io/badge/skill-semantic--commit--messages-D97757)
+![github-actions](https://img.shields.io/badge/skill-github--actions-2088FF?logo=githubactions&logoColor=white)
+![semantic-commit-messages](https://img.shields.io/badge/skill-semantic--commit--messages-D97757?logo=conventionalcommits&logoColor=white)
 
 `.agents/skills/` :
 
 ![brand-guidelines](https://img.shields.io/badge/skill-brand--guidelines-D97757)
-![nuxt-ui](https://img.shields.io/badge/skill-nuxt--ui-00DC82)
+![nuxt-ui](https://img.shields.io/badge/skill-nuxt--ui-00DC82?logo=nuxtdotjs&logoColor=white)
 ![skill-creator](https://img.shields.io/badge/skill-skill--creator-D97757)
 ![theme-factory](https://img.shields.io/badge/skill-theme--factory-D97757)
 
@@ -42,17 +42,18 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 - **Data** : Supabase (articles de blog)
 - **Sécurité** : `nuxt-security` (CSP stricte avec nonce)
 - **SEO** : `@nuxtjs/sitemap`, `@nuxt/image`
-- **Icônes** : collections `@iconify-json/*` (devicon, logos, lucide, material-icon-theme, selfhst, skill-icons), résolues via `utils/resolveIcon.ts` à partir d'un sous-ensemble généré (voir [Icônes](#icônes))
+- **Icônes** : collections `@iconify-json/*` (devicon, devicon-plain, logos, lucide, material-icon-theme, selfhst, skill-icons), résolues via `utils/resolveIcon.ts` à partir d'un sous-ensemble généré (voir [Icônes](#icônes))
 
 ## Pages
 
-| Route (FR)    | Route (EN)    | Contenu                                     |
-| ------------- | ------------- | ------------------------------------------- |
-| `/`           | `/`           | Accueil (hero, à propos, expérience, stack) |
-| `/cv`         | `/cv`         | Curriculum vitæ                             |
-| `/projets`    | `/projects`   | Liste des projets                           |
-| `/blog`       | `/blog`       | Liste des articles                          |
-| `/blog/:slug` | `/blog/:slug` | Article de blog                             |
+| Route (FR)          | Route (EN)      | Contenu                                     |
+| ------------------- | --------------- | -------------------------------------------- |
+| `/`                 | `/`             | Accueil (hero, à propos, expérience, stack) |
+| `/cv`               | `/cv`           | Curriculum vitæ                             |
+| `/projets`          | `/projects`     | Liste des projets                           |
+| `/blog`             | `/blog`         | Liste des articles                          |
+| `/blog/:slug`       | `/blog/:slug`   | Article de blog                             |
+| `/mentions-legales` | `/legal-notice` | Mentions légales                            |
 
 ## Setup
 
@@ -205,6 +206,7 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.38](https://img.shields.io/badge/v1.0.38-2026--08--11-F97316)
 ![v1.0.37](https://img.shields.io/badge/v1.0.37-2026--08--10-F97316)
 ![v1.0.36](https://img.shields.io/badge/v1.0.36-2026--08--10-F97316)
 ![v1.0.35](https://img.shields.io/badge/v1.0.35-2026--08--10-F97316)
