@@ -1,6 +1,6 @@
 # Logo
 
-> Fichier source réel : [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) — SVG inline `viewBox="0 0 1040 1040"`. Voir [palette-couleurs.md](./palette-couleurs.md) pour les couleurs et [assets.md](./assets.md) pour les exports à produire.
+> Fichier source réel : [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) — SVG inline `viewBox="0 0 1040 1040"`. Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) pour les couleurs et [ASSETS.md](./ASSETS.md) pour les exports à produire.
 
 ---
 
@@ -15,7 +15,7 @@ Le logo n'utilise **qu'une seule couleur** (`currentColor`) — il hérite toujo
 ### Symbolique
 
 - **Le M** : initiale de Maxime — lisible sans être criant, un détecteur de forme le voit avant de le "lire" comme lettre.
-- **Le cercle organique** : la continuité, la fiabilité, l'absence d'angles morts — cohérent avec le positionnement "code qui dure" (voir [charte-graphique.md](./charte-graphique.md)).
+- **Le cercle organique** : la continuité, la fiabilité, l'absence d'angles morts — cohérent avec le positionnement "code qui dure" (voir [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md)).
 - **Les chevrons implicites** : lecture seconde en `< M >`, un clin d'œil discret au développement sans tomber dans le cliché `</>` trop utilisé par les portfolios dev.
 - **L'animation `logo-letters`** (`--animate-logo-letters`, 3s ease-in-out infinite, `scale(1)` → `scale(0.82)` → `scale(1)`) : le M "respire" légèrement à l'intérieur du cercle fixe. Utilisée sur l'écran d'intro (voir mémoire du projet : timing d'animation d'intro retravaillé). Symbolise un système vivant plutôt qu'un logo statique — cohérent avec un développeur qui maintient et fait évoluer ses projets dans la durée plutôt que de les livrer et les oublier.
 
@@ -25,7 +25,7 @@ Le logo n'utilise **qu'une seule couleur** (`currentColor`) — il hérite toujo
 - **Deux groupes de tracés** :
   1. Le contour circulaire organique (path unique, fond du cercle en `currentColor`).
   2. Le groupe `.animate-logo-letters` (M + barre), qui pulse indépendamment du cercle — `transform-origin: center`, `transform-box: view-box`.
-- **Épaisseur des traits** : formes pleines (fill), pas de contour (stroke) — cohérent avec le style d'icônes plates du reste du système (voir [iconographie.md](./iconographie.md)).
+- **Épaisseur des traits** : formes pleines (fill), pas de contour (stroke) — cohérent avec le style d'icônes plates du reste du système (voir [ICONOGRAPHY.md](./ICONOGRAPHY.md)).
 - **Taille par défaut du composant** : `size="36"` (36×36px), utilisé dans la nav ; scalable à n'importe quelle taille sans perte car SVG vectoriel pur.
 
 ### Variantes
@@ -108,7 +108,7 @@ The logo uses **only one color** (`currentColor`) — it always inherits the sur
 ### Symbolism
 
 - **The M**: Maxime's initial — legible without shouting, a viewer registers the shape before "reading" it as a letter.
-- **The organic circle**: continuity, reliability, no blind corners — consistent with the "code that lasts" positioning (see [charte-graphique.md](./charte-graphique.md)).
+- **The organic circle**: continuity, reliability, no blind corners — consistent with the "code that lasts" positioning (see [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md)).
 - **The implicit chevrons**: a second reading as `< M >`, a subtle nod to development without falling into the overused `</>` portfolio cliché.
 - **The `logo-letters` animation** (`--animate-logo-letters`, 3s ease-in-out infinite, `scale(1)` → `scale(0.82)` → `scale(1)`): the M "breathes" gently inside the fixed circle. Used on the intro screen (see project memory: intro animation timing reworked). It symbolizes a living system rather than a static logo — consistent with a developer who maintains and evolves projects over time rather than shipping and forgetting them.
 
@@ -118,7 +118,7 @@ The logo uses **only one color** (`currentColor`) — it always inherits the sur
 - **Two path groups**:
   1. The organic circular outline (single path, filled with `currentColor`).
   2. The `.animate-logo-letters` group (M + bar), pulsing independently of the circle — `transform-origin: center`, `transform-box: view-box`.
-- **Stroke weight**: solid filled shapes, no outline strokes — consistent with the flat icon style used across the rest of the system (see [iconographie.md](./iconographie.md)).
+- **Stroke weight**: solid filled shapes, no outline strokes — consistent with the flat icon style used across the rest of the system (see [ICONOGRAPHY.md](./ICONOGRAPHY.md)).
 - **Default component size**: `size="36"` (36×36px), used in the nav; scales to any size losslessly since it's a pure vector SVG.
 
 ### Variants

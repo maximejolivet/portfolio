@@ -1,6 +1,6 @@
 # Design System
 
-> Stack : Nuxt 4 + Tailwind v4 (`@tailwindcss/vite`, tokens `@theme inline` dans [`assets/css/main.css`](../../assets/css/main.css)) + shadcn-vue (style "new-york", composants sous `components/ui/shadcn/`, enveloppés par des wrappers `Ui*` dans `components/ui/`). Voir [palette-couleurs.md](./palette-couleurs.md) et [typographie.md](./typographie.md) pour les tokens couleur/texte détaillés, [iconographie.md](./iconographie.md) pour les icônes.
+> Stack : Nuxt 4 + Tailwind v4 (`@tailwindcss/vite`, tokens `@theme inline` dans [`assets/css/main.css`](../../assets/css/main.css)) + shadcn-vue (style "new-york", composants sous `components/ui/shadcn/`, enveloppés par des wrappers `Ui*` dans `components/ui/`). Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) et [TYPOGRAPHY.md](./TYPOGRAPHY.md) pour les tokens couleur/texte détaillés, [ICONOGRAPHY.md](./ICONOGRAPHY.md) pour les icônes.
 
 ---
 
@@ -86,7 +86,7 @@ Le système n'a **pas** de token d'ombre custom dans `@theme` — il s'appuie su
 
 ### Bordures
 
-- Couleur unique : `border-border` (= `--line`, voir [palette-couleurs.md](./palette-couleurs.md)).
+- Couleur unique : `border-border` (= `--line`, voir [COLOR_PALETTE.md](./COLOR_PALETTE.md)).
 - Épaisseur par défaut : `1px` (`border`), jamais de `border-2`+ observé dans le système actuel.
 - `* { border-color: var(--color-border); }` est posé globalement au niveau `@layer base` — toute classe `border` sans couleur explicite hérite automatiquement de la bonne teinte de thème.
 
@@ -150,11 +150,11 @@ _(Pattern shadcn-vue disponible via Dialog, non massivement déployé actuelleme
 
 ### Alertes
 
-_(Pas de composant Alert dédié actuellement.)_ Recommandation basée sur `--color-destructive` et le mint comme succès (voir [palette-couleurs.md](./palette-couleurs.md)) : fond `bg-destructive/10` + bordure `border-destructive/30` + texte `text-destructive` pour les erreurs ; `bg-accent/10` + `border-accent/30` pour succès/info.
+_(Pas de composant Alert dédié actuellement.)_ Recommandation basée sur `--color-destructive` et le mint comme succès (voir [COLOR_PALETTE.md](./COLOR_PALETTE.md)) : fond `bg-destructive/10` + bordure `border-destructive/30` + texte `text-destructive` pour les erreurs ; `bg-accent/10` + `border-accent/30` pour succès/info.
 
 ### Icônes
 
-Voir [iconographie.md](./iconographie.md) pour le détail complet. Résumé : `lucide` via `@iconify-json/lucide` + composant `AppIcon.vue` (résolution dynamique par nom de string), taille standard `size-8` en en-tête de section, `size-4`/`size-3` dans les boutons.
+Voir [ICONOGRAPHY.md](./ICONOGRAPHY.md) pour le détail complet. Résumé : `lucide` via `@iconify-json/lucide` + composant `AppIcon.vue` (résolution dynamique par nom de string), taille standard `size-8` en en-tête de section, `size-4`/`size-3` dans les boutons.
 
 ### Animations
 
@@ -165,7 +165,7 @@ Aucune librairie d'animation (GSAP et motion-v ont été délibérément retiré
 | `marquee`       | `--animate-marquee`       | 26s linear infinite                             | Bandeau défilant (stack tech, logos clients)          |
 | `blink`         | `--animate-blink`         | 1.1s step-end infinite                          | Curseur clignotant façon terminal                     |
 | `pulse-dot`     | `--animate-pulse-dot`     | 1.6s ease-in-out infinite                       | Indicateur de statut (dispo, en ligne)                |
-| `logo-letters`  | `--animate-logo-letters`  | 3s ease-in-out infinite                         | Respiration du monogramme (voir [logo.md](./logo.md)) |
+| `logo-letters`  | `--animate-logo-letters`  | 3s ease-in-out infinite                         | Respiration du monogramme (voir [LOGO.md](./LOGO.md)) |
 | `intro-logo-in` | `--animate-intro-logo-in` | 700ms `cubic-bezier(0.16, 1, 0.3, 1)`, one-shot | Entrée du logo à l'écran d'intro                      |
 
 Transitions ponctuelles (hover, focus) : `transition-all` / `transition-colors` / `transition-transform`, durées `duration-300`, easing `ease-out` par défaut. `scale-105` est le pattern standard de hover sur les éléments circulaires (FAB, logo).
@@ -187,8 +187,8 @@ Mobile-first strict : classes de base = mobile, préfixes `sm:`/`md:`/`lg:` ajou
 ### Tokens Design (résumé)
 
 ```
-Couleur     → voir palette-couleurs.md (tokens sémantiques @theme)
-Typographie → voir typographie.md (--font-sans, --font-mono, --text-*)
+Couleur     → voir COLOR_PALETTE.md (tokens sémantiques @theme)
+Typographie → voir TYPOGRAPHY.md (--font-sans, --font-mono, --text-*)
 Radius      → --radius: 1rem (+ sm/md/lg/xl dérivés)
 Spacing     → échelle Tailwind par défaut (4/8/12/16/24/32/48/64/96px)
 Shadow      → échelle Tailwind par défaut (xs/sm/md/lg), shadow-none par défaut sur cards
@@ -231,7 +231,7 @@ Animation   → 5 keyframes custom (marquee, blink, pulse-dot, logo-letters, int
 }
 ```
 
-Voir [palette-couleurs.md](./palette-couleurs.md) pour le bloc complet des tokens couleur (`:root`, `:root[data-theme='night']`).
+Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) pour le bloc complet des tokens couleur (`:root`, `:root[data-theme='night']`).
 
 ---
 
@@ -317,7 +317,7 @@ The system has **no** custom shadow token in `@theme` — it relies on the nativ
 
 ### Borders
 
-- Single color: `border-border` (= `--line`, see [palette-couleurs.md](./palette-couleurs.md)).
+- Single color: `border-border` (= `--line`, see [COLOR_PALETTE.md](./COLOR_PALETTE.md)).
 - Default weight: `1px` (`border`), no `border-2`+ observed anywhere in the current system.
 - `* { border-color: var(--color-border); }` is set globally at `@layer base` — any `border` class without an explicit color automatically inherits the correct theme tint.
 
@@ -381,11 +381,11 @@ _(shadcn-vue Dialog pattern available, not heavily deployed yet.)_ Consistency r
 
 ### Alerts
 
-_(No dedicated Alert component currently.)_ Recommendation based on `--color-destructive` and mint as success (see [palette-couleurs.md](./palette-couleurs.md)): `bg-destructive/10` fill + `border-destructive/30` border + `text-destructive` text for errors; `bg-accent/10` + `border-accent/30` for success/info.
+_(No dedicated Alert component currently.)_ Recommendation based on `--color-destructive` and mint as success (see [COLOR_PALETTE.md](./COLOR_PALETTE.md)): `bg-destructive/10` fill + `border-destructive/30` border + `text-destructive` text for errors; `bg-accent/10` + `border-accent/30` for success/info.
 
 ### Icons
 
-See [iconographie.md](./iconographie.md) for full detail. Summary: `lucide` via `@iconify-json/lucide` + `AppIcon.vue` component (dynamic resolution by string name), standard size `size-8` in section headers, `size-4`/`size-3` inside buttons.
+See [ICONOGRAPHY.md](./ICONOGRAPHY.md) for full detail. Summary: `lucide` via `@iconify-json/lucide` + `AppIcon.vue` component (dynamic resolution by string name), standard size `size-8` in section headers, `size-4`/`size-3` inside buttons.
 
 ### Animations
 
@@ -396,7 +396,7 @@ No animation library (GSAP and motion-v were deliberately removed — see `CLAUD
 | `marquee`       | `--animate-marquee`       | 26s linear infinite                             | Scrolling banner (tech stack, client logos)   |
 | `blink`         | `--animate-blink`         | 1.1s step-end infinite                          | Terminal-style blinking cursor                |
 | `pulse-dot`     | `--animate-pulse-dot`     | 1.6s ease-in-out infinite                       | Status indicator (available, online)          |
-| `logo-letters`  | `--animate-logo-letters`  | 3s ease-in-out infinite                         | Monogram breathing (see [logo.md](./logo.md)) |
+| `logo-letters`  | `--animate-logo-letters`  | 3s ease-in-out infinite                         | Monogram breathing (see [LOGO.md](./LOGO.md)) |
 | `intro-logo-in` | `--animate-intro-logo-in` | 700ms `cubic-bezier(0.16, 1, 0.3, 1)`, one-shot | Logo entrance on the intro screen             |
 
 One-off transitions (hover, focus): `transition-all` / `transition-colors` / `transition-transform`, `duration-300`, default `ease-out` easing. `scale-105` is the standard hover pattern on circular elements (FAB, logo).
@@ -418,8 +418,8 @@ Strict mobile-first: base classes = mobile, `sm:`/`md:`/`lg:` prefixes add compl
 ### Design Tokens (summary)
 
 ```
-Color       → see palette-couleurs.md (semantic @theme tokens)
-Typography  → see typographie.md (--font-sans, --font-mono, --text-*)
+Color       → see COLOR_PALETTE.md (semantic @theme tokens)
+Typography  → see TYPOGRAPHY.md (--font-sans, --font-mono, --text-*)
 Radius      → --radius: 1rem (+ derived sm/md/lg/xl)
 Spacing     → default Tailwind scale (4/8/12/16/24/32/48/64/96px)
 Shadow      → default Tailwind scale (xs/sm/md/lg), shadow-none by default on cards
@@ -428,4 +428,4 @@ Animation   → 5 custom keyframes (marquee, blink, pulse-dot, logo-letters, int
 
 ### CSS Variables (full excerpt, colors excluded — see palette doc)
 
-See the FR section above for the complete `@theme inline` code block (identical in both languages, taken directly from the source file). Color tokens (`:root`, `:root[data-theme='night']`) are documented in full in [palette-couleurs.md](./palette-couleurs.md).
+See the FR section above for the complete `@theme inline` code block (identical in both languages, taken directly from the source file). Color tokens (`:root`, `:root[data-theme='night']`) are documented in full in [COLOR_PALETTE.md](./COLOR_PALETTE.md).

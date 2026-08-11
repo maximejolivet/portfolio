@@ -1,6 +1,6 @@
 # Typographie / Typography
 
-> Source de vérité : [`assets/css/main.css`](../../assets/css/main.css) (`@theme inline`) et [`nuxt.config.ts`](../../nuxt.config.ts) (`googleFonts`). Voir [design-system.md](./design-system.md) pour les composants qui consomment ces styles et [palette-couleurs.md](./palette-couleurs.md) pour les couleurs de texte.
+> Source de vérité : [`assets/css/main.css`](../../assets/css/main.css) (`@theme inline`) et [`nuxt.config.ts`](../../nuxt.config.ts) (`googleFonts`). Voir [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) pour les composants qui consomment ces styles et [COLOR_PALETTE.md](./COLOR_PALETTE.md) pour les couleurs de texte.
 
 ---
 

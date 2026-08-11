@@ -1,6 +1,6 @@
 # Prompts IA / AI Prompts
 
-> Bibliothèque de prompts pour production visuelle assistée par IA. Les prompts sont écrits en anglais (standard du secteur, meilleure fidélité de rendu sur la plupart des moteurs) — les titres de section sont bilingues. Toujours vérifier le résultat contre [palette-couleurs.md](./palette-couleurs.md), [typographie.md](./typographie.md) et [charte-graphique.md](./charte-graphique.md) avant usage. Pour le logo et la photographie, voir aussi [logo.md](./logo.md) et [photographie.md](./photographie.md) (bibliothèques dédiées, plus détaillées).
+> Bibliothèque de prompts pour production visuelle assistée par IA. Les prompts sont écrits en anglais (standard du secteur, meilleure fidélité de rendu sur la plupart des moteurs) — les titres de section sont bilingues. Toujours vérifier le résultat contre [COLOR_PALETTE.md](./COLOR_PALETTE.md), [TYPOGRAPHY.md](./TYPOGRAPHY.md) et [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) avant usage. Pour le logo et la photographie, voir aussi [LOGO.md](./LOGO.md) et [PHOTOGRAPHY.md](./PHOTOGRAPHY.md) (bibliothèques dédiées, plus détaillées).
 
 **Constante de marque à répéter dans chaque prompt** (bloc réutilisable) :
 
@@ -37,7 +37,7 @@ gradient, no stroke outline, currentColor single-tone, professional
 tech-personal-brand aesthetic, Space Grotesk typography influence
 ```
 
-_(Bibliothèque complète et variantes : [logo.md](./logo.md))_
+_(Bibliothèque complète et variantes : [LOGO.md](./LOGO.md))_
 
 ### Icônes / Icons
 
@@ -184,7 +184,7 @@ brand merchandise presentation
 
 ### Moodboard
 
-_(Bibliothèque complète : [moodboard.md](./moodboard.md))_
+_(Bibliothèque complète : [MOODBOARD.md](./MOODBOARD.md))_
 
 ```
 Warm minimalist brand moodboard collage, cream and deep navy color
@@ -197,7 +197,7 @@ professional brand identity board layout
 
 ### Photos marketing / Marketing photography
 
-_(Bibliothèque complète : [photographie.md](./photographie.md))_
+_(Bibliothèque complète : [PHOTOGRAPHY.md](./PHOTOGRAPHY.md))_
 
 ```
 Professional studio headshot photography, solid warm gold background
@@ -212,5 +212,5 @@ depth of field on background only
 ## Notes de qualité / Quality notes
 
 - **FR/EN** : toujours vérifier que le rendu respecte le principe "aucun texte généré par l'IA n'est utilisable tel quel" — les moteurs d'image gèrent mal la typographie précise. Utiliser l'IA pour la composition/l'ambiance, puis surcharger le texte réel (Space Grotesk / JetBrains Mono) en post-production.
-- Toujours comparer le rendu de couleur généré au HEX exact de la palette ([palette-couleurs.md](./palette-couleurs.md)) — les moteurs dérivent souvent la teinte demandée, une correction colorimétrique post-génération est presque toujours nécessaire.
-- Ne jamais utiliser un rendu IA du logo comme asset final — le SVG codé ([`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue)) reste l'unique source de vérité (voir [logo.md](./logo.md)).
+- Toujours comparer le rendu de couleur généré au HEX exact de la palette ([COLOR_PALETTE.md](./COLOR_PALETTE.md)) — les moteurs dérivent souvent la teinte demandée, une correction colorimétrique post-génération est presque toujours nécessaire.
+- Ne jamais utiliser un rendu IA du logo comme asset final — le SVG codé ([`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue)) reste l'unique source de vérité (voir [LOGO.md](./LOGO.md)).

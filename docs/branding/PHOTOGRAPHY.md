@@ -1,6 +1,6 @@
 # Photographie / Photography
 
-> Références réelles : [`public/maximejolivet.jpg`](../../public/maximejolivet.jpg) (portrait), [`public/open-graph-maximejolivet.jpg`](../../public/open-graph-maximejolivet.jpg), [`public/projects/vygon.jpg`](../../public/projects/vygon.jpg) (capture projet). Voir [palette-couleurs.md](./palette-couleurs.md) pour les couleurs de fond et [iconographie.md](./iconographie.md) pour le traitement des placeholders (`ImagePlaceholder.vue`).
+> Références réelles : [`public/maximejolivet.jpg`](../../public/maximejolivet.jpg) (portrait), [`public/open-graph-maximejolivet.jpg`](../../public/open-graph-maximejolivet.jpg), [`public/projects/vygon.jpg`](../../public/projects/vygon.jpg) (capture projet). Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) pour les couleurs de fond et [ICONOGRAPHY.md](./ICONOGRAPHY.md) pour le traitement des placeholders (`ImagePlaceholder.vue`).
 
 ---
 

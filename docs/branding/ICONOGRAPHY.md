@@ -1,6 +1,6 @@
 # Iconographie / Iconography
 
-> Source de vérité : [`components/ui/AppIcon.vue`](../../components/ui/AppIcon.vue) + dépendances `@iconify-json/lucide` et `@iconify-json/logos` (`package.json`). Voir [logo.md](./logo.md) pour le monogramme de marque et [design-system.md](./design-system.md) pour l'usage en composants.
+> Source de vérité : [`components/ui/AppIcon.vue`](../../components/ui/AppIcon.vue) + dépendances `@iconify-json/lucide` et `@iconify-json/logos` (`package.json`). Voir [LOGO.md](./LOGO.md) pour le monogramme de marque et [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) pour l'usage en composants.
 
 ---
 
@@ -49,7 +49,7 @@ Hérité directement du style Lucide : **outline (contour), pas de remplissage p
 
 ### Illustrations
 
-Le système **ne comporte pas d'illustrations custom** (pas de style d'illustration maison type blob/character design) — le portfolio s'appuie sur photographie réelle ([photographie.md](./photographie.md)) et iconographie fonctionnelle plutôt que sur de l'illustration décorative. `ImagePlaceholder.vue` gère les états de chargement/absence d'image via un fond neutre + icône, pas via une illustration dédiée.
+Le système **ne comporte pas d'illustrations custom** (pas de style d'illustration maison type blob/character design) — le portfolio s'appuie sur photographie réelle ([PHOTOGRAPHY.md](./PHOTOGRAPHY.md)) et iconographie fonctionnelle plutôt que sur de l'illustration décorative. `ImagePlaceholder.vue` gère les états de chargement/absence d'image via un fond neutre + icône, pas via une illustration dédiée.
 
 **Recommandation si besoin futur d'illustrations** (ex. état vide, 404) : rester en ligne fine monochrome (`currentColor`), grille 24-32px, cohérent avec le style Lucide plutôt que d'introduire un style pictural séparé.
 
@@ -61,7 +61,7 @@ Utilisés pour : navigation (flèches, menu burger), réseaux sociaux (via `logo
 
 Un seul emoji est actuellement utilisé dans le contenu produit : 🚧 (`hero.underConstructionNote` : "site toujours en construction 🚧"). C'est un usage **ponctuel et fonctionnel** (statut honnête, ton décontracté), pas une charte emoji étendue.
 
-**Règle** : ne pas généraliser l'usage d'emoji dans l'UI ou le contenu. Le système typographique (JetBrains Mono pour les métadonnées, voir [typographie.md](./typographie.md)) et l'iconographie Lucide couvrent déjà le besoin de signalétique visuelle légère — un emoji supplémentaire romprait la cohérence du système d'icônes vectorielles. Si un marqueur d'humeur/statut est nécessaire ailleurs, préférer 🚧 (chantier/travail en cours) ou rester sur les pictos `pulse-dot` existants.
+**Règle** : ne pas généraliser l'usage d'emoji dans l'UI ou le contenu. Le système typographique (JetBrains Mono pour les métadonnées, voir [TYPOGRAPHY.md](./TYPOGRAPHY.md)) et l'iconographie Lucide couvrent déjà le besoin de signalétique visuelle légère — un emoji supplémentaire romprait la cohérence du système d'icônes vectorielles. Si un marqueur d'humeur/statut est nécessaire ailleurs, préférer 🚧 (chantier/travail en cours) ou rester sur les pictos `pulse-dot` existants.
 
 ---
 
@@ -110,7 +110,7 @@ Directly inherited from the Lucide style: **outline (stroke-based), no solid fil
 
 ### Illustrations
 
-The system **has no custom illustration style** (no in-house blob/character illustration style) — the portfolio relies on real photography ([photographie.md](./photographie.md)) and functional iconography rather than decorative illustration. `ImagePlaceholder.vue` handles loading/missing-image states via a neutral background + icon, not a dedicated illustration.
+The system **has no custom illustration style** (no in-house blob/character illustration style) — the portfolio relies on real photography ([PHOTOGRAPHY.md](./PHOTOGRAPHY.md)) and functional iconography rather than decorative illustration. `ImagePlaceholder.vue` handles loading/missing-image states via a neutral background + icon, not a dedicated illustration.
 
 **Recommendation if illustrations are needed in the future** (e.g. empty state, 404): stay in thin monochrome line art (`currentColor`), 24-32px grid, consistent with the Lucide style rather than introducing a separate pictorial style.
 
@@ -122,4 +122,4 @@ Used for: navigation (arrows, burger menu), social networks (via the `logos` col
 
 Only one emoji currently appears in shipped content: 🚧 (`hero.underConstructionNote`: "site toujours en construction 🚧" / "site still under construction 🚧"). This is a **one-off, functional use** (honest status, casual tone), not an extended emoji system.
 
-**Rule**: don't generalize emoji usage across UI or content. The typography system (JetBrains Mono for metadata, see [typographie.md](./typographie.md)) and the Lucide iconography already cover the need for lightweight visual signaling — an additional emoji would break the vector-icon system's consistency. If a mood/status marker is needed elsewhere, prefer 🚧 (work in progress) or stick to the existing `pulse-dot` pictograms.
+**Rule**: don't generalize emoji usage across UI or content. The typography system (JetBrains Mono for metadata, see [TYPOGRAPHY.md](./TYPOGRAPHY.md)) and the Lucide iconography already cover the need for lightweight visual signaling — an additional emoji would break the vector-icon system's consistency. If a mood/status marker is needed elsewhere, prefer 🚧 (work in progress) or stick to the existing `pulse-dot` pictograms.

@@ -1,6 +1,6 @@
 # Palette de couleurs / Color Palette
 
-> Source de vérité : [`assets/css/main.css`](../../assets/css/main.css) (tokens `@theme inline` + variables `:root`). Voir aussi [design-system.md](./design-system.md) pour l'usage en composants et [charte-graphique.md](./charte-graphique.md) pour la logique de marque derrière ces choix.
+> Source de vérité : [`assets/css/main.css`](../../assets/css/main.css) (tokens `@theme inline` + variables `:root`). Voir aussi [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) pour l'usage en composants et [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) pour la logique de marque derrière ces choix.
 
 ---
 

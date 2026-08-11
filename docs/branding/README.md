@@ -25,17 +25,17 @@ Donner à un interlocuteur — décideur B2B cherchant une mission, ou recruteur
 
 ### Positionnement
 
-**"Le développeur senior qui pense produit, pas seulement code."** Détail complet : [charte-graphique.md](./charte-graphique.md#positionnement).
+**"Le développeur senior qui pense produit, pas seulement code."** Détail complet : [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md#positionnement).
 
 ### Résumé de l'identité graphique
 
 | Élément           | Résumé                                                                                                                     | Détail                                       |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| **Logo**          | Monogramme "M" en chevrons de code, inscrit dans un cercle organique, monochrome (`currentColor`)                          | [logo.md](./logo.md)                         |
-| **Couleurs**      | Fond neutre chaud (crème jour / bleu-nuit nuit) + deux couleurs de marque fixes : **gold `#EFC78A`** et **mint `#7FD9C4`** | [palette-couleurs.md](./palette-couleurs.md) |
-| **Typographie**   | **Space Grotesk** (titres, corps de texte) + **JetBrains Mono** (badges, métadonnées, données)                             | [typographie.md](./typographie.md)           |
-| **Formes**        | `rounded-full` pour les actions, `rounded-2xl` pour le contenu, bordures fines plutôt qu'ombres                            | [design-system.md](./design-system.md)       |
-| **Ton éditorial** | Direct, factuel, anti-jargon marketing, preuve plutôt que promesse                                                         | [brand-voice.md](./brand-voice.md)           |
+| **Logo**          | Monogramme "M" en chevrons de code, inscrit dans un cercle organique, monochrome (`currentColor`)                          | [LOGO.md](./LOGO.md)                         |
+| **Couleurs**      | Fond neutre chaud (crème jour / bleu-nuit nuit) + deux couleurs de marque fixes : **gold `#EFC78A`** et **mint `#7FD9C4`** | [COLOR_PALETTE.md](./COLOR_PALETTE.md) |
+| **Typographie**   | **Space Grotesk** (titres, corps de texte) + **JetBrains Mono** (badges, métadonnées, données)                             | [TYPOGRAPHY.md](./TYPOGRAPHY.md)           |
+| **Formes**        | `rounded-full` pour les actions, `rounded-2xl` pour le contenu, bordures fines plutôt qu'ombres                            | [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)       |
+| **Ton éditorial** | Direct, factuel, anti-jargon marketing, preuve plutôt que promesse                                                         | [BRAND_VOICE.md](./BRAND_VOICE.md)           |
 
 ### Comment utiliser cette documentation
 
@@ -43,27 +43,27 @@ Cette documentation est organisée en 12 fichiers autonomes, chacun bilingue FR/
 
 | Fichier                                        | Utile pour                                                                          |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------- |
-| [`charte-graphique.md`](./charte-graphique.md) | Comprendre le _pourquoi_ : ADN, positionnement, personnalité, principes graphiques  |
-| [`palette-couleurs.md`](./palette-couleurs.md) | Implémenter des couleurs : tokens CSS, HEX/RGB/HSL/CMYK, contrastes d'accessibilité |
-| [`typographie.md`](./typographie.md)           | Implémenter du texte : polices, échelle de tailles, hiérarchie complète             |
-| [`logo.md`](./logo.md)                         | Utiliser ou décliner le logo : construction, variantes, interdictions               |
-| [`iconographie.md`](./iconographie.md)         | Choisir/styler une icône : style Lucide, tailles, couleurs                          |
-| [`photographie.md`](./photographie.md)         | Produire ou sélectionner une photo : style, cadrage, lumière                        |
-| [`moodboard.md`](./moodboard.md)               | S'imprégner de l'ambiance générale avant une exploration créative                   |
-| [`design-system.md`](./design-system.md)       | Construire un composant UI : grid, spacing, radius, boutons, cards, états           |
-| [`prompts-ia.md`](./prompts-ia.md)             | Générer un visuel avec une IA (logo, UI, print, social)                             |
-| [`assets.md`](./assets.md)                     | Savoir ce qui existe déjà et ce qui reste à produire                                |
-| [`brand-voice.md`](./brand-voice.md)           | Rédiger un texte (UI, email, réseaux sociaux) dans le bon ton                       |
+| [`BRAND_GUIDELINES.md`](./BRAND_GUIDELINES.md) | Comprendre le _pourquoi_ : ADN, positionnement, personnalité, principes graphiques  |
+| [`COLOR_PALETTE.md`](./COLOR_PALETTE.md) | Implémenter des couleurs : tokens CSS, HEX/RGB/HSL/CMYK, contrastes d'accessibilité |
+| [`TYPOGRAPHY.md`](./TYPOGRAPHY.md)           | Implémenter du texte : polices, échelle de tailles, hiérarchie complète             |
+| [`LOGO.md`](./LOGO.md)                         | Utiliser ou décliner le logo : construction, variantes, interdictions               |
+| [`ICONOGRAPHY.md`](./ICONOGRAPHY.md)         | Choisir/styler une icône : style Lucide, tailles, couleurs                          |
+| [`PHOTOGRAPHY.md`](./PHOTOGRAPHY.md)         | Produire ou sélectionner une photo : style, cadrage, lumière                        |
+| [`MOODBOARD.md`](./MOODBOARD.md)               | S'imprégner de l'ambiance générale avant une exploration créative                   |
+| [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md)       | Construire un composant UI : grid, spacing, radius, boutons, cards, états           |
+| [`AI_PROMPTS.md`](./AI_PROMPTS.md)             | Générer un visuel avec une IA (logo, UI, print, social)                             |
+| [`ASSETS.md`](./ASSETS.md)                     | Savoir ce qui existe déjà et ce qui reste à produire                                |
+| [`BRAND_VOICE.md`](./BRAND_VOICE.md)           | Rédiger un texte (UI, email, réseaux sociaux) dans le bon ton                       |
 
-**Pour une équipe Design** : commencer par `charte-graphique.md` puis `palette-couleurs.md` / `typographie.md` / `logo.md` / `iconographie.md` / `photographie.md`.
+**Pour une équipe Design** : commencer par `BRAND_GUIDELINES.md` puis `COLOR_PALETTE.md` / `TYPOGRAPHY.md` / `LOGO.md` / `ICONOGRAPHY.md` / `PHOTOGRAPHY.md`.
 
-**Pour une équipe Développement** : `design-system.md` en priorité (tokens CSS directement copiables), avec `palette-couleurs.md` et `typographie.md` en référence.
+**Pour une équipe Développement** : `DESIGN_SYSTEM.md` en priorité (tokens CSS directement copiables), avec `COLOR_PALETTE.md` et `TYPOGRAPHY.md` en référence.
 
-**Pour une équipe Marketing/Contenu** : `brand-voice.md` en priorité, `prompts-ia.md` pour la production visuelle, `assets.md` pour l'inventaire disponible.
+**Pour une équipe Marketing/Contenu** : `BRAND_VOICE.md` en priorité, `AI_PROMPTS.md` pour la production visuelle, `ASSETS.md` pour l'inventaire disponible.
 
 ### Note méthodologique
 
-Cette documentation a été produite par audit du code source réel (`assets/css/main.css`, `components/ui/*`, `i18n/locales/*.json`, `nuxt.config.ts`) plutôt que par un exercice de branding _ex nihilo_. Chaque règle énoncée est traçable à une implémentation existante ; les rares recommandations pour du contenu non encore implémenté (inputs, modales, alertes) sont explicitement marquées comme telles dans [design-system.md](./design-system.md).
+Cette documentation a été produite par audit du code source réel (`assets/css/main.css`, `components/ui/*`, `i18n/locales/*.json`, `nuxt.config.ts`) plutôt que par un exercice de branding _ex nihilo_. Chaque règle énoncée est traçable à une implémentation existante ; les rares recommandations pour du contenu non encore implémenté (inputs, modales, alertes) sont explicitement marquées comme telles dans [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md).
 
 ---
 
@@ -88,17 +88,17 @@ Give a visitor — a B2B decision-maker looking for a mission, or a recruiter ev
 
 ### Positioning
 
-**"The senior developer who thinks product, not just code."** Full detail: [charte-graphique.md](./charte-graphique.md#positioning).
+**"The senior developer who thinks product, not just code."** Full detail: [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md#positioning).
 
 ### Visual identity summary
 
 | Element            | Summary                                                                                                                   | Detail                                       |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| **Logo**           | "M" monogram built from code chevrons, set inside an organic circle, monochrome (`currentColor`)                          | [logo.md](./logo.md)                         |
-| **Colors**         | Warm neutral background (cream day / deep navy night) + two fixed brand colors: **gold `#EFC78A`** and **mint `#7FD9C4`** | [palette-couleurs.md](./palette-couleurs.md) |
-| **Typography**     | **Space Grotesk** (headings, body copy) + **JetBrains Mono** (badges, metadata, data)                                     | [typographie.md](./typographie.md)           |
-| **Shapes**         | `rounded-full` for actions, `rounded-2xl` for content, thin borders over shadows                                          | [design-system.md](./design-system.md)       |
-| **Editorial tone** | Direct, factual, anti marketing-jargon, proof over promise                                                                | [brand-voice.md](./brand-voice.md)           |
+| **Logo**           | "M" monogram built from code chevrons, set inside an organic circle, monochrome (`currentColor`)                          | [LOGO.md](./LOGO.md)                         |
+| **Colors**         | Warm neutral background (cream day / deep navy night) + two fixed brand colors: **gold `#EFC78A`** and **mint `#7FD9C4`** | [COLOR_PALETTE.md](./COLOR_PALETTE.md) |
+| **Typography**     | **Space Grotesk** (headings, body copy) + **JetBrains Mono** (badges, metadata, data)                                     | [TYPOGRAPHY.md](./TYPOGRAPHY.md)           |
+| **Shapes**         | `rounded-full` for actions, `rounded-2xl` for content, thin borders over shadows                                          | [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)       |
+| **Editorial tone** | Direct, factual, anti marketing-jargon, proof over promise                                                                | [BRAND_VOICE.md](./BRAND_VOICE.md)           |
 
 ### How to use this documentation
 
@@ -106,24 +106,24 @@ This documentation is organized into 12 standalone files, each bilingual FR/EN, 
 
 | File                                           | Useful for                                                                 |
 | ---------------------------------------------- | -------------------------------------------------------------------------- |
-| [`charte-graphique.md`](./charte-graphique.md) | Understanding the _why_: DNA, positioning, personality, graphic principles |
-| [`palette-couleurs.md`](./palette-couleurs.md) | Implementing colors: CSS tokens, HEX/RGB/HSL/CMYK, accessibility contrasts |
-| [`typographie.md`](./typographie.md)           | Implementing text: fonts, size scale, full hierarchy                       |
-| [`logo.md`](./logo.md)                         | Using or adapting the logo: construction, variants, restrictions           |
-| [`iconographie.md`](./iconographie.md)         | Choosing/styling an icon: Lucide style, sizes, colors                      |
-| [`photographie.md`](./photographie.md)         | Producing or selecting a photo: style, framing, lighting                   |
-| [`moodboard.md`](./moodboard.md)               | Absorbing the general mood before a creative exploration                   |
-| [`design-system.md`](./design-system.md)       | Building a UI component: grid, spacing, radius, buttons, cards, states     |
-| [`prompts-ia.md`](./prompts-ia.md)             | Generating a visual with AI (logo, UI, print, social)                      |
-| [`assets.md`](./assets.md)                     | Knowing what already exists and what's left to produce                     |
-| [`brand-voice.md`](./brand-voice.md)           | Writing copy (UI, email, social) in the right tone                         |
+| [`BRAND_GUIDELINES.md`](./BRAND_GUIDELINES.md) | Understanding the _why_: DNA, positioning, personality, graphic principles |
+| [`COLOR_PALETTE.md`](./COLOR_PALETTE.md) | Implementing colors: CSS tokens, HEX/RGB/HSL/CMYK, accessibility contrasts |
+| [`TYPOGRAPHY.md`](./TYPOGRAPHY.md)           | Implementing text: fonts, size scale, full hierarchy                       |
+| [`LOGO.md`](./LOGO.md)                         | Using or adapting the logo: construction, variants, restrictions           |
+| [`ICONOGRAPHY.md`](./ICONOGRAPHY.md)         | Choosing/styling an icon: Lucide style, sizes, colors                      |
+| [`PHOTOGRAPHY.md`](./PHOTOGRAPHY.md)         | Producing or selecting a photo: style, framing, lighting                   |
+| [`MOODBOARD.md`](./MOODBOARD.md)               | Absorbing the general mood before a creative exploration                   |
+| [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md)       | Building a UI component: grid, spacing, radius, buttons, cards, states     |
+| [`AI_PROMPTS.md`](./AI_PROMPTS.md)             | Generating a visual with AI (logo, UI, print, social)                      |
+| [`ASSETS.md`](./ASSETS.md)                     | Knowing what already exists and what's left to produce                     |
+| [`BRAND_VOICE.md`](./BRAND_VOICE.md)           | Writing copy (UI, email, social) in the right tone                         |
 
-**For a Design team**: start with `charte-graphique.md`, then `palette-couleurs.md` / `typographie.md` / `logo.md` / `iconographie.md` / `photographie.md`.
+**For a Design team**: start with `BRAND_GUIDELINES.md`, then `COLOR_PALETTE.md` / `TYPOGRAPHY.md` / `LOGO.md` / `ICONOGRAPHY.md` / `PHOTOGRAPHY.md`.
 
-**For a Development team**: `design-system.md` first (directly copyable CSS tokens), with `palette-couleurs.md` and `typographie.md` as reference.
+**For a Development team**: `DESIGN_SYSTEM.md` first (directly copyable CSS tokens), with `COLOR_PALETTE.md` and `TYPOGRAPHY.md` as reference.
 
-**For a Marketing/Content team**: `brand-voice.md` first, `prompts-ia.md` for visual production, `assets.md` for the available inventory.
+**For a Marketing/Content team**: `BRAND_VOICE.md` first, `AI_PROMPTS.md` for visual production, `ASSETS.md` for the available inventory.
 
 ### Methodological note
 
-This documentation was produced by auditing the actual source code (`assets/css/main.css`, `components/ui/*`, `i18n/locales/*.json`, `nuxt.config.ts`) rather than through a from-scratch branding exercise. Every stated rule traces back to an existing implementation; the rare recommendations for not-yet-implemented content (inputs, modals, alerts) are explicitly flagged as such in [design-system.md](./design-system.md).
+This documentation was produced by auditing the actual source code (`assets/css/main.css`, `components/ui/*`, `i18n/locales/*.json`, `nuxt.config.ts`) rather than through a from-scratch branding exercise. Every stated rule traces back to an existing implementation; the rare recommendations for not-yet-implemented content (inputs, modals, alerts) are explicitly flagged as such in [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md).

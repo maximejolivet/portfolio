@@ -1,6 +1,6 @@
 # Charte graphique / Brand Guidelines
 
-> Document stratégique de référence. Pour l'application concrète des règles ci-dessous, voir [palette-couleurs.md](./palette-couleurs.md), [typographie.md](./typographie.md), [logo.md](./logo.md), [design-system.md](./design-system.md). Pour le ton éditorial, voir [brand-voice.md](./brand-voice.md).
+> Document stratégique de référence. Pour l'application concrète des règles ci-dessous, voir [COLOR_PALETTE.md](./COLOR_PALETTE.md), [TYPOGRAPHY.md](./TYPOGRAPHY.md), [LOGO.md](./LOGO.md), [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md). Pour le ton éditorial, voir [BRAND_VOICE.md](./BRAND_VOICE.md).
 
 ---
 
@@ -52,8 +52,8 @@ Le site ne tranche pas entre les deux cibles — il documente honnêtement un pa
 
 ### Univers graphique
 
-- **Palette** : un fond neutre chaud (crème/encre profonde selon le thème) porté par deux couleurs de marque fixes — gold et mint — jamais mélangées de façon décorative, toujours utilisées comme accents ciblés (voir [palette-couleurs.md](./palette-couleurs.md)).
-- **Typographie** : duo Space Grotesk (propos) / JetBrains Mono (données), voir [typographie.md](./typographie.md).
+- **Palette** : un fond neutre chaud (crème/encre profonde selon le thème) porté par deux couleurs de marque fixes — gold et mint — jamais mélangées de façon décorative, toujours utilisées comme accents ciblés (voir [COLOR_PALETTE.md](./COLOR_PALETTE.md)).
+- **Typographie** : duo Space Grotesk (propos) / JetBrains Mono (données), voir [TYPOGRAPHY.md](./TYPOGRAPHY.md).
 - **Formes** : cercles organiques (logo), radius généreux et cohérents (`rounded-2xl` sur cartes, `rounded-full` sur actions) — rien d'anguleux ou de dur.
 - **Densité** : sections aérées (`py-16`/`py-24`), pas de sur-densité d'information — la rigueur passe par la clarté, pas par l'exhaustivité visuelle.
 
@@ -75,7 +75,7 @@ Studio de développeur senior plutôt que vitrine d'agence : sobre, net, un peu 
 
 ### Bonnes pratiques
 
-- Toujours utiliser les tokens sémantiques (`bg-primary`, `text-muted-foreground`) plutôt que des couleurs codées en dur — voir [design-system.md](./design-system.md).
+- Toujours utiliser les tokens sémantiques (`bg-primary`, `text-muted-foreground`) plutôt que des couleurs codées en dur — voir [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md).
 - Toujours vérifier le rendu en mode jour **et** nuit avant de valider un nouvel élément visuel.
 - Réserver gold et mint aux moments qui comptent (CTA, focus, statut) — leur rareté est ce qui leur donne du poids.
 - Garder le ton "preuve" : chaque affirmation forte (expertise, expérience) doit pouvoir être adossée à un élément concret du site (étude de cas, stack, CV).
@@ -84,9 +84,9 @@ Studio de développeur senior plutôt que vitrine d'agence : sobre, net, un peu 
 
 - ❌ Ajouter une troisième couleur de marque ou un dégradé décoratif.
 - ❌ Réintroduire une librairie d'animation (GSAP, motion-v ont été délibérément retirées — voir `CLAUDE.md`) — rester sur CSS natif.
-- ❌ Utiliser un ton marketing gonflé ("révolutionnaire", "disruptif") — voir [brand-voice.md](./brand-voice.md) pour le ton réel attendu.
+- ❌ Utiliser un ton marketing gonflé ("révolutionnaire", "disruptif") — voir [BRAND_VOICE.md](./BRAND_VOICE.md) pour le ton réel attendu.
 - ❌ Casser la règle radius (mélanger angles droits et arrondis sur un même type d'élément).
-- ❌ Multiplier les emoji dans l'UI — un seul usage assumé actuellement (🚧), voir [iconographie.md](./iconographie.md).
+- ❌ Multiplier les emoji dans l'UI — un seul usage assumé actuellement (🚧), voir [ICONOGRAPHY.md](./ICONOGRAPHY.md).
 - ❌ Sortir le site de sa sobriété volontaire (`noindex, nofollow` assumé, pas une recherche de reach maximal).
 
 ---
@@ -139,8 +139,8 @@ The site doesn't pick a side between the two audiences — it honestly documents
 
 ### Visual world
 
-- **Palette**: a warm neutral background (cream/deep ink depending on theme) carried by two fixed brand colors — gold and mint — never mixed decoratively, always used as targeted accents (see [palette-couleurs.md](./palette-couleurs.md)).
-- **Typography**: the Space Grotesk (prose) / JetBrains Mono (data) duo, see [typographie.md](./typographie.md).
+- **Palette**: a warm neutral background (cream/deep ink depending on theme) carried by two fixed brand colors — gold and mint — never mixed decoratively, always used as targeted accents (see [COLOR_PALETTE.md](./COLOR_PALETTE.md)).
+- **Typography**: the Space Grotesk (prose) / JetBrains Mono (data) duo, see [TYPOGRAPHY.md](./TYPOGRAPHY.md).
 - **Shapes**: organic circles (logo), generous and consistent radii (`rounded-2xl` on cards, `rounded-full` on actions) — nothing angular or hard.
 - **Density**: airy sections (`py-16`/`py-24`), no information over-density — rigor comes through clarity, not visual exhaustiveness.
 
@@ -162,7 +162,7 @@ A senior developer's studio rather than an agency showcase: sober, clean, a touc
 
 ### Best practices
 
-- Always use semantic tokens (`bg-primary`, `text-muted-foreground`) rather than hardcoded colors — see [design-system.md](./design-system.md).
+- Always use semantic tokens (`bg-primary`, `text-muted-foreground`) rather than hardcoded colors — see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md).
 - Always check rendering in day **and** night mode before shipping a new visual element.
 - Reserve gold and mint for moments that matter (CTA, focus, status) — their scarcity is what gives them weight.
 - Keep the "proof" tone: every strong claim (expertise, experience) should be backed by something concrete on the site (case study, stack, CV).
@@ -171,7 +171,7 @@ A senior developer's studio rather than an agency showcase: sober, clean, a touc
 
 - ❌ Adding a third brand color or a decorative gradient.
 - ❌ Reintroducing an animation library (GSAP, motion-v were deliberately removed — see `CLAUDE.md`) — stay on native CSS.
-- ❌ Using inflated marketing tone ("revolutionary", "disruptive") — see [brand-voice.md](./brand-voice.md) for the expected real tone.
+- ❌ Using inflated marketing tone ("revolutionary", "disruptive") — see [BRAND_VOICE.md](./BRAND_VOICE.md) for the expected real tone.
 - ❌ Breaking the radius rule (mixing sharp and rounded corners on the same element type).
-- ❌ Multiplying emoji across the UI — currently a single deliberate use (🚧), see [iconographie.md](./iconographie.md).
+- ❌ Multiplying emoji across the UI — currently a single deliberate use (🚧), see [ICONOGRAPHY.md](./ICONOGRAPHY.md).
 - ❌ Pulling the site out of its deliberate sobriety (`noindex, nofollow` is intentional, not a maximum-reach strategy).

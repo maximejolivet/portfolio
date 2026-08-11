@@ -1,6 +1,6 @@
 # Moodboard
 
-> Moodboard textuel — traduit en tokens concrets dans [palette-couleurs.md](./palette-couleurs.md), [typographie.md](./typographie.md) et [design-system.md](./design-system.md). Prompts prêts à l'emploi pour Midjourney/Flux/DALL·E en fin de document (voir aussi [prompts-ia.md](./prompts-ia.md) pour la bibliothèque complète).
+> Moodboard textuel — traduit en tokens concrets dans [COLOR_PALETTE.md](./COLOR_PALETTE.md), [TYPOGRAPHY.md](./TYPOGRAPHY.md) et [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md). Prompts prêts à l'emploi pour Midjourney/Flux/DALL·E en fin de document (voir aussi [AI_PROMPTS.md](./AI_PROMPTS.md) pour la bibliothèque complète).
 
 ---
 
@@ -18,7 +18,7 @@ Papier crème légèrement texturé, laiton brossé mat (pour le gold), céramiq
 
 ### Couleurs
 
-Voir palette complète : [palette-couleurs.md](./palette-couleurs.md).
+Voir palette complète : [COLOR_PALETTE.md](./COLOR_PALETTE.md).
 
 - Fond crème chaud `#F3F4F0` / bleu-nuit profond `#152833` (jour/nuit)
 - Encre `#1D3540`
@@ -35,7 +35,7 @@ Un carnet à spirale ouvert avec des annotations à la main à l'encre, une tass
 - **Space Grotesk** — géométrique, chaleureuse dans ses courbes, l'équivalent visuel d'une signature nette et confiante.
 - **JetBrains Mono** — la police "outil de précision", comme un tampon numéroté ou une étiquette de dossier technique.
 
-Voir [typographie.md](./typographie.md) pour l'échelle complète.
+Voir [TYPOGRAPHY.md](./TYPOGRAPHY.md) pour l'échelle complète.
 
 ### Architecture
 
@@ -43,7 +43,7 @@ Bureaux d'agence scandinave-minimaliste : bois clair, murs crème, une seule tou
 
 ### Paysages
 
-Non pertinent pour ce portfolio technique — volontairement absent du moodboard (voir [photographie.md](./photographie.md), "Nature").
+Non pertinent pour ce portfolio technique — volontairement absent du moodboard (voir [PHOTOGRAPHY.md](./PHOTOGRAPHY.md), "Nature").
 
 ### Packaging
 
@@ -115,7 +115,7 @@ Slightly textured cream paper, matte brushed brass (for gold), glazed seafoam ce
 
 ### Colors
 
-Full palette: [palette-couleurs.md](./palette-couleurs.md).
+Full palette: [COLOR_PALETTE.md](./COLOR_PALETTE.md).
 
 - Warm cream background `#F3F4F0` / deep navy `#152833` (day/night)
 - Ink `#1D3540`
@@ -132,7 +132,7 @@ An open spiral notebook with handwritten ink annotations, a matte seafoam cerami
 - **Space Grotesk** — geometric, warm in its curves, the visual equivalent of a clean, confident signature.
 - **JetBrains Mono** — the "precision tool" font, like a numbered stamp or a technical file label.
 
-See [typographie.md](./typographie.md) for the full scale.
+See [TYPOGRAPHY.md](./TYPOGRAPHY.md) for the full scale.
 
 ### Architecture
 
@@ -140,7 +140,7 @@ Scandinavian-minimalist agency offices: light wood, cream walls, a single bright
 
 ### Landscapes
 
-Not relevant for this technical portfolio — deliberately absent from the moodboard (see [photographie.md](./photographie.md), "Nature").
+Not relevant for this technical portfolio — deliberately absent from the moodboard (see [PHOTOGRAPHY.md](./PHOTOGRAPHY.md), "Nature").
 
 ### Packaging
 

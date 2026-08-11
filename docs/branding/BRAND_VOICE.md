@@ -1,6 +1,6 @@
 # Brand Voice — Charte éditoriale
 
-> Analysée à partir du contenu réel du site ([`i18n/locales/fr.json`](../../i18n/locales/fr.json) / [`en.json`](../../i18n/locales/en.json)). Voir [charte-graphique.md](./charte-graphique.md) pour la personnalité de marque sous-jacente.
+> Analysée à partir du contenu réel du site ([`i18n/locales/fr.json`](../../i18n/locales/fr.json) / [`en.json`](../../i18n/locales/en.json)). Voir [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) pour la personnalité de marque sous-jacente.
 
 ---
 
@@ -37,7 +37,7 @@ Vocabulaire technique assumé sans être hermétique : "cadrage technique", "pé
 - ❌ Superlatifs marketing vides : "révolutionnaire", "disruptif", "next-gen", "world-class".
 - ❌ Jargon buzzword creux : "synergie", "leviers de croissance", "solutions innovantes" (sans backing concret).
 - ❌ Formules d'auto-promotion excessive ("le meilleur", "expert incontesté") — la crédibilité vient de la preuve (études de cas, expérience chiffrée), pas de l'auto-déclaration.
-- ❌ Emoji en excès — un seul usage assumé dans tout le site (🚧), voir [iconographie.md](./iconographie.md).
+- ❌ Emoji en excès — un seul usage assumé dans tout le site (🚧), voir [ICONOGRAPHY.md](./ICONOGRAPHY.md).
 - ❌ Anglicismes non nécessaires quand un terme français existe et est aussi clair.
 
 ### Adresse au lecteur (tutoiement / vouvoiement)
@@ -88,7 +88,7 @@ Le site ne fait pas de "messages marketing" au sens publicitaire — il document
 
 ### Email
 
-Ton direct, pas de formule ronflante. S'appuyer sur le même registre que les CTA du site. Exemple de signature cohérente : voir [assets.md](./assets.md#signature-mail).
+Ton direct, pas de formule ronflante. S'appuyer sur le même registre que les CTA du site. Exemple de signature cohérente : voir [ASSETS.md](./ASSETS.md#signature-mail).
 
 ### Landing pages
 
@@ -133,7 +133,7 @@ Technical vocabulary used confidently without being hermetic: "technical scoping
 - ❌ Empty marketing superlatives: "revolutionary", "disruptive", "next-gen", "world-class".
 - ❌ Hollow buzzwords: "synergy", "growth levers", "innovative solutions" (without concrete backing).
 - ❌ Excessive self-promotion ("the best", "undisputed expert") — credibility comes from proof (case studies, quantified experience), not from self-declaration.
-- ❌ Emoji excess — a single deliberate use across the whole site (🚧), see [iconographie.md](./iconographie.md).
+- ❌ Emoji excess — a single deliberate use across the whole site (🚧), see [ICONOGRAPHY.md](./ICONOGRAPHY.md).
 - ❌ Unnecessary anglicisms when a native term is equally clear (relevant when writing the French version).
 
 ### Addressing the reader (formal / informal)
@@ -184,7 +184,7 @@ The site doesn't run "marketing messages" in the advertising sense — it docume
 
 ### Email
 
-Direct tone, no grandiose phrasing. Rely on the same register as the site's CTAs. For a consistent signature example, see [assets.md](./assets.md#email-signature).
+Direct tone, no grandiose phrasing. Rely on the same register as the site's CTAs. For a consistent signature example, see [ASSETS.md](./ASSETS.md#email-signature).
 
 ### Landing pages
 
