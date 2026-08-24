@@ -11,6 +11,7 @@ interface GithubActivity {
 const { locale } = useI18n()
 
 const githubProfileUrl = SOCIAL_LINKS.find((link) => link.id === 'github')?.href
+const LISTENING_URL = 'https://open.spotify.com/user/tomorrowlandofficial'
 
 const NOW_ITEMS = ['building', 'reading', 'listening', 'shipped'] as const
 
@@ -20,6 +21,12 @@ const { data: githubActivityResponse } = await useFetch<{ activity: GithubActivi
 const githubActivity = computed(() => githubActivityResponse.value?.activity ?? [])
 const buildingActivity = computed(() => githubActivity.value[0])
 const shippedActivity = computed(() => githubActivity.value.slice(1))
+
+function linkFor(item: (typeof NOW_ITEMS)[number]) {
+  if (item === 'building') return buildingActivity.value?.url
+  if (item === 'listening') return LISTENING_URL
+  return undefined
+}
 
 const currentMonth = computed(() =>
   new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'fr-FR', {
@@ -60,7 +67,7 @@ const currentMonth = computed(() =>
           :item="item"
           :title-override="item === 'building' ? buildingActivity?.repo : undefined"
           :detail-override="item === 'building' ? buildingActivity?.message : undefined"
-          :link-override="item === 'building' ? buildingActivity?.url : undefined"
+          :link-override="linkFor(item)"
           :shipped-items="item === 'shipped' ? shippedActivity : undefined"
         />
       </div>
