@@ -2,7 +2,7 @@
   "welcome": "Bienvenue",
   "about": "À propos de moi",
   "seo": {
-    "homeTitle": "Développeur web full-stack senior PHP / JavaScript / Expert Drupal - Wordpress"
+    "homeTitle": "Développeur web full-stack senior PHP / JavaScript / Expert Drupal - WordPress"
   },
   "a11y": {
     "skipToContent": "Aller au contenu"
@@ -52,8 +52,8 @@
   "hero": {
     "greeting": "Bonjour, moi c'est Maxime",
     "role": "Développeur web full-stack senior",
-    "location": "Nantes, France",
-    "bio": "Je développe et maintiens des sites de marque, de produits, dʼinterfaces utilisateur, e-commerce et dʼoutils métiers.",
+    "location": "Nantes · Rennes, France",
+    "bio": "Je développe et maintiens des sites de marque, de produits, d'interfaces utilisateur, e-commerce et d'outils métiers.",
     "subtitle": "10 ans d'expérience, principalement en agence digitale. Solides compétences PHP et JavaScript, expertise CMS appliquée à des projets complexes et exigeants, avec un souci constant de la qualité du code et de la pérennité des choix techniques.",
     "ctaSecondary": "Voir les projets",
     "ctaContact": "me contacter",
@@ -64,10 +64,10 @@
     "titleStart": "Un développeur qui pense",
     "titleHighlight": "expérience utilisateur",
     "titleEnd": ", pas juste code.",
-    "paragraph1": "Depuis 10 ans, j'accompagne des entreprises B2B de tous secteurs sur des projets web complexes, du cadrage technique jusqu'à la maintenance. ",
+    "paragraph1": "Depuis 10 ans, j'accompagne des entreprises B2B de tous secteurs sur des projets web complexes, du cadrage technique jusqu'à la maintenance.",
     "paragraph2": "Expert Drupal et WordPress, à l'aise sur les stacks PHP / JavaScript modernes, je conçois des sites et applications web faits pour durer : performants, accessibles, et faciles à faire évoluer.",
     "highlight1": "10 ans d'expérience en agence digitale",
-    "highlight2": "Expert Drupal, Wordpress solide en PHP & JavaScript",
+    "highlight2": "Expert Drupal et WordPress, solide en PHP & JavaScript",
     "highlight3": "Approche orientée performance et accessibilité",
     "imageAlt": "Portrait de Maxime Jolivet",
     "tags": {
@@ -142,8 +142,8 @@
     "titleEnd": ".",
     "items": {
       "gingerminds": {
-        "period": "2017 - 2026",
-        "title": "Développeur web full stack senior PHP - JavaScript / Expert Drupal & Wordpress (Brand Content)",
+        "period": "2017 - Févr. 2026",
+        "title": "Développeur web full stack senior PHP - JavaScript / Expert Drupal & WordPress (Brand Content)",
         "organization": "Gingerminds",
         "location": "Nantes (Hybride) · Agence digitale",
         "intro": "Contribution sur plus de 50 projets clients chez Gingerminds, dans des secteurs variés tels que le bâtiment, l'industrie, la santé, l'énergie, les mutuelles et assurances, ainsi que l'agriculture et l'agroalimentaire, dont une grande partie est toujours en production aujourd'hui.",
@@ -405,7 +405,7 @@
       "points": [
         "Charte éditoriale pour un discours de marque cohérent",
         "Storytelling des métiers en tension",
-        "Module de \"matching\" candidat / entreprise",
+        "Module de « matching » candidat / entreprise",
         "CMS Drupal, interfaçage SIRH et optimisation SEO"
       ],
       "resultat": "Une expérience candidat repensée avec une navigation intuitive et une mise en avant ciblée des offres, au service du recrutement du groupe.",
@@ -560,7 +560,7 @@
     "next": "projet suivant"
   },
   "cv": {
-    "read": "Curriculum vitae",
+    "read": "Curriculum vitæ",
     "download": "Télécharger le PDF"
   },
   "terminal": {
@@ -639,7 +639,7 @@
   "error": {
     "back_home": "Retour à l'accueil",
     "return": "Retour",
-    "page_not_found": "Oups… cette page s’est perdue dans le multivers 👽",
+    "page_not_found": "Oups… cette page s'est perdue dans le multivers 👽",
     "page_not_found_random_page": "Page au hasard 🎲",
     "page_not_found_description": "On a cherché partout. Même sous le canapé.",
     "generic": "Une erreur est survenue"
