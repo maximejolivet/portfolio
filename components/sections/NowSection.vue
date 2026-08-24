@@ -23,7 +23,7 @@ const currentMonth = computed(() =>
 </script>
 
 <template>
-  <section class="mt-24 bg-panel text-panel-foreground">
+  <section id="now" class="mt-24 bg-panel text-panel-foreground">
     <UiContainer class="py-16">
       <div class="mb-9 flex items-center gap-4">
         <UiAppIcon icon="lucide:radio" class="size-8 shrink-0 text-mint" />

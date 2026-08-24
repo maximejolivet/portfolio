@@ -22,6 +22,17 @@
     "day": "Day mode",
     "night": "Night mode"
   },
+  "commandPalette": {
+    "toggle": "Open command palette",
+    "placeholder": "Type a command or search...",
+    "noResults": "No results",
+    "groupNavigation": "NAVIGATION",
+    "groupActions": "ACTIONS",
+    "ide": "IDE & terminal",
+    "toggleTheme": "Toggle theme",
+    "switchToEnglish": "Switch to English",
+    "switchToFrench": "Switch to French"
+  },
   "footer": {
     "taglineRole": "Web developer",
     "taglineDetails": "Senior full-stack / Lead Dev / Tech Lead",
