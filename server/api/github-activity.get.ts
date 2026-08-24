@@ -13,8 +13,10 @@ export interface GitHubActivity {
   date: string
 }
 
-async function fetchLatestPush(): Promise<GitHubActivity | null> {
-  if (!GITHUB_USERNAME) return null
+const MAX_ACTIVITY_ITEMS = 3
+
+async function fetchLatestPushes(): Promise<GitHubActivity[]> {
+  if (!GITHUB_USERNAME) return []
 
   try {
     const events = await $fetch<GitHubEvent[]>(
@@ -27,23 +29,35 @@ async function fetchLatestPush(): Promise<GitHubActivity | null> {
       },
     )
 
-    const push = events.find((e) => e.type === 'PushEvent' && e.payload.commits?.length)
-    const commit = push?.payload.commits?.at(-1)
-    if (!push || !commit) return null
+    const seenRepos = new Set<string>()
+    const activity: GitHubActivity[] = []
 
-    return {
-      repo: push.repo.name.split('/').at(-1) ?? push.repo.name,
-      message: commit.message.split('\n')[0] ?? '',
-      date: push.created_at,
+    for (const event of events) {
+      if (event.type !== 'PushEvent' || !event.payload.commits?.length) continue
+      if (seenRepos.has(event.repo.name)) continue
+
+      const commit = event.payload.commits.at(-1)
+      if (!commit) continue
+
+      seenRepos.add(event.repo.name)
+      activity.push({
+        repo: event.repo.name.split('/').at(-1) ?? event.repo.name,
+        message: commit.message.split('\n')[0] ?? '',
+        date: event.created_at,
+      })
+
+      if (activity.length >= MAX_ACTIVITY_ITEMS) break
     }
+
+    return activity
   }
   catch (error) {
     console.error('[github-activity] fetch failed', error)
-    return null
+    return []
   }
 }
 
 export default defineCachedEventHandler(
-  async () => ({ activity: await fetchLatestPush() }),
+  async () => ({ activity: await fetchLatestPushes() }),
   { maxAge: 60 * 30, swr: true },
 )

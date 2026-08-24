@@ -9,10 +9,10 @@ const { locale } = useI18n()
 
 const NOW_ITEMS = ['building', 'reading', 'listening', 'shipped'] as const
 
-const { data: githubActivityResponse } = await useFetch<{ activity: GithubActivity | null }>(
+const { data: githubActivityResponse } = await useFetch<{ activity: GithubActivity[] }>(
   '/api/github-activity',
 )
-const githubActivity = computed(() => githubActivityResponse.value?.activity)
+const githubActivity = computed(() => githubActivityResponse.value?.activity ?? [])
 
 const currentMonth = computed(() =>
   new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'fr-FR', {
@@ -41,8 +41,7 @@ const currentMonth = computed(() =>
           v-for="item in NOW_ITEMS"
           :key="item"
           :item="item"
-          :title-override="item === 'shipped' ? githubActivity?.repo : undefined"
-          :detail-override="item === 'shipped' ? githubActivity?.message : undefined"
+          :shipped-items="item === 'shipped' ? githubActivity : undefined"
         />
       </div>
     </UiContainer>
