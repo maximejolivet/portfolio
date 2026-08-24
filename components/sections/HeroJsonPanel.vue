@@ -19,6 +19,11 @@ interface ExplorerEntry {
   active?: boolean
 }
 
+interface TerminalLine {
+  text: string
+  isInput?: boolean
+}
+
 const EXPLORER_TREE: ExplorerEntry[] = [
   { depth: 0, type: 'folder', label: 'portfolio' },
   { depth: 1, type: 'file', label: 'about.md', icon: 'lucide:file-text' },
@@ -35,6 +40,66 @@ const TICK_MS = 10
 const props = defineProps<{
   lines: JsonLine[]
 }>()
+
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+type Tab = 'profile.json' | 'terminal'
+const activeTab = ref<Tab>('profile.json')
+
+const TERMINAL_COMMANDS = ['help', 'whoami', 'cv', 'projects', 'contact', 'clear', 'exit'] as const
+
+const terminalLines = ref<TerminalLine[]>([{ text: t('terminal.hint') }])
+const terminalCommand = ref('')
+const terminalInputRef = ref<HTMLInputElement | null>(null)
+const terminalScrollRef = ref<HTMLDivElement | null>(null)
+
+function scrollTerminalToBottom() {
+  nextTick(() => {
+    terminalScrollRef.value?.scrollTo({ top: terminalScrollRef.value.scrollHeight })
+  })
+}
+
+function selectTab(tab: Tab) {
+  activeTab.value = tab
+  if (tab === 'terminal') nextTick(() => terminalInputRef.value?.focus())
+}
+
+function runTerminalCommand(raw: string) {
+  const cmd = raw.trim().toLowerCase()
+  terminalLines.value.push({ text: `$ ${raw}`, isInput: true })
+
+  switch (cmd) {
+    case 'help':
+      terminalLines.value.push({ text: t('terminal.help') })
+      break
+    case 'whoami':
+      terminalLines.value.push({ text: t('terminal.whoami', { role: t('hero.role') }) })
+      break
+    case 'cv':
+      navigateTo(localePath('/cv'))
+      break
+    case 'projects':
+      navigateTo(localePath('projects'))
+      break
+    case 'contact':
+      navigateTo({ path: localePath('/'), hash: '#contact' })
+      break
+    case 'clear':
+      terminalLines.value = []
+      break
+    case 'exit':
+      selectTab('profile.json')
+      break
+    case '':
+      break
+    default:
+      terminalLines.value.push({ text: t('terminal.notFound', { cmd }) })
+  }
+
+  terminalCommand.value = ''
+  scrollTerminalToBottom()
+}
 
 function isIndent(token: JsonToken) {
   return !token.class && /^ +$/.test(token.text)
@@ -121,7 +186,7 @@ onUnmounted(() => {
       <span class="size-2.5 rounded-full bg-red-400/70" />
       <span class="size-2.5 rounded-full bg-yellow-400/70" />
       <span class="size-2.5 rounded-full bg-green-400/70" />
-      <span class="ml-2 truncate font-mono text-xs text-panel-foreground/40">portfolio — profile.json</span>
+      <span class="ml-2 truncate font-mono text-xs text-panel-foreground/40">portfolio — {{ activeTab }}</span>
     </div>
 
     <div class="flex min-h-0 flex-1">
@@ -166,16 +231,45 @@ onUnmounted(() => {
       <!-- editor -->
       <div class="flex min-w-0 flex-1 flex-col">
         <div class="flex shrink-0 border-b border-panel-foreground/10 bg-panel-2">
-          <div
-            class="flex items-center gap-2 border-r border-t-2 border-panel-foreground/10 border-t-mint bg-panel px-3.5 py-2 font-mono text-xs"
+          <button
+            type="button"
+            class="flex items-center gap-2 border-r border-t-2 border-panel-foreground/10 px-3.5 py-2 font-mono text-xs"
+            :class="
+              activeTab === 'profile.json'
+                ? 'border-t-mint bg-panel'
+                : 'text-panel-foreground/50 hover:text-panel-foreground'
+            "
+            @click="selectTab('profile.json')"
           >
-            <UiAppIcon icon="lucide:file-json" class="size-3.5 text-mint" />
+            <UiAppIcon
+              icon="lucide:file-json"
+              class="size-3.5"
+              :class="activeTab === 'profile.json' ? 'text-mint' : 'text-panel-foreground/35'"
+            />
             profile.json
             <UiAppIcon icon="lucide:x" class="size-3 text-panel-foreground/30" />
-          </div>
+          </button>
+          <button
+            type="button"
+            class="flex items-center gap-2 border-r border-t-2 border-panel-foreground/10 px-3.5 py-2 font-mono text-xs"
+            :class="
+              activeTab === 'terminal'
+                ? 'border-t-mint bg-panel'
+                : 'text-panel-foreground/50 hover:text-panel-foreground'
+            "
+            @click="selectTab('terminal')"
+          >
+            <UiAppIcon
+              icon="lucide:terminal"
+              class="size-3.5"
+              :class="activeTab === 'terminal' ? 'text-mint' : 'text-panel-foreground/35'"
+            />
+            terminal
+          </button>
         </div>
 
         <div
+          v-if="activeTab === 'profile.json'"
           class="min-h-0 flex-1 overflow-auto py-8 pl-4 font-mono text-[clamp(0.7812rem,1vw,0.9375rem)] leading-[2.05] md:pl-6"
         >
           <div
@@ -213,6 +307,34 @@ onUnmounted(() => {
               <span class="ml-1 text-panel-foreground/15">¬</span>
             </template>
           </div>
+        </div>
+
+        <div v-else class="flex min-h-0 flex-1 flex-col font-mono text-xs">
+          <div ref="terminalScrollRef" class="flex-1 space-y-1 overflow-y-auto px-4 py-3 md:px-6">
+            <div
+              v-for="(line, i) in terminalLines"
+              :key="i"
+              :class="line.isInput ? 'text-mint' : 'text-panel-foreground/70'"
+            >
+              {{ line.text }}
+            </div>
+          </div>
+          <form
+            class="flex shrink-0 items-center gap-2 border-t border-panel-foreground/10 px-4 py-2.5 md:px-6"
+            @submit.prevent="runTerminalCommand(terminalCommand)"
+          >
+            <span class="text-mint">$</span>
+            <input
+              ref="terminalInputRef"
+              v-model="terminalCommand"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              :placeholder="TERMINAL_COMMANDS.join(' · ')"
+              class="min-w-0 flex-1 bg-transparent text-panel-foreground caret-mint placeholder:text-panel-foreground/25 focus:outline-none"
+            />
+            <span class="animate-blink text-panel-foreground">▎</span>
+          </form>
         </div>
       </div>
     </div>

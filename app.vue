@@ -107,5 +107,4 @@ tarteaucitron.services.calcom = {
     <NuxtPage />
   </NuxtLayout>
   <LayoutCustomCursor />
-  <LayoutTerminalEasterEgg />
 </template>
