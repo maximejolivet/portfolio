@@ -52,7 +52,7 @@
   "hero": {
     "greeting": "Bonjour, moi c'est Maxime",
     "role": "Développeur web full-stack senior",
-    "location": "Nantes · Rennes, France",
+    "location": "Nantes, France",
     "bio": "Je développe et maintiens des sites de marque, de produits, d'interfaces utilisateur, e-commerce et d'outils métiers.",
     "subtitle": "10 ans d'expérience, principalement en agence digitale. Solides compétences PHP et JavaScript, expertise CMS appliquée à des projets complexes et exigeants, avec un souci constant de la qualité du code et de la pérennité des choix techniques.",
     "ctaSecondary": "Voir les projets",

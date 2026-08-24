@@ -95,7 +95,7 @@ const jsonLines = computed<JsonLine[]>(() => {
         { text: '],', class: punct },
       ],
     },
-    { tokens: [indent1, { text: 'experience', class: key }, { text: ': {', class: punct }] },
+    { tokens: [indent1, { text: 'experiences', class: key }, { text: ': {', class: punct }] },
     ...experienceRows.map((row, i) => ({
       tokens: [
         indent2,
