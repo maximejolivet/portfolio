@@ -4,7 +4,11 @@ interface GitHubEvent {
   type: string
   repo: { name: string }
   created_at: string
-  payload: { commits?: Array<{ message: string }> }
+  payload: { head?: string }
+}
+
+interface GitHubCommit {
+  commit: { message: string }
 }
 
 export interface GitHubActivity {
@@ -14,6 +18,25 @@ export interface GitHubActivity {
 }
 
 const MAX_ACTIVITY_ITEMS = 2
+const GITHUB_HEADERS = {
+  'User-Agent': 'maxime-bzh-portfolio',
+  'Accept': 'application/vnd.github+json',
+}
+
+// The public events feed no longer inlines commit messages in PushEvent
+// payloads (only the head/before SHAs), so the message is fetched separately
+// per candidate repo.
+async function fetchCommitMessage(repo: string, sha: string): Promise<string | null> {
+  try {
+    const commit = await $fetch<GitHubCommit>(`https://api.github.com/repos/${repo}/commits/${sha}`, {
+      headers: GITHUB_HEADERS,
+    })
+    return commit.commit.message.split('\n')[0] ?? null
+  }
+  catch {
+    return null
+  }
+}
 
 async function fetchLatestPushes(): Promise<GitHubActivity[]> {
   if (!GITHUB_USERNAME) return []
@@ -21,28 +44,23 @@ async function fetchLatestPushes(): Promise<GitHubActivity[]> {
   try {
     const events = await $fetch<GitHubEvent[]>(
       `https://api.github.com/users/${GITHUB_USERNAME}/events/public`,
-      {
-        headers: {
-          'User-Agent': 'maxime-bzh-portfolio',
-          'Accept': 'application/vnd.github+json',
-        },
-      },
+      { headers: GITHUB_HEADERS },
     )
 
     const seenRepos = new Set<string>()
     const activity: GitHubActivity[] = []
 
     for (const event of events) {
-      if (event.type !== 'PushEvent' || !event.payload.commits?.length) continue
+      if (event.type !== 'PushEvent' || !event.payload.head) continue
       if (seenRepos.has(event.repo.name)) continue
-
-      const commit = event.payload.commits.at(-1)
-      if (!commit) continue
-
       seenRepos.add(event.repo.name)
+
+      const message = await fetchCommitMessage(event.repo.name, event.payload.head)
+      if (!message) continue
+
       activity.push({
         repo: event.repo.name.split('/').at(-1) ?? event.repo.name,
-        message: commit.message.split('\n')[0] ?? '',
+        message,
         date: event.created_at,
       })
 
