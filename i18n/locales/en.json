@@ -216,7 +216,7 @@
       "construction": "Construction & Housing",
       "energy": "Local Authorities & Energy",
       "industry": "Industry & Automotive",
-      "agriculture": "Agriculture & Food industry",
+      "agriculture": "Agriculture & Agri-food",
       "health": "Health & Wellbeing",
       "services": "Services",
       "finance": "Banking, Insurance & Mutual"
@@ -244,7 +244,7 @@
       "equipe": "agency team"
     },
     "pileje": {
-      "type": "brand site",
+      "type": "Brand site",
       "title": "PiLeJe Micronutrition",
       "tagline": "",
       "impact": "",
@@ -457,7 +457,7 @@
       "title": "Ludmigo",
       "tagline": "A community platform for sharing and discovering board games, making it easy to find people and places to play.",
       "impact": "With Ludmigo, let's democratize board games!",
-      "contexte": "It doesn't matter whether you're a beginner or an amateur, what counts is the desire to share a convivial moment and meet up over a game. This can take place in dedicated venues already present in their town, or in bars that we can help develop this service with in their establishments.",
+      "contexte": "It doesn't matter whether you're a beginner or an amateur, what counts is the desire to share a convivial moment and meet up over a game. This can take place in dedicated venues already present in their town, or in bars that we can help set up this service in.",
       "solution": "A Laravel back-end with Vue-powered interfaces, letting players find games and venues, and letting establishments offer their spaces.",
       "points": [
         "Connects beginner and amateur players around board game sessions",
@@ -476,14 +476,14 @@
       "tagline": "Personal site: portfolio, interactive resume and technical blog, designed and built from scratch.",
       "impact": "Live and actively maintained",
       "contexte": "After several redesigns, I wanted a site that reflects both my craft as a developer and my design sensibility: fast, accessible, bilingual, and easy to evolve alongside my projects and articles.",
-      "solution": "A Nuxt 4 site statically generated and deployed on GitHub Pages, with a Tailwind v4 + shadcn-vue design system, a Supabase-backed blog, and a fully bilingual French/English interface.",
+      "solution": "A Nuxt 4 site with server-side rendering (SSR), deployed on Vercel, with a Tailwind v4 + shadcn-vue design system, a Supabase-backed blog, and a fully bilingual French/English interface.",
       "points": [
-        "Nuxt 4 static site generation (SSG), auto-deployed to GitHub Pages via GitHub Actions",
+        "Nuxt 4 with SSR, auto-deployed to Vercel on every push",
         "Tailwind v4 + shadcn-vue (Reka UI) design system, light/dark theme",
         "Supabase-backed blog, bilingual articles managed through a data table",
         "Full FR/EN internationalization with localized routes (/fr, /en)"
       ],
-      "resultat": "A fast, fully static site that's easy to maintain, serving as a showcase, an interactive resume, and a testing ground for new front-end practices.",
+      "resultat": "A fast, reliable site that's easy to maintain, serving as a showcase, an interactive resume, and a testing ground for new front-end practices.",
       "role": "full-stack design & development",
       "duree": "ongoing since 2026",
       "equipe": "solo"
@@ -585,7 +585,7 @@
         "title": "Hosting",
         "intro": "This site is hosted by Vercel Inc., a SaaS hosting platform.",
         "items": ["340 S Lemon Ave #4133", "Walnut, CA 91789", "USA"],
-        "body": "Site deployment is automated via GitHub Actions."
+        "body": "Site deployment is automated via Vercel's Git integration."
       },
       "technologies": {
         "title": "Technologies",
