@@ -30,6 +30,7 @@ const key = 'text-mint'
 const str = 'text-primary'
 const dateKey = 'text-highlight'
 const punct = 'text-panel-foreground/35'
+const headerKey = 'text-accent'
 
 const jsonLines = computed<JsonLine[]>(() => {
   const experienceRows = EXPERIENCE_TIMELINE.map((item) => ({
@@ -52,7 +53,7 @@ const jsonLines = computed<JsonLine[]>(() => {
     {
       tokens: [
         indent1,
-        { text: 'name', class: key },
+        { text: 'name', class: headerKey },
         { text: ': ', class: punct },
         { text: '"Maxime Jolivet"', class: str },
         { text: ',', class: punct },
@@ -61,7 +62,7 @@ const jsonLines = computed<JsonLine[]>(() => {
     {
       tokens: [
         indent1,
-        { text: 'position', class: key },
+        { text: 'position', class: headerKey },
         { text: ': ', class: punct },
         { text: `"${t('hero.role')}"`, class: str },
         { text: ',', class: punct },
@@ -70,7 +71,7 @@ const jsonLines = computed<JsonLine[]>(() => {
     {
       tokens: [
         indent1,
-        { text: 'email', class: key },
+        { text: 'email', class: headerKey },
         { text: ': ', class: punct },
         { text: `"${CONTACT_EMAIL}"`, class: str },
         { text: ',', class: punct },
@@ -79,7 +80,7 @@ const jsonLines = computed<JsonLine[]>(() => {
     {
       tokens: [
         indent1,
-        { text: 'location', class: key },
+        { text: 'location', class: headerKey },
         { text: ': ', class: punct },
         { text: `"${t('hero.location')}"`, class: str },
         { text: ',', class: punct },
