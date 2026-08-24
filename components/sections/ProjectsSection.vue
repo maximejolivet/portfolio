@@ -71,11 +71,15 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
             </div>
           </div>
           <div class="flex flex-col gap-1.5">
-            <div class="flex items-baseline justify-between">
-              <span class="font-sans text-lg font-bold tracking-[-0.4px] text-foreground">
+            <div class="flex items-baseline justify-between gap-2">
+              <span
+                class="min-w-0 truncate font-sans text-lg font-bold tracking-[-0.4px] text-foreground"
+              >
                 {{ t(project.titleKey) }}
               </span>
-              <span class="font-mono text-[0.7812rem] text-subtle">{{ project.year }}</span>
+              <span class="shrink-0 font-mono text-[0.7812rem] text-subtle">{{
+                project.year
+              }}</span>
             </div>
             <div v-if="project.tags.length" class="font-mono text-xs text-muted-foreground">
               {{ project.tags.slice(0, 2).join(' · ') }}

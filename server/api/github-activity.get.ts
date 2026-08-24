@@ -13,7 +13,7 @@ export interface GitHubActivity {
   date: string
 }
 
-const MAX_ACTIVITY_ITEMS = 3
+const MAX_ACTIVITY_ITEMS = 2
 
 async function fetchLatestPushes(): Promise<GitHubActivity[]> {
   if (!GITHUB_USERNAME) return []

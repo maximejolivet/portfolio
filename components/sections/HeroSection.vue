@@ -134,7 +134,7 @@ const jsonLines = computed<JsonLine[]>(() => {
 
 <template>
   <section id="ide">
-    <div class="grid min-h-[620px] md:grid-cols-[2fr_3fr]">
+    <div class="grid md:min-h-[620px] md:grid-cols-[2fr_3fr]">
       <div class="flex flex-col justify-center gap-6 px-4 py-16 sm:px-18">
         <h1
           class="text-balance font-sans text-[clamp(2.5rem,4.4vw,3.875rem)] font-bold leading-[1.1] tracking-[-1.8px] text-foreground"
@@ -179,7 +179,8 @@ const jsonLines = computed<JsonLine[]>(() => {
           >
             <span
               class="whitespace-nowrap font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
-              >{{ name.toUpperCase() }}</span>
+              >{{ name.toUpperCase() }}</span
+            >
           </swiper-slide>
         </swiper-container>
       </div>
@@ -192,7 +193,8 @@ const jsonLines = computed<JsonLine[]>(() => {
                 v-for="name in MARQUEE_STACK"
                 :key="`${rep}-${name}`"
                 class="font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
-                >{{ name.toUpperCase() }}</span>
+                >{{ name.toUpperCase() }}</span
+              >
             </div>
           </div>
         </div>

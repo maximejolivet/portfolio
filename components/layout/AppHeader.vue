@@ -32,12 +32,14 @@ onUnmounted(() => {
       <div class="flex items-center gap-4">
         <NuxtLink :to="localePath('/')" aria-label="Maxime Jolivet" class="flex items-center gap-3">
           <UiLogoMark :size="42" class="text-foreground" />
-          <span class="font-sans text-base font-bold hidden md:block tracking-tight text-foreground">maximejolivet</span>
+          <span class="font-sans text-base font-bold hidden md:block tracking-tight text-foreground"
+            >maximejolivet</span
+          >
         </NuxtLink>
       </div>
 
       <div class="flex items-center gap-6 font-mono text-sm">
-        <UiButton :to="localePath('/cv')" size="pill-sm" class="md:hidden">
+        <UiButton :to="localePath('/cv')" size="pill" class="md:hidden">
           {{ $t('cv.read') }}
         </UiButton>
         <nav class="hidden items-center gap-6 md:flex">

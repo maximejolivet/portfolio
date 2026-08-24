@@ -22,21 +22,21 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="fixed bottom-4 right-4 md:bottom-4 md:right-6 z-50 flex flex-col items-end gap-3">
+  <div class="fixed bottom-4 right-0 md:right-6 z-50 flex flex-col items-end gap-3">
     <div v-if="!calRefused" class="group relative flex items-center">
       <span
-        class="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full bg-foreground px-3 py-1.5 font-sans text-xs font-semibold text-background opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+        class="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full bg-foreground px-3 py-1.5 font-sans text-xs font-semibold text-background opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-active:opacity-100"
       >
         {{ $t('home.contact.bookCall') }}
       </span>
       <button
         type="button"
-        class="flex size-11 items-center justify-center rounded-full bg-primary border border-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent hover:border-accent md:size-14 cursor-pointer"
+        class="flex size-11 items-center justify-center rounded-l-full border-y border-l-0 border-r border-primary bg-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent hover:border-accent md:size-14 md:rounded-full md:border cursor-pointer"
         :aria-label="$t('home.contact.bookCall')"
         :data-cal-link="CAL_LINK"
         :data-cal-namespace="CAL_NAMESPACE"
-        data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,
-          &quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
+        data-cal-config='{"layout":"month_view",
+          "useSlotsViewOnSmallScreen":"true"}'
       >
         <UiAppIcon icon="lucide:calendar" class="pointer-events-none size-4 md:size-5" />
       </button>

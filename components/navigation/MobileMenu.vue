@@ -19,11 +19,11 @@ function isActive(item: (typeof NAV_ITEMS)[number]) {
   <div class="relative md:hidden">
     <button
       type="button"
-      class="flex size-8 items-center justify-center rounded-full border border-border text-foreground"
+      class="flex size-11 items-center justify-center rounded-full border border-border text-foreground"
       :aria-label="isOpen ? $t('nav.closeMenu') : $t('nav.openMenu')"
       @click="isOpen = !isOpen"
     >
-      <UiAppIcon :icon="isOpen ? 'lucide:x' : 'lucide:menu'" class="size-4" />
+      <UiAppIcon :icon="isOpen ? 'lucide:x' : 'lucide:menu'" class="size-5" />
     </button>
 
     <Transition
@@ -42,7 +42,7 @@ function isActive(item: (typeof NAV_ITEMS)[number]) {
           v-for="item in NAV_ITEMS"
           :key="item.id"
           :to="item.hash ? { path: localePath(item.to), hash: item.hash } : localePath(item.to)"
-          class="flex items-center gap-2.5 rounded-full px-3.5 py-2 font-mono text-xs font-semibold transition-colors"
+          class="flex items-center gap-2.5 rounded-full px-3.5 py-3 font-mono text-xs font-semibold transition-colors"
           :class="
             isActive(item)
               ? 'bg-primary text-primary-foreground'
