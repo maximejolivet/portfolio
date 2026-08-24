@@ -13,6 +13,8 @@ const { data: githubActivityResponse } = await useFetch<{ activity: GithubActivi
   '/api/github-activity',
 )
 const githubActivity = computed(() => githubActivityResponse.value?.activity ?? [])
+const buildingActivity = computed(() => githubActivity.value[0])
+const shippedActivity = computed(() => githubActivity.value.slice(1))
 
 const currentMonth = computed(() =>
   new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'fr-FR', {
@@ -41,7 +43,9 @@ const currentMonth = computed(() =>
           v-for="item in NOW_ITEMS"
           :key="item"
           :item="item"
-          :shipped-items="item === 'shipped' ? githubActivity : undefined"
+          :title-override="item === 'building' ? buildingActivity?.repo : undefined"
+          :detail-override="item === 'building' ? buildingActivity?.message : undefined"
+          :shipped-items="item === 'shipped' ? shippedActivity : undefined"
         />
       </div>
     </UiContainer>

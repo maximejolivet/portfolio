@@ -17,7 +17,7 @@ export interface GitHubActivity {
   date: string
 }
 
-const MAX_ACTIVITY_ITEMS = 2
+const MAX_ACTIVITY_ITEMS = 3
 const GITHUB_HEADERS = {
   'User-Agent': 'maxime-bzh-portfolio',
   'Accept': 'application/vnd.github+json',
