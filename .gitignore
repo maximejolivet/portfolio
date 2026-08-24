@@ -9,6 +9,9 @@ dist
 # Generated at build time by scripts/generate-icon-subset.mjs
 utils/generated/
 
+# Generated at build time by scripts/copy-pdf-worker.mjs
+public/generated/
+
 # Node dependencies
 node_modules
 

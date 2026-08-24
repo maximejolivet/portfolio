@@ -32,6 +32,7 @@ useSeoMeta({
     <h1 class="sr-only">Maxime Jolivet · Curriculum vitæ</h1>
     <pdfjs-viewer-element
       src="/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-tech-lead-ia.pdf"
+      worker-src="/generated/pdf.worker.min.mjs"
       viewer-css-theme="DARK"
       zoom="auto"
       class="block h-[calc(100vh-58px)] w-full"
