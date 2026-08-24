@@ -16,13 +16,25 @@ export interface ResolvedIcon {
 }
 
 export function resolveIcon(ref: string): ResolvedIcon {
-  const [prefix, name] = ref.split(':')
-  const collection = COLLECTIONS[prefix]
-  const icon = name ? collection?.icons[name] : undefined
+  const parts = ref.split(':')
+  const prefix = parts[0]
+  const name = parts[1]
+
+  if (!prefix || !name) {
+    return { body: '', width: 24, height: 24 }
+  }
+
+  const collection = COLLECTIONS[prefix as keyof typeof COLLECTIONS]
+
+  if (!name || !collection?.icons) {
+    return { body: '', width: collection?.width ?? 24, height: collection?.height ?? 24 }
+  }
+
+  const icon = collection.icons[name]!
 
   return {
-    body: icon?.body ?? '',
-    width: icon?.width ?? collection?.width ?? 24,
-    height: icon?.height ?? collection?.height ?? 24,
+    body: icon.body,
+    width: icon.width ?? collection.width ?? 24,
+    height: icon.height ?? collection.height ?? 24,
   }
 }
