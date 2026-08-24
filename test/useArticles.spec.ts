@@ -5,6 +5,7 @@ import { fetchArticles } from '../composables/useArticles'
 const mockSupabase = (result: { data: unknown, error: unknown }) => {
   const query = {
     select: () => query,
+    lte: () => query,
     order: () => Promise.resolve(result),
   }
   return { from: () => query } as unknown as SupabaseClient

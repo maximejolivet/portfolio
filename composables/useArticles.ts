@@ -19,6 +19,7 @@ export const fetchArticles = async (supabase: SupabaseClient): Promise<ArticleSu
     .select(
       'id, slug_fr, slug_en, title_fr, title_en, excerpt_fr, excerpt_en, cover_image_url, published_at',
     )
+    .lte('published_at', new Date().toISOString())
     .order('published_at', { ascending: false })
 
   if (error) {
