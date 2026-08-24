@@ -1,13 +1,14 @@
 {
   "name": "portfolio",
   "private": true,
-  "version": "1.0.45",
+  "version": "1.0.46",
   "repository": "git@github.com:maximejolivet/portfolio.git",
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
   "scripts": {
     "icons:generate": "node scripts/generate-icon-subset.mjs",
-    "predev": "npm run icons:generate",
+    "update-date": "node scripts/update-compatibility-date.mjs",
+    "predev": "npm run update-date && npm run icons:generate",
     "prebuild": "npm run icons:generate",
     "pregenerate": "npm run icons:generate",
     "predeploy": "npm run icons:generate",

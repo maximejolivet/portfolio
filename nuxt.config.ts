@@ -3,6 +3,7 @@ import routes from './routes.json'
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-08-24',
+  compatibilityDate: '2026-08-24',
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'storeToRefs'] }],
     'nuxt-security',
