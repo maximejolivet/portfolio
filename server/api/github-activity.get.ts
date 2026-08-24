@@ -15,6 +15,7 @@ export interface GitHubActivity {
   repo: string
   message: string
   date: string
+  url: string
 }
 
 const MAX_ACTIVITY_ITEMS = 3
@@ -28,9 +29,12 @@ const GITHUB_HEADERS = {
 // per candidate repo.
 async function fetchCommitMessage(repo: string, sha: string): Promise<string | null> {
   try {
-    const commit = await $fetch<GitHubCommit>(`https://api.github.com/repos/${repo}/commits/${sha}`, {
-      headers: GITHUB_HEADERS,
-    })
+    const commit = await $fetch<GitHubCommit>(
+      `https://api.github.com/repos/${repo}/commits/${sha}`,
+      {
+        headers: GITHUB_HEADERS,
+      },
+    )
     return commit.commit.message.split('\n')[0] ?? null
   }
   catch {
@@ -62,6 +66,7 @@ async function fetchLatestPushes(): Promise<GitHubActivity[]> {
         repo: event.repo.name.split('/').at(-1) ?? event.repo.name,
         message,
         date: event.created_at,
+        url: `https://github.com/${event.repo.name}/commit/${event.payload.head}`,
       })
 
       if (activity.length >= MAX_ACTIVITY_ITEMS) break

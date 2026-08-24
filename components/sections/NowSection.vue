@@ -1,11 +1,16 @@
 <script setup lang="ts">
+import { SOCIAL_LINKS } from '~/constants/social'
+
 interface GithubActivity {
   repo: string
   message: string
   date: string
+  url: string
 }
 
 const { locale } = useI18n()
+
+const githubProfileUrl = SOCIAL_LINKS.find((link) => link.id === 'github')?.href
 
 const NOW_ITEMS = ['building', 'reading', 'listening', 'shipped'] as const
 
@@ -36,6 +41,16 @@ const currentMonth = computed(() =>
         <span class="hidden font-mono text-xs text-panel-foreground/50 sm:inline">{{
           currentMonth
         }}</span>
+        <a
+          v-if="githubProfileUrl"
+          :href="githubProfileUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex shrink-0 items-center gap-1.5 font-mono text-xs text-panel-foreground/50 transition-colors hover:text-mint"
+        >
+          <UiAppIcon icon="lucide:github" class="size-3.5" />
+          {{ $t('home.now.viewGithub') }}
+        </a>
       </div>
 
       <div class="grid gap-9 sm:grid-cols-2 lg:grid-cols-4">
@@ -45,6 +60,7 @@ const currentMonth = computed(() =>
           :item="item"
           :title-override="item === 'building' ? buildingActivity?.repo : undefined"
           :detail-override="item === 'building' ? buildingActivity?.message : undefined"
+          :link-override="item === 'building' ? buildingActivity?.url : undefined"
           :shipped-items="item === 'shipped' ? shippedActivity : undefined"
         />
       </div>

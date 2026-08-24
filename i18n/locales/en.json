@@ -250,12 +250,7 @@
       "impact": "",
       "contexte": "",
       "solution": "",
-      "points": [
-        "",
-        "",
-        "",
-        ""
-      ],
+      "points": ["", "", "", ""],
       "resultat": "",
       "role": "",
       "duree": "",
@@ -376,12 +371,7 @@
       "impact": "Institutional site still in production",
       "contexte": "Precia Molen has designed industrial and commercial weighing solutions (scales, silos, continuous dosing) for over 70 years, with a presence in more than 140 countries.",
       "solution": "Site built on Drupal by the Gingerminds agency.",
-      "points": [
-        "Drupal development",
-        "",
-        "",
-        ""
-      ],
+      "points": ["Drupal development", "", "", ""],
       "resultat": "",
       "role": "developer",
       "duree": "",
@@ -430,12 +420,7 @@
       "impact": "Three festival editions supported (2018, 2019, 2020)",
       "contexte": "Don Jigi Fest is a music festival held in Vitré, run by a volunteer team.",
       "solution": "Designed and built the festival's website for the 2018, 2019 and 2020 editions, as a volunteer.",
-      "points": [
-        "Designed and built the festival website",
-        "2018, 2019 and 2020 editions",
-        "",
-        ""
-      ],
+      "points": ["Designed and built the festival website", "2018, 2019 and 2020 editions", "", ""],
       "resultat": "",
       "role": "webdesigner, web developer",
       "duree": "volunteer, 2018 to 2020 editions",
@@ -448,12 +433,7 @@
       "impact": "E-commerce site delivered with in-store reservation",
       "contexte": "Greentech is a retailer based in Dakar, Senegal, that wanted to offer an online shopping experience with in-store pickup.",
       "solution": "Built a custom e-commerce site with a click-and-collect reservation system, as part of an internship.",
-      "points": [
-        "Custom e-commerce site",
-        "In-store click-and-collect reservation",
-        "",
-        ""
-      ],
+      "points": ["Custom e-commerce site", "In-store click-and-collect reservation", "", ""],
       "resultat": "",
       "role": "webdesigner, web developer",
       "duree": "internship",
@@ -466,12 +446,7 @@
       "impact": "Multi-site portal delivered with dedicated SEO",
       "contexte": "Groupe Scolaire La Salle Saint Joseph, in Argentré-du-Plessis, wanted to unify communication across its schools and make it easier to publish news.",
       "solution": "Full-stack development of a multi-site information portal and a news blog with SEO, as part of an internship.",
-      "points": [
-        "Multi-site information portal",
-        "News blog with SEO",
-        "",
-        ""
-      ],
+      "points": ["Multi-site information portal", "News blog with SEO", "", ""],
       "resultat": "",
       "role": "full-stack web developer",
       "duree": "internship",
@@ -521,6 +496,7 @@
     },
     "now": {
       "sectionTitle": "Right now",
+      "viewGithub": "view on GitHub",
       "items": {
         "building": {
           "label": "BUILDING",
@@ -599,10 +575,7 @@
       "editor": {
         "title": "Site publisher",
         "intro": "This site is published on a personal basis by Maxime Jolivet.",
-        "items": [
-          "Name: Maxime Jolivet",
-          "Email: {email}"
-        ]
+        "items": ["Name: Maxime Jolivet", "Email: {email}"]
       },
       "publication": {
         "title": "Publication director",
@@ -611,11 +584,7 @@
       "hosting": {
         "title": "Hosting",
         "intro": "This site is hosted by Vercel Inc., a SaaS hosting platform.",
-        "items": [
-          "340 S Lemon Ave #4133",
-          "Walnut, CA 91789",
-          "USA"
-        ],
+        "items": ["340 S Lemon Ave #4133", "Walnut, CA 91789", "USA"],
         "body": "Site deployment is automated via GitHub Actions."
       },
       "technologies": {

@@ -250,12 +250,7 @@
       "impact": "",
       "contexte": "",
       "solution": "",
-      "points": [
-        "",
-        "",
-        "",
-        ""
-      ],
+      "points": ["", "", "", ""],
       "resultat": "",
       "role": "",
       "duree": "",
@@ -376,12 +371,7 @@
       "impact": "Site institutionnel toujours en production",
       "contexte": "Precia Molen conçoit des solutions de pesage industriel et commercial (bascules, silos, dosage en continu) depuis plus de 70 ans, avec une présence dans plus de 140 pays.",
       "solution": "Site développé sous Drupal par l'agence Gingerminds.",
-      "points": [
-        "Développement Drupal",
-        "",
-        "",
-        ""
-      ],
+      "points": ["Développement Drupal", "", "", ""],
       "resultat": "",
       "role": "développeur",
       "duree": "",
@@ -521,6 +511,7 @@
     },
     "now": {
       "sectionTitle": "En ce moment",
+      "viewGithub": "voir sur GitHub",
       "items": {
         "building": {
           "label": "EN CONSTRUCTION",
@@ -599,10 +590,7 @@
       "editor": {
         "title": "Éditeur du site",
         "intro": "Le présent site est édité à titre personnel par Maxime Jolivet.",
-        "items": [
-          "Nom : Maxime Jolivet",
-          "Email : {email}"
-        ]
+        "items": ["Nom : Maxime Jolivet", "Email : {email}"]
       },
       "publication": {
         "title": "Directeur de la publication",
@@ -611,11 +599,7 @@
       "hosting": {
         "title": "Hébergement",
         "intro": "Le site est hébergé par Vercel Inc., plateforme d'hébergement SaaS.",
-        "items": [
-          "340 S Lemon Ave #4133",
-          "Walnut, CA 91789",
-          "États-Unis"
-        ],
+        "items": ["340 S Lemon Ave #4133", "Walnut, CA 91789", "États-Unis"],
         "body": "Le déploiement du site est automatisé via GitHub Actions."
       },
       "technologies": {
