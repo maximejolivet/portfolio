@@ -47,18 +47,24 @@ const formattedDate = (value: string) =>
 
     <LayoutPageSection bare>
       <UiContainer class="max-w-[880px]">
-        <p v-if="pending" class="py-10 text-center font-mono text-sm text-muted-foreground">
-          {{ $t('blog.loading') }}
-        </p>
-        <p v-else-if="error" class="py-10 text-center font-mono text-sm text-muted-foreground">
-          {{ $t('blog.error') }}
-        </p>
-        <p
+        <div v-if="pending" class="flex flex-col pb-20">
+          <div v-for="i in 4" :key="i" class="flex flex-col gap-2.5 border-b border-border py-7">
+            <UiSkeleton class="h-3 w-24" />
+            <UiSkeleton class="h-6 w-3/4" />
+            <UiSkeleton class="h-4 w-full" />
+            <UiSkeleton class="h-4 w-2/3" />
+          </div>
+        </div>
+        <UiEmptyState
+          v-else-if="error"
+          icon="lucide:wifi-off"
+          :message="$t('blog.error')"
+        />
+        <UiEmptyState
           v-else-if="!articles.length"
-          class="py-10 text-center font-mono text-sm text-muted-foreground"
-        >
-          {{ $t('blog.empty') }}
-        </p>
+          icon="lucide:inbox"
+          :message="$t('blog.empty')"
+        />
 
         <div v-else class="flex flex-col pb-20">
           <NuxtLink

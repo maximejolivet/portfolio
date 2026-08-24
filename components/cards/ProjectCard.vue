@@ -17,7 +17,8 @@ const tagline = computed(() => t(props.project.taglineKey))
     :href="project.websiteUrl"
     :target="project.websiteUrl ? '_blank' : undefined"
     :rel="project.websiteUrl ? 'noopener noreferrer nofollow' : undefined"
-    class="group flex flex-col overflow-hidden rounded-2xl border border-border transition-colors duration-300 hover:bg-card sm:flex-row"
+    :style="{ viewTransitionName: `project-${project.id}` }"
+    class="card-hover-gradient group flex flex-col overflow-hidden rounded-2xl border border-border sm:flex-row"
   >
     <div class="relative w-full shrink-0 overflow-hidden sm:w-64 md:w-80">
       <NuxtImg

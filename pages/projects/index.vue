@@ -37,10 +37,13 @@ const employerFilter = computed<string>({
   set: (value) => updateQuery({ employer: value === 'all' ? undefined : value, page: undefined }),
 })
 
-const viewMode = computed<'grid' | 'list'>({
-  get: () => (route.query.view === 'grid' ? 'grid' : 'list'),
-  set: (value) => updateQuery({ view: value === 'list' ? undefined : value }),
-})
+function setViewMode(value: 'grid' | 'list') {
+  const apply = () => updateQuery({ view: value === 'list' ? undefined : value })
+  if (document.startViewTransition) document.startViewTransition(apply)
+  else apply()
+}
+
+const viewMode = computed<'grid' | 'list'>(() => (route.query.view === 'grid' ? 'grid' : 'list'))
 
 const employers = computed(() =>
   Array.from(new Set(CASE_STUDIES.map((p) => p.employer).filter((e): e is string => Boolean(e)))),
@@ -165,7 +168,7 @@ const pageItems = computed(() => {
                   ? 'border-accent text-accent'
                   : 'text-muted-foreground hover:text-accent'
               "
-              @click="viewMode = 'list'"
+              @click="setViewMode('list')"
             >
               <UiAppIcon icon="lucide:list" class="size-5" />
             </button>
@@ -178,7 +181,7 @@ const pageItems = computed(() => {
                   ? 'border-accent text-accent'
                   : 'text-muted-foreground hover:text-accent'
               "
-              @click="viewMode = 'grid'"
+              @click="setViewMode('grid')"
             >
               <UiAppIcon icon="lucide:layout-grid" class="size-5" />
             </button>

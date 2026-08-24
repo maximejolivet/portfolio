@@ -6,7 +6,7 @@ useSeoMeta({
   description: () => t('hero.subtitle'),
   ogTitle: () => `${t('seo.homeTitle')} - Maxime Jolivet`,
   ogDescription: () => t('hero.subtitle'),
-  ogImage: 'https://maximejolivet.fr/open-graph-maximejolivet.jpg',
+  ogImage: 'https://www.maxime.bzh/open-graph-maximejolivet.jpg',
   ogType: 'website',
   twitterCard: 'summary_large_image',
 })

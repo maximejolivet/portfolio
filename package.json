@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "version": "1.0.42",
+  "version": "1.0.43",
   "repository": "git@github.com:maximejolivet/portfolio.git",
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
@@ -73,6 +73,7 @@
     "@supabase/supabase-js": "^2.110.7",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "oxc-parser": "^0.146.0",
     "reka-ui": "^2.10.1",
     "swiper": "^14.0.5",
     "tailwind-merge": "^3.6.0"

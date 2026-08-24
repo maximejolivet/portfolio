@@ -2,25 +2,27 @@
 const { locale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
-const LOCALES = ['fr', 'en'] as const
+const LOCALES = [
+  { code: 'fr', flag: '/flag-fr.svg' },
+  { code: 'en', flag: '/flag-us.svg' },
+] as const
 </script>
 
 <template>
-  <div
-    class="flex items-center gap-0.5 rounded-full border border-border p-0.5 font-mono text-xs font-semibold"
-  >
+  <div class="flex h-9 items-center gap-0.5 rounded-full border border-border bg-white p-0.5">
     <NuxtLink
-      v-for="code in LOCALES"
-      :key="code"
-      :to="switchLocalePath(code)"
-      class="rounded-full px-2.5 py-1 transition-colors"
+      v-for="item in LOCALES"
+      :key="item.code"
+      :to="switchLocalePath(item.code)"
+      :aria-label="item.code"
+      class="flex items-center justify-center rounded-full p-2 transition-colors"
       :class="
-        code === locale
-          ? 'bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground'
-          : 'text-muted-foreground hover:text-accent'
+        item.code === locale
+          ? 'bg-primary text-primary-foreground'
+          : 'text-primary-foreground/60 hover:text-accent'
       "
     >
-      {{ code.toUpperCase() }}
+      <img :src="item.flag" alt="" class="h-4 w-6 rounded-[2px] object-cover" />
     </NuxtLink>
   </div>
 </template>

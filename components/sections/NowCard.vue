@@ -1,7 +1,14 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   item: 'building' | 'reading' | 'listening' | 'shipped'
+  titleOverride?: string
+  detailOverride?: string
 }>()
+
+const { t } = useI18n()
+
+const title = computed(() => props.titleOverride || t(`home.now.items.${props.item}.title`))
+const detail = computed(() => props.detailOverride || t(`home.now.items.${props.item}.detail`))
 </script>
 
 <template>
@@ -11,10 +18,10 @@ defineProps<{
     </div>
     <div class="flex items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold">
       <span v-if="item === 'shipped'" class="size-2 animate-pulse-dot rounded-full bg-mint" />
-      {{ $t(`home.now.items.${item}.title`) }}
+      {{ title }}
     </div>
     <div class="font-mono text-xs leading-[1.5] text-panel-foreground/55">
-      {{ $t(`home.now.items.${item}.detail`) }}
+      {{ detail }}
     </div>
   </div>
 </template>

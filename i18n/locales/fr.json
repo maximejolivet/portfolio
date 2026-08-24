@@ -27,7 +27,7 @@
     "taglineDetails": "full-stack senior / Lead Dev / Tech lead",
     "madeInPrefix": "Fabriqué en",
     "madeInPlace": "Bretagne",
-    "madeInSuffix": "sous la pluie et avec du beurre salé",
+    "madeInSuffix": "entre deux kouign-amann",
     "rights": "",
     "backToTop": "Retour en haut",
     "legalMentions": "Mentions légales",
@@ -513,7 +513,7 @@
       "items": {
         "building": {
           "label": "EN CONSTRUCTION",
-          "title": "maximejolivet.fr v2",
+          "title": "www.maxime.bzh v2",
           "detail": "ce site, justement"
         },
         "reading": {
@@ -560,6 +560,14 @@
   "cv": {
     "read": "Curriculum vitae",
     "download": "Télécharger le PDF"
+  },
+  "terminal": {
+    "title": "guest — maxime.bzh terminal",
+    "toggle": "Ouvrir le terminal",
+    "hint": "Tapez 'help' pour voir les commandes disponibles.",
+    "help": "Commandes disponibles : help, whoami, cv, projects, contact, clear, exit",
+    "whoami": "Maxime Jolivet — {role}",
+    "notFound": "commande introuvable : {cmd}"
   },
   "blog": {
     "eyebrow": "BLOG - NOTES DE TERRAIN",

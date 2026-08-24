@@ -16,6 +16,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
     :href="project.websiteUrl"
     :target="project.websiteUrl ? '_blank' : undefined"
     :rel="project.websiteUrl ? 'noopener noreferrer nofollow' : undefined"
+    :style="{ viewTransitionName: `project-${project.id}` }"
     class="group flex flex-col gap-3.5"
   >
     <div v-if="project.image" class="aspect-video overflow-hidden rounded-2xl border border-border">

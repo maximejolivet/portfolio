@@ -23,17 +23,21 @@ function openCookieSettings() {
       </div>
       <div class="flex flex-col items-center gap-1">
         <span class="sr-only">{{ $t('footer.taglineRole') }} {{ $t('footer.taglineDetails') }}</span>
-        <span class="flex items-center gap-2 text-center">
-          {{ $t('footer.madeInPrefix') }}
-          <img
+        <div class="flex items-center gap-2">
+          <span
+            class="flex h-9 items-center gap-2 rounded-full border border-border bg-white px-3.5 text-center font-mono text-xs font-semibold text-primary-foreground"
+          >
+            {{ $t('footer.madeInPrefix') }}
+            <img
 src="/flag-bretagne.svg" :alt="$t('footer.madeInPlace')" :title="$t('footer.madeInPlace')"
-            class="inline-block h-5 w-auto"
+              class="inline-block h-5 w-auto"
 />
-          {{ $t('footer.madeInSuffix') }}
-          <span class="text-xl" aria-hidden="true">⛈️ 🧈</span>
-        </span>
+            {{ $t('footer.madeInSuffix') }}
+            <span class="text-base" aria-hidden="true">🥐</span>
+          </span>
+          <NavigationThemeToggle />
+        </div>
       </div>
-      <NavigationThemeToggle />
       <div class="flex items-center gap-4">
         <NavigationNavLink v-for="item in NAV_ITEMS" :key="item.id" :to="item.to" :hash="item.hash">
           {{ $t(item.labelKey) }}

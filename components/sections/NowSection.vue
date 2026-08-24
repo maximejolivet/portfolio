@@ -1,7 +1,18 @@
 <script setup lang="ts">
+interface GithubActivity {
+  repo: string
+  message: string
+  date: string
+}
+
 const { locale } = useI18n()
 
 const NOW_ITEMS = ['building', 'reading', 'listening', 'shipped'] as const
+
+const { data: githubActivityResponse } = await useFetch<{ activity: GithubActivity | null }>(
+  '/api/github-activity',
+)
+const githubActivity = computed(() => githubActivityResponse.value?.activity)
 
 const currentMonth = computed(() =>
   new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'fr-FR', {
@@ -26,7 +37,13 @@ const currentMonth = computed(() =>
       </div>
 
       <div class="grid gap-9 sm:grid-cols-2 lg:grid-cols-4">
-        <SectionsNowCard v-for="item in NOW_ITEMS" :key="item" :item="item" />
+        <SectionsNowCard
+          v-for="item in NOW_ITEMS"
+          :key="item"
+          :item="item"
+          :title-override="item === 'shipped' ? githubActivity?.repo : undefined"
+          :detail-override="item === 'shipped' ? githubActivity?.message : undefined"
+        />
       </div>
     </UiContainer>
   </section>

@@ -27,7 +27,7 @@
     "taglineDetails": "Senior full-stack / Lead Dev / Tech Lead",
     "madeInPrefix": "Made in",
     "madeInPlace": "Brittany",
-    "madeInSuffix": "in the rain, with salted butter",
+    "madeInSuffix": "between two kouign-amann",
     "rights": "",
     "backToTop": "Back to top",
     "legalMentions": "Legal notice",
@@ -513,7 +513,7 @@
       "items": {
         "building": {
           "label": "BUILDING",
-          "title": "maximejolivet.fr v2",
+          "title": "www.maxime.bzh v2",
           "detail": "this site, as it happens"
         },
         "reading": {
@@ -560,6 +560,14 @@
   "cv": {
     "read": "Curriculum vitae",
     "download": "Download PDF"
+  },
+  "terminal": {
+    "title": "guest — maxime.bzh terminal",
+    "toggle": "Open terminal",
+    "hint": "Type 'help' to see available commands.",
+    "help": "Available commands: help, whoami, cv, projects, contact, clear, exit",
+    "whoami": "Maxime Jolivet — {role}",
+    "notFound": "command not found: {cmd}"
   },
   "blog": {
     "eyebrow": "BLOG - NOTES FROM THE FIELD",

@@ -150,17 +150,17 @@ onUnmounted(() => {
               target="_blank"
               rel="noopener noreferrer"
               :aria-label="entry.item.logo ? t(entry.item.organizationKey) : undefined"
-              class="inline-flex items-center gap-2 text-green-300 underline decoration-dotted underline-offset-2 transition-colors hover:text-mint"
+              class="inline-flex items-center gap-2 text-primary underline decoration-dotted underline-offset-2 transition-colors hover:text-mint"
             >
               <span :class="entry.item.logo && 'hidden'">{{ t(entry.item.organizationKey) }}</span>
               <span
                 v-if="entry.item.logo"
                 aria-hidden="true"
-                class="relative h-5 w-28 bg-green-300"
+                class="relative h-5 w-28 bg-primary"
                 :style="logoMaskStyle(entry.item.logo)"
               />
             </a>
-            <span v-else class="text-green-300">{{ t(entry.item.organizationKey) }}</span>
+            <span v-else class="text-primary">{{ t(entry.item.organizationKey) }}</span>
           </div>
 
           <p v-show="entry.location.isStarted" class="pl-2 text-panel-foreground/35">

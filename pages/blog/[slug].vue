@@ -64,6 +64,8 @@ useSeoMeta({
 
 <template>
   <div>
+    <UiReadingProgress v-if="article" />
+
     <LayoutPageSection bare>
       <UiContainer class="max-w-[880px]">
         <div class="py-8">
@@ -75,12 +77,15 @@ useSeoMeta({
           </NuxtLink>
         </div>
 
-        <p v-if="pending" class="pb-20 text-center font-mono text-sm text-muted-foreground">
-          {{ $t('blog.loading') }}
-        </p>
-        <p v-else-if="error" class="pb-20 text-center font-mono text-sm text-muted-foreground">
-          {{ $t('blog.error') }}
-        </p>
+        <div v-if="pending" class="flex flex-col gap-5 pb-20">
+          <UiSkeleton class="h-3 w-32" />
+          <UiSkeleton class="mt-3 h-10 w-4/5" />
+          <UiSkeleton class="mt-10 h-64 w-full rounded-2xl" />
+          <UiSkeleton class="mt-10 h-4 w-full" />
+          <UiSkeleton class="h-4 w-full" />
+          <UiSkeleton class="h-4 w-2/3" />
+        </div>
+        <UiEmptyState v-else-if="error" icon="lucide:wifi-off" :message="$t('blog.error')" />
 
         <template v-else-if="article">
           <span class="font-mono text-[0.7812rem] text-subtle">{{ formattedDate }}</span>

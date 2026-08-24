@@ -60,7 +60,7 @@ Translation files live in `i18n/locales/`. Always update **both** `i18n/locales/
 Hosted on **Vercel**, connected via Vercel's own Git integration (not a GitHub Actions workflow — there is none in this repo). Vercel auto-deploys on push to `master` using its standard Nuxt SSR build. Working branch is `develop`. To deploy: open a PR from `develop` → `master`.
 
 - `npm run generate` (static export, `.output/public`) and `npm run deploy` still exist as local/manual commands but are **not** the production deploy path — Vercel builds SSR directly from `master`, it doesn't consume `dist/` or a static export.
-- `site.url` is set to `https://maximejolivet.fr` in `nuxt.config.ts` (required for sitemaps/OG images).
+- `site.url` is set to `https://www.maxime.bzh` in `nuxt.config.ts` (required for sitemaps/OG images).
 
 ## Git commits
 

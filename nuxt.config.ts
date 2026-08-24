@@ -49,7 +49,7 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: 'https://maximejolivet.fr',
+    url: 'https://www.maxime.bzh',
   },
 
   runtimeConfig: {
@@ -61,6 +61,10 @@ export default defineNuxtConfig({
 
   devServer: {
     port: 8000,
+  },
+
+  experimental: {
+    viewTransition: true,
   },
 
   vite: {

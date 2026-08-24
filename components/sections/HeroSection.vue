@@ -26,10 +26,10 @@ const marqueeAutoplay = { delay: 1, disableOnInteraction: false, pauseOnMouseEnt
 // container, which it is here on wide screens with only 11 short labels.
 const MARQUEE_LOOP_STACK = Array.from({ length: 10 }, () => MARQUEE_STACK).flat()
 
-const key = 'text-cyan-300'
-const str = 'text-green-300'
-const dateKey = 'text-rose-300'
-const punct = 'text-destructive/80'
+const key = 'text-mint'
+const str = 'text-primary'
+const dateKey = 'text-highlight'
+const punct = 'text-panel-foreground/35'
 
 const jsonLines = computed<JsonLine[]>(() => {
   const experienceRows = EXPERIENCE_TIMELINE.map((item) => ({

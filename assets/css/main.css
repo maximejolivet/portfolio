@@ -15,6 +15,9 @@
 
   --color-mint: var(--mint);
 
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--on-panel);
+
   --color-muted: var(--card);
   --color-muted-foreground: var(--sub);
   --color-subtle: var(--subtle);
@@ -72,10 +75,11 @@
   --on-primary: #1d3540;
   /* Always light: text sitting on --panel / --panel-2, which stay dark in both themes. */
   --on-panel: #f3f4f0;
-  --accent: #7fd9c4;
-  --mint: #7fd9c4;
-  --sub: rgba(29, 53, 64, 0.62);
-  --subtle: rgba(29, 53, 64, 0.45);
+  --accent: #4fb39c;
+  --mint: #4fb39c;
+  --highlight: #e08a5c;
+  --sub: rgba(29, 53, 64, 0.7);
+  --subtle: rgba(29, 53, 64, 0.58);
   --line: rgba(29, 53, 64, 0.16);
   --card: #fbfcfa;
   --panel: #24414f;
@@ -87,9 +91,10 @@
 :root[data-theme='night'] {
   --bg: #152833;
   --ink: #f3f4f0;
-  --accent: #7fd9c4;
+  --accent: #4fb39c;
+  --highlight: #e08a5c;
   --sub: rgba(243, 244, 240, 0.62);
-  --subtle: rgba(243, 244, 240, 0.42);
+  --subtle: rgba(243, 244, 240, 0.5);
   --line: rgba(243, 244, 240, 0.16);
   --card: #1e3945;
   --panel: #10202a;
@@ -101,6 +106,18 @@
 .custom-cursor-active,
 .custom-cursor-active * {
   cursor: none !important;
+}
+
+.card-hover-gradient {
+  transition: background-image 0.3s ease;
+}
+
+.card-hover-gradient:hover {
+  background-image: linear-gradient(
+    135deg,
+    var(--card),
+    color-mix(in srgb, var(--card) 88%, var(--accent) 12%)
+  );
 }
 
 @keyframes marquee {

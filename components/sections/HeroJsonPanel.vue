@@ -207,7 +207,7 @@ onUnmounted(() => {
             <template v-else>
               <span
                 v-if="line.statusDot"
-                class="ml-2.5 inline-block size-2 animate-pulse-dot rounded-full bg-red-500 align-middle"
+                class="ml-2.5 inline-block size-2 animate-pulse-dot rounded-full bg-highlight align-middle"
               />
               <span v-if="line.cursor" class="animate-blink text-panel-foreground"> ▎</span>
               <span class="ml-1 text-panel-foreground/15">¬</span>
