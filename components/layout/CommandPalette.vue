@@ -189,8 +189,7 @@ onUnmounted(() => {
         v-for="key in shortcutKeys"
         :key="key"
         class="rounded border border-current/25 bg-current/5 px-1 py-px text-[0.65rem] font-semibold leading-tight"
-        >{{ key }}</kbd
-      >
+        >{{ key }}</kbd>
     </span>
   </button>
 
@@ -219,8 +218,7 @@ onUnmounted(() => {
         />
         <kbd
           class="rounded border border-panel-foreground/15 px-1.5 py-0.5 text-[0.65rem] text-panel-foreground/40"
-          >esc</kbd
-        >
+          >esc</kbd>
       </div>
 
       <div class="max-h-80 overflow-y-auto p-2">

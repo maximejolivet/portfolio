@@ -179,8 +179,7 @@ const jsonLines = computed<JsonLine[]>(() => {
           >
             <span
               class="whitespace-nowrap font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
-              >{{ name.toUpperCase() }}</span
-            >
+              >{{ name.toUpperCase() }}</span>
           </swiper-slide>
         </swiper-container>
       </div>
@@ -193,8 +192,7 @@ const jsonLines = computed<JsonLine[]>(() => {
                 v-for="name in MARQUEE_STACK"
                 :key="`${rep}-${name}`"
                 class="font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
-                >{{ name.toUpperCase() }}</span
-              >
+                >{{ name.toUpperCase() }}</span>
             </div>
           </div>
         </div>

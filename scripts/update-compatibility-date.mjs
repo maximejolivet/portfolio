@@ -21,12 +21,12 @@ const regex = /compatibilityDate:\s*['"]([^'"]+)['"]/
 
 const match = content.match(regex)
 if (match && match[1] === today) {
-  console.log(`[update-date] Already up to date: ${today}`)
+  console.info(`[update-date] Already up to date: ${today}`)
   process.exit(0)
 }
 
 writeFileSync(nuxtConfigPath, content.replace(
   /compatibilityDate:\s*['"][^'"]+['"]/g,
-  `compatibilityDate: '${today}'`
+  `compatibilityDate: '${today}'`,
 ))
-console.log(`[update-date] Updated to ${today}`)
+console.info(`[update-date] Updated to ${today}`)

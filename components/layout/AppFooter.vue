@@ -26,9 +26,7 @@ function openCookieSettings() {
         </button>
       </div>
       <div class="flex flex-col items-center gap-1">
-        <span class="sr-only"
-          >{{ $t('footer.taglineRole') }} {{ $t('footer.taglineDetails') }}</span
-        >
+        <span class="sr-only">{{ $t('footer.taglineRole') }} {{ $t('footer.taglineDetails') }}</span>
         <div class="flex items-center gap-2">
           <span
             class="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 rounded-2xl border border-border bg-white px-3 py-2 text-center font-mono text-[0.6875rem] font-semibold text-primary-foreground sm:h-9 sm:flex-nowrap sm:gap-2 sm:rounded-full sm:px-3.5 sm:py-0 sm:text-xs sm:whitespace-nowrap"

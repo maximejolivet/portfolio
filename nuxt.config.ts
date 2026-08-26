@@ -2,7 +2,6 @@ import tailwindcss from '@tailwindcss/vite'
 import routes from './routes.json'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2026-08-24',
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'storeToRefs'] }],
     'nuxt-security',
@@ -60,6 +59,47 @@ export default defineNuxtConfig({
     },
   },
 
+  routeRules: {
+    // pdfjs-viewer-element bootstraps its viewer by injecting unnonced inline
+    // <script> tags into an internal srcdoc iframe. Chrome/Firefox allow this
+    // via 'strict-dynamic' (script-inserted scripts inherit trust), but Safari
+    // doesn't implement 'strict-dynamic' at all, and the global nonce disables
+    // 'unsafe-inline' as a fallback per CSP2 rules - so those scripts get
+    // silently blocked and the CV never renders. Drop nonce/strict-dynamic for
+    // this route so 'unsafe-inline' is actually honored in Safari too.
+    // Dropping 'strict-dynamic' also drops its blanket trust of scripts loaded
+    // by tarteaucitron (app.vue), so the Cal.com and GTM hosts it loads
+    // sitewide need to be listed explicitly here.
+    '/fr/cv': {
+      security: {
+        headers: {
+          contentSecurityPolicy: {
+            'script-src': [
+              '\'self\'',
+              '\'unsafe-inline\'',
+              'https://app.cal.eu',
+              'https://www.googletagmanager.com',
+            ],
+          },
+        },
+      },
+    },
+    '/en/cv': {
+      security: {
+        headers: {
+          contentSecurityPolicy: {
+            'script-src': [
+              '\'self\'',
+              '\'unsafe-inline\'',
+              'https://app.cal.eu',
+              'https://www.googletagmanager.com',
+            ],
+          },
+        },
+      },
+    },
+  },
+
   devServer: {
     port: 8000,
   },
@@ -67,6 +107,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
+  compatibilityDate: '2026-08-24',
 
   vite: {
     plugins: [tailwindcss()],
@@ -125,47 +166,6 @@ export default defineNuxtConfig({
     // routes.json values type as plain `string` once imported, but @nuxtjs/i18n's
     // typed `pages` option expects each locale path as a `/${string}` literal.
     pages: routes as Record<string, Partial<Record<'en' | 'fr', false | `/${string}`>>>,
-  },
-
-  routeRules: {
-    // pdfjs-viewer-element bootstraps its viewer by injecting unnonced inline
-    // <script> tags into an internal srcdoc iframe. Chrome/Firefox allow this
-    // via 'strict-dynamic' (script-inserted scripts inherit trust), but Safari
-    // doesn't implement 'strict-dynamic' at all, and the global nonce disables
-    // 'unsafe-inline' as a fallback per CSP2 rules - so those scripts get
-    // silently blocked and the CV never renders. Drop nonce/strict-dynamic for
-    // this route so 'unsafe-inline' is actually honored in Safari too.
-    // Dropping 'strict-dynamic' also drops its blanket trust of scripts loaded
-    // by tarteaucitron (app.vue), so the Cal.com and GTM hosts it loads
-    // sitewide need to be listed explicitly here.
-    '/fr/cv': {
-      security: {
-        headers: {
-          contentSecurityPolicy: {
-            'script-src': [
-              '\'self\'',
-              '\'unsafe-inline\'',
-              'https://app.cal.eu',
-              'https://www.googletagmanager.com',
-            ],
-          },
-        },
-      },
-    },
-    '/en/cv': {
-      security: {
-        headers: {
-          contentSecurityPolicy: {
-            'script-src': [
-              '\'self\'',
-              '\'unsafe-inline\'',
-              'https://app.cal.eu',
-              'https://www.googletagmanager.com',
-            ],
-          },
-        },
-      },
-    },
   },
 
   security: {

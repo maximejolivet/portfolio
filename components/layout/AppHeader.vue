@@ -32,9 +32,7 @@ onUnmounted(() => {
       <div class="flex items-center gap-4">
         <NuxtLink :to="localePath('/')" aria-label="Maxime Jolivet" class="flex items-center gap-3">
           <UiLogoMark :size="42" class="text-foreground" />
-          <span class="font-sans text-base font-bold hidden md:block tracking-tight text-foreground"
-            >maximejolivet</span
-          >
+          <span class="font-sans text-base font-bold hidden md:block tracking-tight text-foreground">maximejolivet</span>
         </NuxtLink>
       </div>
 
