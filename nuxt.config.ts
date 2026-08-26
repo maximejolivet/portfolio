@@ -126,6 +126,34 @@ export default defineNuxtConfig({
     pages: routes,
   },
 
+  routeRules: {
+    // pdfjs-viewer-element bootstraps its viewer by injecting unnonced inline
+    // <script> tags into an internal srcdoc iframe. Chrome/Firefox allow this
+    // via 'strict-dynamic' (script-inserted scripts inherit trust), but Safari
+    // doesn't implement 'strict-dynamic' at all, and the global nonce disables
+    // 'unsafe-inline' as a fallback per CSP2 rules - so those scripts get
+    // silently blocked and the CV never renders. Drop nonce/strict-dynamic for
+    // this route so 'unsafe-inline' is actually honored in Safari too.
+    '/fr/cv': {
+      security: {
+        headers: {
+          contentSecurityPolicy: {
+            'script-src': ['\'self\'', '\'unsafe-inline\''],
+          },
+        },
+      },
+    },
+    '/en/cv': {
+      security: {
+        headers: {
+          contentSecurityPolicy: {
+            'script-src': ['\'self\'', '\'unsafe-inline\''],
+          },
+        },
+      },
+    },
+  },
+
   security: {
     nonce: true,
     rateLimiter: false,
