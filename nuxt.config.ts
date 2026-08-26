@@ -134,11 +134,19 @@ export default defineNuxtConfig({
     // 'unsafe-inline' as a fallback per CSP2 rules - so those scripts get
     // silently blocked and the CV never renders. Drop nonce/strict-dynamic for
     // this route so 'unsafe-inline' is actually honored in Safari too.
+    // Dropping 'strict-dynamic' also drops its blanket trust of scripts loaded
+    // by tarteaucitron (app.vue), so the Cal.com and GTM hosts it loads
+    // sitewide need to be listed explicitly here.
     '/fr/cv': {
       security: {
         headers: {
           contentSecurityPolicy: {
-            'script-src': ['\'self\'', '\'unsafe-inline\''],
+            'script-src': [
+              '\'self\'',
+              '\'unsafe-inline\'',
+              'https://app.cal.eu',
+              'https://www.googletagmanager.com',
+            ],
           },
         },
       },
@@ -147,7 +155,12 @@ export default defineNuxtConfig({
       security: {
         headers: {
           contentSecurityPolicy: {
-            'script-src': ['\'self\'', '\'unsafe-inline\''],
+            'script-src': [
+              '\'self\'',
+              '\'unsafe-inline\'',
+              'https://app.cal.eu',
+              'https://www.googletagmanager.com',
+            ],
           },
         },
       },
