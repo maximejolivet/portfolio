@@ -20,7 +20,7 @@ There is no commitlint / `commit-msg` hook enforcing this mechanically — `.hus
 - `<scope>` — **mandatory**, the area of the codebase touched. Not an issue identifier. For this repo, natural scopes are component/feature areas: `footer`, `hero`, `nav`, `i18n`, `deploy`, `ci`, `config`, `seo`, `icons`, `blog`, `projects`, `cv`, `a11y`, `theme`, `deps`. Pick the narrowest one that fits; for a change spanning several, use the broadest sensible one (`repo`, `config`) rather than omitting it.
 - `<emoji>` — optional but recommended, right after the colon, per `<type>` (table below).
 - `<description>` — mandatory, English, imperative present tense ("add", not "added"/"adds"), no capitalized first letter, no trailing period, ≤ 72 chars.
-- `<body>` — optional, explains *what* and *why*, not *how*. Blank line separates it from the subject.
+- `<body>` — optional, explains _what_ and _why_, not _how_. Blank line separates it from the subject.
 - `<footer>` — optional.
 
 ```
@@ -35,20 +35,20 @@ feat(footer): ✨ add Brittany flag and made-in tagline
 
 ## Types
 
-| Type | Emoji | When to use it |
-|---|---|---|
-| `feat` | ✨ | New feature or user-visible change |
-| `fix` | 🐛 | Bug fix |
-| `refactor` | ♻️ | Rewrites or restructures code with **no** behavior change |
-| `perf` | ⚡️ | Performance improvement (still no behavior change) |
-| `docs` | 📝 | Documentation only (README, CLAUDE.md, code comments) |
-| `style` | 💄 | Formatting only, no logic change |
-| `test` | ✅ | Adds or fixes tests (`test/**/*.spec.ts`, vitest) |
-| `build` | 📦 | Dependencies, build config (`vite`, `nuxt.config.ts`, `package.json`) |
-| `ci` | 👷 | CI/CD pipelines — see `.github/workflows/nuxtjs.yml` |
-| `chore` | 🔧 | Misc maintenance/config, everything else |
-| `revert` | ⏪ | Reverts a previous commit |
-| `security` | 🔒 | Fix that specifically closes a vulnerability |
+| Type       | Emoji | When to use it                                                        |
+| ---------- | ----- | --------------------------------------------------------------------- |
+| `feat`     | ✨    | New feature or user-visible change                                    |
+| `fix`      | 🐛    | Bug fix                                                               |
+| `refactor` | ♻️    | Rewrites or restructures code with **no** behavior change             |
+| `perf`     | ⚡️    | Performance improvement (still no behavior change)                    |
+| `docs`     | 📝    | Documentation only (README, CLAUDE.md, code comments)                 |
+| `style`    | 💄    | Formatting only, no logic change                                      |
+| `test`     | ✅    | Adds or fixes tests (`test/**/*.spec.ts`, vitest)                     |
+| `build`    | 📦    | Dependencies, build config (`vite`, `nuxt.config.ts`, `package.json`) |
+| `ci`       | 👷    | CI/CD pipelines — see `.github/workflows/nuxtjs.yml`                  |
+| `chore`    | 🔧    | Misc maintenance/config, everything else                              |
+| `revert`   | ⏪    | Reverts a previous commit                                             |
+| `security` | 🔒    | Fix that specifically closes a vulnerability                          |
 
 ## Footer trailers
 
@@ -78,35 +78,42 @@ Reach for `!`/`BREAKING CHANGE:` deliberately — not something to add on every 
 
 ## Writing one
 
-1. Look at what's actually staged/changed (`git diff --staged`, `git status`) — the type must match the *effect* of the diff, not the intent behind the request.
-2. Pick exactly one type, one concern. If a commit seems to need two types (e.g. a fix *and* a docs update), that's usually a sign it should be two commits — but don't split an already-requested single commit without checking with the user first.
+1. Look at what's actually staged/changed (`git diff --staged`, `git status`) — the type must match the _effect_ of the diff, not the intent behind the request.
+2. Pick exactly one type, one concern. If a commit seems to need two types (e.g. a fix _and_ a docs update), that's usually a sign it should be two commits — but don't split an already-requested single commit without checking with the user first.
 3. Scope is mandatory — never omit it, never use an issue identifier as the scope.
 4. Keep `<description>` short (~50-72 chars), imperative present tense, English, no cap, no trailing period; put further explanation in the body.
 5. Actually run `npm run lint` / `npm run test` before writing `Verified-by:` — never fabricate the counts.
 6. Still follow this repo's own commit rules (root `CLAUDE.md` / the system's git instructions) for everything else — only create a commit when asked, never `--no-verify`, prefer new commits over amending, stage specific files rather than `git add -A`/`git add .`.
+7. **No AI attribution**: do not add a `Co-Authored-By: Claude ...` trailer, a `Claude-Session:` link, or any other mention that Claude/an AI made the commit — even though the harness's default git instructions normally append one. The user has explicitly asked for commits in this repo to carry no AI attribution.
 
 ## Examples
 
 ```
 feat(footer): ✨ add Brittany flag and made-in tagline
 ```
+
 ```
 fix(footer): 🐛 bind alt with v-bind instead of mustache interpolation
 ```
+
 ```
 chore(skills): 🔧 adapt .claude skills to this repo's actual stack
 ```
+
 ```
 ci(deploy): 👷 bump actions/checkout to v6
 ```
+
 ```
 docs(readme): 📝 update Makefile command list
 ```
+
 ```
 fix(csp): 🐛 add data: to font-src directive
 
 Verified-by: ESLint 0 errors, vitest 6 passed
 ```
+
 ```
 feat(routing)!: ✨ change project URL structure
 
