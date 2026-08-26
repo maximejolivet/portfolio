@@ -3,7 +3,6 @@ import routes from './routes.json'
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-08-24',
-  compatibilityDate: '2026-08-24',
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'storeToRefs'] }],
     'nuxt-security',
@@ -123,7 +122,9 @@ export default defineNuxtConfig({
       redirectOn: 'root', // recommended
     },
     customRoutes: 'config', // disable custom route with page components
-    pages: routes,
+    // routes.json values type as plain `string` once imported, but @nuxtjs/i18n's
+    // typed `pages` option expects each locale path as a `/${string}` literal.
+    pages: routes as Record<string, Partial<Record<'en' | 'fr', false | `/${string}`>>>,
   },
 
   routeRules: {
