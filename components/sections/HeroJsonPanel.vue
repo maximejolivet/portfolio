@@ -186,7 +186,7 @@ onUnmounted(() => {
       <span class="size-2.5 rounded-full bg-red-400/70" />
       <span class="size-2.5 rounded-full bg-yellow-400/70" />
       <span class="size-2.5 rounded-full bg-green-400/70" />
-      <span class="ml-2 truncate font-mono text-xs text-panel-foreground/40">portfolio — {{ activeTab }}</span>
+      <span class="ml-2 truncate font-mono text-xs text-panel-foreground/60">portfolio — {{ activeTab }}</span>
     </div>
 
     <div class="flex min-h-0 flex-1">
@@ -276,7 +276,7 @@ onUnmounted(() => {
             v-for="(line, i) in renderLines"
             v-show="line.isStarted"
             :key="i"
-            class="whitespace-pre-wrap break-words md:w-max md:whitespace-pre"
+            class="w-max whitespace-pre"
           >
             <span class="mr-5 inline-block w-6 text-right text-panel-foreground/25">{{
               i + 1

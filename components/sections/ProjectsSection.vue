@@ -46,6 +46,7 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
               v-if="project.image"
               :src="project.image"
               :alt="t(project.titleKey)"
+              loading="lazy"
               class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <CardsProjectLogoPlate

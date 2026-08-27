@@ -25,6 +25,7 @@ const tagline = computed(() => t(props.project.taglineKey))
         v-if="project.image"
         :src="project.image"
         :alt="t(project.titleKey)"
+        loading="lazy"
         class="aspect-video size-full object-cover transition-transform duration-500 group-hover:scale-105 sm:aspect-auto sm:h-full"
       />
       <CardsProjectLogoPlate

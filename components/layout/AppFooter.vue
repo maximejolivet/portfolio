@@ -36,6 +36,8 @@ function openCookieSettings() {
               src="/flag-bretagne.svg"
               :alt="$t('footer.madeInPlace')"
               :title="$t('footer.madeInPlace')"
+              width="29"
+              height="20"
               class="h-5 w-auto"
             />
             {{ $t('footer.madeInSuffix') }}

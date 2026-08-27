@@ -23,6 +23,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
       <NuxtImg
         :src="project.image"
         :alt="t(project.titleKey)"
+        loading="lazy"
         class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
     </div>
