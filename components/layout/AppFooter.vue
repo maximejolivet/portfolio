@@ -39,7 +39,6 @@ function openCookieSettings() {
               class="h-5 w-auto"
             />
             {{ $t('footer.madeInSuffix') }}
-            <span class="text-base" aria-hidden="true">🥐</span>
           </span>
           <NavigationThemeToggle />
         </div>
