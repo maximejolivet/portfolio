@@ -7,6 +7,20 @@ definePageMeta({
 
 const { refused: calRefused } = useCalConsent()
 
+const pdfViewer = ref(null)
+
+onMounted(() => {
+  // pdfjs-viewer-element defaults `wasmUrl` to a `../web/wasm/` path that
+  // isn't shipped in the published package, unlike pdf.js itself (which
+  // defaults it to null, i.e. disabled). That forces pdf.js to attempt
+  // wasm-based ICC/JBIG2/JPX decoding against a 404, which throws instead
+  // of degrading gracefully in the synchronous "fake worker" fallback some
+  // browsers (Safari, Firefox mobile) use - breaking rendering entirely for
+  // PDFs with an embedded ICC profile (e.g. Canva exports). Restore pdf.js's
+  // own safe default before init picks it up.
+  pdfViewer.value?.setViewerOptions({ wasmUrl: null, useWasm: false })
+})
+
 useHead({
   meta: [{ name: 'robots', content: 'noindex, nofollow' }],
 })
@@ -31,6 +45,7 @@ useSeoMeta({
   <div>
     <h1 class="sr-only">Maxime Jolivet · Curriculum vitæ</h1>
     <pdfjs-viewer-element
+      ref="pdfViewer"
       src="/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-tech-lead-ia.pdf"
       worker-src="/generated/pdf.worker.min.mjs"
       viewer-css-theme="DARK"
