@@ -28,6 +28,7 @@ const PREFIXES = [
   'lucide',
   'logos',
   'material-icon-theme',
+  'ri',
   'selfhst',
   'skill-icons',
 ]

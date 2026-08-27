@@ -17,6 +17,7 @@ const SECTIONS = [
   'publication',
   'hosting',
   'technologies',
+  'ai',
   'data',
   'cookies',
   'ip',
@@ -41,7 +42,7 @@ const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
 
     <LayoutPageSection bare>
       <UiContainer class="flex max-w-[760px] flex-col gap-10 pb-24">
-        <div v-for="section in SECTIONS" :key="section">
+        <div v-for="section in SECTIONS" :id="section" :key="section" class="scroll-mt-24">
           <h2 class="mb-2 font-sans text-lg font-bold text-foreground">
             {{ $t(`legalPage.sections.${section}.title`) }}
           </h2>

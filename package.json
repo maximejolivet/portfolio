@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "version": "1.0.74",
+  "version": "1.0.77",
   "repository": "git@github.com:maximejolivet/portfolio.git",
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
@@ -34,6 +34,7 @@
     "@iconify-json/logos": "^1.2.13",
     "@iconify-json/lucide": "^1.2.125",
     "@iconify-json/material-icon-theme": "^1.2.70",
+    "@iconify-json/ri": "^1.2.10",
     "@iconify-json/selfhst": "^1.2.16",
     "@iconify-json/skill-icons": "^1.2.4",
     "@nuxt/eslint": "^1.17.0",
@@ -75,9 +76,9 @@
     "@supabase/supabase-js": "^2.112.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "oxc-parser": "^0.147.0",
     "reka-ui": "^2.10.3",
     "swiper": "^14.1.0",
-    "tailwind-merge": "^3.6.0",
-    "oxc-parser": "^0.147.0"
+    "tailwind-merge": "^3.6.0"
   }
 }

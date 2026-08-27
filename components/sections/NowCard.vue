@@ -21,7 +21,7 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
 </script>
 
 <template>
-  <div class="flex flex-col gap-2.5">
+  <div class="flex min-w-0 flex-col gap-2.5">
     <div class="font-mono text-[0.7188rem] font-bold tracking-[1.5px] text-panel-foreground/50">
       {{ $t(`home.now.items.${item}.label`) }}
     </div>
@@ -33,10 +33,10 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
         :href="shipped.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="group flex flex-col gap-0.5"
+        class="group flex min-w-0 flex-col gap-0.5"
       >
         <div
-          class="flex items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold transition-colors group-hover:text-mint"
+          class="flex min-w-0 items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold transition-colors group-hover:text-mint"
         >
           <span class="size-2 shrink-0 animate-pulse-dot rounded-full bg-mint" />
           <span class="truncate">{{ shipped.repo }}</span>
@@ -53,14 +53,14 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
         :href="linkOverride"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold transition-colors hover:text-mint"
+        class="flex min-w-0 items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold transition-colors hover:text-mint"
       >
-        <span v-if="item === 'shipped'" class="size-2 animate-pulse-dot rounded-full bg-mint" />
-        {{ title }}
+        <span v-if="item === 'shipped'" class="size-2 shrink-0 animate-pulse-dot rounded-full bg-mint" />
+        <span class="truncate">{{ title }}</span>
       </a>
-      <div v-else class="flex items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold">
-        <span v-if="item === 'shipped'" class="size-2 animate-pulse-dot rounded-full bg-mint" />
-        {{ title }}
+      <div v-else class="flex min-w-0 items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold">
+        <span v-if="item === 'shipped'" class="size-2 shrink-0 animate-pulse-dot rounded-full bg-mint" />
+        <span class="truncate">{{ title }}</span>
       </div>
       <div class="font-mono text-xs leading-[1.5] text-panel-foreground/55">
         {{ detail }}
