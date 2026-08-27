@@ -1,30 +1,42 @@
 {
   "home": {
     "en": "/",
-    "fr": "/"
+    "fr": "/",
+    "br": "/"
   },
   "cv": {
     "en": "/cv",
-    "fr": "/cv"
+    "fr": "/cv",
+    "br": "/cv"
   },
   "projects": {
     "en": "/projects",
-    "fr": "/projets"
+    "fr": "/projets",
+    "br": "/raktresou"
   },
   "projects-slug": {
     "en": "/projects/[slug]",
-    "fr": "/projets/[slug]"
+    "fr": "/projets/[slug]",
+    "br": "/raktresou/[slug]"
   },
   "blog": {
     "en": "/blog",
-    "fr": "/blog"
+    "fr": "/blog",
+    "br": "/blog"
   },
   "blog-slug": {
     "en": "/blog/[slug]",
-    "fr": "/blog/[slug]"
+    "fr": "/blog/[slug]",
+    "br": "/blog/[slug]"
   },
   "mentions-legales": {
     "en": "/legal-notice",
-    "fr": "/mentions-legales"
+    "fr": "/mentions-legales",
+    "br": "/menegou-lezennel"
+  },
+  "accessibilite": {
+    "en": "/accessibility",
+    "fr": "/accessibilite",
+    "br": "/haezadusted"
   }
 }

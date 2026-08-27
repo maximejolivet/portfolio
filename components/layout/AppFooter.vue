@@ -17,6 +17,9 @@ function openCookieSettings() {
         <NuxtLink :to="localePath('mentions-legales')" class="transition-colors hover:text-accent">
           {{ $t('footer.legalMentions') }}
         </NuxtLink>
+        <NuxtLink :to="localePath('accessibilite')" class="transition-colors hover:text-accent">
+          {{ $t('footer.accessibility') }}
+        </NuxtLink>
         <button
           type="button"
           class="cursor-pointer transition-colors hover:text-accent"

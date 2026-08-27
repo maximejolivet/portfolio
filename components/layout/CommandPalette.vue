@@ -13,6 +13,8 @@ const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 const { theme, toggleTheme } = useThemeMode()
 
+const LOCALE_CYCLE = ['fr', 'en', 'br'] as const
+
 const open = ref(false)
 const query = ref('')
 const activeIndex = ref(0)
@@ -125,12 +127,13 @@ const commands = computed<Command[]>(() => [
     id: 'locale',
     group: 'action',
     icon: 'lucide:languages',
-    label:
-      locale.value === 'fr'
-        ? t('commandPalette.switchToEnglish')
-        : t('commandPalette.switchToFrench'),
-    keywords: 'language langue',
-    run: () => goTo(switchLocalePath(locale.value === 'fr' ? 'en' : 'fr')),
+    label: t('commandPalette.switchLanguage'),
+    keywords: 'language langue yezh',
+    run: () => {
+      const currentIndex = LOCALE_CYCLE.indexOf(locale.value as (typeof LOCALE_CYCLE)[number])
+      const next = LOCALE_CYCLE[(currentIndex + 1) % LOCALE_CYCLE.length]
+      goTo(switchLocalePath(next))
+    },
   },
 ])
 

@@ -49,6 +49,10 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    // NUXT_PAGESPEED_API_KEY - free key from Google Cloud Console
+    // ("PageSpeed Insights API"), needed because the unauthenticated tier
+    // rate-limits almost immediately.
+    pagespeedApiKey: '',
     public: {
       supabaseUrl: '',
       supabaseKey: '',
@@ -147,11 +151,13 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
+    baseUrl: 'https://www.maxime.bzh',
     strategy: 'prefix',
     defaultLocale: 'fr',
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
       { code: 'fr', language: 'fr-FR', name: 'French', file: 'fr.json' },
+      { code: 'br', language: 'br-FR', name: 'Brezhoneg', file: 'br.json' },
     ],
     detectBrowserLanguage: {
       useCookie: true,
@@ -161,7 +167,7 @@ export default defineNuxtConfig({
     customRoutes: 'config', // disable custom route with page components
     // routes.json values type as plain `string` once imported, but @nuxtjs/i18n's
     // typed `pages` option expects each locale path as a `/${string}` literal.
-    pages: routes as Record<string, Partial<Record<'en' | 'fr', false | `/${string}`>>>,
+    pages: routes as Record<string, Partial<Record<'en' | 'fr' | 'br', false | `/${string}`>>>,
   },
 
   security: {

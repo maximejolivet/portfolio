@@ -1,0 +1,22 @@
+# Maxime Jolivet — Portfolio
+
+> Senior full-stack web developer (PHP, JavaScript, Drupal, WordPress, Vue/Nuxt), based in Nantes, France. This site documents his experience, projects, and technical choices — including AI-assisted content, transparently disclosed.
+
+## Structured data
+
+- [CV / Resume (JSON Resume format)](https://www.maxime.bzh/api/cv.json): Machine-readable resume — work history, skills, contact info. Add `?lang=en` for the English version.
+- [Lighthouse badge](https://www.maxime.bzh/api/lighthouse-badge.svg): Live performance/accessibility/best-practices/SEO scores for this site, computed on demand via Google PageSpeed Insights. Add `?strategy=desktop` for the desktop variant.
+
+## Pages
+
+- [Home](https://www.maxime.bzh/fr): Hero, about, tech stack, career timeline, live GitHub activity.
+- [Projects](https://www.maxime.bzh/fr/projets): Case studies (professional and personal).
+- [CV](https://www.maxime.bzh/fr/cv): Full CV as an embedded PDF, or via the JSON API above.
+- [Blog](https://www.maxime.bzh/fr/blog): Technical articles.
+- [Legal notice / AI disclosure](https://www.maxime.bzh/fr/mentions-legales): Site editor info, and a transparency notice about which AI tools were used on this site, how, and why (Claude Code for development, Nano Banana for one photo retouch).
+
+## Notes for AI agents
+
+- This site is intentionally deindexed from traditional search engines (`noindex, nofollow`) but welcomes AI agents and LLM-based tools.
+- French is the primary/default language. English and Breton (Brezhoneg) are also available via the `/en/...` and `/br/...` URL prefixes.
+- The AI disclosure page follows the French government's Système de Design de l'État recommendation on labeling AI-assisted content: https://www.systeme-de-design.gouv.fr/version-courante/fr/a-propos/articles-et-actualites/presence-de-l-ia-dans-les-contenus
