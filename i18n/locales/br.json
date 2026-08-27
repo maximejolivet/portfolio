@@ -1,0 +1,708 @@
+{
+  "welcome": "Degemer mat",
+  "about": "Diwar-benn din",
+  "seo": {
+    "homeTitle": "Diorroer web full-stack uhel PHP / JavaScript / Ekspert Drupal - WordPress"
+  },
+  "a11y": {
+    "skipToContent": "Mont d'an endalc'had"
+  },
+  "intro": {
+    "skipHint": "SPACE PE ESC EVIT TREMEN · STOKañ EVIT TREMEN"
+  },
+  "nav": {
+    "home": "Degemer",
+    "blog": "Blog",
+    "projects": "Raktresoù",
+    "contact": "Darempred",
+    "openMenu": "Digeriñ al lañser",
+    "closeMenu": "Serriñ al lañser"
+  },
+  "theme": {
+    "day": "Mod deiz",
+    "night": "Mod noz"
+  },
+  "commandPalette": {
+    "toggle": "Digeriñ palett an urzhioù",
+    "placeholder": "Skrivit un urzh pe klaskit...",
+    "noResults": "Disoc'h ebet",
+    "groupNavigation": "MERDEADENN",
+    "groupActions": "OBEROÙ",
+    "ide": "IDE & termenell",
+    "toggleTheme": "Kemmañ ar mod (deiz/noz)",
+    "switchLanguage": "Kemmañ ar yezh"
+  },
+  "footer": {
+    "taglineRole": "Diorroer web",
+    "taglineDetails": "full-stack senior / Lead Dev / Tech Lead",
+    "madeInPrefix": "Graet e",
+    "madeInPlace": "Breizh",
+    "madeInSuffix": "etre daou Kouign-amann",
+    "rights": "",
+    "backToTop": "Distreiñ d'an nec'h",
+    "legalMentions": "Menegoù lezennel",
+    "accessibility": "Haezadusted",
+    "manageCookies": "Merañ ar cookies"
+  },
+  "social": {
+    "github": "Gwelet ma GitHub",
+    "linkedin": "Gwelet ma frofil LinkedIn",
+    "email": "Darempredit ac'hanon"
+  },
+  "hero": {
+    "greeting": "Demat, Maxime on",
+    "role": "Diorroer web full-stack uhel",
+    "location": "Naoned, Frañs",
+    "bio": "Diorren ha mentoniñ a ran lec'hiennoù-merk, lec'hiennoù produ, etrefasoù implijer, lec'hiennoù e-commerce hag ostilhoù micherel.",
+    "subtitle": "10 vloaz a skiant-prenet, dreist-holl en asantiezhioù niverel. Barregezhioù kreñv e PHP ha JavaScript, ur c'hallout CMS arloet da raktresoù kompleksed ha kalz goulennus, gant evezh diehan war kalite ar c'hod hag war bad-mat an dibaboù teknikel.",
+    "ctaSecondary": "Gwelet ar raktresoù",
+    "ctaContact": "daremprediñ ac'hanon",
+    "underConstructionNote": "Lec'hienn c'hoazh oc'h en em sevel 🚧"
+  },
+  "aboutSection": {
+    "eyebrow": "Diwar-benn",
+    "titleStart": "Un diorroer a soñj",
+    "titleHighlight": "skiant-prenet an implijer",
+    "titleEnd": ", ha n'eo ket hepken kod.",
+    "paragraph1": "Abaoe 10 vloaz, e heuliaan embregerezhioù B2B eus pep tachenn war raktresoù web kompleksed, adalek ar framm teknikel betek ar mentoniñ.",
+    "paragraph2": "Ekspert Drupal ha WordPress, aes war ar stakadoù PHP / JavaScript arnevez, e savan lec'hiennoù hag arloadoù web graet evit padout : buan, haezadus, hag aes da gemmañ.",
+    "highlight1": "10 vloaz a skiant-prenet en un asantiezh niverel",
+    "highlight2": "Ekspert Drupal ha WordPress, kreñv e PHP & JavaScript",
+    "highlight3": "Doare labour tost d'ar buander hag an haezadusted",
+    "imageAlt": "Poltred Maxime Jolivet",
+    "aiDisclosure": "Poltred graet e-parzh gant \nun IA diwar ur skeudenn ac'hanon",
+    "tags": {
+      "conceptionUiUx": "Design UI/UX",
+      "webDev": "Diorren web",
+      "problemSolving": "Diskoulmañ kudennoù",
+      "cloudDevops": "Cloud & DevOps",
+      "aiAutomation": "IA & Emgefre",
+      "vibeCoding": "Vibe coding / Low-code"
+    }
+  },
+  "techSection": {
+    "eyebrow": "Stakad teknikel",
+    "titleStart": "Ostilhoù",
+    "titleHighlight": "arnevez",
+    "titleEnd": "ha kadarnaet gant an amzer.",
+    "categories": {
+      "languages": {
+        "label": "Yezhoù",
+        "description": "Ar yezhoù a implijan bemdez evit sevel arloadoù kreñv."
+      },
+      "frontend": {
+        "label": "Frontend",
+        "description": "Etrefasoù arnevez, buan ha haezadus."
+      },
+      "backend": {
+        "label": "Backend",
+        "description": "Frammoù (frameworks) PHP evit sevelloù kreñv hag aes da ventoniñ."
+      },
+      "cms": {
+        "label": "CMS & Low-code",
+        "description": "Merañ endalc'had ha prototipañ buan hervez ezhommoù ar raktres."
+      },
+      "database": {
+        "label": "Diaz roadennoù",
+        "description": "Kadaviñ liammel pe alc'hwez-gwerzh hervez ezhommoù ar raktres."
+      },
+      "ai": {
+        "label": "IA & Emgefre",
+        "description": "Barregezhioù war-dro al LLMoù hag an IA c'henerus arloet d'an diorren."
+      },
+      "aiTools": {
+        "label": "Ostilhoù IA",
+        "description": "Skoazellerien hag oberourien IA enframmet em labour bemdez."
+      },
+      "devops": {
+        "label": "DevOps & Cloud",
+        "description": "Displegañ, ostaleriezh ha framm cloud."
+      },
+      "security": {
+        "label": "Surentez & kalite",
+        "description": "Mentoù mat surentez ha kalite kod."
+      },
+      "testing": {
+        "label": "Arnodennoù",
+        "description": "Ostilhoù evit fiziañsañ ar c'hod a-raok e lakaat war-bouez."
+      },
+      "tools": {
+        "label": "Ostilhoù",
+        "description": "Va endro labour bemdez."
+      },
+      "watch": {
+        "label": "War evezh",
+        "description": "Teknologiezhioù heuliet gant preder, n'int ket bet implijet c'hoazh war-bouez."
+      }
+    }
+  },
+  "experienceSection": {
+    "eyebrow": "Hent",
+    "titleStart": "Dek vloaz o",
+    "titleHighlight": "sevel evit gwir gustumerien",
+    "titleEnd": ".",
+    "items": {
+      "gingerminds": {
+        "period": "2017 - C'hwe. 2026",
+        "title": "Diorroer web full stack uhel PHP - JavaScript / Ekspert Drupal & WordPress (Brand Content)",
+        "organization": "Gingerminds",
+        "location": "Naoned (Meskaet) · Asantiezh niverel",
+        "intro": "Kemmesk war ouzhpenn 50 raktres kustumer e Gingerminds, e tachennoù liesseurt evel ar sevel-tiez, an industriezh, ar yec'hed, an energiezh, ar c'hendalc'hoù hag an aseuranchoù, hag ivez al labour-douar hag ar boued-douar, ma chom ul lodenn vras anezho war-bouez c'hoazh hiziv an deiz.",
+        "points": [
+          "Diorren ha mentoniñ lec'hiennoù-merk, lec'hiennoù produ, etrefasoù implijer, platennoù e-commerce hag ostilhoù micherel",
+          "Labourat evel Tech Lead / Lead Dev war raktresoù kustumer emdroet, rannañ ar mentoù mat, heuliañ ar skipailhoù",
+          "Ober mentoniñ reizhus, emdroadel hag arloadel dre zisplegañ ha diskoulmañ ar c'hudennoù teknikel, an dic'hoprioù hag an degouezhioù",
+          "Industrialaat Starter Kits diabarzh (WordPress ha Drupal) : skoueriekaat, CI/CD ha darnoù adimplijadus evit diazezoù ar raktresoù",
+          "Ober adweladennoù kod hag arnodennoù kalite (Buander, SEO, Surentez, Haezadusted RGAA)",
+          "Lakaat en implij diskoulmoù tracking ha dielfennadur evit muzuliañ ha gwellaat buander al lec'hiennoù (Matomo, Google Analytics)",
+          "Derc'hel ur gwiziegezh vev war ar mentoù nevez ha rannañ ar c'houlz-skiant e-barzh ur skipailh liesdazont",
+          "Kemer perzh e buhez an asantiezh : onboarding, ezel eus ar CSE hag ezel eus ar skipailh Happiness karget eus obererezhioù ar mad-vezañ"
+        ]
+      },
+      "donJigiFest": {
+        "period": "Gwe. 2017 - Ebr. 2021",
+        "title": "Webdesigner, Diorroer web",
+        "organization": "Don Jigi Fest",
+        "location": "Gwitreg (Meskaet) · Gouel, gwellvennegezh",
+        "description": "Design ha diorren lec'hienn internet ar gouel sonerezh evit embannadurioù 2018, 2019 ha 2020."
+      },
+      "greentech": {
+        "period": "Genv. 2016",
+        "title": "Webdesigner, Diorroer web",
+        "organization": "Greentech",
+        "location": "Dakar, Senegal · Staj",
+        "description": "Design ha diorren ul lec'hienn e-commerce diouzh dodenn gant erventennañ dre click and collect er stal."
+      },
+      "laSalleSaintJoseph": {
+        "period": "Genv. 2015",
+        "title": "Diorroer web full-stack",
+        "organization": "Groupe Scolaire La Salle Saint Joseph",
+        "location": "Argentré-du-Plessis · Staj",
+        "description": "Design ha diorren un treuzell titouroù liesleachenn hag ur blog keleier gant SEO."
+      },
+      "chSimoneVeil": {
+        "period": "Genv. 2014",
+        "title": "Diorroer web back-end",
+        "organization": "Centre Hospitalier Simone Veil",
+        "location": "Gwitreg · Staj",
+        "description": "Mentoniñ reizhus hag emdroadel un arload micherel diabarzh evit merañ goulennoù treuzdougen yec'hedel."
+      }
+    }
+  },
+  "projectsPage": {
+    "eyebrow": "RAKTRESOÙ",
+    "title": "Va oberoù",
+    "subtitle": "Diskuilhit un dibab raktresoù ma em eus kemeret perzh enno e-pad ma skiant-prenet micherel. An oberoù-mañ a ziskouez va labour e Gingerminds, e-lec'h ma em eus kemeret perzh e diorren lec'hiennoù web evit kustumerien eus tachennoù liesseurt :",
+    "subtitleSectors": "sevel-tiez, industriezh, yec'hed, energiezh, kendalc'hoù hag aseuranchoù, labour-douar ha boued-douar",
+    "subtitleClosing": "Implijet eo c'hoazh ul lodenn vras eus al lec'hiennoù-mañ war-bouez hiziv an deiz, o testeniañ eus o fad-mat hag o fiziañs.",
+    "subtitlePersonal": "Kavout a reoc'h ivez un dibab eus va raktresoù web personel, graet er stern eus va gwiziegezh deknologel ha va c'hresk barregezhioù. Aotreiñ a reont din arnodiñ teknologiezhioù nevez, don-kaout va anaoudegezh ha diorren atav va barregezhioù.",
+    "categoryPro": "Pro",
+    "categoryPersonal": "Perso",
+    "filterAll": "An holl",
+    "viewGrid": "Gwel dre gael",
+    "viewList": "Gwel roll",
+    "ctaTitle": "Ur raktres em fenn",
+    "backToList": "an holl raktresoù",
+    "viewProject": "gwelet ar raktres",
+    "capturesPending": "skeudennoù da resev",
+    "underConstruction": "War sevel",
+    "underConstructionNote": "Follenn resis a-benn nebeut.",
+    "pagination": "Pajennaouiñ",
+    "pageLabel": "Pajenn"
+  },
+  "clientsSection": {
+    "eyebrow": "Ar raktresoù ma em eus kemeret perzh enno",
+    "title": "Embregerezhioù eus pep tachenn B2B",
+    "sectors": {
+      "construction": "Sevel-tiez & Annez",
+      "energy": "Kumunioù & Energiezh",
+      "industry": "Industriezh & Automotive",
+      "agriculture": "Labour-douar & Boued-douar",
+      "health": "Yec'hed & Mad-vezañ",
+      "services": "Servijoù",
+      "finance": "Bank, Aseuranch & Kendalc'h"
+    },
+    "seeMore": "Gwelet ar merkoù",
+    "seeLess": "Kuzhat ar merkoù"
+  },
+  "projects": {
+    "vygon": {
+      "type": "Drupal",
+      "title": "Vygon - platenn liespenn-vro",
+      "tagline": "Lec'hienn savadurel ha katalog produioù evit Vygon, embreger etrevroadel a zerezioù mezekel a-vremañ e muioc'h eget 120 bro.",
+      "impact": "Platenn etrevroadel c'hoazh war-bouez",
+      "contexte": "Vygon a sav hag a strewa derezioù mezekel e meur a dachenn arbennik (haeziñ gwazhiennel, boetadur enterel, dishoulaziñ, kirurgiezh...), dre e c'hourmerc'hioù ha strewerien strewet e muioc'h eget 120 bro. Ret e oa d'al lec'hienn diskouez ur c'hatalog produioù stof en ur chom kenglotus a vro da vro.",
+      "solution": "Ur blatenn Drupal renket e lec'hiennoù dre vro (isdomanioù dediet), gant ur savenn endalc'had liesyezhek rannet hag ur c'hempennadur eus ar c'hatalog dre arbennigezh vezekel.",
+      "points": [
+        "Savenn liesleachenn Drupal gant un isdomani dre vro",
+        "Merañ endalc'had liesyezhek rannet etre ar marc'hadoù",
+        "Katalog produioù kempennet war un dekad arbennigezhioù mezekel",
+        "Patromoù skridaozañ boutin evit derc'hel ur genglotusted merk etre broioù"
+      ],
+      "resultat": "Ur blatenn kreñv, displeget e meur a vro, a servij c'hoazh a vitrin etrevroadel da Vygon hiziv an deiz.",
+      "role": "diorroer Drupal",
+      "duree": "raktres hir",
+      "equipe": "skipailh an asantiezh"
+    },
+    "pileje": {
+      "type": "Lec'hienn-merk",
+      "title": "PiLeJe Micronutrition",
+      "tagline": "",
+      "impact": "",
+      "contexte": "",
+      "solution": "",
+      "points": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "resultat": "",
+      "role": "",
+      "duree": "",
+      "equipe": ""
+    },
+    "saur": {
+      "type": "Lec'hienn savadurel",
+      "title": "Saur & Nijhuis",
+      "tagline": "Lec'hienn savadurel WordPress evit Saur, strollad etrevroadel merañ dour, hag e c'hourmerc'h Nijhuis Industries.",
+      "impact": "Lec'hienn savadurel roet evit Saur ha Nijhuis Industries",
+      "contexte": "Saur zo ur strollad etrevroadel merañ kaset an dour (produiñ ha strewiñ dour evadus, dastum ha kempenn an dourioù implijet) evit kumunioù hag industrourien, dreist-holl dre e c'hourmerc'h Nijhuis Industries, arbenniget e teknologiezhioù kempenn an dour industriel.",
+      "solution": "Lec'hienn savadurel diorroet gant WordPress gant an asantiezh Gingerminds, o tiskouez oberiantizoù strollad Saur hag e c'hourmerc'h Nijhuis Industries.",
+      "points": [
+        "Diorren WordPress",
+        "Design hag enframmañ al lec'hienn savadurel",
+        "Diskouez oberiantizoù ar strollad hag e c'hourmerc'h Nijhuis",
+        ""
+      ],
+      "resultat": "",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "skipailh an asantiezh"
+    },
+    "boralex": {
+      "type": "Lec'hienn savadurel",
+      "title": "Boralex",
+      "tagline": "Design ha diorren lec'hienn savadurel Boralex, produer energiezh adneveziadus.",
+      "impact": "Lec'hienn savadurel c'hoazh war-bouez",
+      "contexte": "Boralex a zioren hag a implij savadurioù produiñ energiezh adneveziadus (gwentoniezh, heoliek, dour-tredan, kadaviñ) e Norzh Amerika hag en Europa, gant muioc'h eget 20 vloaz a bresañs e Frañs.",
+      "solution": "Design, diorren ha lakaat war-wel (SEO) al lec'hienn gant Drupal, graet gant an asantiezh Gingerminds.",
+      "points": [
+        "Design ha ren arzel al lec'hienn savadurel",
+        "Diorren Drupal",
+        "Lakaat war-wel naturel (SEO)",
+        ""
+      ],
+      "resultat": "",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "skipailh an asantiezh"
+    },
+    "groupeTechna": {
+      "type": "Endro niverel",
+      "title": "Techna - endro niverel unanet",
+      "tagline": "Unaniñ 6 lec'hienn en ur blatenn hepken evit adlakaat Techna, ekspert dizalc'h e boetadur al loened.",
+      "impact": "Endro niverel unanet, c'hoazh war-bouez",
+      "contexte": "Techna, arbennigour dizalc'h e boetadur al loened (60M€ a dro-vusul, 310 labourer), a fell dezhañ kreñvaat e renerezh e Frañs ha buanaat e ziorren etrevroadel, en ur strishaat e dorset merkoù.",
+      "solution": "Unaniñ pouez niverel ar strollad : mont eus c'hwec'h lec'hienn da unan hepken, un identelezh merk nevez o tiskouez an ekspertiz industriel hag an D&D, ur savenn endalc'had bountet war bevar rann kustumer (kenframmourien industriel, strewerien, embregerien boued-fermioù, marc'hegerien).",
+      "points": [
+        "Aesaat c'hwec'h lec'hienn en ur blatenn hepken",
+        "Identelezh merk nevez o tiskouez ekspertiz industriel, nevezidigezh hag D&D",
+        "Savenn endalc'had bountet war bevar rann kustumer disheñvel",
+        "Merañ SEO gwellaet ha lakaat war-wel an ekspertiz skiantel"
+      ],
+      "resultat": "Ul lec'hienn stratejel e servij kresk Techna e Frañs hag er-maez, gant ur merañ SEO gwellaet hag ul lakaat war-wel an ekspertiz skiantel e boetadur resis al loened.",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "skipailh an asantiezh"
+    },
+    "chtiiing": {
+      "type": "Lec'hienn vitrin",
+      "title": "Chtiiing",
+      "tagline": "Lec'hienn Deizioù krouiñ Naoned, o tiskouez 87 arzour eus ar vro.",
+      "impact": "Embannadur 2022, 87 arzour lakaet war-wel enlinenn",
+      "contexte": "Chtiiing zo an degouezh pennañ evit ar grouiñ e Naoned, kaset gant Naoned Metropol ha Samoa, o tastum arzourien hag oberourien grouiñ ar vro e-pad meur a zevezh.",
+      "solution": "Ul lec'hienn WordPress o tiskouez an 87 arzour kemerer-perzh, gant ur furmulenn darempred dediet da bep hini, ur merdeadenn dre zegouezh dre an hentoù galloudel, hag holl an denerezhioù roet en-dro d'an arzourien.",
+      "points": [
+        "Lec'hienn WordPress o tiskouez 87 arzour",
+        "Furmulennoù darempred dediet da bep arzour",
+        "Merdeadenn dre zegouezh dre an hentoù galloudel",
+        "100% an denerezhioù roet en-dro d'an arzourien"
+      ],
+      "resultat": "",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "skipailh an asantiezh"
+    },
+    "lnaSante": {
+      "type": "Endro niverel",
+      "title": "LNA Santé",
+      "tagline": "Adsevel endro niverel ar strollad LNA Santé, etre lec'hienn korporel ha mikrolec'hiennoù pep diazezadur.",
+      "impact": "Platenn gorporel ha mikrolec'hiennoù c'hoazh war-bouez",
+      "contexte": "Strollad yec'hed savet 30 vloaz zo (7 500 labourer, 85 diazezadur e Frañs hag e Belgia, 535M€ a dro-vusul), ret e oa da LNA Santé adsevel e bouez niverel evit respont da c'hoariva kenwerzhel (feur kemer plas) ha da c'hoariva Dorojoù (dastum).",
+      "solution": "Labouradegoù gant an dud liammet ha souezhioù en diazezadurioù evit framañ an ezhomm, UX/UI evit kreñvaat al lec'hiadur, platenn WordPress oc'h aotren ur merañ endalc'had displeg : ul lec'hienn gorporel ha mikrolec'hiennoù personelaat evit pep diazezadur, meret gant un den hepken diabarzh.",
+      "points": [
+        "Labouradegoù framañ gant an dud liammet ha souezhioù en diazezadurioù",
+        "UX/UI evit kreñvaat lec'hiadur ar strollad",
+        "Platenn WordPress : lec'hienn gorporel + mikrolec'hiennoù dre ziazezadur",
+        "Merañ endalc'had displeg, meret gant un den hepken"
+      ],
+      "resultat": "Ur vitrin klok eus kinnig ar strollad, lakaet en ul lec'h dishañvel, o krouiñ leads evit kemer plas an diazezadurioù hag o skoazellañ an dastum.",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "skipailh an asantiezh"
+    },
+    "onetBusiness": {
+      "type": "Lec'hienn savadurel",
+      "title": "Onet Business Services",
+      "tagline": "Adsevel lec'hienn savadurel ar strollad Onet evit ur skiant-prenet efedus, eeun ha plijus.",
+      "impact": "Lec'hienn savadurel c'hoazh war-bouez",
+      "contexte": "Renour Frañs ar servijoù d'an embregerezhioù (liesservij, glanded, surentez, degemer...) ha savet war endroioù riskus, e fell da Onet kreñvaat gweladurezh e verk hag e wask-implijer dre un adsevel klok eus e lec'hienn.",
+      "solution": "Labouradegoù UX evit ar renkañ hag ar c'hempennadur eus an endalc'hadoù, dalc'hioù kensavel an hentoù implijer, heuliañ webmarketing. Lakaat en implij gant WordPress/Elementor gant ur savenn endalc'had kempennet dre oberiantizoù.",
+      "points": [
+        "Labouradegoù UX evit ar renkañ hag ar c'hempennadur eus an endalc'hadoù",
+        "Kensavel an hentoù implijer",
+        "Lakaat en implij WordPress / Elementor",
+        "Savenn endalc'had kempennet dre oberiantizoù ar strollad"
+      ],
+      "resultat": "Un identelezh merk strollad lennus, o tiskouez ar merkoù-merc'h, ar skouerioù kustumer hag an ekspertiz, gant ur wask-implijer kreñvaet.",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "skipailh an asantiezh"
+    },
+    "preciaMolen": {
+      "type": "Lec'hienn savadurel",
+      "title": "Precia Molen",
+      "tagline": "Lec'hienn savadurel Precia Molen, arbennigour poeziañ industriel ha kenwerzhel.",
+      "impact": "Lec'hienn savadurel c'hoazh war-bouez",
+      "contexte": "Precia Molen a sav diskoulmoù poeziañ industriel ha kenwerzhel (poezelloù, silo, dosaat kendalc'hus) abaoe muioc'h eget 70 vloaz, gant ur bresañs e muioc'h eget 140 bro.",
+      "solution": "Lec'hienn diorroet gant Drupal gant an asantiezh Gingerminds.",
+      "points": [
+        "Diorren Drupal",
+        "",
+        "",
+        ""
+      ],
+      "resultat": "",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "skipailh an asantiezh"
+    },
+    "akena": {
+      "type": "Lec'hienn produioù ha merk",
+      "title": "Akena Vérandas",
+      "tagline": "Design lec'hiennoù strollad Akena evit krouiñ leads dereet e servij ar 70 lec'h gwerzhañ eus ar rouedad.",
+      "impact": "Platenn liesleachenn c'hoazh war-bouez",
+      "contexte": "Renour broadel ar véranda, pergola ha goudor poull-neuial diouzh dodenn abaoe 40 vloaz, ezhomm en doa Akena eus un endro niverel kenglotus etre e lec'hiennoù disheñvel evit diskouez e oberoù ha krouiñ leads dereet evit e rouedad lec'hioù gwerzhañ.",
+      "solution": "Endro liesleachenn gant Drupal 8 hag ur savenn moduliek, ur renkerezh endalc'had adsoñjet evit krouiñ leads, un identelezh merk finaet, ur strategiezh skridaozañ enframmet hag ur gwellaat hezoug pellgomz bras. Kevreañ gant an ostilh merañ kenwerzhel OPleads evit heuliañ ar skipailhoù war an dachenn.",
+      "points": [
+        "Endro liesleachenn Drupal 8 gant savenn moduliek",
+        "Renkerezh endalc'had adsoñjet evit krouiñ leads",
+        "Strategiezh skridaozañ enframmet ha gwellaat hezoug pellgomz bras",
+        "Kevreañ gant an ostilh merañ kenwerzhel OPleads"
+      ],
+      "resultat": "Ur blatenn mobile-first a zistro an weladenn e lead dereet, hiziv c'hoazh e servij dastum kustumerien Akena.",
+      "role": "diorroer",
+      "duree": "keskenlabourat muioc'h eget 8 bloaz",
+      "equipe": "skipailh an asantiezh"
+    },
+    "groupeSamseRecrute": {
+      "type": "Merk implijer",
+      "title": "Groupe SAMSE Recrute",
+      "tagline": "Adsevel lec'hienn merk implijer Strollad SAMSE evit respont da ezhommoù kreñv dastum war vicheroù dispet.",
+      "impact": "Lec'hienn merk implijer c'hoazh war-bouez",
+      "contexte": "Oberour pouezus e strewiñ danvezioù sevel-tiez, ret e oa da Strollad SAMSE arnevesaat e lec'hienn merk implijer evit kreñvaat e wask war lec'hioù dispet, en ur virout identelezh pep hini eus e sinaozioù.",
+      "solution": "Lezenn skridaozañ evit ur c'homz merk kenglotus, storytelling ar vicheroù dispet, ur mollad « matching » evit priziañ e genglotusted gant ar strollad. Savenn endalc'had, UX/UI, CMS Drupal, kevreañ SIRH ha SEO.",
+      "points": [
+        "Lezenn skridaozañ evit ur c'homz merk kenglotus",
+        "Storytelling ar vicheroù dispet",
+        "Mollad « matching » azginour / embregerezh",
+        "CMS Drupal, kevreañ SIRH ha gwellaat SEO"
+      ],
+      "resultat": "Ur skiant-prenet azginour adsoñjet gant ur merdeadenn spontus aes ha ul lakaat war-wel poentet eus ar c'hinnigoù, e servij dastum ar strollad.",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "skipailh an asantiezh"
+    },
+    "donJigiFest": {
+      "type": "Lec'hienn degouezh",
+      "title": "Don Jigi Fest",
+      "tagline": "Lec'hienn gouel sonerezh Don Jigi Fest, savet ha diorroet evit embannadurioù 2018, 2019 ha 2020.",
+      "impact": "Teir embannadur ar gouel heuliet (2018, 2019, 2020)",
+      "contexte": "Don Jigi Fest zo ur gouel sonerezh aozet e Gwitreg, kaset gant ur skipailh wellvennek.",
+      "solution": "Design ha diorren lec'hienn internet ar gouel evit embannadurioù 2018, 2019 ha 2020, e gwellvennegezh.",
+      "points": [
+        "Design ha diorren lec'hienn ar gouel",
+        "Embannadurioù 2018, 2019 ha 2020",
+        "",
+        ""
+      ],
+      "resultat": "",
+      "role": "webdesigner, diorroer web",
+      "duree": "gwellvennegezh, embannadurioù 2018 da 2020",
+      "equipe": "e-unan"
+    },
+    "greentech": {
+      "type": "Lec'hienn e-commerce",
+      "title": "Greentech",
+      "tagline": "Lec'hienn e-commerce diouzh dodenn gant erventennañ dre click and collect, evit ar sinaoz Greentech e Dakar.",
+      "impact": "Lec'hienn e-commerce roet gant erventennañ er stal",
+      "contexte": "Greentech zo ur sinaoz staliet e Dakar, e Senegal, a felle dezhi kinnig ur skiant-prenet prenañ enlinenn gant tennañ er stal.",
+      "solution": "Diorren ul lec'hienn e-commerce diouzh dodenn gant ur reizhiad erventennañ dre click and collect, graet e-pad ur staj.",
+      "points": [
+        "Lec'hienn e-commerce diouzh dodenn",
+        "Erventennañ dre click and collect er stal",
+        "",
+        ""
+      ],
+      "resultat": "",
+      "role": "webdesigner, diorroer web",
+      "duree": "staj",
+      "equipe": "e-unan"
+    },
+    "groupeScolaireLaSalleSaintJoseph": {
+      "type": "Treuzell savadurel",
+      "title": "Groupe Scolaire La Salle Saint Joseph",
+      "tagline": "Treuzell titouroù liesleachenn ha blog keleier evit Strollad Skol La Salle Saint Joseph.",
+      "impact": "Treuzell liesleachenn roet gant ul lakaat war-wel SEO evezhiet",
+      "contexte": "Strollad Skol La Salle Saint Joseph, en Argentré-du-Plessis, a felle dezhañ unaniñ kehentiñ e ziazezadurioù disheñvel hag aesaat embann ar c'heleier.",
+      "solution": "Diorren full-stack un treuzell titouroù liesleachenn hag ur blog keleier gant lakaat war-wel SEO, graet e-pad ur staj.",
+      "points": [
+        "Treuzell titouroù liesleachenn",
+        "Blog keleier gant lakaat war-wel SEO",
+        "",
+        ""
+      ],
+      "resultat": "",
+      "role": "diorroer web full-stack",
+      "duree": "staj",
+      "equipe": "e-unan"
+    },
+    "ludmigo": {
+      "type": "Arload SaaS",
+      "title": "Ludmigo",
+      "tagline": "Ur blatenn kumuniezhel evit rannañ ha dizoleiñ c'hoarioù kevredigezh, ha kavout aes tud ha lec'hioù da c'hoari.",
+      "impact": "Gant Ludmigo, lakomp ar c'hoari kevredigezh da vezañ evit an holl !",
+      "contexte": "Pe vezer deraouer pe amatourien, ar pezh a gont eo ar c'hoant da rannañ ur pennadig plijadur hag en em gavout tro-dro d'ur c'hoari. Se a c'hell bezañ graet e lec'hioù dediet a zo endeo, pe en davarnioù ma c'hell bezañ heuliet evit diorren ar servij-mañ en o diazezadur.",
+      "solution": "Un arload Laravel a-gostez back-end, gant etrefasoù Vue a-gostez front-end, evit aotren d'ar c'hoarierien kavout partioù ha lec'hioù, ha d'an diazezadurioù kinnig o lec'hioù.",
+      "points": [
+        "Kevreañ c'hoarierien deraouer hag amatourien tro-dro da bartioù c'hoarioù kevredigezh",
+        "Lakaat war-wel lec'hioù dediet (ludotekoù, davarnioù keneiled...)",
+        "Heuliañ an diazezadurioù a fell dezho diorren ar servij-mañ",
+        "Back-end Laravel, etrefasoù Vue"
+      ],
+      "resultat": "",
+      "role": "diorroer",
+      "duree": "",
+      "equipe": "e-unan"
+    },
+    "portfolio": {
+      "type": "Nuxt / Vue",
+      "title": "Portfolio - Maxime Jolivet",
+      "tagline": "Lec'hienn personel : portfolio, CV etrewezhiat ha blog teknikel, savet ha diorroet penn-da-benn.",
+      "impact": "Enlinenn ha mentonet dizehan",
+      "contexte": "Goude meur a adsevel, e felle din ur lec'hienn a ziskouez war un dro va micher diorroer ha va santidigezh design : buan, haezadus, divyezhek, hag aes da gemmañ gant tremen va raktresoù hag pennadoù.",
+      "solution": "Ul lec'hienn Nuxt 4 rentet a-gostez servijer (SSR), displeget war Vercel, gant ur reizhiad design Tailwind v4 + shadcn-vue, ur blog boetet gant Supabase, hag un etrefas divyezhek penn-da-benn galleg/saozneg.",
+      "points": [
+        "Nuxt 4 rentet SSR, displeget emgefreek war Vercel bep push",
+        "Design system Tailwind v4 + shadcn-vue (Reka UI), mod sklaer/teñval",
+        "Blog kaset gant Supabase, pennadoù divyezhek meret dre un daolenn roadennoù",
+        "Etrevroadelaat klok FR/EN gant hentoù lec'hiet (/fr, /en)"
+      ],
+      "resultat": "Ul lec'hienn buan ha fizius, aes da ventoniñ, a servij war un dro a vitrin, a CV etrewezhiat hag a zachenn arnodiñ evit mentoù front-end nevez.",
+      "role": "design & diorren full-stack",
+      "duree": "dizehan abaoe 2026",
+      "equipe": "e-unan"
+    }
+  },
+  "home": {
+    "projects": {
+      "sectionTitle": "Raktresoù",
+      "viewAll": "an holl raktresoù"
+    },
+    "now": {
+      "sectionTitle": "Er mare-mañ",
+      "viewGithub": "gwelet war GitHub",
+      "items": {
+        "building": {
+          "label": "WAR SEVEL",
+          "title": "www.maxime.bzh v2",
+          "detail": "al lec'hienn-mañ, kement-se"
+        },
+        "reading": {
+          "label": "DESKADUREZH",
+          "title": "Symfony, IA",
+          "detail": "kresk barregezhioù dizehan"
+        },
+        "listening": {
+          "label": "SELAOU",
+          "title": "Playlist Tomorrowland",
+          "detail": "Spotify"
+        },
+        "shipped": {
+          "label": "DIWEZHAÑ SHIP",
+          "title": "Pipeline CI/CD multisite Drupal",
+          "detail": "displeget hep aon ebet"
+        }
+      }
+    },
+    "blog": {
+      "sectionTitle": "Blog",
+      "viewAll": "an holl vlog"
+    },
+    "contact": {
+      "eyebrow": "DAREMPRED",
+      "title": "Savomp ar sujidigezh a-gevret",
+      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer",
+      "subtitleSecondary": "Tech Lead · IA & Prompt Engineering",
+      "bookCall": "Ober un emgav"
+    }
+  },
+  "projectDetail": {
+    "context": "Ar c'hontekst",
+    "solution": "Ar pezh am eus savet",
+    "result": "An disoc'h",
+    "specSheet": "FOLLENN DEKNIKEL",
+    "year": "bloavezh",
+    "role": "roll",
+    "duration": "padelezh",
+    "team": "skipailh",
+    "prev": "raktres kent",
+    "next": "raktres da heul"
+  },
+  "cv": {
+    "read": "Curriculum vitæ",
+    "download": "Pellgargañ ar PDF"
+  },
+  "terminal": {
+    "title": "guest — maxime.bzh terminal",
+    "toggle": "Digeriñ an termenell",
+    "hint": "Skrivit 'help' evit gwelet an urzhioù hegerz.",
+    "help": "Urzhioù hegerz : help, whoami, cv, projects, contact, clear, exit",
+    "whoami": "Maxime Jolivet — {role}",
+    "notFound": "urzh dianav : {cmd}"
+  },
+  "blog": {
+    "eyebrow": "BLOG - NOTENNOÙ DACHENN",
+    "title": "Ar pezh a zesk ar c'hod din",
+    "subtitle": "Distroioù skiant-prenet gwir war ar c'hemmoù, ar CSS arnevez, an ostilhaj hag an IA. Listicles ebet, dielfennadurioù hepken, arnodennoù ha diskoulmoù kadarnaet war raktresoù gwir.",
+    "back_to_list": "an holl bennadoù",
+    "read_more": "lenn ar pennad",
+    "loading": "O kargañ ar pennadoù...",
+    "empty": "Pennad ebet evit ar mare, deuit en-dro a-benn nebeut.",
+    "error": "Degouezhet ez eus bet ur fazi e-pad kargañ ar pennadoù.",
+    "not_found": "N'eus ket ar pennad-mañ."
+  },
+  "legalPage": {
+    "eyebrow": "LEZENNEL",
+    "title": "Menegoù lezennel",
+    "updated": "Hizivadenn diwezhañ : Eost 2026",
+    "sections": {
+      "editor": {
+        "title": "Embanner al lec'hienn",
+        "intro": "Al lec'hienn-mañ zo embannet dre gefridi personel gant Maxime Jolivet.",
+        "items": [
+          "Anv : Maxime Jolivet",
+          "Postel : {email}"
+        ]
+      },
+      "publication": {
+        "title": "Rener an embann",
+        "body": "Rener an embann eo Maxime Jolivet."
+      },
+      "hosting": {
+        "title": "Ostaleriezh",
+        "intro": "Al lec'hienn zo ostaliet gant Vercel Inc., platenn ostaleriezh SaaS.",
+        "items": [
+          "340 S Lemon Ave #4133",
+          "Walnut, CA 91789",
+          "Stadoù-Unanet"
+        ],
+        "body": "Displegañ al lec'hienn a zo graet en un doare emgefreek dre enframmadur Git Vercel."
+      },
+      "technologies": {
+        "title": "Technologies",
+        "body": "Savet ha diorroet eo bet al lec'hienn-mañ gant Maxime Jolivet. Diorroet eo bet al lec'hienn dre an deknologiezh JavaScript / Vue.js, dre ar framm Nuxt.",
+        "bretonNote": "Diazezet eo ar geriaoueg deknikel e brezhoneg war {link}.",
+        "bretonLinkText": "Niverel, ur geriaoueg niverel e brezhoneg"
+      },
+      "ai": {
+        "title": "Implij an speredegezh arzifisiel",
+        "intro": "Ar poltred diskouezet er bajenn degemer zo ur skeudenn wirion eus Maxime Jolivet, ma vez bet gwellaet e-parzh he ment (spisted, sklêrijenn, kenglotusted gweledel) gant Nano Banana (patrom Gemini, Google), un ostilh IA c'henerus.",
+        "body": "Ar c'hemm-mañ a fell dezhañ hepken gwellaat kalite ment ar skeudenn orin, hep kemmañ identelezh Maxime Jolivet, na he endalc'had.",
+        "closing": "Ar programmerezh web eus al lec'hienn-mañ en deus ivez tennet gounid eus skoazell Claude Code (Anthropic), un ostilh IA dediet d'an diorren meziantel, evit lodennoù zo eus ar savidigezh hag an diorren."
+      },
+      "data": {
+        "title": "Roadennoù personel",
+        "intro": "N'eus roadenn bersonel ebet dastumet gant al lec'hienn-mañ evit palioù bruderezh pe profilañ.",
+        "body": "Ar roadennoù nemetañ a c'hell bezañ dastumet eo ar re a gasit dre ho youl mat dre bostel pe dre ar furmulenn darempred pe emgav. Implijet int hepken evit respont d'ho koulenn ha ne vezont na gwerzhet na roet da drede.",
+        "closing": "Hervez ar Reolenn hollek war wareziñ ar roadennoù (RGPD), e c'hellit implijout ho kwirioù haeziñ, reizhañ, diverkañ pe enebiñ dre skrivañ da {email}."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "intro": "Al lec'hienn-mañ a implij Google Tag Manager hag ar servij ober emgav Cal.eu, a c'hell lakaat cookies, hepken goude ho aotre.",
+        "body": "Ur bandenn a aotre deoc'h asantiñ, nac'hañ pe zibaboù personelaat ar cookies-mañ adalek ho kweladenn kentañ. E c'hellit kemmañ ho tibaboù bepred dre al liamm « Merañ ar cookies » en traoñ ar bajenn. Cookies dre ret hepken evit mont en-dro al lec'hienn (derc'hel soñj eus ho yezh hag ho aotre) a zo lakaet hep aotre a-raok."
+      },
+      "ip": {
+        "title": "Perc'hentiezh spered",
+        "intro": "Nemet ma vez lavaret liesoc'h, holl an endalc'hadoù war al lec'hienn-mañ (testennoù, skeudennoù, skeudennaouiñ, logoioù, kod tarzh hag elfennoù all) zo gwarezet gant gwir ar berc'hentiezh spered.",
+        "body": "Difennet eo ec'h adober, diskouez, kemmañ pe strewiñ, klok pe rannel, hep aotre a-raok."
+      },
+      "links": {
+        "title": "Liammoù hyperskrid",
+        "body": "Al lec'hienn a c'hell bezañ ganti liammoù war-du lec'hiennoù trede. An embanner ne c'hell ket bezañ kavet reoubl eus endalc'had pe eus mentoù al lec'hiennoù diavaez-se."
+      },
+      "liability": {
+        "title": "Reoubl",
+        "body": "Roet eo an titouroù embannet war al lec'hienn-mañ da geñver kelaouiñ. Daoust d'an evezh lakaet war o reizhded, e c'hellont bezañ fazioù pe dont da vezañ dilerc'hiet. An embanner ne c'hell ket bezañ kavet reoubl eus ar sekrejoù o tont eus o implij."
+      },
+      "law": {
+        "title": "Gwir arloet",
+        "body": "Ar menegoù lezennel-mañ zo renet gant gwir Frañs."
+      }
+    }
+  },
+  "a11yPage": {
+    "eyebrow": "HAEZADUSTED",
+    "title": "Disklêriadur haezadusted",
+    "updated": "Hizivadenn diwezhañ : Eost 2026",
+    "sections": {
+      "intro": {
+        "title": "Diwar-benn an disklêriadur-mañ",
+        "intro": "N'eo ket al lec'hienn-mañ dalc'het da heuliañ dleadoù lezennel RGAA (a sell ouzh an aozadurioù publik). Heuliet eo an hentenn-se koulskoude gant an aozer, dre soñj micherel. An disklêriadur-mañ a zeskriv gwirion stad haezadusted al lec'hienn: petra zo bet gwiriet, petra n'eo ket bet, hag an digenglotadurioù anavezet."
+      },
+      "methodology": {
+        "title": "Hentenn",
+        "intro": "Diazezet eo ar priziadur war ostilhoù prouiñ emgefreek (Lighthouse/axe-core), implijet war pajennoù pennañ al lec'hienn, hag ouzhpennet ur gwiriañ dre lenn ar c'hod gant an dorn. N'eo ket un aozadenn RGAA glok graet hervez an hentenn ofisiel (standilhon a bajennoù, 106 dezvent, testour aotreet). An ostilhoù emgefreek ne wel nemet ul lodenn eus dezventoù RGAA/WCAG; ar gwiriañoù dre an dorn (merdeiñ dre glavier, lennerien skramm) a chom da vukañ don."
+      },
+      "results": {
+        "title": "Disoc'hoù ar prouadennoù emgefreek",
+        "items": [
+          "Degemer: 96/100",
+          "Skridenn, Raktresoù, Blog, Menegoù lezennel: 100/100",
+          "Kenglotadur al livioù: mat e pep lec'h nemet war ar bajenn degemer (gwelet an digenglotadurioù dindan)",
+          "Framm HTML, doareennoù ARIA, yezh ar bajenn, gweled-porzh: mat"
+        ]
+      },
+      "nonConformities": {
+        "title": "Digenglotadurioù anavezet",
+        "items": [
+          "War ar bajenn degemer, un nebeud elfennoù kinklañ ar paneloù \"aozer kod\" (pikoù kefridiañ, poentaouiñ, niverennoù linenn) a zo bet moaniet a-ratozh dindan gwask kenglotadur WCAG AA (4,5:1), evit mirout an neuz kod-mammenn moan. Un dibab kempennadur graet a-ratozh eo, ket un ankoazh.",
+          "Un nebeud livioù badjez er rann stumm-teknologel, kevanet gant gwir livioù merk (GitHub, OpenAI...), a gouezh dindan ar memes gwask evit chom feal da identelezh gweledel an ostilhoù-se."
+        ]
+      },
+      "contact": {
+        "title": "Diskuliañ ur gudenn",
+        "body": "Ma n'hallit ket haezañ ul lodenn eus al lec'hienn, kasit ur gemennadenn da {email}."
+      }
+    }
+  },
+  "error": {
+    "back_home": "Distreiñ d'ar bajenn degemer",
+    "return": "Distreiñ",
+    "page_not_found": "Op... ar bajenn-mañ zo bet kollet er liesvedoù 👽",
+    "page_not_found_random_page": "Pajenn dre zegouezh 🎲",
+    "page_not_found_description": "Klasket hon eus e pep lec'h. Zoken dindan ar ganape.",
+    "generic": "Degouezhet ez eus bet ur fazi"
+  }
+}

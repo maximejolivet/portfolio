@@ -30,8 +30,7 @@
     "groupActions": "ACTIONS",
     "ide": "IDE & terminal",
     "toggleTheme": "Basculer le thème",
-    "switchToEnglish": "Passer en anglais",
-    "switchToFrench": "Passer en français"
+    "switchLanguage": "Changer de langue"
   },
   "footer": {
     "taglineRole": "Développeur web",
@@ -42,6 +41,7 @@
     "rights": "",
     "backToTop": "Retour en haut",
     "legalMentions": "Mentions légales",
+    "accessibility": "Accessibilité",
     "manageCookies": "Gérer les cookies"
   },
   "social": {
@@ -622,7 +622,9 @@
       },
       "technologies": {
         "title": "Technologies",
-        "body": "Ce site a été conçu et développé par Maxime Jolivet. Le site a été développé via la technologie JavaScript / Vue.js, via le framework Nuxt."
+        "body": "Ce site a été conçu et développé par Maxime Jolivet. Le site a été développé via la technologie JavaScript / Vue.js, via le framework Nuxt.",
+        "bretonNote": "Le vocabulaire technique en breton s'appuie sur {link}.",
+        "bretonLinkText": "Niverel, lexique numérique en breton"
       },
       "ai": {
         "title": "Utilisation de l'intelligence artificielle",
@@ -657,6 +659,41 @@
       "law": {
         "title": "Droit applicable",
         "body": "Les présentes mentions légales sont régies par le droit français."
+      }
+    }
+  },
+  "a11yPage": {
+    "eyebrow": "ACCESSIBILITÉ",
+    "title": "Déclaration d'accessibilité",
+    "updated": "Dernière mise à jour : août 2026",
+    "sections": {
+      "intro": {
+        "title": "À propos de cette déclaration",
+        "intro": "Ce site n'est pas soumis à l'obligation légale d'accessibilité du RGAA (elle concerne les organismes publics), mais son éditeur en applique la démarche par conviction professionnelle. Cette déclaration décrit honnêtement l'état d'accessibilité du site : ce qui a été vérifié, ce qui ne l'a pas été, et les non-conformités connues."
+      },
+      "methodology": {
+        "title": "Méthodologie",
+        "intro": "L'évaluation s'appuie sur des outils de test automatisés (Lighthouse/axe-core) exécutés sur les pages principales du site, complétés par une relecture manuelle du code. Il ne s'agit pas d'un audit RGAA complet mené selon la méthodologie officielle (échantillon de pages, 106 critères, testeur accrédité) - les outils automatisés ne couvrent qu'une partie des critères RGAA/WCAG, l'essentiel des vérifications manuelles (navigation clavier, lecteurs d'écran) restant à approfondir."
+      },
+      "results": {
+        "title": "Résultats des tests automatisés",
+        "items": [
+          "Accueil : 96/100",
+          "CV, Projets, Blog, Mentions légales : 100/100",
+          "Contraste des couleurs : conforme partout sauf sur l'accueil (voir non-conformités ci-dessous)",
+          "Structure HTML, attributs ARIA, langue de la page, viewport : conformes"
+        ]
+      },
+      "nonConformities": {
+        "title": "Non-conformités connues",
+        "items": [
+          "Sur l'accueil, certains éléments décoratifs des panneaux \"éditeur de code\" (points d'indentation, ponctuation, numéros de ligne) sont volontairement atténués sous le seuil de contraste WCAG AA (4,5:1), pour préserver l'esthétique de code source atténué - un choix de design assumé, pas un oubli.",
+          "Certaines couleurs de badges de la section stack technique, calées sur des couleurs de marque réelles (GitHub, OpenAI...), tombent sous ce même seuil pour rester fidèles à l'identité visuelle de ces outils."
+        ]
+      },
+      "contact": {
+        "title": "Signaler un problème",
+        "body": "Si une partie du site vous est inaccessible, merci de le signaler à {email} - ce retour sera pris en compte."
       }
     }
   },

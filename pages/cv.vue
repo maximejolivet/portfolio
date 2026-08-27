@@ -32,6 +32,14 @@ onMounted(() => {
 
 useHead({
   meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/json',
+      title: 'CV (JSON Resume)',
+      href: '/api/cv.json',
+    },
+  ],
 })
 
 useSeoMeta({
@@ -61,6 +69,16 @@ useSeoMeta({
       zoom="auto"
       class="block h-[calc(100vh-58px)] w-full"
     />
+
+    <a
+      href="/api/cv.json"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-24 right-6 z-50 flex items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent"
+    >
+      <UiAppIcon icon="lucide:braces" class="size-3.5" />
+      JSON Resume
+    </a>
 
     <button
       v-if="!calRefused"

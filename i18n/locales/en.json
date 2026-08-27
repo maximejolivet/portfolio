@@ -30,8 +30,7 @@
     "groupActions": "ACTIONS",
     "ide": "IDE & terminal",
     "toggleTheme": "Toggle theme",
-    "switchToEnglish": "Switch to English",
-    "switchToFrench": "Switch to French"
+    "switchLanguage": "Switch language"
   },
   "footer": {
     "taglineRole": "Web developer",
@@ -42,6 +41,7 @@
     "rights": "",
     "backToTop": "Back to top",
     "legalMentions": "Legal notice",
+    "accessibility": "Accessibility",
     "manageCookies": "Manage cookies"
   },
   "social": {
@@ -622,7 +622,9 @@
       },
       "technologies": {
         "title": "Technologies",
-        "body": "This site was designed and developed by Maxime Jolivet. The site was built using JavaScript / Vue.js technology, via the Nuxt framework."
+        "body": "This site was designed and developed by Maxime Jolivet. The site was built using JavaScript / Vue.js technology, via the Nuxt framework.",
+        "bretonNote": "The Breton technical vocabulary is based on {link}.",
+        "bretonLinkText": "Niverel, a digital glossary in Breton"
       },
       "ai": {
         "title": "Use of artificial intelligence",
@@ -657,6 +659,41 @@
       "law": {
         "title": "Governing law",
         "body": "This legal notice is governed by French law."
+      }
+    }
+  },
+  "a11yPage": {
+    "eyebrow": "ACCESSIBILITY",
+    "title": "Accessibility statement",
+    "updated": "Last updated: August 2026",
+    "sections": {
+      "intro": {
+        "title": "About this statement",
+        "intro": "This site isn't legally bound by RGAA accessibility requirements (which apply to public sector bodies), but its owner applies that approach out of professional conviction. This statement honestly describes the site's accessibility: what was checked, what wasn't, and known non-conformities."
+      },
+      "methodology": {
+        "title": "Methodology",
+        "intro": "This assessment relies on automated testing tools (Lighthouse/axe-core) run against the site's main pages, complemented by a manual code review. It is not a full RGAA audit conducted under the official methodology (page sample, 106 criteria, accredited tester) - automated tools only cover part of the RGAA/WCAG criteria, and most manual checks (keyboard navigation, screen readers) still need deeper testing."
+      },
+      "results": {
+        "title": "Automated test results",
+        "items": [
+          "Home: 96/100",
+          "CV, Projects, Blog, Legal notice: 100/100",
+          "Color contrast: passes everywhere except the homepage (see known non-conformities below)",
+          "HTML structure, ARIA attributes, page language, viewport: pass"
+        ]
+      },
+      "nonConformities": {
+        "title": "Known non-conformities",
+        "items": [
+          "On the homepage, some decorative elements of the \"code editor\" panels (indent dots, punctuation, line numbers) are deliberately dimmed below the WCAG AA contrast threshold (4.5:1), to preserve the dimmed source-code look - an intentional design choice, not an oversight.",
+          "Some tech-stack badge colors, matched to real brand colors (GitHub, OpenAI...), fall under that same threshold to stay faithful to those tools' visual identity."
+        ]
+      },
+      "contact": {
+        "title": "Report an issue",
+        "body": "If any part of the site is inaccessible to you, please report it to {email} - this feedback will be taken into account."
       }
     }
   },

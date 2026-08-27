@@ -4,6 +4,7 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multili
 
 [![License](https://img.shields.io/badge/license-MIT-yellow?logo=opensourceinitiative&logoColor=black)](LICENSE.md)
 ![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
+[![Lighthouse](https://www.maxime.bzh/api/lighthouse-badge.svg)](https://www.maxime.bzh)
 
 ![Node.js version](https://img.shields.io/badge/Node-24-5FA04E?logo=nodedotjs&logoColor=white)
 ![Nuxt version](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxtdotjs&logoColor=white)
@@ -206,6 +207,7 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.80](https://img.shields.io/badge/v1.0.80-2026--08--27-F97316)
 ![v1.0.79](https://img.shields.io/badge/v1.0.79-2026--08--27-F97316)
 ![v1.0.78](https://img.shields.io/badge/v1.0.78-2026--08--27-F97316)
 ![v1.0.77](https://img.shields.io/badge/v1.0.77-2026--08--27-F97316)
