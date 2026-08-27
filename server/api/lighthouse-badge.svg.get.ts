@@ -120,21 +120,28 @@ async function fetchScores(strategy: 'mobile' | 'desktop'): Promise<CategoryScor
   }))
 }
 
-export default defineCachedEventHandler(
-  async (event) => {
-    const query = getQuery(event)
-    const strategy = query.strategy === 'desktop' ? 'desktop' : 'mobile'
+// Cache only successful PageSpeed results, keyed by strategy - a failed
+// fetch (rate limit, network blip) must never get cached, or the badge
+// would keep serving "unavailable" for a full day after a single failure.
+const getCachedScores = defineCachedFunction(fetchScores, {
+  name: 'lighthouse-scores',
+  maxAge: 60 * 60 * 24,
+  swr: true,
+  getKey: (strategy: 'mobile' | 'desktop') => strategy,
+})
 
-    setHeader(event, 'Content-Type', 'image/svg+xml')
+export default defineEventHandler(async (event) => {
+  const query = getQuery(event)
+  const strategy = query.strategy === 'desktop' ? 'desktop' : 'mobile'
 
-    try {
-      const scores = await fetchScores(strategy)
-      return renderBadge(scores, strategy)
-    }
-    catch (error) {
-      console.error('[lighthouse-badge] fetch failed', error)
-      return errorBadge('unavailable')
-    }
-  },
-  { maxAge: 60 * 60 * 24, swr: true },
-)
+  setHeader(event, 'Content-Type', 'image/svg+xml')
+
+  try {
+    const scores = await getCachedScores(strategy)
+    return renderBadge(scores, strategy)
+  }
+  catch (error) {
+    console.error('[lighthouse-badge] fetch failed', error)
+    return errorBadge('unavailable')
+  }
+})
