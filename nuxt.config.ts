@@ -209,6 +209,10 @@ export default defineNuxtConfig({
           'https://*.analytics.google.com',
         ],
         'font-src': ['\'self\'', 'data:'],
+        // worker-src => explicit, since Safari/WebKit doesn't reliably fall back
+        // to script-src for Worker construction when this is left unset -
+        // needed for pdf.js's worker on /cv (pdfjs-viewer-element).
+        'worker-src': ['\'self\''],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
         'frame-src': ['\'self\'', 'https://app.cal.eu'],
