@@ -31,10 +31,6 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/ico', href: '/favicon.ico' }],
       meta: [
         { name: 'description', content: 'Développeur web, Webdesigner' },
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
-        },
         { name: 'robots', content: 'noindex, nofollow' },
       ],
     },
@@ -107,7 +103,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-08-24',
+  compatibilityDate: '2026-08-27',
 
   vite: {
     plugins: [tailwindcss()],

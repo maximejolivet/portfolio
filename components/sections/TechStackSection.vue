@@ -3,7 +3,7 @@ import { TECH_CATEGORIES } from '~/constants/techstack'
 
 const { t } = useI18n()
 
-const LABEL_COLORS = ['text-[#c99a4a]', 'text-[#4d94ab]', 'text-[#3fa98c]']
+const LABEL_COLORS = ['text-[#c99a4a]', 'text-[#5097ae]', 'text-[#3fa98c]']
 const LABEL_COLOR_HEX = ['#c99a4a', '#4d94ab', '#3fa98c']
 
 function labelColor(index: number) {

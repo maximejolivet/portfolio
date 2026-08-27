@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const { locale } = useI18n()
+const i18nHead = useLocaleHead()
 
 useHead({
+  htmlAttrs: computed(() => i18nHead.value.htmlAttrs),
   script: [
     {
       key: 'tarteaucitron-lang',

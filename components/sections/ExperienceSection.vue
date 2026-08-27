@@ -113,7 +113,7 @@ onUnmounted(() => {
         <span class="size-2.5 rounded-full bg-red-400/70" />
         <span class="size-2.5 rounded-full bg-yellow-400/70" />
         <span class="size-2.5 rounded-full bg-green-400/70" />
-        <span class="ml-2 font-mono text-xs text-panel-foreground/40">experience.log</span>
+        <span class="ml-2 font-mono text-xs text-panel-foreground/60">experience.log</span>
       </div>
 
       <div ref="rootEl" class="overflow-x-auto px-5 py-6 font-mono text-[0.8125rem] leading-[1.9]">
@@ -163,7 +163,7 @@ onUnmounted(() => {
             <span v-else class="text-primary">{{ t(entry.item.organizationKey) }}</span>
           </div>
 
-          <p v-show="entry.location.isStarted" class="pl-2 text-panel-foreground/35">
+          <p v-show="entry.location.isStarted" class="pl-2 text-panel-foreground/55">
             {{ entry.location.text
             }}<span v-if="!entry.location.isDone" class="animate-blink">▎</span>
           </p>

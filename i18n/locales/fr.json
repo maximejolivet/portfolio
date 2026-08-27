@@ -38,7 +38,7 @@
     "taglineDetails": "full-stack senior / Lead Dev / Tech Lead",
     "madeInPrefix": "Fabriqué en",
     "madeInPlace": "Bretagne",
-    "madeInSuffix": "entre deux kouign-amann",
+    "madeInSuffix": "entre deux Kouign-amann",
     "rights": "",
     "backToTop": "Retour en haut",
     "legalMentions": "Mentions légales",
@@ -70,7 +70,7 @@
     "highlight2": "Expert Drupal et WordPress, solide en PHP & JavaScript",
     "highlight3": "Approche orientée performance et accessibilité",
     "imageAlt": "Portrait de Maxime Jolivet",
-    "aiDisclosure": "Portrait partiellement généré\npar une IA et vérifié par un agent",
+    "aiDisclosure": "Portrait partiellement généré par \nune IA à partir d'une photo de moi",
     "tags": {
       "conceptionUiUx": "Conception UI/UX",
       "webDev": "Développement web",
@@ -251,7 +251,12 @@
       "impact": "",
       "contexte": "",
       "solution": "",
-      "points": ["", "", "", ""],
+      "points": [
+        "",
+        "",
+        "",
+        ""
+      ],
       "resultat": "",
       "role": "",
       "duree": "",
@@ -372,7 +377,12 @@
       "impact": "Site institutionnel toujours en production",
       "contexte": "Precia Molen conçoit des solutions de pesage industriel et commercial (bascules, silos, dosage en continu) depuis plus de 70 ans, avec une présence dans plus de 140 pays.",
       "solution": "Site développé sous Drupal par l'agence Gingerminds.",
-      "points": ["Développement Drupal", "", "", ""],
+      "points": [
+        "Développement Drupal",
+        "",
+        "",
+        ""
+      ],
       "resultat": "",
       "role": "développeur",
       "duree": "",
@@ -591,7 +601,10 @@
       "editor": {
         "title": "Éditeur du site",
         "intro": "Le présent site est édité à titre personnel par Maxime Jolivet.",
-        "items": ["Nom : Maxime Jolivet", "Email : {email}"]
+        "items": [
+          "Nom : Maxime Jolivet",
+          "Email : {email}"
+        ]
       },
       "publication": {
         "title": "Directeur de la publication",
@@ -600,7 +613,11 @@
       "hosting": {
         "title": "Hébergement",
         "intro": "Le site est hébergé par Vercel Inc., plateforme d'hébergement SaaS.",
-        "items": ["340 S Lemon Ave #4133", "Walnut, CA 91789", "États-Unis"],
+        "items": [
+          "340 S Lemon Ave #4133",
+          "Walnut, CA 91789",
+          "États-Unis"
+        ],
         "body": "Le déploiement du site est automatisé via l'intégration Git de Vercel."
       },
       "technologies": {
