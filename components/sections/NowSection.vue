@@ -39,12 +39,14 @@ const currentMonth = computed(() =>
 <template>
   <section id="now" class="mt-24 bg-panel text-panel-foreground">
     <UiContainer class="py-16">
-      <div class="mb-9 flex items-center gap-4">
-        <UiAppIcon icon="lucide:radio" class="size-8 shrink-0 text-mint" />
-        <h2 class="font-sans text-[2rem] font-bold leading-[1.1] tracking-tight">
-          {{ $t('home.now.sectionTitle') }}
-        </h2>
-        <div class="h-px flex-1 bg-panel-foreground/[0.18]" />
+      <div class="mb-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+        <div class="flex items-center gap-4">
+          <UiAppIcon icon="lucide:radio" class="size-8 shrink-0 text-mint" />
+          <h2 class="font-sans text-[2rem] font-bold leading-[1.1] tracking-tight">
+            {{ $t('home.now.sectionTitle') }}
+          </h2>
+        </div>
+        <div class="hidden h-px flex-1 bg-panel-foreground/[0.18] sm:block" />
         <span class="hidden font-mono text-xs text-panel-foreground/50 sm:inline">{{
           currentMonth
         }}</span>

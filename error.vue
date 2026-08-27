@@ -21,7 +21,7 @@
         {{ $t('error.page_not_found_description') }}
       </p>
 
-      <div class="mt-2 flex items-center gap-6">
+      <div class="mt-2 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
         <UiButton to="/">
           {{ $t('error.back_home') }}
         </UiButton>

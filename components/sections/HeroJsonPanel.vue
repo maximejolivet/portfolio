@@ -276,7 +276,7 @@ onUnmounted(() => {
             v-for="(line, i) in renderLines"
             v-show="line.isStarted"
             :key="i"
-            class="w-max whitespace-pre"
+            class="whitespace-pre-wrap break-words md:w-max md:whitespace-pre"
           >
             <span class="mr-5 inline-block w-6 text-right text-panel-foreground/25">{{
               i + 1
