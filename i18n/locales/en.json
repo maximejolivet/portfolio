@@ -70,6 +70,7 @@
     "highlight2": "Drupal & WordPress expert, strong in PHP & JavaScript",
     "highlight3": "Performance and accessibility-first approach",
     "imageAlt": "Portrait of Maxime Jolivet",
+    "aiDisclosure": "Portrait partially generated\nby AI and verified by an agent",
     "tags": {
       "conceptionUiUx": "Design & UI/UX",
       "webDev": "Web development",
@@ -570,7 +571,7 @@
   "legalPage": {
     "eyebrow": "LEGAL",
     "title": "Legal notice",
-    "updated": "Last updated: July 2026",
+    "updated": "Last updated: August 2026",
     "sections": {
       "editor": {
         "title": "Site publisher",
@@ -589,7 +590,13 @@
       },
       "technologies": {
         "title": "Technologies",
-        "body": "This site was designed and developed by Maxime Jolivet. Its development was assisted by Claude (Anthropic) for certain design, development and writing steps. Technical choices, content and final validation remain the publisher's own."
+        "body": "This site was designed and developed by Maxime Jolivet. The site was built using JavaScript / Vue.js technology, via the Nuxt framework."
+      },
+      "ai": {
+        "title": "Use of artificial intelligence",
+        "intro": "The portrait shown on the homepage is a real photograph of Maxime Jolivet, whose rendering (sharpness, lighting, visual consistency) was partially enhanced using Nano Banana (Gemini model, Google), a generative AI tool.",
+        "body": "This retouching only aims to improve the rendering quality of the original photo, without altering Maxime Jolivet's identity or its content.",
+        "closing": "The site's web programming also benefited from the assistance of Claude Code (Anthropic), an AI tool dedicated to software development, for certain design and development steps."
       },
       "data": {
         "title": "Personal data",

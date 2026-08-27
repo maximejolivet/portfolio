@@ -70,6 +70,7 @@
     "highlight2": "Expert Drupal et WordPress, solide en PHP & JavaScript",
     "highlight3": "Approche orientée performance et accessibilité",
     "imageAlt": "Portrait de Maxime Jolivet",
+    "aiDisclosure": "Portrait partiellement généré\npar une IA et vérifié par un agent",
     "tags": {
       "conceptionUiUx": "Conception UI/UX",
       "webDev": "Développement web",
@@ -585,7 +586,7 @@
   "legalPage": {
     "eyebrow": "JURIDIQUE",
     "title": "Mentions légales",
-    "updated": "Dernière mise à jour : juillet 2026",
+    "updated": "Dernière mise à jour : août 2026",
     "sections": {
       "editor": {
         "title": "Éditeur du site",
@@ -604,7 +605,13 @@
       },
       "technologies": {
         "title": "Technologies",
-        "body": "Ce site a été conçu et développé par Maxime Jolivet. Son développement a été orchestré avec l'assistance de Claude (Anthropic) pour certaines étapes de conception, de développement et de rédaction. Les choix techniques, le contenu et la validation finale restent ceux de l'éditeur."
+        "body": "Ce site a été conçu et développé par Maxime Jolivet. Le site a été développé via la technologie JavaScript / Vue.js, via le framework Nuxt."
+      },
+      "ai": {
+        "title": "Utilisation de l'intelligence artificielle",
+        "intro": "Le portrait affiché en page d'accueil est une photographie réelle de Maxime Jolivet, dont le rendu (netteté, éclairage, cohérence visuelle) a été partiellement amélioré à l'aide de Nano Banana (modèle Gemini, Google), un outil d'IA générative.",
+        "body": "Cette retouche vise uniquement à améliorer la qualité de rendu de la photo d'origine, sans en modifier l'identité de Maxime Jolivet, ni le contenu.",
+        "closing": "La programmation web de ce site a par ailleurs bénéficié de l'assistance de Claude Code (Anthropic), un outil d'IA dédié au développement logiciel, pour certaines étapes de conception et de développement."
       },
       "data": {
         "title": "Données personnelles",
