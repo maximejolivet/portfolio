@@ -9,6 +9,15 @@ const { refused: calRefused } = useCalConsent()
 
 const pdfViewer = ref(null)
 
+// Safari/WebKit fails to resolve a root-relative worker-src ("/generated/...")
+// from inside the viewer's srcdoc iframe ("Module name ... does not resolve
+// to a valid URL"), because that iframe's base URI isn't the page's origin
+// there. A fully-qualified absolute URL sidesteps relative resolution
+// entirely, so it works regardless of the iframe's base URI.
+const workerSrc = typeof window !== 'undefined'
+  ? `${window.location.origin}/generated/pdf.worker.min.mjs`
+  : undefined
+
 onMounted(() => {
   // pdfjs-viewer-element defaults `wasmUrl` to a `../web/wasm/` path that
   // isn't shipped in the published package, unlike pdf.js itself (which
@@ -47,7 +56,7 @@ useSeoMeta({
     <pdfjs-viewer-element
       ref="pdfViewer"
       src="/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-tech-lead-ia.pdf"
-      worker-src="/generated/pdf.worker.min.mjs"
+      :worker-src="workerSrc"
       viewer-css-theme="DARK"
       zoom="auto"
       class="block h-[calc(100vh-58px)] w-full"
