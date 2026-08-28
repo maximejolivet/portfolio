@@ -42,7 +42,8 @@
     "backToTop": "Back to top",
     "legalMentions": "Legal notice",
     "accessibility": "Accessibility",
-    "manageCookies": "Manage cookies"
+    "manageCookies": "Manage cookies",
+    "changelog": "Changelog"
   },
   "social": {
     "github": "View my GitHub",
@@ -695,6 +696,20 @@
         "title": "Report an issue",
         "body": "If any part of the site is inaccessible to you, please report it to {email} - this feedback will be taken into account."
       }
+    }
+  },
+  "changelogPage": {
+    "eyebrow": "CHANGELOG",
+    "title": "Changelog",
+    "subtitle": "Recent updates to this site, generated automatically from the Git history.",
+    "empty": "No updates to show yet.",
+    "error": "Couldn't load the changelog.",
+    "viewCommit": "View commit",
+    "types": {
+      "feat": "Added",
+      "fix": "Fixed",
+      "perf": "Improved",
+      "security": "Security"
     }
   },
   "error": {
