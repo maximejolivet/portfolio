@@ -23,6 +23,7 @@ const CHAR_WIDTH = 6.5
 const PADDING = 10
 const HEIGHT = 20
 
+const LABEL_COLOR = '#333'
 const TITLE_LABEL = 'Lighthouse'
 const ICON_SIZE = 12
 const ICON_GAP = 4
@@ -76,7 +77,7 @@ function renderBadge(scores: CategoryScore[], strategy: string): string {
 
   for (const seg of segments) {
     const labelX = x
-    rects.push(`<rect x="${labelX}" width="${seg.labelWidth}" height="${HEIGHT}" fill="#555"/>`)
+    rects.push(`<rect x="${labelX}" width="${seg.labelWidth}" height="${HEIGHT}" fill="${LABEL_COLOR}"/>`)
     texts.push(
       `<text x="${labelX + seg.labelWidth / 2}" y="14" fill="#fff" font-size="11" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif">${escapeXml(seg.label)}</text>`,
     )

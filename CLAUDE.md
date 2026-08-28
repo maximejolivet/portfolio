@@ -40,9 +40,9 @@ Tailwind v4 (via `@tailwindcss/vite`, not PostCSS) + shadcn-vue (`components.jso
 
 ## i18n
 
-Two locales: French (`fr`, default) and English (`en`, BCP47 `en-US`). URL prefix strategy: `/fr/...` and `/en/...`.
+Three locales: French (`fr`, default), English (`en`, BCP47 `en-US`), and Breton (`br`, BCP47 `br-FR`). URL prefix strategy: `/fr/...`, `/en/...`, and `/br/...`.
 
-Translation files live in `i18n/locales/`. Always update **both** `i18n/locales/en.json` and `i18n/locales/fr.json` when adding or changing UI text.
+Translation files live in `i18n/locales/`. Always update **all three** of `i18n/locales/en.json`, `i18n/locales/fr.json`, and `i18n/locales/br.json` when adding or changing UI text. Breton translations are best-effort (not native-reviewed) — flag new/changed `br` copy for review rather than treating it as final.
 
 ## Non-Obvious Gotchas
 

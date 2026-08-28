@@ -1,6 +1,6 @@
 # Portfolio - Maxime JOLIVET // Nuxt 4 SSR
 
-Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multilingue (FR/EN), déployé en SSR sur Vercel.
+Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multilingue (FR/EN/BR), déployé en SSR sur Vercel.
 
 [![License](https://img.shields.io/badge/license-MIT-b8860b?logo=opensourceinitiative&logoColor=white)](LICENSE.md)
 ![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
@@ -16,7 +16,7 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multili
 ![Supabase](https://img.shields.io/badge/Supabase-2-1f7a54?logo=supabase&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-10-4B32C3?logo=eslint&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-4-6E9F18?logo=vitest&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-FR%20%2F%20EN-21759B?logo=googletranslate&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-FR%20%2F%20EN%20%2F%20BR-21759B?logo=googletranslate&logoColor=white)
 
 ## Claude Code Skills
 
@@ -39,7 +39,7 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 - **Framework** : [Nuxt 4](https://nuxt.com) (SSR en dev comme en prod, hébergé sur Vercel)
 - **UI** : Vue 3, composants organisés par domaine (`components/sections`, `components/cards`, `components/layout`, `components/ui`, `components/navigation`)
 - **State** : Pinia
-- **i18n** : `@nuxtjs/i18n`, deux locales (`fr` par défaut, `en-US`), préfixe d'URL (`/fr/...`, `/en/...`)
+- **i18n** : `@nuxtjs/i18n`, trois locales (`fr` par défaut, `en-US`, `br-FR`), préfixe d'URL (`/fr/...`, `/en/...`, `/br/...`)
 - **Data** : Supabase (articles de blog)
 - **Sécurité** : `nuxt-security` (CSP stricte avec nonce)
 - **SEO** : `@nuxtjs/sitemap`, `@nuxt/image`
@@ -47,14 +47,16 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Pages
 
-| Route (FR)          | Route (EN)      | Contenu                                     |
-| ------------------- | --------------- | -------------------------------------------- |
-| `/`                 | `/`             | Accueil (hero, à propos, expérience, stack) |
-| `/cv`               | `/cv`           | Curriculum vitæ                             |
-| `/projets`          | `/projects`     | Liste des projets                           |
-| `/blog`             | `/blog`         | Liste des articles                          |
-| `/blog/:slug`       | `/blog/:slug`   | Article de blog                             |
-| `/mentions-legales` | `/legal-notice` | Mentions légales                            |
+| Route (FR)          | Route (EN)       | Route (BR)          | Contenu                                      |
+| ------------------- | ---------------- | ------------------- | -------------------------------------------- |
+| `/`                 | `/`              | `/`                 | Accueil (hero, à propos, expérience, stack)  |
+| `/cv`               | `/cv`            | `/cv`               | Curriculum vitæ                              |
+| `/projets`          | `/projects`      | `/raktresou`        | Liste des projets                            |
+| `/blog`             | `/blog`          | `/blog`             | Liste des articles                           |
+| `/blog/:slug`       | `/blog/:slug`    | `/blog/:slug`       | Article de blog                              |
+| `/mentions-legales` | `/legal-notice`  | `/menegou-lezennel` | Mentions légales                             |
+| `/accessibilite`    | `/accessibility` | `/haezadusted`      | Déclaration d'accessibilité                  |
+| `/nouveautes`       | `/changelog`     | `/kemmou-nevez`     | Journal des mises à jour (généré depuis Git) |
 
 ## Setup
 
@@ -207,6 +209,9 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.87](https://img.shields.io/badge/v1.0.87-2026--08--28-F97316)
+![v1.0.86](https://img.shields.io/badge/v1.0.86-2026--08--28-F97316)
+![v1.0.85](https://img.shields.io/badge/v1.0.85-2026--08--28-F97316)
 ![v1.0.84](https://img.shields.io/badge/v1.0.84-2026--08--28-F97316)
 ![v1.0.83](https://img.shields.io/badge/v1.0.83-2026--08--28-F97316)
 ![v1.0.82](https://img.shields.io/badge/v1.0.82-2026--08--28-F97316)
