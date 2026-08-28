@@ -107,7 +107,18 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-08-27',
+  compatibilityDate: '2026-08-28',
+
+  nitro: {
+    // Default Vercel function timeout (10s) is too short for a live
+    // PageSpeed Insights audit (lighthouse-badge.svg.get.ts) - a real
+    // Lighthouse run against the page routinely takes 15-40s.
+    vercel: {
+      functions: {
+        maxDuration: 60,
+      },
+    },
+  },
 
   vite: {
     plugins: [tailwindcss()],
