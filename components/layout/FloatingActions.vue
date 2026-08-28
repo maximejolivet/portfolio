@@ -53,7 +53,7 @@ onUnmounted(() => {
       <button
         v-if="showBackToTop"
         type="button"
-        class="hidden size-14 items-center justify-center rounded-full border border-black bg-background text-foreground shadow-md transition-colors hover:text-accent md:flex cursor-pointer"
+        class="hidden size-14 items-center justify-center rounded-full border border-black bg-background text-foreground shadow-md transition-colors hover:text-accent md:flex cursor-pointer [[data-theme=night]_&]:border-border [[data-theme=night]_&]:bg-black"
         :aria-label="$t('footer.backToTop')"
         @click="scrollToTop"
       >
