@@ -42,7 +42,8 @@
     "backToTop": "Distreiñ d'an nec'h",
     "legalMentions": "Menegoù lezennel",
     "accessibility": "Haezadusted",
-    "manageCookies": "Merañ ar cookies"
+    "manageCookies": "Merañ ar cookies",
+    "changelog": "Hizivadennoù"
   },
   "social": {
     "github": "Gwelet ma GitHub",
@@ -695,6 +696,20 @@
         "title": "Diskuliañ ur gudenn",
         "body": "Ma n'hallit ket haezañ ul lodenn eus al lec'hienn, kasit ur gemennadenn da {email}."
       }
+    }
+  },
+  "changelogPage": {
+    "eyebrow": "HIZIVADENNOÙ",
+    "title": "Journal ar c'hemmoù",
+    "subtitle": "Hizivadennoù diwezhañ al lec'hienn, savet emgefreek diouzh istor Git.",
+    "empty": "Hizivadenn ebet da ziskouez evit ar mare.",
+    "error": "N'haller ket kargañ ar journal hizivadennoù.",
+    "viewCommit": "Gwelet ar commit",
+    "types": {
+      "feat": "Ouzhpennet",
+      "fix": "Reizhet",
+      "perf": "Gwellaet",
+      "security": "Diogelroez"
     }
   },
   "error": {

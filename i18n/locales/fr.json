@@ -42,7 +42,8 @@
     "backToTop": "Retour en haut",
     "legalMentions": "Mentions légales",
     "accessibility": "Accessibilité",
-    "manageCookies": "Gérer les cookies"
+    "manageCookies": "Gérer les cookies",
+    "changelog": "Nouveautés"
   },
   "social": {
     "github": "Voir mon GitHub",
@@ -695,6 +696,20 @@
         "title": "Signaler un problème",
         "body": "Si une partie du site vous est inaccessible, merci de le signaler à {email} - ce retour sera pris en compte."
       }
+    }
+  },
+  "changelogPage": {
+    "eyebrow": "NOUVEAUTÉS",
+    "title": "Journal des mises à jour",
+    "subtitle": "Les évolutions récentes du site, générées automatiquement depuis l'historique Git.",
+    "empty": "Aucune mise à jour à afficher pour le moment.",
+    "error": "Impossible de charger le journal des mises à jour.",
+    "viewCommit": "Voir le commit",
+    "types": {
+      "feat": "Ajouté",
+      "fix": "Corrigé",
+      "perf": "Amélioré",
+      "security": "Sécurité"
     }
   },
   "error": {

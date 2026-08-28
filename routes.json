@@ -38,5 +38,10 @@
     "en": "/accessibility",
     "fr": "/accessibilite",
     "br": "/haezadusted"
+  },
+  "changelog": {
+    "en": "/changelog",
+    "fr": "/nouveautes",
+    "br": "/kemmou-nevez"
   }
 }
