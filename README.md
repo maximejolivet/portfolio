@@ -2,7 +2,7 @@
 
 Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multilingue (FR/EN), déployé en SSR sur Vercel.
 
-[![License](https://img.shields.io/badge/license-MIT-yellow?logo=opensourceinitiative&logoColor=black)](LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-b8860b?logo=opensourceinitiative&logoColor=white)](LICENSE.md)
 ![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
 [![Lighthouse](https://www.maxime.bzh/api/lighthouse-badge.svg)](https://www.maxime.bzh)
 
@@ -12,8 +12,8 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multili
 ![TypeScript version](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Vite version](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
 ![Tailwind version](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)
-![Pinia version](https://img.shields.io/badge/Pinia-4-FFD859?logo=pinia&logoColor=black)
-![Supabase](https://img.shields.io/badge/Supabase-2-3ECF8E?logo=supabase&logoColor=black)
+![Pinia version](https://img.shields.io/badge/Pinia-4-8c7731?logo=pinia&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-2-1f7a54?logo=supabase&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-10-4B32C3?logo=eslint&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-4-6E9F18?logo=vitest&logoColor=white)
 ![i18n](https://img.shields.io/badge/i18n-FR%20%2F%20EN-21759B?logo=googletranslate&logoColor=white)
@@ -207,6 +207,7 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
+![v1.0.84](https://img.shields.io/badge/v1.0.84-2026--08--28-F97316)
 ![v1.0.83](https://img.shields.io/badge/v1.0.83-2026--08--28-F97316)
 ![v1.0.82](https://img.shields.io/badge/v1.0.82-2026--08--28-F97316)
 ![v1.0.81](https://img.shields.io/badge/v1.0.81-2026--08--27-F97316)
