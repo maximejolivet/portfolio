@@ -14,6 +14,12 @@ useHead({
       src: '/tarteaucitron/tarteaucitron.min.js',
     },
     {
+      'key': 'ia-widget',
+      'src': 'https://ia.maxime.bzh/widget.js',
+      'data-trigger': '#ia-chat-trigger',
+      'async': true,
+    },
+    {
       key: 'tarteaucitron-init',
       innerHTML: `tarteaucitron.init({
   privacyUrl: "",
