@@ -79,6 +79,8 @@ export default defineNuxtConfig({
               '\'unsafe-inline\'',
               'https://app.cal.eu',
               'https://www.googletagmanager.com',
+              'https://ia.maxime.bzh',
+              '//ia.maxime.bzh',
             ],
           },
         },
@@ -93,6 +95,8 @@ export default defineNuxtConfig({
               '\'unsafe-inline\'',
               'https://app.cal.eu',
               'https://www.googletagmanager.com',
+              'https://ia.maxime.bzh',
+              '//ia.maxime.bzh',
             ],
           },
         },
@@ -107,7 +111,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-08-28',
+  compatibilityDate: '2026-09-02',
 
   nitro: {
     // Default Vercel function timeout (10s) is too short for a live
@@ -197,6 +201,8 @@ export default defineNuxtConfig({
           '\'unsafe-inline\'',
           '\'strict-dynamic\'',
           '\'nonce-{{nonce}}\'',
+          'https://ia.maxime.bzh',
+          '//ia.maxime.bzh',
         ],
         'style-src': [
           // self           => Enables loading of stylesheets hosted on same origin
@@ -220,6 +226,7 @@ export default defineNuxtConfig({
           'https://www.googletagmanager.com',
           'https://*.google-analytics.com',
           'https://*.analytics.google.com',
+          'https://ia.maxime.bzh',
         ],
         'font-src': ['\'self\'', 'data:'],
         // worker-src => explicit, since Safari/WebKit doesn't reliably fall back
@@ -228,7 +235,7 @@ export default defineNuxtConfig({
         'worker-src': ['\'self\''],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
-        'frame-src': ['\'self\'', 'https://app.cal.eu'],
+        'frame-src': ['\'self\'', 'https://app.cal.eu', 'https://ia.maxime.bzh'],
         'frame-ancestors': ['\'self\''],
         'upgrade-insecure-requests': true,
       },
