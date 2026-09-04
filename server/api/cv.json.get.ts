@@ -4,8 +4,9 @@ import { SOCIAL_LINKS } from '~/constants/social'
 import { CONTACT_EMAIL } from '~/constants/contact'
 import fr from '~/i18n/locales/fr.json'
 import en from '~/i18n/locales/en.json'
+import br from '~/i18n/locales/br.json'
 
-const LOCALES = { fr, en } as const
+const LOCALES = { fr, en, br } as const
 type Locale = keyof typeof LOCALES
 
 function t(locale: Locale, key: string): string {
@@ -66,7 +67,7 @@ function buildResume(locale: Locale) {
 export default defineCachedEventHandler(
   async (event) => {
     const query = getQuery(event)
-    const locale: Locale = query.lang === 'en' ? 'en' : 'fr'
+    const locale: Locale = query.lang === 'en' || query.lang === 'br' ? query.lang : 'fr'
     return buildResume(locale)
   },
   // The default cache key is derived from the full request URL, so
