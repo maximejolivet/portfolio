@@ -91,6 +91,9 @@
     "titleEnd": "tools.",
     "filterHint": "Click a tech to see the projects it was used on.",
     "viewProjects": "View {count} project(s) using this tech",
+    "viewList": "List",
+    "viewGraph": "Graph",
+    "graphHint": "Click a category to explore its tools.",
     "categories": {
       "languages": {
         "label": "Languages",
