@@ -88,6 +88,8 @@
     "titleStart": "Modern,",
     "titleHighlight": "proven",
     "titleEnd": "tools.",
+    "filterHint": "Click a tech to see the projects it was used on.",
+    "viewProjects": "View {count} project(s) using this tech",
     "categories": {
       "languages": {
         "label": "Languages",
@@ -211,7 +213,9 @@
     "underConstruction": "Under construction",
     "underConstructionNote": "Full case study coming soon.",
     "pagination": "Pagination",
-    "pageLabel": "Page"
+    "pageLabel": "Page",
+    "techFilterLabel": "Filtered by tech:",
+    "clearTechFilter": "Clear tech filter"
   },
   "clientsSection": {
     "eyebrow": "Projects I've contributed to",

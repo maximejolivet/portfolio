@@ -88,6 +88,8 @@
     "titleStart": "Des outils",
     "titleHighlight": "modernes",
     "titleEnd": "et éprouvés.",
+    "filterHint": "Cliquez sur une techno pour voir les projets associés.",
+    "viewProjects": "Voir {count} projet(s) utilisant cette techno",
     "categories": {
       "languages": {
         "label": "Langages",
@@ -211,7 +213,9 @@
     "underConstruction": "En construction",
     "underConstructionNote": "Fiche détaillée bientôt disponible.",
     "pagination": "Pagination",
-    "pageLabel": "Page"
+    "pageLabel": "Page",
+    "techFilterLabel": "Filtré par technologie :",
+    "clearTechFilter": "Retirer le filtre technologie"
   },
   "clientsSection": {
     "eyebrow": "Les projets auxquels j'ai collaboré",

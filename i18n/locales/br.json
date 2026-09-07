@@ -88,6 +88,8 @@
     "titleStart": "Ostilhoù",
     "titleHighlight": "arnevez",
     "titleEnd": "ha kadarnaet gant an amzer.",
+    "filterHint": "Klikit war un teknik evit gwelet ar raktresoù kevelet.",
+    "viewProjects": "Gwelet {count} raktres a implij an teknik-mañ",
     "categories": {
       "languages": {
         "label": "Yezhoù",
@@ -211,7 +213,9 @@
     "underConstruction": "War sevel",
     "underConstructionNote": "Follenn resis a-benn nebeut.",
     "pagination": "Pajennaouiñ",
-    "pageLabel": "Pajenn"
+    "pageLabel": "Pajenn",
+    "techFilterLabel": "Silet dre deknik :",
+    "clearTechFilter": "Lemel ar sil teknik"
   },
   "clientsSection": {
     "eyebrow": "Ar raktresoù ma em eus kemeret perzh enno",
