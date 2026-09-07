@@ -91,9 +91,6 @@
     "titleEnd": "et éprouvés.",
     "filterHint": "Cliquez sur une techno pour voir les projets associés.",
     "viewProjects": "Voir {count} projet(s) utilisant cette techno",
-    "viewList": "Liste",
-    "viewGraph": "Graphe",
-    "graphHint": "Cliquez sur une catégorie pour explorer ses outils.",
     "categories": {
       "languages": {
         "label": "Langages",

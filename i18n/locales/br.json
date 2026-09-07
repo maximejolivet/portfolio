@@ -91,9 +91,6 @@
     "titleEnd": "ha kadarnaet gant an amzer.",
     "filterHint": "Klikit war un teknik evit gwelet ar raktresoù kevelet.",
     "viewProjects": "Gwelet {count} raktres a implij an teknik-mañ",
-    "viewList": "Roll",
-    "viewGraph": "Grafik",
-    "graphHint": "Klikañ war ur rummad evit dizoleiñ he ostilhoù.",
     "categories": {
       "languages": {
         "label": "Yezhoù",
