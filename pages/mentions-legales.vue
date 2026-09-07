@@ -34,8 +34,10 @@ const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
 
 <template>
   <div>
-    <SectionsPageIntro :eyebrow="$t('legalPage.eyebrow')" :title="$t('legalPage.title')"
-      :subtitle="$t('legalPage.updated')" />
+    <SectionsPageIntro
+:eyebrow="$t('legalPage.eyebrow')" :title="$t('legalPage.title')"
+      :subtitle="$t('legalPage.updated')"
+/>
 
     <LayoutPageSection bare>
       <UiContainer class="flex max-w-[780px] flex-col gap-10 pb-24">
@@ -44,8 +46,10 @@ const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
             {{ $t(`legalPage.sections.${section}.title`) }}
           </h2>
 
-          <p v-if="$te(`legalPage.sections.${section}.intro`)"
-            class="text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground">
+          <p
+v-if="$te(`legalPage.sections.${section}.intro`)"
+            class="text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
+>
             {{ $t(`legalPage.sections.${section}.intro`) }}
           </p>
 
@@ -55,23 +59,31 @@ const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
             </li>
           </ul>
 
-          <p v-if="$te(`legalPage.sections.${section}.body`)"
-            class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground">
+          <p
+v-if="$te(`legalPage.sections.${section}.body`)"
+            class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
+>
             {{ $t(`legalPage.sections.${section}.body`, { email: CONTACT_EMAIL }) }}
           </p>
 
-          <i18n-t v-if="section === 'technologies' && $te('legalPage.sections.technologies.bretonNote')"
+          <i18n-t
+v-if="section === 'technologies' && $te('legalPage.sections.technologies.bretonNote')"
             keypath="legalPage.sections.technologies.bretonNote" tag="p"
-            class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground">
+            class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
+>
             <template #link>
-              <a href="https://niverel.brezhoneg.bzh/br/home/" target="_blank" rel="noopener noreferrer"
-                class="underline decoration-dotted underline-offset-2 hover:text-accent">{{
+              <a
+href="https://niverel.brezhoneg.bzh/br/home/" target="_blank" rel="noopener noreferrer"
+                class="underline decoration-dotted underline-offset-2 hover:text-accent"
+>{{
                   $t('legalPage.sections.technologies.bretonLinkText') }}</a>
             </template>
           </i18n-t>
 
-          <p v-if="$te(`legalPage.sections.${section}.closing`)"
-            class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground">
+          <p
+v-if="$te(`legalPage.sections.${section}.closing`)"
+            class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
+>
             {{ $t(`legalPage.sections.${section}.closing`, { email: CONTACT_EMAIL }) }}
           </p>
         </div>
