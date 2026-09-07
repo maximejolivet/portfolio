@@ -8,6 +8,18 @@ useSeoMeta({
   description: () => t('blog.subtitle'),
 })
 
+useHead({
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      title: 'Blog (RSS)',
+      href: '/api/blog/rss.xml',
+    },
+  ],
+})
+
+const searchQuery = ref('')
 const articles = ref<ArticleSummary[]>([])
 const pending = ref(false)
 const error = ref<unknown>(null)
@@ -28,6 +40,14 @@ const excerpt = (article: ArticleSummary) =>
   (locale.value === 'en' ? article.excerpt_en : article.excerpt_fr) || article.excerpt_fr
 const slug = (article: ArticleSummary) =>
   locale.value === 'en' ? article.slug_en : article.slug_fr
+
+const filteredArticles = computed(() => {
+  const query = searchQuery.value.trim().toLowerCase()
+  if (!query) return articles.value
+  return articles.value.filter((article) =>
+    `${title(article)} ${excerpt(article)}`.toLowerCase().includes(query),
+  )
+})
 
 const formattedDate = (value: string) =>
   new Date(value).toLocaleDateString(locale.value === 'en' ? 'en-US' : 'fr-FR', {
@@ -66,31 +86,53 @@ const formattedDate = (value: string) =>
           :message="$t('blog.empty')"
         />
 
-        <div v-else class="flex flex-col pb-20">
-          <NuxtLink
-            v-for="article in articles"
-            :key="article.id"
-            :to="localePath(`/blog/${slug(article)}`)"
-            class="flex flex-col gap-2.5 border-b border-border py-7"
-          >
-            <div class="font-mono text-[0.7812rem] text-subtle">
-              {{ formattedDate(article.published_at) }}
-            </div>
-            <h2
-              class="text-balance font-sans text-[1.5625rem] font-bold leading-[1.25] tracking-[-0.5px] text-foreground hover:text-accent"
+        <template v-else>
+          <div class="relative pb-6">
+            <UiAppIcon
+              icon="lucide:search"
+              class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+            />
+            <input
+              v-model="searchQuery"
+              type="text"
+              autocomplete="off"
+              :placeholder="$t('blog.searchPlaceholder')"
+              class="w-full rounded-full border border-border bg-background py-2.5 pl-10 pr-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none"
             >
-              {{ title(article) }}
-            </h2>
-            <p class="text-pretty font-sans text-sm leading-[1.65] text-muted-foreground">
-              {{ excerpt(article) }}
-            </p>
-            <span
-              class="mt-0.5 inline-flex items-center gap-1 font-mono text-[0.8438rem] font-semibold text-accent"
+          </div>
+
+          <UiEmptyState
+            v-if="!filteredArticles.length"
+            icon="lucide:search-x"
+            :message="$t('blog.noResults')"
+          />
+
+          <div v-else class="flex flex-col pb-20">
+            <NuxtLink
+              v-for="article in filteredArticles"
+              :key="article.id"
+              :to="localePath(`/blog/${slug(article)}`)"
+              class="flex flex-col gap-2.5 border-b border-border py-7"
             >
-              {{ $t('blog.read_more') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
-            </span>
-          </NuxtLink>
-        </div>
+              <div class="font-mono text-[0.7812rem] text-subtle">
+                {{ formattedDate(article.published_at) }}
+              </div>
+              <h2
+                class="text-balance font-sans text-[1.5625rem] font-bold leading-[1.25] tracking-[-0.5px] text-foreground hover:text-accent"
+              >
+                {{ title(article) }}
+              </h2>
+              <p class="text-pretty font-sans text-sm leading-[1.65] text-muted-foreground">
+                {{ excerpt(article) }}
+              </p>
+              <span
+                class="mt-0.5 inline-flex items-center gap-1 font-mono text-[0.8438rem] font-semibold text-accent"
+              >
+                {{ $t('blog.read_more') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
+              </span>
+            </NuxtLink>
+          </div>
+        </template>
       </UiContainer>
     </LayoutPageSection>
   </div>

@@ -1,0 +1,59 @@
+import { createClient } from '@supabase/supabase-js'
+
+const SITE_URL = 'https://www.maxime.bzh'
+
+interface ArticleRow {
+  slug_fr: string
+  title_fr: string
+  excerpt_fr: string
+  published_at: string
+}
+
+function escapeXml(text: string): string {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
+export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig(event)
+  const supabase = createClient(config.public.supabaseUrl, config.public.supabaseKey)
+
+  const { data, error } = await supabase
+    .from('articles')
+    .select('slug_fr, title_fr, excerpt_fr, published_at')
+    .lte('published_at', new Date().toISOString())
+    .order('published_at', { ascending: false })
+    .limit(30)
+
+  if (error) {
+    console.error('[rss] fetch articles failed', error)
+    setResponseStatus(event, 500)
+    setHeader(event, 'Content-Type', 'application/rss+xml; charset=utf-8')
+    return '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel></channel></rss>'
+  }
+
+  const items = (data as ArticleRow[] ?? [])
+    .map(
+      (article) => `
+    <item>
+      <title>${escapeXml(article.title_fr)}</title>
+      <link>${SITE_URL}/fr/blog/${article.slug_fr}</link>
+      <guid>${SITE_URL}/fr/blog/${article.slug_fr}</guid>
+      <pubDate>${new Date(article.published_at).toUTCString()}</pubDate>
+      <description>${escapeXml(article.excerpt_fr)}</description>
+    </item>`,
+    )
+    .join('')
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Maxime Jolivet - Blog</title>
+    <link>${SITE_URL}/fr/blog</link>
+    <description>Notes de terrain sur le développement web</description>
+    <language>fr</language>${items}
+  </channel>
+</rss>`
+
+  setHeader(event, 'Content-Type', 'application/rss+xml; charset=utf-8')
+  return xml
+})
