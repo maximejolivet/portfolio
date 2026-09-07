@@ -6,6 +6,7 @@
 
 - [CV / Resume (JSON Resume format)](https://www.maxime.bzh/api/cv.json): Machine-readable resume — work history, skills, contact info. Add `?lang=en` for the English version.
 - [Lighthouse badge](https://www.maxime.bzh/api/lighthouse-badge.svg): Live performance/accessibility/best-practices/SEO scores for this site, computed on demand via Google PageSpeed Insights. Add `?strategy=desktop` for the desktop variant.
+- [Status](https://www.maxime.bzh/api/status.json): Machine-readable build/deploy info (app version, commit sha and URL, Lighthouse scores) for external monitoring or tooling.
 
 ## Pages
 
