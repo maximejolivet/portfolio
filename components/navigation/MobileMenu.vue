@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { NuxtLink } from '#components'
 import type { NavItem } from '~/types/content.types'
 import { NAV_ITEMS } from '~/constants/nav'
 
@@ -49,7 +50,7 @@ function onItemClick(item: NavItem, event: MouseEvent) {
         class="absolute right-0 top-[calc(100%+25px)] z-50 flex w-56 flex-col gap-1 rounded-2xl border border-border bg-background p-2 shadow-lg"
       >
         <component
-          :is="item.href ? 'a' : 'NuxtLink'"
+          :is="item.href ? 'a' : NuxtLink"
           v-for="item in NAV_ITEMS"
           :key="item.id"
           :to="

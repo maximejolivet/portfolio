@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { NuxtLink } from '#components'
+
 const props = defineProps<{
   to?: string
   href?: string
@@ -29,7 +31,7 @@ function onClick(event: MouseEvent) {
 
 <template>
   <component
-    :is="href ? 'a' : 'NuxtLink'"
+    :is="href ? 'a' : NuxtLink"
     :to="href ? undefined : resolvedTo"
     :href="href"
     :target="href ? '_blank' : undefined"
