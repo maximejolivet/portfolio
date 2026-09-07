@@ -45,7 +45,8 @@
     "legalMentions": "Legal notice",
     "accessibility": "Accessibility",
     "manageCookies": "Manage cookies",
-    "changelog": "Changelog"
+    "changelog": "Changelog",
+    "viewSource": "View this page's source"
   },
   "social": {
     "github": "View my GitHub",
@@ -562,8 +563,7 @@
       "title": "Let's build what's next together",
       "subtitle": "Senior Full-Stack Web Developer · Lead Developer · Tech Lead",
       "subtitleSecondary": "AI & Prompt Engineering",
-      "bookCall": "Book a meeting",
-      "chat": "Chat with the AI assistant"
+      "bookCall": "Book a meeting",      "chat": "Chat with the AI assistant"
     }
   },
   "projectDetail": {
@@ -580,7 +580,16 @@
   },
   "cv": {
     "read": "Curriculum vitae",
-    "download": "Download PDF"
+    "download": "Download PDF",
+    "quickView": {
+      "trigger": "30s overview",
+      "close": "Close",
+      "previously": "Previously:",
+      "currentlyAt": "Currently:",
+      "jobSearch": "looking for a new opportunity",
+      "qrAlt": "QR code to this CV",
+      "qrCaption": "Scan to open this CV on your phone"
+    }
   },
   "terminal": {
     "title": "guest — maxime.bzh terminal",
@@ -595,6 +604,16 @@
     "themeNight": "night",
     "sudo": "Permission denied: not even sudo lets you deploy to prod on a Friday night. 😏"
   },
+  "shortcuts": {
+    "title": "Keyboard shortcuts",
+    "close": "Close",
+    "items": [
+      "Show this help",
+      "Command palette",
+      "Close a dialog"
+    ],
+    "terminalHint": "In the panel's terminal above: help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
+  },
   "blog": {
     "eyebrow": "BLOG - NOTES FROM THE FIELD",
     "title": "What the code teaches me",
@@ -604,7 +623,9 @@
     "loading": "Loading articles...",
     "empty": "No articles yet, check back soon.",
     "error": "Something went wrong while loading articles.",
-    "not_found": "This article doesn't exist."
+    "not_found": "This article doesn't exist.",
+    "searchPlaceholder": "Search articles...",
+    "noResults": "No article matches your search."
   },
   "legalPage": {
     "eyebrow": "LEGAL",

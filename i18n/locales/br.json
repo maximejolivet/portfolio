@@ -45,7 +45,8 @@
     "legalMentions": "Menegoù lezennel",
     "accessibility": "Haezadusted",
     "manageCookies": "Merañ ar cookies",
-    "changelog": "Hizivadennoù"
+    "changelog": "Hizivadennoù",
+    "viewSource": "Gwelet kod ar bajenn-mañ"
   },
   "social": {
     "github": "Gwelet ma GitHub",
@@ -562,8 +563,7 @@
       "title": "Savomp ar sujidigezh a-gevret",
       "subtitle": "Développeur Web Full-Stack Senior · Lead Developer",
       "subtitleSecondary": "Tech Lead · IA & Prompt Engineering",
-      "bookCall": "Ober un emgav",
-      "chat": "Kaozeal gant ar skoazeller IA"
+      "bookCall": "Ober un emgav",      "chat": "Kaozeal gant ar skoazeller IA"
     }
   },
   "projectDetail": {
@@ -580,7 +580,16 @@
   },
   "cv": {
     "read": "Curriculum vitæ",
-    "download": "Pellgargañ ar PDF"
+    "download": "Pellgargañ ar PDF",
+    "quickView": {
+      "trigger": "Alberz 30eiz",
+      "close": "Serriñ",
+      "previously": "A-raok :",
+      "currentlyAt": "Bremañ :",
+      "jobSearch": "o klask ul labour",
+      "qrAlt": "Kod QR war-du ar CV-mañ",
+      "qrCaption": "Skanniñ evit digeriñ ar CV-mañ war ho pellgomz"
+    }
   },
   "terminal": {
     "title": "guest — maxime.bzh terminal",
@@ -595,6 +604,16 @@
     "themeNight": "noz",
     "sudo": "Nac'het ar aotre : zoken gant sudo, ne vez ket embannet e prod d'ar gwener da noz. 😏"
   },
+  "shortcuts": {
+    "title": "Berradennoù stokellaoueg",
+    "close": "Serriñ",
+    "items": [
+      "Diskouez ar sikour-mañ",
+      "Palenn urzhioù",
+      "Serriñ ur prenestr"
+    ],
+    "terminalHint": "E termenell ar banell a-us : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
+  },
   "blog": {
     "eyebrow": "BLOG - NOTENNOÙ DACHENN",
     "title": "Ar pezh a zesk ar c'hod din",
@@ -604,7 +623,9 @@
     "loading": "O kargañ ar pennadoù...",
     "empty": "Pennad ebet evit ar mare, deuit en-dro a-benn nebeut.",
     "error": "Degouezhet ez eus bet ur fazi e-pad kargañ ar pennadoù.",
-    "not_found": "N'eus ket ar pennad-mañ."
+    "not_found": "N'eus ket ar pennad-mañ.",
+    "searchPlaceholder": "Klask ur pennad...",
+    "noResults": "Pennad ebet a glot gant ho klask."
   },
   "legalPage": {
     "eyebrow": "LEZENNEL",
