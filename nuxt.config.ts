@@ -80,7 +80,6 @@ export default defineNuxtConfig({
               'https://app.cal.eu',
               'https://www.googletagmanager.com',
               'https://ia.maxime.bzh',
-              '//ia.maxime.bzh',
             ],
           },
         },
@@ -96,7 +95,6 @@ export default defineNuxtConfig({
               'https://app.cal.eu',
               'https://www.googletagmanager.com',
               'https://ia.maxime.bzh',
-              '//ia.maxime.bzh',
             ],
           },
         },
@@ -111,7 +109,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-09-02',
+  compatibilityDate: '2026-09-07',
 
   nitro: {
     // Default Vercel function timeout (10s) is too short for a live
@@ -202,7 +200,6 @@ export default defineNuxtConfig({
           '\'strict-dynamic\'',
           '\'nonce-{{nonce}}\'',
           'https://ia.maxime.bzh',
-          '//ia.maxime.bzh',
         ],
         'style-src': [
           // self           => Enables loading of stylesheets hosted on same origin
