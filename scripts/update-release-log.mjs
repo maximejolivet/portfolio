@@ -1,7 +1,9 @@
-// Adds a shields.io badge for the current version to the "Releases (dev)"
-// section of README.md. Invoked by .husky/pre-commit, right after it bumps
-// package.json - a commit-msg hook can't do this because git already froze
-// the commit tree by the time commit-msg runs, so `git add` there is a no-op.
+// Replaces the shields.io badge in the "Releases (dev)" section of
+// README.md with one for the current version - only the latest version
+// is kept, not a growing history. Invoked by .husky/pre-commit, right
+// after it bumps package.json - a commit-msg hook can't do this because
+// git already froze the commit tree by the time commit-msg runs, so
+// `git add` there is a no-op.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -27,9 +29,6 @@ if (startIndex === -1 || endIndex === -1) {
 }
 
 const before = readme.slice(0, startIndex + startMarker.length)
-const existingBlock = readme.slice(startIndex + startMarker.length, endIndex).trim()
 const after = readme.slice(endIndex)
 
-const block = existingBlock ? `${badge}\n${existingBlock}` : badge
-
-writeFileSync(readmePath, `${before}\n\n${block}\n\n${after}`)
+writeFileSync(readmePath, `${before}\n\n${badge}\n\n${after}`)
