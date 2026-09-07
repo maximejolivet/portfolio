@@ -46,6 +46,7 @@
     "accessibility": "Accessibility",
     "manageCookies": "Manage cookies",
     "changelog": "Changelog",
+    "status": "Status",
     "viewSource": "View this page's source"
   },
   "social": {
@@ -614,6 +615,12 @@
     ],
     "terminalHint": "In the panel's terminal above: help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
   },
+  "konami": {
+    "title": "Konami code detected",
+    "message": "Nice work reading the code this far. The real easter egg is the repo itself:",
+    "cta": "View the GitHub repo",
+    "close": "Close"
+  },
   "blog": {
     "eyebrow": "BLOG - NOTES FROM THE FIELD",
     "title": "What the code teaches me",
@@ -745,6 +752,25 @@
       "fix": "Fixed",
       "perf": "Improved",
       "security": "Security"
+    }
+  },
+  "statusPage": {
+    "eyebrow": "STATUS",
+    "title": "Site status",
+    "subtitle": "Build and deployment info, generated automatically on every release.",
+    "error": "Couldn't load the status information.",
+    "version": "Version",
+    "commit": "Commit",
+    "buildDate": "Build date",
+    "lighthouse": "Lighthouse scores",
+    "lighthouseUnavailable": "Scores unavailable right now.",
+    "viewJson": "View as JSON",
+    "viewFullReport": "View the full PageSpeed report",
+    "metrics": {
+      "performance": "Performance",
+      "accessibility": "Accessibility",
+      "bestPractices": "Best practices",
+      "seo": "SEO"
     }
   },
   "error": {

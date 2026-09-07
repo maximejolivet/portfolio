@@ -117,4 +117,5 @@ tarteaucitron.services.calcom = {
   <LayoutCustomCursor />
   <LayoutCommandPalette />
   <LayoutShortcutsOverlay />
+  <LayoutKonamiEasterEgg />
 </template>

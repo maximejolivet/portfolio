@@ -46,6 +46,7 @@
     "accessibility": "Haezadusted",
     "manageCookies": "Merañ ar cookies",
     "changelog": "Hizivadennoù",
+    "status": "Stad",
     "viewSource": "Gwelet kod ar bajenn-mañ"
   },
   "social": {
@@ -614,6 +615,12 @@
     ],
     "terminalHint": "E termenell ar banell a-us : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
   },
+  "konami": {
+    "title": "Kod Konami dizoloet",
+    "message": "Brav eo bezañ lennet ar c'hod betek amañ. An easter egg gwirion eo an depod e-unan :",
+    "cta": "Gwelet an depod GitHub",
+    "close": "Serriñ"
+  },
   "blog": {
     "eyebrow": "BLOG - NOTENNOÙ DACHENN",
     "title": "Ar pezh a zesk ar c'hod din",
@@ -745,6 +752,25 @@
       "fix": "Reizhet",
       "perf": "Gwellaet",
       "security": "Diogelroez"
+    }
+  },
+  "statusPage": {
+    "eyebrow": "STAD",
+    "title": "Stad al lec'hienn",
+    "subtitle": "Titouroù build ha displegañ, savet emgefreek da bep embannadur.",
+    "error": "N'haller ket kargañ an titouroù stad.",
+    "version": "Stumm",
+    "commit": "Commit",
+    "buildDate": "Deiziad ar build",
+    "lighthouse": "Merkoù Lighthouse",
+    "lighthouseUnavailable": "Merkoù dihegerz evit ar mare.",
+    "viewJson": "Gwelet e JSON",
+    "viewFullReport": "Gwelet an danevell PageSpeed a-bezh",
+    "metrics": {
+      "performance": "Performañs",
+      "accessibility": "Haezadusted",
+      "bestPractices": "Mentoù mat",
+      "seo": "SEO"
     }
   },
   "error": {

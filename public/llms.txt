@@ -6,6 +6,8 @@
 
 - [CV / Resume (JSON Resume format)](https://www.maxime.bzh/api/cv.json): Machine-readable resume — work history, skills, contact info. Add `?lang=en` for the English version.
 - [Lighthouse badge](https://www.maxime.bzh/api/lighthouse-badge.svg): Live performance/accessibility/best-practices/SEO scores for this site, computed on demand via Google PageSpeed Insights. Add `?strategy=desktop` for the desktop variant.
+- [Status](https://www.maxime.bzh/api/status.json): Machine-readable build/deploy info (app version, commit sha and URL, Lighthouse scores) for external monitoring or tooling.
+- [Full content](https://www.maxime.bzh/llms-full.txt): The same site with the actual text of every key section (experience, tech stack, project case studies) inlined in one file, for agents that want everything without following links. Add `?lang=en` for the English version.
 
 ## Pages
 
@@ -14,6 +16,7 @@
 - [CV](https://www.maxime.bzh/fr/cv): Full CV as an embedded PDF, or via the JSON API above.
 - [Blog](https://www.maxime.bzh/fr/blog): Technical articles.
 - [Legal notice / AI disclosure](https://www.maxime.bzh/fr/mentions-legales): Site editor info, and a transparency notice about which AI tools were used on this site, how, and why (Claude Code for development, Nano Banana for one photo retouch).
+- [Status](https://www.maxime.bzh/fr/status): Human-readable version of the status.json data above.
 
 ## Notes for AI agents
 
