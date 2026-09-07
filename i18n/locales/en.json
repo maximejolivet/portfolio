@@ -52,13 +52,13 @@
   },
   "hero": {
     "greeting": "Hi, I'm Maxime",
+    "chatTeaser": "New: chat with my AI assistant",
     "role": "Senior Full-Stack Web Developer",
     "location": "Nantes, France",
-    "bio": "I build and maintain product sites, brand sites, user interfaces, e-commerce platforms and business tools.",
+    "bio": "I build and maintain brand sites, product sites, user interfaces and business tools.",
     "subtitle": "10 years of experience, mostly in digital agencies. Strong PHP and JavaScript skills, CMS expertise applied to complex, demanding projects, with constant attention to code quality and the long-term reliability of technical choices.",
     "ctaSecondary": "See the projects",
-    "ctaContact": "get in touch",
-    "underConstructionNote": "Site still under construction 🚧"
+    "ctaContact": "get in touch"
   },
   "aboutSection": {
     "eyebrow": "About",

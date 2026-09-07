@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { ready: chatIntroReady } = useChatIntro()
+
 const showBackToTop = ref(false)
 
 function onScroll() {
@@ -29,10 +31,20 @@ onUnmounted(() => {
       <button
         id="ia-chat-trigger"
         type="button"
-        class="flex size-11 items-center justify-center rounded-l-full border-y border-l-0 border-r border-primary bg-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent hover:border-accent md:size-14 md:rounded-full md:border cursor-pointer"
+        class="relative flex size-11 items-center justify-center rounded-l-full border-y border-l-0 border-r border-primary bg-primary text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-accent hover:border-accent md:size-14 md:rounded-full md:border cursor-pointer"
         :aria-label="$t('home.contact.chat')"
       >
         <UiAppIcon icon="lucide:message-circle" class="pointer-events-none size-4 md:size-5" />
+        <span
+          v-if="chatIntroReady"
+          aria-hidden="true"
+          class="pointer-events-none absolute -top-0.5 -right-0.5 flex size-3"
+        >
+          <span
+            class="absolute inline-flex size-full animate-ping motion-reduce:hidden rounded-full bg-accent opacity-75"
+          />
+          <span class="relative inline-flex size-3 rounded-full border border-primary bg-accent" />
+        </span>
       </button>
     </div>
 
