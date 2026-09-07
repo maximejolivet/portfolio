@@ -1,7 +1,19 @@
 <script setup lang="ts">
 import { NAV_ITEMS } from '~/constants/nav'
+import { GITHUB_REPO_URL, PAGE_SOURCE_FILES } from '~/constants/pageSource'
 
 const localePath = useLocalePath()
+const route = useRoute()
+const { public: { appVersion, commitSha } } = useRuntimeConfig()
+
+const shortSha = computed(() => commitSha.slice(0, 7))
+
+const sourceFileUrl = computed(() => {
+  const baseName = route.name?.toString().split('___')[0] ?? ''
+  const file = PAGE_SOURCE_FILES[baseName]
+  if (!file || !commitSha) return undefined
+  return `${GITHUB_REPO_URL}/blob/${commitSha}/${file}`
+})
 
 function openCookieSettings() {
   window.tarteaucitron?.userInterface?.openPanel()
@@ -63,6 +75,29 @@ function openCookieSettings() {
           {{ $t(item.labelKey) }}
         </NavigationNavLink>
       </div>
+    </div>
+
+    <div
+      class="mx-auto mt-3 flex max-w-[1180px] flex-wrap items-center justify-center gap-x-3 font-mono text-[0.6875rem] text-subtle/70"
+    >
+      <a
+        v-if="commitSha"
+        :href="`${GITHUB_REPO_URL}/commit/${commitSha}`"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors hover:text-accent"
+      >
+        v{{ appVersion }} · {{ shortSha }}
+      </a>
+      <a
+        v-if="sourceFileUrl"
+        :href="sourceFileUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors hover:text-accent"
+      >
+        {{ $t('footer.viewSource') }}
+      </a>
     </div>
   </footer>
 </template>

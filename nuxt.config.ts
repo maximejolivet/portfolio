@@ -1,5 +1,16 @@
+import { execSync } from 'node:child_process'
 import tailwindcss from '@tailwindcss/vite'
 import routes from './routes.json'
+
+function resolveCommitSha(): string {
+  if (process.env.VERCEL_GIT_COMMIT_SHA) return process.env.VERCEL_GIT_COMMIT_SHA
+  try {
+    return execSync('git rev-parse HEAD').toString().trim()
+  }
+  catch {
+    return ''
+  }
+}
 
 export default defineNuxtConfig({
   modules: [
@@ -56,6 +67,8 @@ export default defineNuxtConfig({
     public: {
       supabaseUrl: '',
       supabaseKey: '',
+      appVersion: process.env.npm_package_version ?? '',
+      commitSha: resolveCommitSha(),
     },
   },
 
