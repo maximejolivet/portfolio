@@ -615,6 +615,12 @@
     ],
     "terminalHint": "E termenell ar banell a-us : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
   },
+  "konami": {
+    "title": "Kod Konami dizoloet",
+    "message": "Brav eo bezañ lennet ar c'hod betek amañ. An easter egg gwirion eo an depod e-unan :",
+    "cta": "Gwelet an depod GitHub",
+    "close": "Serriñ"
+  },
   "blog": {
     "eyebrow": "BLOG - NOTENNOÙ DACHENN",
     "title": "Ar pezh a zesk ar c'hod din",

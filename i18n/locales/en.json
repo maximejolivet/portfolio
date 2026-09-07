@@ -615,6 +615,12 @@
     ],
     "terminalHint": "In the panel's terminal above: help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
   },
+  "konami": {
+    "title": "Konami code detected",
+    "message": "Nice work reading the code this far. The real easter egg is the repo itself:",
+    "cta": "View the GitHub repo",
+    "close": "Close"
+  },
   "blog": {
     "eyebrow": "BLOG - NOTES FROM THE FIELD",
     "title": "What the code teaches me",

@@ -615,6 +615,12 @@
     ],
     "terminalHint": "Dans le terminal du panneau ci-dessus : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
   },
+  "konami": {
+    "title": "Code Konami détecté",
+    "message": "Bravo d'avoir lu le code jusqu'ici. Le vrai easter egg, c'est le dépôt lui-même :",
+    "cta": "Voir le dépôt GitHub",
+    "close": "Fermer"
+  },
   "blog": {
     "eyebrow": "BLOG - NOTES DE TERRAIN",
     "title": "Ce que le code m'apprend",
