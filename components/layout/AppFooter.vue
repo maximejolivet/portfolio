@@ -4,9 +4,10 @@ import { GITHUB_REPO_URL, PAGE_SOURCE_FILES } from '~/constants/pageSource'
 
 const localePath = useLocalePath()
 const route = useRoute()
-const { public: { appVersion, commitSha } } = useRuntimeConfig()
+const { public: { appVersion, commitSha, buildDate } } = useRuntimeConfig()
 
 const shortSha = computed(() => commitSha.slice(0, 7))
+const shortBuildDate = computed(() => buildDate.slice(0, 10))
 
 const sourceFileUrl = computed(() => {
   const baseName = route.name?.toString().split('___')[0] ?? ''
@@ -87,7 +88,7 @@ function openCookieSettings() {
         rel="noopener noreferrer"
         class="transition-colors hover:text-accent"
       >
-        v{{ appVersion }} · {{ shortSha }}
+        v{{ appVersion }} · {{ shortSha }} · {{ shortBuildDate }}
       </a>
       <a
         v-if="sourceFileUrl"

@@ -12,6 +12,11 @@ function resolveCommitSha(): string {
   }
 }
 
+// Captured once when this config is evaluated at build time (not per-request).
+function resolveBuildDate(): string {
+  return new Date().toISOString()
+}
+
 export default defineNuxtConfig({
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'storeToRefs'] }],
@@ -69,6 +74,7 @@ export default defineNuxtConfig({
       supabaseKey: '',
       appVersion: process.env.npm_package_version ?? '',
       commitSha: resolveCommitSha(),
+      buildDate: resolveBuildDate(),
     },
   },
 
