@@ -14,6 +14,7 @@
     "home": "Accueil",
     "blog": "Blog",
     "projects": "Projets",
+    "ia": "IA",
     "contact": "Contact",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
@@ -30,7 +31,8 @@
     "groupActions": "ACTIONS",
     "ide": "IDE & terminal",
     "toggleTheme": "Basculer le thème",
-    "switchLanguage": "Changer de langue"
+    "switchLanguage": "Changer de langue",
+    "askIa": "Demander à l'IA"
   },
   "footer": {
     "taglineRole": "Développeur web",
@@ -580,9 +582,14 @@
     "title": "guest — maxime.bzh terminal",
     "toggle": "Ouvrir le terminal",
     "hint": "Tapez 'help' pour voir les commandes disponibles.",
-    "help": "Commandes disponibles : help, whoami, cv, projects, contact, clear, exit",
+    "help": "Commandes disponibles : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit",
     "whoami": "Maxime Jolivet — {role}",
-    "notFound": "commande introuvable : {cmd}"
+    "notFound": "commande introuvable : {cmd}",
+    "ia": "Ouverture de l'assistant IA…",
+    "theme": "Thème basculé sur : {mode}",
+    "themeDay": "jour",
+    "themeNight": "nuit",
+    "sudo": "Permission refusée : même en sudo, on ne déploie pas en prod un vendredi soir. 😏"
   },
   "blog": {
     "eyebrow": "BLOG - NOTES DE TERRAIN",

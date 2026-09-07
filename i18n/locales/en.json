@@ -14,6 +14,7 @@
     "home": "Home",
     "blog": "Blog",
     "projects": "Projects",
+    "ia": "AI",
     "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -30,7 +31,8 @@
     "groupActions": "ACTIONS",
     "ide": "IDE & terminal",
     "toggleTheme": "Toggle theme",
-    "switchLanguage": "Switch language"
+    "switchLanguage": "Switch language",
+    "askIa": "Ask the AI"
   },
   "footer": {
     "taglineRole": "Web developer",
@@ -580,9 +582,14 @@
     "title": "guest — maxime.bzh terminal",
     "toggle": "Open terminal",
     "hint": "Type 'help' to see available commands.",
-    "help": "Available commands: help, whoami, cv, projects, contact, clear, exit",
+    "help": "Available commands: help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit",
     "whoami": "Maxime Jolivet — {role}",
-    "notFound": "command not found: {cmd}"
+    "notFound": "command not found: {cmd}",
+    "ia": "Opening the AI assistant…",
+    "theme": "Theme switched to: {mode}",
+    "themeDay": "day",
+    "themeNight": "night",
+    "sudo": "Permission denied: not even sudo lets you deploy to prod on a Friday night. 😏"
   },
   "blog": {
     "eyebrow": "BLOG - NOTES FROM THE FIELD",

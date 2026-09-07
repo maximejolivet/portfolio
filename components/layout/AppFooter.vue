@@ -52,7 +52,14 @@ function openCookieSettings() {
         </div>
       </div>
       <div class="flex items-center gap-4">
-        <NavigationNavLink v-for="item in NAV_ITEMS" :key="item.id" :to="item.to" :hash="item.hash">
+        <NavigationNavLink
+          v-for="item in NAV_ITEMS"
+          :key="item.id"
+          :to="item.to"
+          :href="item.href"
+          :hash="item.hash"
+          :open-chat="item.openChat"
+        >
           {{ $t(item.labelKey) }}
         </NavigationNavLink>
       </div>

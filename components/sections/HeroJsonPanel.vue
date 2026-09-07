@@ -43,11 +43,24 @@ const props = defineProps<{
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { openChat } = useChatIntro()
+const { theme, toggleTheme } = useThemeMode()
 
 type Tab = 'profile.json' | 'terminal'
 const activeTab = ref<Tab>('profile.json')
 
-const TERMINAL_COMMANDS = ['help', 'whoami', 'cv', 'projects', 'contact', 'clear', 'exit'] as const
+const TERMINAL_COMMANDS = [
+  'help',
+  'whoami',
+  'cv',
+  'projects',
+  'contact',
+  'ia',
+  'theme',
+  'sudo',
+  'clear',
+  'exit',
+] as const
 
 const terminalLines = ref<TerminalLine[]>([{ text: t('terminal.hint') }])
 const terminalCommand = ref('')
@@ -84,6 +97,21 @@ function runTerminalCommand(raw: string) {
       break
     case 'contact':
       navigateTo({ path: localePath('/'), hash: '#contact' })
+      break
+    case 'ia':
+      terminalLines.value.push({ text: t('terminal.ia') })
+      openChat()
+      break
+    case 'theme':
+      toggleTheme()
+      terminalLines.value.push({
+        text: t('terminal.theme', {
+          mode: theme.value === 'night' ? t('terminal.themeNight') : t('terminal.themeDay'),
+        }),
+      })
+      break
+    case 'sudo':
+      terminalLines.value.push({ text: t('terminal.sudo') })
       break
     case 'clear':
       terminalLines.value = []

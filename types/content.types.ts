@@ -1,10 +1,12 @@
 export interface NavItem {
   id: string
   labelKey: string
-  to: string
+  to?: string
+  href?: string
   hash?: string
   icon?: string
   iconOnly?: boolean
+  openChat?: boolean
 }
 
 export interface TechItem {

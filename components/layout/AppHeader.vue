@@ -45,9 +45,11 @@ onUnmounted(() => {
             v-for="item in NAV_ITEMS"
             :key="item.id"
             :to="item.to"
+            :href="item.href"
             :hash="item.hash"
             :icon="item.icon"
             :icon-only="item.iconOnly"
+            :open-chat="item.openChat"
             :aria-label="item.iconOnly ? $t(item.labelKey) : undefined"
             large
           >

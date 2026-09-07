@@ -14,6 +14,7 @@
     "home": "Degemer",
     "blog": "Blog",
     "projects": "Raktresoù",
+    "ia": "IA",
     "contact": "Darempred",
     "openMenu": "Digeriñ al lañser",
     "closeMenu": "Serriñ al lañser"
@@ -30,7 +31,8 @@
     "groupActions": "OBEROÙ",
     "ide": "IDE & termenell",
     "toggleTheme": "Kemmañ ar mod (deiz/noz)",
-    "switchLanguage": "Kemmañ ar yezh"
+    "switchLanguage": "Kemmañ ar yezh",
+    "askIa": "Goulenn digant an IA"
   },
   "footer": {
     "taglineRole": "Diorroer web",
@@ -580,9 +582,14 @@
     "title": "guest — maxime.bzh terminal",
     "toggle": "Digeriñ an termenell",
     "hint": "Skrivit 'help' evit gwelet an urzhioù hegerz.",
-    "help": "Urzhioù hegerz : help, whoami, cv, projects, contact, clear, exit",
+    "help": "Urzhioù hegerz : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit",
     "whoami": "Maxime Jolivet — {role}",
-    "notFound": "urzh dianav : {cmd}"
+    "notFound": "urzh dianav : {cmd}",
+    "ia": "O tigeriñ ar skoazeller IA…",
+    "theme": "Neuz kemmet da : {mode}",
+    "themeDay": "deiz",
+    "themeNight": "noz",
+    "sudo": "Nac'het ar aotre : zoken gant sudo, ne vez ket embannet e prod d'ar gwener da noz. 😏"
   },
   "blog": {
     "eyebrow": "BLOG - NOTENNOÙ DACHENN",
