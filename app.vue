@@ -116,4 +116,5 @@ tarteaucitron.services.calcom = {
   </NuxtLayout>
   <LayoutCustomCursor />
   <LayoutCommandPalette />
+  <LayoutShortcutsOverlay />
 </template>

@@ -129,6 +129,19 @@ function runTerminalCommand(raw: string) {
   scrollTerminalToBottom()
 }
 
+// Deep-link support: ?cmd=whoami opens the terminal and runs it - lets a
+// shared link land the visitor directly on the intended output instead of
+// them having to type it themselves.
+const route = useRoute()
+
+onMounted(() => {
+  const cmd = route.query.cmd
+  if (typeof cmd !== 'string' || !TERMINAL_COMMANDS.includes(cmd as (typeof TERMINAL_COMMANDS)[number])) return
+
+  selectTab('terminal')
+  nextTick(() => runTerminalCommand(cmd))
+})
+
 function isIndent(token: JsonToken) {
   return !token.class && /^ +$/.test(token.text)
 }
