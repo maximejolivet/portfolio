@@ -15,6 +15,7 @@
 - [CV](https://www.maxime.bzh/fr/cv): Full CV as an embedded PDF, or via the JSON API above.
 - [Blog](https://www.maxime.bzh/fr/blog): Technical articles.
 - [Legal notice / AI disclosure](https://www.maxime.bzh/fr/mentions-legales): Site editor info, and a transparency notice about which AI tools were used on this site, how, and why (Claude Code for development, Nano Banana for one photo retouch).
+- [Status](https://www.maxime.bzh/fr/status): Human-readable version of the status.json data above.
 
 ## Notes for AI agents
 

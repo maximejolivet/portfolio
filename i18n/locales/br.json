@@ -46,6 +46,7 @@
     "accessibility": "Haezadusted",
     "manageCookies": "Merañ ar cookies",
     "changelog": "Hizivadennoù",
+    "status": "Stad",
     "viewSource": "Gwelet kod ar bajenn-mañ"
   },
   "social": {
@@ -745,6 +746,25 @@
       "fix": "Reizhet",
       "perf": "Gwellaet",
       "security": "Diogelroez"
+    }
+  },
+  "statusPage": {
+    "eyebrow": "STAD",
+    "title": "Stad al lec'hienn",
+    "subtitle": "Titouroù build ha displegañ, savet emgefreek da bep embannadur.",
+    "error": "N'haller ket kargañ an titouroù stad.",
+    "version": "Stumm",
+    "commit": "Commit",
+    "buildDate": "Deiziad ar build",
+    "lighthouse": "Merkoù Lighthouse",
+    "lighthouseUnavailable": "Merkoù dihegerz evit ar mare.",
+    "viewJson": "Gwelet e JSON",
+    "viewFullReport": "Gwelet an danevell PageSpeed a-bezh",
+    "metrics": {
+      "performance": "Performañs",
+      "accessibility": "Haezadusted",
+      "bestPractices": "Mentoù mat",
+      "seo": "SEO"
     }
   },
   "error": {

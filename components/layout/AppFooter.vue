@@ -36,6 +36,9 @@ function openCookieSettings() {
         <NuxtLink :to="localePath('changelog')" class="transition-colors hover:text-accent">
           {{ $t('footer.changelog') }}
         </NuxtLink>
+        <NuxtLink :to="localePath('status')" class="transition-colors hover:text-accent">
+          {{ $t('footer.status') }}
+        </NuxtLink>
         <button
           type="button"
           class="cursor-pointer transition-colors hover:text-accent"

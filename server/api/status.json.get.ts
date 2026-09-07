@@ -37,6 +37,7 @@ export default defineEventHandler(async (event) => {
 
   return {
     version: config.public.appVersion || null,
+    buildDate: config.public.buildDate || null,
     commit: config.public.commitSha
       ? {
           sha: config.public.commitSha,

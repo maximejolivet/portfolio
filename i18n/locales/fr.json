@@ -46,6 +46,7 @@
     "accessibility": "Accessibilité",
     "manageCookies": "Gérer les cookies",
     "changelog": "Nouveautés",
+    "status": "Statut",
     "viewSource": "Voir le code de cette page"
   },
   "social": {
@@ -745,6 +746,25 @@
       "fix": "Corrigé",
       "perf": "Amélioré",
       "security": "Sécurité"
+    }
+  },
+  "statusPage": {
+    "eyebrow": "STATUT",
+    "title": "État du site",
+    "subtitle": "Informations de build et de déploiement, générées automatiquement à chaque mise en ligne.",
+    "error": "Impossible de charger les informations de statut.",
+    "version": "Version",
+    "commit": "Commit",
+    "buildDate": "Date de build",
+    "lighthouse": "Scores Lighthouse",
+    "lighthouseUnavailable": "Scores indisponibles pour le moment.",
+    "viewJson": "Voir en JSON",
+    "viewFullReport": "Voir le rapport PageSpeed complet",
+    "metrics": {
+      "performance": "Performance",
+      "accessibility": "Accessibilité",
+      "bestPractices": "Bonnes pratiques",
+      "seo": "SEO"
     }
   },
   "error": {
