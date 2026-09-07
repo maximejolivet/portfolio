@@ -18,6 +18,11 @@ const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
   results: 4,
   nonConformities: 2,
 }
+
+// Bound, not a literal `src="/api/..."` - a static string there gets
+// compiled into a build-time asset import (works for real public/ files,
+// throws ENOENT for a dynamic server route that isn't one).
+const LIGHTHOUSE_BADGE_SRC = '/api/lighthouse-badge.svg'
 </script>
 
 <template>
@@ -50,6 +55,25 @@ const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
               {{ $t(`a11yPage.sections.${section}.items.${i - 1}`) }}
             </li>
           </ul>
+
+          <div v-if="section === 'results'" class="mt-3 flex flex-col gap-1.5">
+            <p class="font-mono text-xs text-subtle">
+              {{ $t('a11yPage.sections.results.liveBadgeLabel') }}
+            </p>
+            <a
+              href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.maxime.bzh%2Ffr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-fit"
+            >
+              <img
+                :src="LIGHTHOUSE_BADGE_SRC"
+                loading="lazy"
+                height="20"
+                :alt="$t('a11yPage.sections.results.liveBadgeAlt')"
+              >
+            </a>
+          </div>
 
           <p
             v-if="$te(`a11yPage.sections.${section}.body`)"

@@ -695,7 +695,9 @@
           "CV, Projets, Blog, Mentions légales : 100/100",
           "Contraste des couleurs : conforme partout sauf sur l'accueil (voir non-conformités ci-dessous)",
           "Structure HTML, attributs ARIA, langue de la page, viewport : conformes"
-        ]
+        ],
+        "liveBadgeLabel": "Score en direct (page d'accueil, mis à jour quotidiennement, cliquer pour le rapport complet) :",
+        "liveBadgeAlt": "Scores Lighthouse en direct (Performance, Accessibilité, Bonnes pratiques, SEO)"
       },
       "nonConformities": {
         "title": "Non-conformités connues",

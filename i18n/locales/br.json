@@ -695,7 +695,9 @@
           "Skridenn, Raktresoù, Blog, Menegoù lezennel: 100/100",
           "Kenglotadur al livioù: mat e pep lec'h nemet war ar bajenn degemer (gwelet an digenglotadurioù dindan)",
           "Framm HTML, doareennoù ARIA, yezh ar bajenn, gweled-porzh: mat"
-        ]
+        ],
+        "liveBadgeLabel": "Skor war-eeun (pajenn degemer, hizivaet bemdez, klikit evit an danevell glok) :",
+        "liveBadgeAlt": "Skorioù Lighthouse war-eeun (Digonusted, Haezadusted, Gwellañ arferioù, SEO)"
       },
       "nonConformities": {
         "title": "Digenglotadurioù anavezet",
