@@ -10,5 +10,6 @@ export const NAV_ITEMS: NavItem[] = [
     href: 'https://ia.maxime.bzh',
     icon: 'lucide:sparkles',
     openChat: true,
+    sparkle: true,
   },
 ]

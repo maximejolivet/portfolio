@@ -50,6 +50,7 @@ onUnmounted(() => {
             :icon="item.icon"
             :icon-only="item.iconOnly"
             :open-chat="item.openChat"
+            :sparkle="item.sparkle"
             :aria-label="item.iconOnly ? $t(item.labelKey) : undefined"
             large
           >

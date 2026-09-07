@@ -9,7 +9,11 @@ const props = defineProps<{
   large?: boolean
   iconOnly?: boolean
   openChat?: boolean
+  sparkle?: boolean
 }>()
+
+const STAR_CLIP
+  = 'polygon(50% 0%, 61% 35%, 100% 50%, 61% 65%, 50% 100%, 39% 65%, 0% 50%, 39% 35%)'
 
 const localePath = useLocalePath()
 const route = useRoute()
@@ -48,7 +52,24 @@ function onClick(event: MouseEvent) {
     ]"
     @click="onClick"
   >
-    <UiAppIcon v-if="icon" :icon="icon" :class="large ? 'relative size-6 top-[1px]' : 'size-6'" />
+    <span v-if="icon" class="relative inline-flex items-center justify-center">
+      <template v-if="sparkle">
+        <span
+          aria-hidden="true"
+          class="absolute -left-1 -top-1 size-1.5 animate-pulse-dot bg-mint"
+          :style="{ clipPath: STAR_CLIP, animationDelay: '0.3s' }"
+        />
+        <span
+          aria-hidden="true"
+          class="absolute -right-1.5 -bottom-0.5 size-1 animate-pulse-dot bg-accent"
+          :style="{ clipPath: STAR_CLIP, animationDelay: '0.9s' }"
+        />
+      </template>
+      <UiAppIcon
+        :icon="icon"
+        :class="[large ? 'relative size-6 top-[1px]' : 'size-6', sparkle && 'animate-pulse-dot']"
+      />
+    </span>
     <slot />
   </component>
 </template>

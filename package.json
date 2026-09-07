@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "version": "1.0.101",
+  "version": "1.1.0",
   "repository": "git@github.com:maximejolivet/portfolio.git",
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
@@ -44,6 +44,7 @@
     "@pinia/nuxt": "^1.0.2",
     "@tailwindcss/vite": "^4.3.3",
     "@types/eslint": "^9.6.1",
+    "@types/qrcode": "^1.5.6",
     "@typescript-eslint/eslint-plugin": "^8.68.0",
     "@typescript-eslint/parser": "^8.68.0",
     "@vueuse/core": "^14.4.0",
@@ -77,6 +78,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "oxc-parser": "^0.147.0",
+    "qrcode": "^1.5.4",
     "reka-ui": "^2.10.4",
     "swiper": "^14.2.0",
     "tailwind-merge": "^3.6.0"

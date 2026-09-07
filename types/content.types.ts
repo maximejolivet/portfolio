@@ -7,6 +7,7 @@ export interface NavItem {
   icon?: string
   iconOnly?: boolean
   openChat?: boolean
+  sparkle?: boolean
 }
 
 export interface TechItem {
