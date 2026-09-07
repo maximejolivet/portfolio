@@ -52,13 +52,13 @@
   },
   "hero": {
     "greeting": "Demat, Maxime on",
+    "chatTeaser": "Nevez: kaozeit gant ma skoazeller IA",
     "role": "Diorroer web full-stack uhel",
     "location": "Naoned, Frañs",
-    "bio": "Diorren ha mentoniñ a ran lec'hiennoù-merk, lec'hiennoù produ, etrefasoù implijer, lec'hiennoù e-commerce hag ostilhoù micherel.",
+    "bio": "Diorren ha mentoniñ a ran lec'hiennoù-merk, lec'hiennoù produ, etrefasoù implijer hag ostilhoù micherel.",
     "subtitle": "10 vloaz a skiant-prenet, dreist-holl en asantiezhioù niverel. Barregezhioù kreñv e PHP ha JavaScript, ur c'hallout CMS arloet da raktresoù kompleksed ha kalz goulennus, gant evezh diehan war kalite ar c'hod hag war bad-mat an dibaboù teknikel.",
     "ctaSecondary": "Gwelet ar raktresoù",
-    "ctaContact": "daremprediñ ac'hanon",
-    "underConstructionNote": "Lec'hienn c'hoazh oc'h en em sevel 🚧"
+    "ctaContact": "daremprediñ ac'hanon"
   },
   "aboutSection": {
     "eyebrow": "Diwar-benn",

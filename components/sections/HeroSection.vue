@@ -5,6 +5,7 @@ import { EXPERIENCE_TIMELINE } from '~/constants/experience'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { ready: chatIntroReady, openChat } = useChatIntro()
 
 const MARQUEE_STACK = [
   'PHP',
@@ -113,18 +114,9 @@ const jsonLines = computed<JsonLine[]>(() => {
         indent1,
         { text: 'availability', class: key },
         { text: ': ', class: punct },
-        { text: `"${AVAILABILITY_STATUS}"`, class: 'text-mint' },
-        { text: ',', class: punct },
+        { text: `"${AVAILABILITY_STATUS}"`, class: 'text-highlight' },
       ],
       statusDot: true,
-    },
-    {
-      tokens: [
-        indent1,
-        { text: 'note', class: key },
-        { text: ': ', class: punct },
-        { text: `"${t('hero.underConstructionNote')}"`, class: str },
-      ],
       cursor: true,
     },
     { tokens: [{ text: '}', class: punct }] },
@@ -141,6 +133,15 @@ const jsonLines = computed<JsonLine[]>(() => {
         >
           {{ $t('hero.greeting') }}<span class="text-accent">.</span>
         </h1>
+        <button
+          v-if="chatIntroReady"
+          type="button"
+          class="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold text-accent transition-colors hover:bg-accent/20 cursor-pointer"
+          @click="openChat"
+        >
+          <UiAppIcon icon="lucide:sparkles" class="size-3.5" />
+          {{ $t('hero.chatTeaser') }}
+        </button>
         <p
           class="max-w-[440px] text-pretty font-sans text-base leading-[1.68] text-muted-foreground"
         >

@@ -52,13 +52,13 @@
   },
   "hero": {
     "greeting": "Bonjour, moi c'est Maxime",
+    "chatTeaser": "Nouveau : discutez avec mon assistant IA",
     "role": "Développeur web full-stack senior",
     "location": "Nantes, France",
-    "bio": "Je développe et maintiens des sites de marque, de produits, d'interfaces utilisateur, e-commerce et d'outils métiers.",
+    "bio": "Je développe et maintiens des sites de marque, des sites produits, des interfaces utilisateur et des outils métiers.",
     "subtitle": "10 ans d'expérience, principalement en agence digitale. Solides compétences PHP et JavaScript, expertise CMS appliquée à des projets complexes et exigeants, avec un souci constant de la qualité du code et de la pérennité des choix techniques.",
     "ctaSecondary": "Voir les projets",
-    "ctaContact": "me contacter",
-    "underConstructionNote": "Site toujours en construction 🚧"
+    "ctaContact": "me contacter"
   },
   "aboutSection": {
     "eyebrow": "À propos",
