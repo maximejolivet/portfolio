@@ -3,9 +3,31 @@ import type { JsonLine } from '~/components/sections/HeroJsonPanel.vue'
 import { AVAILABILITY_STATUS, CONTACT_EMAIL } from '~/constants/contact'
 import { EXPERIENCE_TIMELINE } from '~/constants/experience'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { ready: chatIntroReady, openChat } = useChatIntro()
+
+// Empty on the server so SSR/hydration match exactly - filled in after mount,
+// same pattern as the panel's own typing animation further down.
+const localTime = ref('')
+let localTimeInterval = 0
+
+function updateLocalTime() {
+  localTime.value = new Intl.DateTimeFormat(locale.value, {
+    timeZone: 'Europe/Paris',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(new Date())
+}
+
+onMounted(() => {
+  updateLocalTime()
+  localTimeInterval = window.setInterval(updateLocalTime, 30_000)
+})
+
+onUnmounted(() => {
+  if (localTimeInterval) clearInterval(localTimeInterval)
+})
 
 const MARQUEE_STACK = [
   'PHP',
@@ -83,7 +105,12 @@ const jsonLines = computed<JsonLine[]>(() => {
         indent1,
         { text: 'location', class: headerKey },
         { text: ': ', class: punct },
-        { text: `"${t('hero.location')}"`, class: str },
+        {
+          text: localTime.value
+            ? `"${t('hero.location')} · ${localTime.value}"`
+            : `"${t('hero.location')}"`,
+          class: str,
+        },
         { text: ',', class: punct },
       ],
     },

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CAL_LINK, CAL_NAMESPACE, CONTACT_EMAIL } from '~/constants/contact'
 import { CASE_STUDIES } from '~/constants/projects'
+import { TECH_CATEGORIES } from '~/constants/techstack'
 
 const { t } = useI18n()
 const { refused: calRefused } = useCalConsent()
@@ -37,6 +38,20 @@ const employerFilter = computed<string>({
   set: (value) => updateQuery({ employer: value === 'all' ? undefined : value, page: undefined }),
 })
 
+const techFilter = computed<string | undefined>({
+  get: () => (typeof route.query.tech === 'string' ? route.query.tech : undefined),
+  set: (value) => updateQuery({ tech: value, page: undefined }),
+})
+
+const techFilterLabel = computed(() => {
+  if (!techFilter.value) return undefined
+  for (const category of TECH_CATEGORIES) {
+    const item = category.items.find((i) => i.id === techFilter.value)
+    if (item) return item.name
+  }
+  return techFilter.value
+})
+
 function setViewMode(value: 'grid' | 'list') {
   const apply = () => updateQuery({ view: value === 'list' ? undefined : value })
   if (document.startViewTransition) document.startViewTransition(apply)
@@ -49,13 +64,16 @@ const employers = computed(() =>
   Array.from(new Set(CASE_STUDIES.map((p) => p.employer).filter((e): e is string => Boolean(e)))),
 )
 
-const filteredProjects = computed(() =>
-  CASE_STUDIES.filter((p) => {
+const filteredProjects = computed(() => {
+  const techMatches = techFilter.value ? projectsForTech(techFilter.value, CASE_STUDIES) : null
+
+  return CASE_STUDIES.filter((p) => {
     if (categoryFilter.value !== 'all' && p.category !== categoryFilter.value) return false
     if (employerFilter.value !== 'all' && p.employer !== employerFilter.value) return false
+    if (techMatches && !techMatches.includes(p)) return false
     return true
-  }).sort((a, b) => b.year.localeCompare(a.year)),
-)
+  }).sort((a, b) => b.year.localeCompare(a.year))
+})
 
 const totalPages = computed(() => Math.max(1, Math.ceil(filteredProjects.value.length / PAGE_SIZE)))
 
@@ -186,6 +204,19 @@ const pageItems = computed(() => {
               <UiAppIcon icon="lucide:layout-grid" class="size-5" />
             </button>
           </div>
+        </div>
+
+        <div v-if="techFilterLabel" class="-mt-4 flex items-center gap-2 font-mono text-xs text-muted-foreground">
+          {{ $t('projectsPage.techFilterLabel') }}
+          <button
+            type="button"
+            :aria-label="$t('projectsPage.clearTechFilter')"
+            class="flex items-center gap-1 rounded-full border border-border px-2 py-1 text-foreground transition-colors hover:border-accent hover:text-accent"
+            @click="techFilter = undefined"
+          >
+            {{ techFilterLabel }}
+            <UiAppIcon icon="lucide:x" class="size-3" />
+          </button>
         </div>
 
         <div v-if="viewMode === 'list'" class="flex flex-col gap-4">

@@ -14,6 +14,7 @@
     "home": "Home",
     "blog": "Blog",
     "projects": "Projects",
+    "ia": "AI",
     "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -30,7 +31,8 @@
     "groupActions": "ACTIONS",
     "ide": "IDE & terminal",
     "toggleTheme": "Toggle theme",
-    "switchLanguage": "Switch language"
+    "switchLanguage": "Switch language",
+    "askIa": "Ask the AI"
   },
   "footer": {
     "taglineRole": "Web developer",
@@ -43,7 +45,8 @@
     "legalMentions": "Legal notice",
     "accessibility": "Accessibility",
     "manageCookies": "Manage cookies",
-    "changelog": "Changelog"
+    "changelog": "Changelog",
+    "viewSource": "View this page's source"
   },
   "social": {
     "github": "View my GitHub",
@@ -86,6 +89,8 @@
     "titleStart": "Modern,",
     "titleHighlight": "proven",
     "titleEnd": "tools.",
+    "filterHint": "Click a tech to see the projects it was used on.",
+    "viewProjects": "View {count} project(s) using this tech",
     "categories": {
       "languages": {
         "label": "Languages",
@@ -209,7 +214,9 @@
     "underConstruction": "Under construction",
     "underConstructionNote": "Full case study coming soon.",
     "pagination": "Pagination",
-    "pageLabel": "Page"
+    "pageLabel": "Page",
+    "techFilterLabel": "Filtered by tech:",
+    "clearTechFilter": "Clear tech filter"
   },
   "clientsSection": {
     "eyebrow": "Projects I've contributed to",
@@ -556,8 +563,7 @@
       "title": "Let's build what's next together",
       "subtitle": "Senior Full-Stack Web Developer · Lead Developer · Tech Lead",
       "subtitleSecondary": "AI & Prompt Engineering",
-      "bookCall": "Book a meeting",
-      "chat": "Chat with the AI assistant"
+      "bookCall": "Book a meeting",      "chat": "Chat with the AI assistant"
     }
   },
   "projectDetail": {
@@ -574,15 +580,39 @@
   },
   "cv": {
     "read": "Curriculum vitae",
-    "download": "Download PDF"
+    "download": "Download PDF",
+    "quickView": {
+      "trigger": "30s overview",
+      "close": "Close",
+      "previously": "Previously:",
+      "currentlyAt": "Currently:",
+      "jobSearch": "looking for a new opportunity",
+      "qrAlt": "QR code to this CV",
+      "qrCaption": "Scan to open this CV on your phone"
+    }
   },
   "terminal": {
     "title": "guest — maxime.bzh terminal",
     "toggle": "Open terminal",
     "hint": "Type 'help' to see available commands.",
-    "help": "Available commands: help, whoami, cv, projects, contact, clear, exit",
+    "help": "Available commands: help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit",
     "whoami": "Maxime Jolivet — {role}",
-    "notFound": "command not found: {cmd}"
+    "notFound": "command not found: {cmd}",
+    "ia": "Opening the AI assistant…",
+    "theme": "Theme switched to: {mode}",
+    "themeDay": "day",
+    "themeNight": "night",
+    "sudo": "Permission denied: not even sudo lets you deploy to prod on a Friday night. 😏"
+  },
+  "shortcuts": {
+    "title": "Keyboard shortcuts",
+    "close": "Close",
+    "items": [
+      "Show this help",
+      "Command palette",
+      "Close a dialog"
+    ],
+    "terminalHint": "In the panel's terminal above: help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
   },
   "blog": {
     "eyebrow": "BLOG - NOTES FROM THE FIELD",
@@ -593,7 +623,9 @@
     "loading": "Loading articles...",
     "empty": "No articles yet, check back soon.",
     "error": "Something went wrong while loading articles.",
-    "not_found": "This article doesn't exist."
+    "not_found": "This article doesn't exist.",
+    "searchPlaceholder": "Search articles...",
+    "noResults": "No article matches your search."
   },
   "legalPage": {
     "eyebrow": "LEGAL",
@@ -684,7 +716,9 @@
           "CV, Projects, Blog, Legal notice: 100/100",
           "Color contrast: passes everywhere except the homepage (see known non-conformities below)",
           "HTML structure, ARIA attributes, page language, viewport: pass"
-        ]
+        ],
+        "liveBadgeLabel": "Live score (homepage, updated daily, click for the full report):",
+        "liveBadgeAlt": "Live Lighthouse scores (Performance, Accessibility, Best Practices, SEO)"
       },
       "nonConformities": {
         "title": "Known non-conformities",

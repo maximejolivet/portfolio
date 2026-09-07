@@ -43,11 +43,24 @@ const props = defineProps<{
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { openChat } = useChatIntro()
+const { theme, toggleTheme } = useThemeMode()
 
 type Tab = 'profile.json' | 'terminal'
 const activeTab = ref<Tab>('profile.json')
 
-const TERMINAL_COMMANDS = ['help', 'whoami', 'cv', 'projects', 'contact', 'clear', 'exit'] as const
+const TERMINAL_COMMANDS = [
+  'help',
+  'whoami',
+  'cv',
+  'projects',
+  'contact',
+  'ia',
+  'theme',
+  'sudo',
+  'clear',
+  'exit',
+] as const
 
 const terminalLines = ref<TerminalLine[]>([{ text: t('terminal.hint') }])
 const terminalCommand = ref('')
@@ -85,6 +98,21 @@ function runTerminalCommand(raw: string) {
     case 'contact':
       navigateTo({ path: localePath('/'), hash: '#contact' })
       break
+    case 'ia':
+      terminalLines.value.push({ text: t('terminal.ia') })
+      openChat()
+      break
+    case 'theme':
+      toggleTheme()
+      terminalLines.value.push({
+        text: t('terminal.theme', {
+          mode: theme.value === 'night' ? t('terminal.themeNight') : t('terminal.themeDay'),
+        }),
+      })
+      break
+    case 'sudo':
+      terminalLines.value.push({ text: t('terminal.sudo') })
+      break
     case 'clear':
       terminalLines.value = []
       break
@@ -100,6 +128,19 @@ function runTerminalCommand(raw: string) {
   terminalCommand.value = ''
   scrollTerminalToBottom()
 }
+
+// Deep-link support: ?cmd=whoami opens the terminal and runs it - lets a
+// shared link land the visitor directly on the intended output instead of
+// them having to type it themselves.
+const route = useRoute()
+
+onMounted(() => {
+  const cmd = route.query.cmd
+  if (typeof cmd !== 'string' || !TERMINAL_COMMANDS.includes(cmd as (typeof TERMINAL_COMMANDS)[number])) return
+
+  selectTab('terminal')
+  nextTick(() => runTerminalCommand(cmd))
+})
 
 function isIndent(token: JsonToken) {
   return !token.class && /^ +$/.test(token.text)

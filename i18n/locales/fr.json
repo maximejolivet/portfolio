@@ -14,6 +14,7 @@
     "home": "Accueil",
     "blog": "Blog",
     "projects": "Projets",
+    "ia": "IA",
     "contact": "Contact",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
@@ -30,7 +31,8 @@
     "groupActions": "ACTIONS",
     "ide": "IDE & terminal",
     "toggleTheme": "Basculer le thème",
-    "switchLanguage": "Changer de langue"
+    "switchLanguage": "Changer de langue",
+    "askIa": "Demander à l'IA"
   },
   "footer": {
     "taglineRole": "Développeur web",
@@ -43,7 +45,8 @@
     "legalMentions": "Mentions légales",
     "accessibility": "Accessibilité",
     "manageCookies": "Gérer les cookies",
-    "changelog": "Nouveautés"
+    "changelog": "Nouveautés",
+    "viewSource": "Voir le code de cette page"
   },
   "social": {
     "github": "Voir mon GitHub",
@@ -86,6 +89,8 @@
     "titleStart": "Des outils",
     "titleHighlight": "modernes",
     "titleEnd": "et éprouvés.",
+    "filterHint": "Cliquez sur une techno pour voir les projets associés.",
+    "viewProjects": "Voir {count} projet(s) utilisant cette techno",
     "categories": {
       "languages": {
         "label": "Langages",
@@ -209,7 +214,9 @@
     "underConstruction": "En construction",
     "underConstructionNote": "Fiche détaillée bientôt disponible.",
     "pagination": "Pagination",
-    "pageLabel": "Page"
+    "pageLabel": "Page",
+    "techFilterLabel": "Filtré par technologie :",
+    "clearTechFilter": "Retirer le filtre technologie"
   },
   "clientsSection": {
     "eyebrow": "Les projets auxquels j'ai collaboré",
@@ -556,8 +563,7 @@
       "title": "Construisons la suite ensemble",
       "subtitle": "Développeur Web Full-Stack Senior · Lead Developer",
       "subtitleSecondary": "Tech Lead · IA & Prompt Engineering",
-      "bookCall": "Prendre rendez-vous",
-      "chat": "Discuter avec l'assistant IA"
+      "bookCall": "Prendre rendez-vous",      "chat": "Discuter avec l'assistant IA"
     }
   },
   "projectDetail": {
@@ -574,15 +580,39 @@
   },
   "cv": {
     "read": "Curriculum vitæ",
-    "download": "Télécharger le PDF"
+    "download": "Télécharger le PDF",
+    "quickView": {
+      "trigger": "Aperçu 30s",
+      "close": "Fermer",
+      "previously": "Auparavant :",
+      "currentlyAt": "Actuellement :",
+      "jobSearch": "en recherche d'un emploi",
+      "qrAlt": "QR code vers ce CV",
+      "qrCaption": "Scannez pour ouvrir ce CV sur votre téléphone"
+    }
   },
   "terminal": {
     "title": "guest — maxime.bzh terminal",
     "toggle": "Ouvrir le terminal",
     "hint": "Tapez 'help' pour voir les commandes disponibles.",
-    "help": "Commandes disponibles : help, whoami, cv, projects, contact, clear, exit",
+    "help": "Commandes disponibles : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit",
     "whoami": "Maxime Jolivet — {role}",
-    "notFound": "commande introuvable : {cmd}"
+    "notFound": "commande introuvable : {cmd}",
+    "ia": "Ouverture de l'assistant IA…",
+    "theme": "Thème basculé sur : {mode}",
+    "themeDay": "jour",
+    "themeNight": "nuit",
+    "sudo": "Permission refusée : même en sudo, on ne déploie pas en prod un vendredi soir. 😏"
+  },
+  "shortcuts": {
+    "title": "Raccourcis clavier",
+    "close": "Fermer",
+    "items": [
+      "Afficher cette aide",
+      "Palette de commandes",
+      "Fermer une fenêtre"
+    ],
+    "terminalHint": "Dans le terminal du panneau ci-dessus : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit"
   },
   "blog": {
     "eyebrow": "BLOG - NOTES DE TERRAIN",
@@ -593,7 +623,9 @@
     "loading": "Chargement des articles...",
     "empty": "Aucun article pour le moment, revenez bientôt.",
     "error": "Une erreur est survenue lors du chargement des articles.",
-    "not_found": "Cet article n'existe pas."
+    "not_found": "Cet article n'existe pas.",
+    "searchPlaceholder": "Rechercher un article...",
+    "noResults": "Aucun article ne correspond à votre recherche."
   },
   "legalPage": {
     "eyebrow": "JURIDIQUE",
@@ -684,7 +716,9 @@
           "CV, Projets, Blog, Mentions légales : 100/100",
           "Contraste des couleurs : conforme partout sauf sur l'accueil (voir non-conformités ci-dessous)",
           "Structure HTML, attributs ARIA, langue de la page, viewport : conformes"
-        ]
+        ],
+        "liveBadgeLabel": "Score en direct (page d'accueil, mis à jour quotidiennement, cliquer pour le rapport complet) :",
+        "liveBadgeAlt": "Scores Lighthouse en direct (Performance, Accessibilité, Bonnes pratiques, SEO)"
       },
       "nonConformities": {
         "title": "Non-conformités connues",

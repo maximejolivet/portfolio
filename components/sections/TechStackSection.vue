@@ -1,7 +1,20 @@
 <script setup lang="ts">
+import { NuxtLink } from '#components'
+import { CASE_STUDIES } from '~/constants/projects'
 import { TECH_CATEGORIES } from '~/constants/techstack'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
+
+const matchCounts = computed(() => {
+  const counts: Record<string, number> = {}
+  for (const category of TECH_CATEGORIES) {
+    for (const item of category.items) {
+      counts[item.id] = projectsForTech(item.id, CASE_STUDIES).length
+    }
+  }
+  return counts
+})
 
 const LABEL_COLORS = ['text-[#c99a4a]', 'text-[#5097ae]', 'text-[#3fa98c]']
 const LABEL_COLOR_HEX = ['#c99a4a', '#4d94ab', '#3fa98c']
@@ -61,6 +74,10 @@ const caption = computed(() =>
       :caption="caption"
     />
 
+    <p class="-mt-4 mb-2 font-mono text-xs text-subtle">
+      {{ t('techSection.filterHint') }}
+    </p>
+
     <div class="flex flex-col">
       <div
         v-for="(category, index) in TECH_CATEGORIES"
@@ -83,15 +100,31 @@ const caption = computed(() =>
         </div>
 
         <div class="flex flex-wrap items-center gap-1.5">
-          <span
+          <component
+            :is="matchCounts[item.id] ? NuxtLink : 'span'"
             v-for="item in category.items"
             :key="item.id"
-            class="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-sm"
+            :to="
+              matchCounts[item.id]
+                ? { path: localePath('projects'), query: { tech: item.id } }
+                : undefined
+            "
+            class="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-sm transition-transform"
+            :class="matchCounts[item.id] && 'cursor-pointer hover:scale-105'"
             :style="tagStyle(item.id, index)"
+            :title="
+              matchCounts[item.id]
+                ? t('techSection.viewProjects', { count: matchCounts[item.id] })
+                : undefined
+            "
           >
             <UiAppIcon :icon="item.icon" class="size-4 shrink-0" />
             {{ item.name }}
-          </span>
+            <span
+              v-if="matchCounts[item.id]"
+              class="flex size-4 shrink-0 items-center justify-center rounded-full bg-current/20 text-[0.6875rem] leading-none"
+            >{{ matchCounts[item.id] }}</span>
+          </component>
         </div>
       </div>
     </div>

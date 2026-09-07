@@ -12,6 +12,7 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 const { theme, toggleTheme } = useThemeMode()
+const { openChat } = useChatIntro()
 
 const LOCALE_CYCLE = ['fr', 'en', 'br'] as const
 
@@ -112,6 +113,17 @@ const commands = computed<Command[]>(() => [
     icon: 'lucide:mail',
     label: t('nav.contact'),
     run: () => goHome('#contact'),
+  },
+  {
+    id: 'ia',
+    group: 'action',
+    icon: 'lucide:sparkles',
+    label: t('commandPalette.askIa'),
+    keywords: 'chat ai assistant',
+    run: () => {
+      close()
+      openChat()
+    },
   },
   {
     id: 'theme',

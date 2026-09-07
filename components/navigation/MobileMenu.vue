@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import { NuxtLink } from '#components'
+import type { NavItem } from '~/types/content.types'
 import { NAV_ITEMS } from '~/constants/nav'
 
 const localePath = useLocalePath()
 const route = useRoute()
+const { openChat } = useChatIntro()
 
 const isOpen = ref(false)
 
@@ -10,8 +13,16 @@ function close() {
   isOpen.value = false
 }
 
-function isActive(item: (typeof NAV_ITEMS)[number]) {
-  return !item.hash && route.path === localePath(item.to)
+function isActive(item: NavItem) {
+  return !item.href && !item.hash && route.path === localePath(item.to ?? '/')
+}
+
+function onItemClick(item: NavItem, event: MouseEvent) {
+  if (item.openChat) {
+    event.preventDefault()
+    openChat()
+  }
+  close()
 }
 </script>
 
@@ -38,21 +49,31 @@ function isActive(item: (typeof NAV_ITEMS)[number]) {
         v-if="isOpen"
         class="absolute right-0 top-[calc(100%+25px)] z-50 flex w-56 flex-col gap-1 rounded-2xl border border-border bg-background p-2 shadow-lg"
       >
-        <NuxtLink
+        <component
+          :is="item.href ? 'a' : NuxtLink"
           v-for="item in NAV_ITEMS"
           :key="item.id"
-          :to="item.hash ? { path: localePath(item.to), hash: item.hash } : localePath(item.to)"
+          :to="
+            item.href
+              ? undefined
+              : item.hash
+                ? { path: localePath(item.to ?? '/'), hash: item.hash }
+                : localePath(item.to ?? '/')
+          "
+          :href="item.href"
+          :target="item.href ? '_blank' : undefined"
+          :rel="item.href ? 'noopener noreferrer' : undefined"
           class="flex items-center gap-2.5 rounded-full px-3.5 py-3 font-mono text-xs font-semibold transition-colors"
           :class="
             isActive(item)
               ? 'bg-primary text-primary-foreground'
               : 'text-muted-foreground hover:bg-accent/10 hover:text-accent'
           "
-          @click="close"
+          @click="onItemClick(item, $event)"
         >
           <UiAppIcon v-if="item.icon" :icon="item.icon" class="size-3.5" />
           {{ $t(item.labelKey) }}
-        </NuxtLink>
+        </component>
 
         <div class="my-1 border-t border-border" />
 
