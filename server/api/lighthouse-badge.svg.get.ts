@@ -1,22 +1,3 @@
-interface PageSpeedResponse {
-  lighthouseResult?: {
-    categories: Record<string, { score: number | null }>
-  }
-}
-
-interface CategoryScore {
-  label: string
-  score: number
-}
-
-const AUDITED_URL = 'https://www.maxime.bzh/fr'
-const CATEGORIES = [
-  { key: 'performance', label: 'Performance' },
-  { key: 'accessibility', label: 'A11y' },
-  { key: 'best-practices', label: 'Best Practices' },
-  { key: 'seo', label: 'SEO' },
-] as const
-
 // Roughly matches shields.io's flat badge glyph width for its default font,
 // good enough to lay out segments without a real text-measurement library.
 const CHAR_WIDTH = 6.5
@@ -124,34 +105,6 @@ function errorBadge(message: string): string {
 </svg>`
 }
 
-async function fetchScores(strategy: 'mobile' | 'desktop'): Promise<CategoryScore[]> {
-  const apiKey = useRuntimeConfig().pagespeedApiKey
-  const params = new URLSearchParams({ url: AUDITED_URL, strategy })
-  for (const c of CATEGORIES) params.append('category', c.key)
-  if (apiKey) params.set('key', apiKey)
-
-  const response = await $fetch<PageSpeedResponse>(
-    `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?${params.toString()}`,
-  )
-
-  const categories = response.lighthouseResult?.categories ?? {}
-
-  return CATEGORIES.map((c) => ({
-    label: c.label,
-    score: Math.round((categories[c.key]?.score ?? 0) * 100),
-  }))
-}
-
-// Cache only successful PageSpeed results, keyed by strategy - a failed
-// fetch (rate limit, network blip) must never get cached, or the badge
-// would keep serving "unavailable" for a full day after a single failure.
-const getCachedScores = defineCachedFunction(fetchScores, {
-  name: 'lighthouse-scores',
-  maxAge: 60 * 60 * 24,
-  swr: true,
-  getKey: (strategy: 'mobile' | 'desktop') => strategy,
-})
-
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const strategy = query.strategy === 'desktop' ? 'desktop' : 'mobile'
@@ -159,7 +112,7 @@ export default defineEventHandler(async (event) => {
   setHeader(event, 'Content-Type', 'image/svg+xml')
 
   try {
-    const scores = await getCachedScores(strategy)
+    const scores = await getCachedLighthouseScores(strategy)
     return renderBadge(scores, strategy)
   }
   catch (error) {
