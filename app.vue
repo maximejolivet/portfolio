@@ -118,4 +118,5 @@ tarteaucitron.services.calcom = {
   <LayoutCommandPalette />
   <LayoutShortcutsOverlay />
   <LayoutKonamiEasterEgg />
+  <LayoutFloatingActions />
 </template>
