@@ -23,38 +23,37 @@ const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
 <template>
   <div>
     <SectionsPageIntro
-      :eyebrow="$t('a11yPage.eyebrow')"
-      :title="$t('a11yPage.title')"
+:eyebrow="$t('a11yPage.eyebrow')" :title="$t('a11yPage.title')"
       :subtitle="$t('a11yPage.updated')"
-    />
+/>
 
     <LayoutPageSection bare>
-      <UiContainer class="flex max-w-[760px] flex-col gap-10 pb-24">
+      <UiContainer class="flex max-w-[780px] flex-col gap-10 pb-24">
         <div v-for="section in SECTIONS" :id="section" :key="section" class="scroll-mt-24">
           <h2 class="mb-2 font-sans text-lg font-bold text-foreground">
             {{ $t(`a11yPage.sections.${section}.title`) }}
           </h2>
 
           <p
-            v-if="$te(`a11yPage.sections.${section}.intro`)"
+v-if="$te(`a11yPage.sections.${section}.intro`)"
             class="text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
-          >
+>
             {{ $t(`a11yPage.sections.${section}.intro`) }}
           </p>
 
           <ul
-            v-if="ITEM_COUNTS[section]"
+v-if="ITEM_COUNTS[section]"
             class="mt-2 flex list-disc flex-col gap-1 pl-5 font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
-          >
+>
             <li v-for="i in ITEM_COUNTS[section]" :key="i">
               {{ $t(`a11yPage.sections.${section}.items.${i - 1}`) }}
             </li>
           </ul>
 
           <p
-            v-if="$te(`a11yPage.sections.${section}.body`)"
+v-if="$te(`a11yPage.sections.${section}.body`)"
             class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
-          >
+>
             {{ $t(`a11yPage.sections.${section}.body`, { email: CONTACT_EMAIL }) }}
           </p>
         </div>
