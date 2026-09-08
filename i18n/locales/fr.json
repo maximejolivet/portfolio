@@ -632,7 +632,10 @@
     "error": "Une erreur est survenue lors du chargement des articles.",
     "not_found": "Cet article n'existe pas.",
     "searchPlaceholder": "Rechercher un article...",
-    "noResults": "Aucun article ne correspond à votre recherche."
+    "noResults": "Aucun article ne correspond à votre recherche.",
+    "share": "Partager",
+    "linkCopied": "Lien copié",
+    "readingTime": "{minutes} min de lecture"
   },
   "legalPage": {
     "eyebrow": "JURIDIQUE",

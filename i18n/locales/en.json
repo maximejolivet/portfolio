@@ -632,7 +632,10 @@
     "error": "Something went wrong while loading articles.",
     "not_found": "This article doesn't exist.",
     "searchPlaceholder": "Search articles...",
-    "noResults": "No article matches your search."
+    "noResults": "No article matches your search.",
+    "share": "Share",
+    "linkCopied": "Link copied",
+    "readingTime": "{minutes} min read"
   },
   "legalPage": {
     "eyebrow": "LEGAL",

@@ -44,6 +44,39 @@ const formattedDate = computed(() => {
   )
 })
 
+const readingTime = computed(() => {
+  if (!article.value) return 0
+  const content = locale.value === 'en' ? article.value.content_en : article.value.content_fr
+  const wordCount = content.trim().split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.round(wordCount / 200))
+})
+
+const shareState = ref<'idle' | 'copied'>('idle')
+let shareStateTimeout: ReturnType<typeof setTimeout> | undefined
+
+async function share() {
+  const shareData = { title: title.value, text: excerpt.value, url: window.location.href }
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData)
+    }
+    catch {
+      // User cancelled or the share sheet failed - no feedback needed either way.
+    }
+    return
+  }
+
+  await navigator.clipboard.writeText(shareData.url)
+  shareState.value = 'copied'
+  clearTimeout(shareStateTimeout)
+  shareStateTimeout = setTimeout(() => {
+    shareState.value = 'idle'
+  }, 2000)
+}
+
+onUnmounted(() => clearTimeout(shareStateTimeout))
+
 watch(
   status,
   () => {
@@ -68,13 +101,24 @@ useSeoMeta({
 
     <LayoutPageSection bare>
       <UiContainer class="max-w-[880px]">
-        <div class="py-8">
+        <div class="flex items-center justify-between py-8">
           <NuxtLink
             :to="localePath('blog')"
             class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
           >
             <UiAppIcon icon="lucide:arrow-left" class="size-3" />{{ $t('blog.back_to_list') }}
           </NuxtLink>
+
+          <button
+            v-if="article"
+            type="button"
+            class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground transition-colors hover:text-accent"
+            :aria-label="$t('blog.share')"
+            @click="share"
+          >
+            <UiAppIcon :icon="shareState === 'copied' ? 'lucide:check' : 'lucide:share-2'" class="size-3.5" />
+            {{ shareState === 'copied' ? $t('blog.linkCopied') : $t('blog.share') }}
+          </button>
         </div>
 
         <div v-if="pending" class="flex flex-col gap-5 pb-20">
@@ -88,7 +132,9 @@ useSeoMeta({
         <UiEmptyState v-else-if="error" icon="lucide:wifi-off" :message="$t('blog.error')" />
 
         <template v-else-if="article">
-          <span class="font-mono text-[0.7812rem] text-subtle">{{ formattedDate }}</span>
+          <span class="font-mono text-[0.7812rem] text-subtle">
+            {{ formattedDate }} · {{ $t('blog.readingTime', { minutes: readingTime }) }}
+          </span>
           <h1
             class="mt-3 text-balance font-sans text-[clamp(2.125rem,4.2vw,3.125rem)] font-bold leading-[1.1] tracking-[-1px] text-foreground"
           >

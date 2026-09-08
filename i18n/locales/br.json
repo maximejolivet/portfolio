@@ -632,7 +632,10 @@
     "error": "Degouezhet ez eus bet ur fazi e-pad kargañ ar pennadoù.",
     "not_found": "N'eus ket ar pennad-mañ.",
     "searchPlaceholder": "Klask ur pennad...",
-    "noResults": "Pennad ebet a glot gant ho klask."
+    "noResults": "Pennad ebet a glot gant ho klask.",
+    "share": "Rannañ",
+    "linkCopied": "Liamm eilet",
+    "readingTime": "{minutes} min lenn"
   },
   "legalPage": {
     "eyebrow": "LEZENNEL",
