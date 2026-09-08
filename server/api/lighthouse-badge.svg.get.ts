@@ -19,10 +19,6 @@ function segmentWidth(text: string): number {
   return Math.round(text.length * CHAR_WIDTH + PADDING * 2)
 }
 
-function escapeXml(text: string): string {
-  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-}
-
 // A generic beacon pictogram (not Google's trademarked Lighthouse logo) -
 // just enough to read as an icon at badge scale.
 function titleSegment(): { width: number, markup: string } {
