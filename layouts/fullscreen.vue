@@ -12,5 +12,6 @@
     <main id="main-content">
       <slot />
     </main>
+    <LayoutFloatingActions />
   </div>
 </template>

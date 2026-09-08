@@ -90,7 +90,7 @@ ref="pdfViewer"
 
     <a
 href="/api/cv.json" target="_blank" rel="noopener noreferrer"
-      class="fixed bottom-24 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
+      class="fixed bottom-62 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
 >
       <UiAppIcon icon="lucide:braces" class="size-3.5" />
       JSON Resume
@@ -98,7 +98,7 @@ href="/api/cv.json" target="_blank" rel="noopener noreferrer"
 
     <button
 type="button"
-      class="fixed bottom-38 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
+      class="fixed bottom-76 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
       @click="summaryOpen = true"
 >
       <UiAppIcon icon="lucide:zap" class="size-3.5" />
@@ -163,7 +163,7 @@ v-if="qrDataUrl" :src="qrDataUrl" :alt="t('cv.quickView.qrAlt')" width="140" hei
 
     <button
 v-if="!calRefused" type="button"
-      class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-primary px-3.5 py-2.5 font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 sm:px-5 sm:py-3.5"
+      class="fixed bottom-44 right-6 z-50 flex items-center gap-2 rounded-full bg-primary px-3.5 py-2.5 font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 sm:px-5 sm:py-3.5"
       :data-cal-link="CAL_LINK" :data-cal-namespace="CAL_NAMESPACE"
       data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
 >
