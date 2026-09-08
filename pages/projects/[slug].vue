@@ -1,22 +1,35 @@
 <script setup lang="ts">
 import { CONTACT_EMAIL } from '~/constants/contact'
 
+// Forces a remount on every slug change - without it, navigating between
+// two projects-slug routes (e.g. via the prev/next links below) reuses
+// the component instance and everything derived from `slug` stays frozen
+// on the previous project.
+definePageMeta({
+  key: (route) => route.fullPath,
+})
+
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
 
 const slug = Array.isArray(route.params.slug) ? (route.params.slug[0] ?? '') : route.params.slug
 
-// Client work shown here may be confidential - kept out of search results
-// even though the rest of the site is now indexed.
-useHead({
-  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
-})
-
 const { data: row, pending, error, status } = await useProject(slug)
 const { data: allRows } = await useProjects()
 
 const project = computed(() => (row.value ? localizeProject(row.value, locale.value) : null))
+
+// Only client (pro) work may be confidential - personal projects have no
+// reason to stay out of search results now that the rest of the site is
+// indexed, so the noindex is conditional rather than blanket.
+useHead({
+  meta: computed(() =>
+    project.value?.category === 'pro'
+      ? [{ name: 'robots', content: 'noindex, nofollow' }]
+      : [],
+  ),
+})
 
 const hasCaseStudy = computed(() =>
   Boolean(project.value?.contexte || project.value?.solution || project.value?.points.length),
