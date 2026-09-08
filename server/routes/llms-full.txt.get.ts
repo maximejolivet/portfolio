@@ -48,6 +48,7 @@ async function buildProjectsSection(locale: Locale): Promise<string> {
   const { data, error } = await supabase
     .from('projects')
     .select('*')
+    .lte('published_at', new Date().toISOString())
     .order('published_at', { ascending: false })
 
   if (error) {
@@ -55,30 +56,27 @@ async function buildProjectsSection(locale: Locale): Promise<string> {
     return ''
   }
 
-  const en = locale === 'en'
-
-  return (data ?? []).map((study) => {
+  return ((data ?? []) as ProjectRow[]).map((row) => {
+    const study = localizeProject(row, locale)
     const org = study.company ?? study.employer ?? ''
-    const points: string[] = (en ? study.points_en : study.points_fr)
-      .filter(Boolean)
-      .map((point: string) => stripHtml(point))
-    const result = stripHtml(en ? study.resultat_en : study.resultat_fr)
+    const points = study.points.map((point) => stripHtml(point))
+    const result = stripHtml(study.resultat)
 
     const meta = [
-      ['Role', en ? study.role_en : study.role_fr],
-      ['Duration', en ? study.duree_en : study.duree_fr],
-      ['Team', en ? study.equipe_en : study.equipe_fr],
+      ['Role', study.role],
+      ['Duration', study.duree],
+      ['Team', study.equipe],
     ]
       .filter(([, value]) => value)
       .map(([label, value]) => `${label}: ${value}`)
       .join(' · ')
 
     return [
-      `### ${en ? study.title_en : study.title_fr} — ${org} (${study.year})`,
-      en ? study.tagline_en : study.tagline_fr,
+      `### ${study.title} — ${org} (${study.year})`,
+      `${study.type} — ${study.tagline}`,
       '',
-      `Context: ${stripHtml(en ? study.contexte_en : study.contexte_fr)}`,
-      `Solution: ${stripHtml(en ? study.solution_en : study.solution_fr)}`,
+      `Context: ${stripHtml(study.contexte)}`,
+      `Solution: ${stripHtml(study.solution)}`,
       ...(points.length ? points.map((point) => `- ${point}`) : []),
       ...(result ? [`Result: ${result}`] : []),
       ...(meta ? [meta] : []),
