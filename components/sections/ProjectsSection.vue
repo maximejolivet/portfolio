@@ -12,6 +12,13 @@ const previewCaseStudies = computed(() =>
 )
 
 const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-primary')
+
+// Rendered as pixels (server/api/project-title.svg.get.ts) rather than DOM
+// text, so the client name is readable but not crawlable from this indexed
+// page - see the noindex'd /projects/[slug] for the real accessible name.
+function titleImageSrc(title: string) {
+  return `/api/project-title.svg?text=${encodeURIComponent(title)}`
+}
 </script>
 
 <template>
@@ -75,6 +82,13 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
             </div>
           </div>
           <div class="flex flex-col gap-1.5">
+            <img
+              :src="titleImageSrc(project.title)"
+              alt=""
+              aria-hidden="true"
+              height="20"
+              class="h-5 w-auto"
+            >
             <div class="flex items-center justify-between gap-2 font-mono text-[0.7812rem] text-subtle">
               <span>{{ project.year }}</span>
               <span v-if="project.tags.length" class="min-w-0 truncate text-muted-foreground">
