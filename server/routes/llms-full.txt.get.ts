@@ -3,22 +3,6 @@ import { EXPERIENCE_TIMELINE } from '~/constants/experience'
 import { TECH_CATEGORIES } from '~/constants/techstack'
 import { SOCIAL_LINKS } from '~/constants/social'
 import { CONTACT_EMAIL } from '~/constants/contact'
-import fr from '~/i18n/locales/fr.json'
-import en from '~/i18n/locales/en.json'
-import br from '~/i18n/locales/br.json'
-
-const LOCALES = { fr, en, br } as const
-type Locale = keyof typeof LOCALES
-
-function t(locale: Locale, key: string): string {
-  const value = key.split('.').reduce<unknown>((node, segment) => {
-    return typeof node === 'object' && node !== null
-      ? (node as Record<string, unknown>)[segment]
-      : undefined
-  }, LOCALES[locale])
-
-  return typeof value === 'string' ? value : ''
-}
 
 function buildExperienceSection(locale: Locale): string {
   return EXPERIENCE_TIMELINE.map((item) => {
@@ -107,11 +91,9 @@ ${SOCIAL_LINKS.map((link) => `${link.label}: ${link.href}`).join('\n')}
 
 export default defineCachedEventHandler(
   (event) => {
-    const query = getQuery(event)
-    const locale: Locale = query.lang === 'en' || query.lang === 'br' ? query.lang : 'fr'
-
+    const locale = resolveLocale(getQuery(event).lang)
     setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
     return buildDocument(locale)
   },
-  { maxAge: 60 * 60 * 24, swr: true },
+  { maxAge: 60 * 60 * 24, swr: true, getKey: (event) => resolveLocale(getQuery(event).lang) },
 )
