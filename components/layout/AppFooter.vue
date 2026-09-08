@@ -26,7 +26,7 @@ function openCookieSettings() {
     <div
       class="mx-auto flex max-w-[1180px] flex-col items-center gap-3 font-sans text-[0.75rem] text-subtle sm:flex-row sm:justify-between sm:gap-4"
     >
-      <div class="flex items-center gap-4">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
         <NuxtLink :to="localePath('mentions-legales')" class="transition-colors hover:text-accent">
           {{ $t('footer.legalMentions') }}
         </NuxtLink>
@@ -67,7 +67,7 @@ function openCookieSettings() {
           <NavigationThemeToggle />
         </div>
       </div>
-      <div class="flex items-center gap-4">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
         <NavigationNavLink
           v-for="item in NAV_ITEMS"
           :key="item.id"
