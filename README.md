@@ -40,7 +40,7 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 - **UI** : Vue 3, composants organisés par domaine (`components/sections`, `components/cards`, `components/layout`, `components/ui`, `components/navigation`)
 - **State** : Pinia
 - **i18n** : `@nuxtjs/i18n`, trois locales (`fr` par défaut, `en-US`, `br-FR`), préfixe d'URL (`/fr/...`, `/en/...`, `/br/...`)
-- **Data** : Supabase (articles de blog)
+- **Data** : Supabase (articles de blog, études de cas projets)
 - **Sécurité** : `nuxt-security` (CSP stricte avec nonce)
 - **SEO** : `@nuxtjs/sitemap`, `@nuxt/image`
 - **Icônes** : collections `@iconify-json/*` (devicon, devicon-plain, logos, lucide, material-icon-theme, selfhst, skill-icons), résolues via `utils/resolveIcon.ts` à partir d'un sous-ensemble généré (voir [Icônes](#icônes))
@@ -51,12 +51,14 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 | ------------------- | ---------------- | ------------------- | -------------------------------------------- |
 | `/`                 | `/`              | `/`                 | Accueil (hero, à propos, expérience, stack)  |
 | `/cv`               | `/cv`            | `/cv`               | Curriculum vitæ                              |
-| `/projets`          | `/projects`      | `/raktresou`        | Liste des projets                            |
+| `/projets`          | `/projects`      | `/raktresou`        | Liste des projets (noindex - travail client) |
+| `/projets/:slug`    | `/projects/:slug`| `/raktresou/:slug`  | Étude de cas projet (noindex si `pro`)       |
 | `/blog`             | `/blog`          | `/blog`             | Liste des articles                           |
 | `/blog/:slug`       | `/blog/:slug`    | `/blog/:slug`       | Article de blog                              |
 | `/mentions-legales` | `/legal-notice`  | `/menegou-lezennel` | Mentions légales                             |
 | `/accessibilite`    | `/accessibility` | `/haezadusted`      | Déclaration d'accessibilité                  |
 | `/nouveautes`       | `/changelog`     | `/kemmou-nevez`     | Journal des mises à jour (généré depuis Git) |
+| `/status`           | `/status`        | `/status`           | État du build/déploiement                    |
 
 ## Setup
 
@@ -209,6 +211,6 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
-![v1.1.40](https://img.shields.io/badge/v1.1.40-2026--09--08-F97316)
+![v1.1.46](https://img.shields.io/badge/v1.1.46-2026--09--08-F97316)
 
 <!-- releases:end -->

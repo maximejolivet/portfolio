@@ -24,5 +24,6 @@ Please don't:
 ## What's already in place
 
 - Strict Content Security Policy with per-request nonces, and CSRF protection (`nuxt-security`, see `nuxt.config.ts`)
+- HTML content from Supabase (blog articles, project case studies) is sanitized (`isomorphic-dompurify` via `utils/sanitizeHtml.ts`, fixed tag/attribute allowlist) before being rendered
 - No secrets committed to the repository; deployment auth to Vercel/GitHub uses platform-managed tokens, not hardcoded credentials
 - Dependencies tracked via `package-lock.json`; update with `npm audit` / `ncu` (see `README.md`, "Update Dependencies")

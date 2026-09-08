@@ -1,22 +1,35 @@
 <script setup lang="ts">
 import { CONTACT_EMAIL } from '~/constants/contact'
 
+// Forces a remount on every slug change - without it, navigating between
+// two projects-slug routes (e.g. via the prev/next links below) reuses
+// the component instance and everything derived from `slug` stays frozen
+// on the previous project.
+definePageMeta({
+  key: (route) => route.fullPath,
+})
+
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
 
 const slug = Array.isArray(route.params.slug) ? (route.params.slug[0] ?? '') : route.params.slug
 
-// Client work shown here may be confidential - kept out of search results
-// even though the rest of the site is now indexed.
-useHead({
-  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
-})
-
 const { data: row, pending, error, status } = await useProject(slug)
 const { data: allRows } = await useProjects()
 
 const project = computed(() => (row.value ? localizeProject(row.value, locale.value) : null))
+
+// Only client (pro) work may be confidential - personal projects have no
+// reason to stay out of search results now that the rest of the site is
+// indexed, so the noindex is conditional rather than blanket.
+useHead({
+  meta: computed(() =>
+    project.value?.category === 'pro'
+      ? [{ name: 'robots', content: 'noindex, nofollow' }]
+      : [],
+  ),
+})
 
 const hasCaseStudy = computed(() =>
   Boolean(project.value?.contexte || project.value?.solution || project.value?.points.length),
@@ -172,7 +185,7 @@ useSeoMeta({
               </h2>
               <div
                 class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
-                v-html="project.contexte"
+                v-html="sanitizeHtml(project.contexte)"
               />
             </div>
 
@@ -183,13 +196,13 @@ useSeoMeta({
               <div
                 v-if="project.solution"
                 class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
-                v-html="project.solution"
+                v-html="sanitizeHtml(project.solution)"
               />
               <ul
                 v-if="project.points.length"
                 class="mt-2 flex list-disc flex-col gap-1.5 pl-5 font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
               >
-                <li v-for="point in project.points" :key="point" v-html="point" />
+                <li v-for="point in project.points" :key="point" v-html="sanitizeHtml(point)" />
               </ul>
             </div>
 
@@ -199,7 +212,7 @@ useSeoMeta({
               </h2>
               <div
                 class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
-                v-html="project.resultat"
+                v-html="sanitizeHtml(project.resultat)"
               />
             </div>
           </div>
