@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { CAL_LINK, CAL_NAMESPACE, CONTACT_EMAIL } from '~/constants/contact'
-import { CASE_STUDIES } from '~/constants/projects'
 import { TECH_CATEGORIES } from '~/constants/techstack'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { refused: calRefused } = useCalConsent()
 const route = useRoute()
 const router = useRouter()
+const { data: projects } = await useProjects()
+
+// Client work shown here may be confidential - kept out of search results
+// even though the rest of the site is now indexed.
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+})
 
 useSeoMeta({
   title: () => `${t('projectsPage.title')} - Maxime Jolivet`,
@@ -61,18 +67,21 @@ function setViewMode(value: 'grid' | 'list') {
 const viewMode = computed<'grid' | 'list'>(() => (route.query.view === 'grid' ? 'grid' : 'list'))
 
 const employers = computed(() =>
-  Array.from(new Set(CASE_STUDIES.map((p) => p.employer).filter((e): e is string => Boolean(e)))),
+  Array.from(new Set(projects.value.map((p) => p.employer).filter((e): e is string => Boolean(e)))),
 )
 
 const filteredProjects = computed(() => {
-  const techMatches = techFilter.value ? projectsForTech(techFilter.value, CASE_STUDIES) : null
+  const techMatches = techFilter.value ? projectsForTech(techFilter.value, projects.value) : null
 
-  return CASE_STUDIES.filter((p) => {
-    if (categoryFilter.value !== 'all' && p.category !== categoryFilter.value) return false
-    if (employerFilter.value !== 'all' && p.employer !== employerFilter.value) return false
-    if (techMatches && !techMatches.includes(p)) return false
-    return true
-  }).sort((a, b) => b.year.localeCompare(a.year))
+  return projects.value
+    .filter((p) => {
+      if (categoryFilter.value !== 'all' && p.category !== categoryFilter.value) return false
+      if (employerFilter.value !== 'all' && p.employer !== employerFilter.value) return false
+      if (techMatches && !techMatches.includes(p)) return false
+      return true
+    })
+    .sort((a, b) => b.year.localeCompare(a.year))
+    .map((p) => localizeProject(p, locale.value))
 })
 
 const totalPages = computed(() => Math.max(1, Math.ceil(filteredProjects.value.length / PAGE_SIZE)))

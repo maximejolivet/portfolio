@@ -44,10 +44,12 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'Maxime Jolivet - Développeur web',
-      link: [{ rel: 'icon', type: 'image/ico', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/ico', href: '/favicon.ico' },
+        { rel: 'author', href: '/humans.txt' },
+      ],
       meta: [
         { name: 'description', content: 'Développeur web, Webdesigner' },
-        { name: 'robots', content: 'noindex, nofollow' },
       ],
     },
   },
@@ -259,5 +261,13 @@ export default defineNuxtConfig({
         camera: ['self'],
       },
     },
+  },
+
+  // Project case studies stay out of the sitemap - some cover client work
+  // that shouldn't be indexed even though the rest of the site now is (each
+  // of those pages also sets its own noindex meta, which is what actually
+  // keeps them out of search results - this just avoids listing them here).
+  sitemap: {
+    exclude: ['/*/projets/**', '/*/projects/**', '/*/raktresou/**'],
   },
 })
