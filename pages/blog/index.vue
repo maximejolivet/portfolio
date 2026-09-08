@@ -85,18 +85,20 @@ const formattedDate = (value: string) =>
         />
 
         <template v-else>
-          <div class="relative pb-6">
-            <UiAppIcon
-              icon="lucide:search"
-              class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
-            />
-            <input
-              v-model="searchQuery"
-              type="text"
-              autocomplete="off"
-              :placeholder="$t('blog.searchPlaceholder')"
-              class="w-full rounded-full border border-border bg-background py-2.5 pl-10 pr-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none"
-            >
+          <div class="pb-6">
+            <div class="relative">
+              <UiAppIcon
+                icon="lucide:search"
+                class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+              />
+              <input
+                v-model="searchQuery"
+                type="text"
+                autocomplete="off"
+                :placeholder="$t('blog.searchPlaceholder')"
+                class="w-full rounded-full border border-border bg-background py-2.5 pl-10 pr-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none"
+              >
+            </div>
           </div>
 
           <UiEmptyState
