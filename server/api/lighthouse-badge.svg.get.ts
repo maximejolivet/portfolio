@@ -113,10 +113,17 @@ export default defineEventHandler(async (event) => {
 
   try {
     const scores = await getCachedLighthouseScores(strategy)
+    // Matches the underlying score cache (24h, swr) - browsers/CDNs and any
+    // external embed (README badge, etc.) can now skip re-hitting the server
+    // instead of refetching this SVG on every request.
+    setHeader(event, 'Cache-Control', 'public, max-age=86400, stale-while-revalidate=86400')
     return renderBadge(scores, strategy)
   }
   catch (error) {
     console.error('[lighthouse-badge] fetch failed', error)
+    // Short-lived on purpose - a transient fetch failure shouldn't get
+    // baked into caches for a full day.
+    setHeader(event, 'Cache-Control', 'public, max-age=60')
     return errorBadge('unavailable')
   }
 })
