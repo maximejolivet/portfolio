@@ -67,7 +67,15 @@ async function share() {
     return
   }
 
-  await navigator.clipboard.writeText(shareData.url)
+  try {
+    await navigator.clipboard.writeText(shareData.url)
+  }
+  catch {
+    // Clipboard unavailable (non-secure context, permission denied) - no
+    // feedback to show, same as a cancelled native share above.
+    return
+  }
+
   shareState.value = 'copied'
   clearTimeout(shareStateTimeout)
   shareStateTimeout = setTimeout(() => {
