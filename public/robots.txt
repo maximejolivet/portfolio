@@ -4,3 +4,9 @@ Disallow:
 Allow: /
 Disallow: /?*
 Disallow: /*?*
+
+# Client project logos and generated title images - kept out of crawling
+# entirely, not just search indexing (see the homepage's noimageindex meta
+# and /projects' noindex).
+Disallow: /logo-project-*
+Disallow: /api/project-title.svg
