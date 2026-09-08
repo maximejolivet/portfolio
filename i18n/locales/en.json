@@ -723,9 +723,7 @@
           "CV, Projects, Blog, Legal notice: 100/100",
           "Color contrast: passes everywhere except the homepage (see known non-conformities below)",
           "HTML structure, ARIA attributes, page language, viewport: pass"
-        ],
-        "liveBadgeLabel": "Live score (homepage, updated daily, click for the full report):",
-        "liveBadgeAlt": "Live Lighthouse scores (Performance, Accessibility, Best Practices, SEO)"
+        ]
       },
       "nonConformities": {
         "title": "Known non-conformities",

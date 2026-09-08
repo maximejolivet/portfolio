@@ -118,9 +118,10 @@ v-if="data.commit" :href="data.commit.url" target="_blank" rel="noopener norefer
                 </span>
               </div>
             </div>
-            <p v-else class="font-mono text-xs text-subtle">
+            <div v-else class="flex items-center gap-2 py-2 font-mono text-xs text-subtle">
+              <UiAppIcon icon="lucide:loader-circle" class="size-3.5 animate-spin" />
               {{ $t('statusPage.lighthouseUnavailable') }}
-            </p>
+            </div>
 
             <a
 v-if="data.lighthouse"
