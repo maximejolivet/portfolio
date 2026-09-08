@@ -172,7 +172,7 @@ useSeoMeta({
               </h2>
               <div
                 class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
-                v-html="project.contexte"
+                v-html="sanitizeHtml(project.contexte)"
               />
             </div>
 
@@ -183,13 +183,13 @@ useSeoMeta({
               <div
                 v-if="project.solution"
                 class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
-                v-html="project.solution"
+                v-html="sanitizeHtml(project.solution)"
               />
               <ul
                 v-if="project.points.length"
                 class="mt-2 flex list-disc flex-col gap-1.5 pl-5 font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
               >
-                <li v-for="point in project.points" :key="point" v-html="point" />
+                <li v-for="point in project.points" :key="point" v-html="sanitizeHtml(point)" />
               </ul>
             </div>
 
@@ -199,7 +199,7 @@ useSeoMeta({
               </h2>
               <div
                 class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
-                v-html="project.resultat"
+                v-html="sanitizeHtml(project.resultat)"
               />
             </div>
           </div>

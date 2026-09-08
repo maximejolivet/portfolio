@@ -151,7 +151,7 @@ useSeoMeta({
               v-for="paragraph in paragraphs"
               :key="paragraph"
               class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground"
-              v-html="paragraph"
+              v-html="sanitizeHtml(paragraph)"
             />
           </div>
         </template>
