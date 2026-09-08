@@ -16,8 +16,10 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
 // Rendered as pixels (server/api/project-title.svg.get.ts) rather than DOM
 // text, so the client name is readable but not crawlable from this indexed
 // page - see the noindex'd /projects/[slug] for the real accessible name.
-function titleImageSrc(title: string) {
-  return `/api/project-title.svg?text=${encodeURIComponent(title)}`
+// Looked up server-side by the project's opaque id, never passed as text,
+// so the name doesn't leak into the page source via the <img src> either.
+function titleImageSrc(id: string) {
+  return `/api/project-title.svg?id=${id}&lang=${locale.value === 'en' ? 'en' : 'fr'}`
 }
 </script>
 
@@ -82,18 +84,18 @@ function titleImageSrc(title: string) {
             </div>
           </div>
           <div class="flex flex-col gap-1.5">
-            <img
-              :src="titleImageSrc(project.title)"
-              alt=""
-              aria-hidden="true"
-              height="20"
-              class="h-5 w-auto"
-            >
-            <div class="flex items-center justify-between gap-2 font-mono text-[0.7812rem] text-subtle">
-              <span>{{ project.year }}</span>
-              <span v-if="project.tags.length" class="min-w-0 truncate text-muted-foreground">
-                {{ project.tags.slice(0, 2).join(' · ') }}
-              </span>
+            <div class="flex items-baseline justify-between gap-2">
+              <img
+                :src="titleImageSrc(project.id)"
+                alt=""
+                aria-hidden="true"
+                height="28"
+                class="h-7 min-w-0 max-w-full"
+              >
+              <span class="shrink-0 font-mono text-[0.7812rem] text-subtle">{{ project.year }}</span>
+            </div>
+            <div v-if="project.tags.length" class="font-mono text-xs text-muted-foreground">
+              {{ project.tags.slice(0, 2).join(' · ') }}
             </div>
             <span
               class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
