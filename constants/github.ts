@@ -2,3 +2,8 @@
 export const GITHUB_USERNAME = 'maximejolivet'
 
 export const GITHUB_PORTFOLIO_REPO = 'maximejolivet/portfolio'
+
+export const GITHUB_HEADERS = {
+  'User-Agent': 'maxime-bzh-portfolio',
+  'Accept': 'application/vnd.github+json',
+}
