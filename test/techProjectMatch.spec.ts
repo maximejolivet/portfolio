@@ -1,9 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import type { CaseStudy } from '../constants/projects'
 import { projectsForTech, techKeyword } from '../utils/techProjectMatch'
 
-function project(tags: string[]): CaseStudy {
-  return { tags } as CaseStudy
+function project(tags: string[]): { tags: string[] } {
+  return { tags }
 }
 
 describe('techKeyword', () => {

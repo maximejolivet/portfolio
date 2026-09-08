@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { CASE_STUDIES } from '~/constants/projects'
-
-const { t } = useI18n()
+const { locale } = useI18n()
 const localePath = useLocalePath()
+const { data: projects } = await useProjects()
 
-const previewCaseStudies = CASE_STUDIES.filter((p) => p.category === 'pro')
-  .sort((a, b) => b.year.localeCompare(a.year))
-  .slice(0, 3)
+const previewCaseStudies = computed(() =>
+  projects.value
+    .filter((p) => p.category === 'pro')
+    .sort((a, b) => b.year.localeCompare(a.year))
+    .slice(0, 3)
+    .map((p) => localizeProject(p, locale.value)),
+)
 
 const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-primary')
 </script>
@@ -32,20 +35,18 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
 
     <UiContainer>
       <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-        <component
-          :is="project.websiteUrl ? 'a' : 'div'"
+        <NuxtLink
           v-for="project in previewCaseStudies"
           :key="project.id"
-          :href="project.websiteUrl"
-          :target="project.websiteUrl ? '_blank' : undefined"
-          :rel="project.websiteUrl ? 'noopener noreferrer nofollow' : undefined"
+          :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
+          :style="{ viewTransitionName: `project-${project.id}` }"
           class="group flex flex-col gap-3.5"
         >
           <div class="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
             <NuxtImg
               v-if="project.image"
               :src="project.image"
-              :alt="t(project.titleKey)"
+              :alt="project.title"
               loading="lazy"
               class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -53,7 +54,7 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
               v-else-if="project.logo"
               :logo="project.logo"
               :logo-color="project.logoColor ?? '#1d3540'"
-              :alt="t(project.titleKey)"
+              :alt="project.title"
               class="size-full rounded-none border-0"
             />
             <UiImagePlaceholder
@@ -76,7 +77,7 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
               <span
                 class="min-w-0 truncate font-sans text-lg font-bold tracking-[-0.4px] text-foreground"
               >
-                {{ t(project.titleKey) }}
+                {{ project.title }}
               </span>
               <span class="shrink-0 font-mono text-[0.7812rem] text-subtle">{{
                 project.year
@@ -86,17 +87,16 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
               {{ project.tags.slice(0, 2).join(' · ') }}
             </div>
             <span
-              v-if="project.websiteUrl"
               class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
             >
               {{ $t('projectsPage.viewProject') }}
               <UiAppIcon
-                icon="lucide:external-link"
+                icon="lucide:arrow-right"
                 class="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
               />
             </span>
           </div>
-        </component>
+        </NuxtLink>
       </div>
     </UiContainer>
   </LayoutPageSection>

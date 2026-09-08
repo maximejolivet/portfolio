@@ -1,8 +1,23 @@
-import { CASE_STUDIES } from '~/constants/projects'
+import { createClient } from '@supabase/supabase-js'
 import { EXPERIENCE_TIMELINE } from '~/constants/experience'
 import { TECH_CATEGORIES } from '~/constants/techstack'
 import { SOCIAL_LINKS } from '~/constants/social'
 import { CONTACT_EMAIL } from '~/constants/contact'
+
+// Project prose fields may contain WYSIWYG HTML (rendered with v-html on the
+// site) - this is a plain-text file, so strip tags before including them.
+function stripHtml(html: string | null): string {
+  if (!html) return ''
+  return html
+    .replace(/<\/(p|li)>/g, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/\n{2,}/g, '\n')
+    .trim()
+}
 
 function buildExperienceSection(locale: Locale): string {
   return EXPERIENCE_TIMELINE.map((item) => {
@@ -27,27 +42,43 @@ function buildTechStackSection(locale: Locale): string {
   ].join('\n')).join('\n\n')
 }
 
-function buildProjectsSection(locale: Locale): string {
-  return CASE_STUDIES.map((study) => {
-    const org = study.company ?? study.employer ?? ''
-    const points = study.pointsKeys.map((key) => t(locale, key)).filter(Boolean)
+async function buildProjectsSection(locale: Locale): Promise<string> {
+  const config = useRuntimeConfig()
+  const supabase = createClient(config.public.supabaseUrl, config.public.supabaseKey)
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .order('published_at', { ascending: false })
 
-    const result = t(locale, study.resultatKey)
+  if (error) {
+    console.error('[llms-full] fetch projects failed', error)
+    return ''
+  }
+
+  const en = locale === 'en'
+
+  return (data ?? []).map((study) => {
+    const org = study.company ?? study.employer ?? ''
+    const points: string[] = (en ? study.points_en : study.points_fr)
+      .filter(Boolean)
+      .map((point: string) => stripHtml(point))
+    const result = stripHtml(en ? study.resultat_en : study.resultat_fr)
+
     const meta = [
-      ['Role', t(locale, study.roleKey)],
-      ['Duration', t(locale, study.dureeKey)],
-      ['Team', t(locale, study.equipeKey)],
+      ['Role', en ? study.role_en : study.role_fr],
+      ['Duration', en ? study.duree_en : study.duree_fr],
+      ['Team', en ? study.equipe_en : study.equipe_fr],
     ]
       .filter(([, value]) => value)
       .map(([label, value]) => `${label}: ${value}`)
       .join(' · ')
 
     return [
-      `### ${t(locale, study.titleKey)} — ${org} (${study.year})`,
-      t(locale, study.taglineKey),
+      `### ${en ? study.title_en : study.title_fr} — ${org} (${study.year})`,
+      en ? study.tagline_en : study.tagline_fr,
       '',
-      `Context: ${t(locale, study.contexteKey)}`,
-      `Solution: ${t(locale, study.solutionKey)}`,
+      `Context: ${stripHtml(en ? study.contexte_en : study.contexte_fr)}`,
+      `Solution: ${stripHtml(en ? study.solution_en : study.solution_fr)}`,
       ...(points.length ? points.map((point) => `- ${point}`) : []),
       ...(result ? [`Result: ${result}`] : []),
       ...(meta ? [meta] : []),
@@ -56,7 +87,7 @@ function buildProjectsSection(locale: Locale): string {
   }).join('\n\n')
 }
 
-function buildDocument(locale: Locale): string {
+async function buildDocument(locale: Locale): Promise<string> {
   return `# Maxime Jolivet — Portfolio (full content)
 
 > Full-detail companion to /llms.txt: same site, with the actual text of each
@@ -80,7 +111,7 @@ ${buildTechStackSection(locale)}
 
 ## Projects
 
-${buildProjectsSection(locale)}
+${await buildProjectsSection(locale)}
 
 ## Contact
 
@@ -90,10 +121,10 @@ ${SOCIAL_LINKS.map((link) => `${link.label}: ${link.href}`).join('\n')}
 }
 
 export default defineCachedEventHandler(
-  (event) => {
+  async (event) => {
     const locale = resolveLocale(getQuery(event).lang)
     setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
-    return buildDocument(locale)
+    return await buildDocument(locale)
   },
   { maxAge: 60 * 60 * 24, swr: true, getKey: (event) => resolveLocale(getQuery(event).lang) },
 )

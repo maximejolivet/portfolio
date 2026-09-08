@@ -1,28 +1,25 @@
 <script setup lang="ts">
-import type { CaseStudy } from '~/constants/projects'
+import type { LocalizedProject } from '~/composables/useProjects'
 
 const props = defineProps<{
-  project: CaseStudy
+  project: LocalizedProject
 }>()
 
-const { t } = useI18n()
+const localePath = useLocalePath()
 
 const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-primary'))
 </script>
 
 <template>
-  <component
-    :is="project.websiteUrl ? 'a' : 'div'"
-    :href="project.websiteUrl"
-    :target="project.websiteUrl ? '_blank' : undefined"
-    :rel="project.websiteUrl ? 'noopener noreferrer nofollow' : undefined"
+  <NuxtLink
+    :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
     :style="{ viewTransitionName: `project-${project.id}` }"
     class="group flex flex-col gap-3.5"
   >
     <div v-if="project.image" class="aspect-video overflow-hidden rounded-2xl border border-border">
       <NuxtImg
         :src="project.image"
-        :alt="t(project.titleKey)"
+        :alt="project.title"
         loading="lazy"
         class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -31,7 +28,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
       v-else-if="project.logo"
       :logo="project.logo"
       :logo-color="project.logoColor ?? '#1d3540'"
-      :alt="t(project.titleKey)"
+      :alt="project.title"
       class="aspect-video"
     />
     <UiImagePlaceholder
@@ -43,7 +40,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
     <div class="flex flex-col gap-1.5">
       <div class="flex items-baseline justify-between gap-3">
         <span class="font-sans text-lg font-bold tracking-[-0.4px] text-foreground">
-          {{ t(project.titleKey) }}
+          {{ project.title }}
         </span>
         <span class="font-mono text-[0.7812rem] text-subtle">{{ project.year }}</span>
       </div>
@@ -62,5 +59,5 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
         </UiBadge>
       </div>
     </div>
-  </component>
+  </NuxtLink>
 </template>

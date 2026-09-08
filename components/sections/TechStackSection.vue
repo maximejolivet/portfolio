@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { NuxtLink } from '#components'
-import { CASE_STUDIES } from '~/constants/projects'
 import { TECH_CATEGORIES } from '~/constants/techstack'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { data: projects } = await useProjects()
 
 const matchCounts = computed(() => {
   const counts: Record<string, number> = {}
   for (const category of TECH_CATEGORIES) {
     for (const item of category.items) {
-      counts[item.id] = projectsForTech(item.id, CASE_STUDIES).length
+      counts[item.id] = projectsForTech(item.id, projects.value).length
     }
   }
   return counts

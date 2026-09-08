@@ -1,22 +1,18 @@
 <script setup lang="ts">
-import type { CaseStudy } from '~/constants/projects'
+import type { LocalizedProject } from '~/composables/useProjects'
 
 const props = defineProps<{
-  project: CaseStudy
+  project: LocalizedProject
 }>()
 
-const { t } = useI18n()
+const localePath = useLocalePath()
 
 const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-primary'))
-const tagline = computed(() => t(props.project.taglineKey))
 </script>
 
 <template>
-  <component
-    :is="project.websiteUrl ? 'a' : 'div'"
-    :href="project.websiteUrl"
-    :target="project.websiteUrl ? '_blank' : undefined"
-    :rel="project.websiteUrl ? 'noopener noreferrer nofollow' : undefined"
+  <NuxtLink
+    :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
     :style="{ viewTransitionName: `project-${project.id}` }"
     class="card-hover-gradient group flex flex-col overflow-hidden rounded-2xl border border-border sm:flex-row"
   >
@@ -24,7 +20,7 @@ const tagline = computed(() => t(props.project.taglineKey))
       <NuxtImg
         v-if="project.image"
         :src="project.image"
-        :alt="t(project.titleKey)"
+        :alt="project.title"
         loading="lazy"
         class="aspect-video size-full object-cover transition-transform duration-500 group-hover:scale-105 sm:aspect-auto sm:h-full"
       />
@@ -32,7 +28,7 @@ const tagline = computed(() => t(props.project.taglineKey))
         v-else-if="project.logo"
         :logo="project.logo"
         :logo-color="project.logoColor ?? '#1d3540'"
-        :alt="t(project.titleKey)"
+        :alt="project.title"
         class="aspect-video size-full rounded-none border-0 sm:aspect-auto sm:h-full"
       />
       <UiImagePlaceholder
@@ -55,7 +51,7 @@ const tagline = computed(() => t(props.project.taglineKey))
     <div class="flex min-w-0 flex-1 flex-col gap-2.5 p-5">
       <div class="flex flex-wrap items-start justify-between gap-2">
         <span class="flex flex-wrap items-center gap-2.5 font-mono text-[0.7812rem] text-subtle">
-          {{ project.year }} · {{ t(project.typeKey)
+          {{ project.year }} · {{ project.type
           }}<template v-if="project.company"> · {{ project.company }} </template>
         </span>
         <UiBadge
@@ -74,11 +70,11 @@ const tagline = computed(() => t(props.project.taglineKey))
       <h2
         class="text-balance font-sans text-xl font-bold leading-[1.25] tracking-[-0.4px] text-foreground"
       >
-        {{ t(project.titleKey) }}
+        {{ project.title }}
       </h2>
 
-      <p v-if="tagline" class="text-pretty font-sans text-sm leading-[1.6] text-muted-foreground">
-        {{ tagline }}
+      <p v-if="project.tagline" class="text-pretty font-sans text-sm leading-[1.6] text-muted-foreground">
+        {{ project.tagline }}
       </p>
       <div v-if="project.tags.length" class="flex flex-wrap gap-2">
         <UiBadge v-for="tag in project.tags.slice(0, 4)" :key="tag" class="bg-mint/16">
@@ -86,15 +82,14 @@ const tagline = computed(() => t(props.project.taglineKey))
         </UiBadge>
       </div>
       <span
-        v-if="project.websiteUrl"
         class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
       >
         {{ $t('projectsPage.viewProject') }}
         <UiAppIcon
-          icon="lucide:external-link"
+          icon="lucide:arrow-right"
           class="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
         />
       </span>
     </div>
-  </component>
+  </NuxtLink>
 </template>
