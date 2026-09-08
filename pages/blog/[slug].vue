@@ -39,7 +39,7 @@ const paragraphs = computed(() => {
 const formattedDate = computed(() => {
   if (!article.value) return ''
   return new Date(article.value.published_at).toLocaleDateString(
-    locale.value === 'en' ? 'en-US' : 'fr-FR',
+    resolveDateLocale(locale.value),
     { year: 'numeric', month: 'long', day: 'numeric' },
   )
 })

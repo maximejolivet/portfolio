@@ -44,7 +44,7 @@ function scoreColor(score: number | null | undefined) {
 
 function formattedDate(value: string | null | undefined) {
   if (!value) return null
-  return new Date(value).toLocaleDateString(locale.value === 'en' ? 'en-US' : 'fr-FR', {
+  return new Date(value).toLocaleDateString(resolveDateLocale(locale.value), {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

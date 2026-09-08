@@ -29,7 +29,7 @@ function linkFor(item: (typeof NOW_ITEMS)[number]) {
 }
 
 const currentMonth = computed(() =>
-  new Intl.DateTimeFormat(locale.value === 'en' ? 'en-US' : 'fr-FR', {
+  new Intl.DateTimeFormat(resolveDateLocale(locale.value), {
     month: 'short',
     year: 'numeric',
   }).format(new Date()),
