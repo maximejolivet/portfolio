@@ -20,18 +20,16 @@ useHead({
 })
 
 const searchQuery = ref('')
-const articles = ref<ArticleSummary[]>([])
-const pending = ref(false)
-const error = ref<unknown>(null)
+
+let articles = ref<ArticleSummary[]>([])
+let pending = ref(false)
+let error = ref<unknown>(null)
 
 try {
-  const result = await useArticles()
-  articles.value = result.data.value
-  pending.value = result.pending.value
-  error.value = result.error.value
+  ;({ data: articles, pending, error } = await useArticles())
 }
 catch (fetchError) {
-  error.value = fetchError
+  error = ref(fetchError)
 }
 
 const title = (article: ArticleSummary) =>
