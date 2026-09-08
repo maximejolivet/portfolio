@@ -151,9 +151,8 @@ useSeoMeta({
               v-for="paragraph in paragraphs"
               :key="paragraph"
               class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground"
-            >
-              {{ paragraph }}
-            </p>
+              v-html="paragraph"
+            />
           </div>
         </template>
       </UiContainer>
