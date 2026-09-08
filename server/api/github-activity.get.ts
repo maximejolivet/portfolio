@@ -1,4 +1,4 @@
-import { GITHUB_USERNAME } from '~/constants/github'
+import { GITHUB_HEADERS, GITHUB_USERNAME } from '~/constants/github'
 
 interface GitHubEvent {
   type: string
@@ -19,10 +19,6 @@ export interface GitHubActivity {
 }
 
 const MAX_ACTIVITY_ITEMS = 3
-const GITHUB_HEADERS = {
-  'User-Agent': 'maxime-bzh-portfolio',
-  'Accept': 'application/vnd.github+json',
-}
 
 // The public events feed no longer inlines commit messages in PushEvent
 // payloads (only the head/before SHAs), so the message is fetched separately

@@ -8,6 +8,7 @@ export const PAGE_SOURCE_FILES: Record<string, string> = {
   'cv': 'pages/cv.vue',
   'accessibilite': 'pages/accessibilite.vue',
   'changelog': 'pages/changelog.vue',
+  'status': 'pages/status.vue',
   'mentions-legales': 'pages/mentions-legales.vue',
   'projects': 'pages/projects/index.vue',
   'projects-slug': 'pages/projects/[slug].vue',

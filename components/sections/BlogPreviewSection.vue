@@ -20,7 +20,7 @@ const slug = (article: ArticleSummary) =>
   locale.value === 'en' ? article.slug_en : article.slug_fr
 
 const formattedDate = (value: string) =>
-  new Date(value).toLocaleDateString(locale.value === 'en' ? 'en-US' : 'fr-FR', {
+  new Date(value).toLocaleDateString(resolveDateLocale(locale.value), {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',

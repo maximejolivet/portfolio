@@ -23,7 +23,7 @@ const BADGE_VARIANTS: Record<ChangelogType, 'default' | 'destructive' | 'seconda
 }
 
 const formattedDate = (value: string) =>
-  new Date(value).toLocaleDateString(locale.value === 'en' ? 'en-US' : 'fr-FR', {
+  new Date(value).toLocaleDateString(resolveDateLocale(locale.value), {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

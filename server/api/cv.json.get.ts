@@ -2,22 +2,6 @@ import { EXPERIENCE_TIMELINE } from '~/constants/experience'
 import { TECH_CATEGORIES } from '~/constants/techstack'
 import { SOCIAL_LINKS } from '~/constants/social'
 import { CONTACT_EMAIL } from '~/constants/contact'
-import fr from '~/i18n/locales/fr.json'
-import en from '~/i18n/locales/en.json'
-import br from '~/i18n/locales/br.json'
-
-const LOCALES = { fr, en, br } as const
-type Locale = keyof typeof LOCALES
-
-function t(locale: Locale, key: string): string {
-  const value = key.split('.').reduce<unknown>((node, segment) => {
-    return typeof node === 'object' && node !== null
-      ? (node as Record<string, unknown>)[segment]
-      : undefined
-  }, LOCALES[locale])
-
-  return typeof value === 'string' ? value : ''
-}
 
 function buildResume(locale: Locale) {
   const work = EXPERIENCE_TIMELINE.map((item) => ({
@@ -67,10 +51,7 @@ function buildResume(locale: Locale) {
 export default defineCachedEventHandler(
   async (event) => {
     const query = getQuery(event)
-    const locale: Locale = query.lang === 'en' || query.lang === 'br' ? query.lang : 'fr'
-    return buildResume(locale)
+    return buildResume(resolveLocale(query.lang))
   },
-  // The default cache key is derived from the full request URL, so
-  // ?lang=en and ?lang=fr are already cached separately.
-  { maxAge: 60 * 60 * 24, swr: true },
+  { maxAge: 60 * 60 * 24, swr: true, getKey: (event) => resolveLocale(getQuery(event).lang) },
 )

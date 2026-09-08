@@ -1,4 +1,4 @@
-import { GITHUB_PORTFOLIO_REPO } from '~/constants/github'
+import { GITHUB_HEADERS, GITHUB_PORTFOLIO_REPO } from '~/constants/github'
 
 interface GitHubCommit {
   html_url: string
@@ -20,10 +20,6 @@ export interface ChangelogEntry {
 
 const TRACKED_TYPES: ChangelogType[] = ['feat', 'fix', 'perf', 'security']
 const MAX_ENTRIES = 40
-const GITHUB_HEADERS = {
-  'User-Agent': 'maxime-bzh-portfolio',
-  'Accept': 'application/vnd.github+json',
-}
 
 // Matches this repo's commit convention: `type(scope)!: emoji description`
 // (see .claude/skills/semantic-commit-messages). Older/merge commits that

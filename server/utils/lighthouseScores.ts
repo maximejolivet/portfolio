@@ -34,10 +34,16 @@ async function fetchScores(strategy: 'mobile' | 'desktop'): Promise<CategoryScor
 
   const categories = response.lighthouseResult?.categories ?? {}
 
-  return CATEGORIES.map((c) => ({
-    label: c.label,
-    score: Math.round((categories[c.key]?.score ?? 0) * 100),
-  }))
+  return CATEGORIES.map((c) => {
+    const score = categories[c.key]?.score
+    // A 200 response with a missing/null category is a real PSI failure mode
+    // (e.g. a partial audit) - treating it as 0 would cache a false score for
+    // 24h instead of surfacing "unavailable" like a genuine fetch failure.
+    if (score == null) {
+      throw new Error(`PageSpeed response missing category "${c.key}"`)
+    }
+    return { label: c.label, score: Math.round(score * 100) }
+  })
 }
 
 export const getCachedLighthouseScores = defineCachedFunction(fetchScores, {
