@@ -1,0 +1,28 @@
+/* TEAM */
+
+Developer & designer: Maxime Jolivet
+Site: https://www.maxime.bzh
+GitHub: https://github.com/maximejolivet
+LinkedIn: https://www.linkedin.com/in/jolivetmaxime/
+Location: Nantes, France
+
+/* THANKS */
+
+Claude Code (Anthropic) - AI-assisted development on parts of this site.
+Nano Banana (Gemini, Google) - AI-assisted retouch of the homepage portrait photo.
+Full disclosure: https://www.maxime.bzh/fr/mentions-legales
+
+/* SITE */
+
+Language: French (default), English, Breton
+Doctype: HTML5
+Standards: Responsive layout, WCAG/RGAA-informed accessibility (see /accessibilite)
+Components: Vue.js, Nuxt
+
+/* TECHNOLOGY COLOPHON */
+
+Framework: Nuxt 4, Vue 3
+Styling: Tailwind CSS v4, shadcn-vue
+Language: TypeScript
+Data: Supabase
+Hosting: Vercel

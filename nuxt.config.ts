@@ -44,7 +44,10 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'Maxime Jolivet - Développeur web',
-      link: [{ rel: 'icon', type: 'image/ico', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/ico', href: '/favicon.ico' },
+        { rel: 'author', type: 'text/plain', href: '/humans.txt' },
+      ],
       meta: [
         { name: 'description', content: 'Développeur web, Webdesigner' },
         { name: 'robots', content: 'noindex, nofollow' },
