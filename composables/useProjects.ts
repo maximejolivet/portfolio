@@ -19,7 +19,10 @@ export const fetchProjects = async (supabase: SupabaseClient): Promise<ProjectRo
 export const useProjects = () => {
   const supabase = useSupabase()
   return useAsyncData<ProjectRow[]>('projects', () => fetchProjects(supabase), {
-    server: false,
+    // Fetched server-side (unlike the blog's useArticles) so SEO meta that
+    // depends on this data - notably the category-based noindex on
+    // pages/projects/[slug].vue - is correct in the HTML crawlers actually
+    // see, not just after client-side hydration.
     default: () => [],
     // ProjectsSection and TechStackSection both call this on the home page
     // and mount in the same tick - without 'defer', the default 'cancel'
@@ -50,7 +53,7 @@ export const fetchProject = async (
 
 export const useProject = (slug: string) => {
   const supabase = useSupabase()
-  return useAsyncData<ProjectRow | null>(`project-${slug}`, () => fetchProject(supabase, slug), {
-    server: false,
-  })
+  // Fetched server-side, same reasoning as useProjects() above - this
+  // page's title/description/noindex all depend on it.
+  return useAsyncData<ProjectRow | null>(`project-${slug}`, () => fetchProject(supabase, slug))
 }
