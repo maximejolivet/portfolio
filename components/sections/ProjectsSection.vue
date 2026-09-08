@@ -48,7 +48,7 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
             <NuxtImg
               v-if="project.image"
               :src="project.image"
-              :alt="project.title"
+              :alt="project.type"
               loading="lazy"
               class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -56,7 +56,7 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
               v-else-if="project.logo"
               :logo="project.logo"
               :logo-color="project.logoColor ?? '#1d3540'"
-              :alt="project.title"
+              :alt="project.type"
               class="size-full rounded-none border-0"
             />
             <UiImagePlaceholder
@@ -75,18 +75,11 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
             </div>
           </div>
           <div class="flex flex-col gap-1.5">
-            <div class="flex items-baseline justify-between gap-2">
-              <span
-                class="min-w-0 truncate font-sans text-lg font-bold tracking-[-0.4px] text-foreground"
-              >
-                {{ project.title }}
+            <div class="flex items-center justify-between gap-2 font-mono text-[0.7812rem] text-subtle">
+              <span>{{ project.year }}</span>
+              <span v-if="project.tags.length" class="min-w-0 truncate text-muted-foreground">
+                {{ project.tags.slice(0, 2).join(' · ') }}
               </span>
-              <span class="shrink-0 font-mono text-[0.7812rem] text-subtle">{{
-                project.year
-              }}</span>
-            </div>
-            <div v-if="project.tags.length" class="font-mono text-xs text-muted-foreground">
-              {{ project.tags.slice(0, 2).join(' · ') }}
             </div>
             <span
               class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
