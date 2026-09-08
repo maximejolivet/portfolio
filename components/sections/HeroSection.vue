@@ -175,7 +175,7 @@ const jsonLines = computed<JsonLine[]>(() => {
           {{ $t('hero.bio') }}
         </p>
         <div class="mt-1.5 flex flex-wrap items-center gap-5">
-          <UiButton :to="localePath('projects')" icon="lucide:arrow-right">
+          <UiButton :to="localePath('projects')" rel="nofollow" icon="lucide:arrow-right">
             {{ $t('hero.ctaSecondary') }}
           </UiButton>
           <a

@@ -88,6 +88,7 @@ useSeoMeta({
         <div class="py-8">
           <NuxtLink
             :to="localePath('projects')"
+            rel="nofollow"
             class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
           >
             <UiAppIcon icon="lucide:arrow-left" class="size-3" />{{ $t('projectsPage.backToList') }}
@@ -236,6 +237,7 @@ useSeoMeta({
             <NuxtLink
               v-if="prevProject"
               :to="localePath({ name: 'projects-slug', params: { slug: prevProject.slug } })"
+              :rel="prevProject.category === 'pro' ? 'nofollow' : undefined"
               class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
             >
               <UiAppIcon icon="lucide:arrow-left" class="size-3" />
@@ -246,6 +248,7 @@ useSeoMeta({
             <NuxtLink
               v-if="nextProject"
               :to="localePath({ name: 'projects-slug', params: { slug: nextProject.slug } })"
+              :rel="nextProject.category === 'pro' ? 'nofollow' : undefined"
               class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
             >
               {{ $t('projectDetail.next') }}
