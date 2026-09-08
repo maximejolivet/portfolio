@@ -7,6 +7,12 @@ const route = useRoute()
 
 const slug = Array.isArray(route.params.slug) ? (route.params.slug[0] ?? '') : route.params.slug
 
+// Client work shown here may be confidential - kept out of search results
+// even though the rest of the site is now indexed.
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+})
+
 const { data: row, pending, error, status } = await useProject(slug)
 const { data: allRows } = await useProjects()
 

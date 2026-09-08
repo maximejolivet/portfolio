@@ -13,6 +13,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
 <template>
   <NuxtLink
     :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
+    rel="nofollow"
     :style="{ viewTransitionName: `project-${project.id}` }"
     class="group flex flex-col gap-3.5"
   >

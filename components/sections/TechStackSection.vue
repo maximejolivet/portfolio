@@ -109,6 +109,7 @@ const caption = computed(() =>
                 ? { path: localePath('projects'), query: { tech: item.id } }
                 : undefined
             "
+            :rel="matchCounts[item.id] ? 'nofollow' : undefined"
             class="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-sm transition-transform"
             :class="matchCounts[item.id] && 'cursor-pointer hover:scale-105'"
             :style="tagStyle(item.id, index)"

@@ -25,6 +25,7 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
         <template #caption>
           <NuxtLink
             :to="localePath('projects')"
+            rel="nofollow"
             class="inline-flex items-center gap-1 hover:text-accent"
           >
             {{ $t('home.projects.viewAll') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
@@ -39,6 +40,7 @@ const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-pri
           v-for="project in previewCaseStudies"
           :key="project.id"
           :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
+          rel="nofollow"
           :style="{ viewTransitionName: `project-${project.id}` }"
           class="group flex flex-col gap-3.5"
         >

@@ -8,6 +8,12 @@ const route = useRoute()
 const router = useRouter()
 const { data: projects } = await useProjects()
 
+// Client work shown here may be confidential - kept out of search results
+// even though the rest of the site is now indexed.
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+})
+
 useSeoMeta({
   title: () => `${t('projectsPage.title')} - Maxime Jolivet`,
   description: () =>
