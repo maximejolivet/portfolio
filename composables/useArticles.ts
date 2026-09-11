@@ -33,7 +33,6 @@ export const fetchArticles = async (supabase: SupabaseClient): Promise<ArticleSu
 export const useArticles = () => {
   const supabase = useSupabase()
   return useAsyncData<ArticleSummary[]>('articles', () => fetchArticles(supabase), {
-    server: false,
     default: () => [],
   })
 }

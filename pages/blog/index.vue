@@ -21,16 +21,7 @@ useHead({
 
 const searchQuery = ref('')
 
-let articles = ref<ArticleSummary[]>([])
-let pending = ref(false)
-let error = ref<unknown>(null)
-
-try {
-  ;({ data: articles, pending, error } = await useArticles())
-}
-catch (fetchError) {
-  error = ref(fetchError)
-}
+const { data: articles, pending, error } = useArticles()
 
 const title = (article: ArticleSummary) =>
   (locale.value === 'en' ? article.title_en : article.title_fr) || article.title_fr
