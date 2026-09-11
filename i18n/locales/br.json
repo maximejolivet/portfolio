@@ -155,14 +155,15 @@
         "location": "Naoned (Meskaet) · Asantiezh niverel",
         "intro": "Kemmesk war ouzhpenn 50 raktres kustumer e Gingerminds, e tachennoù liesseurt evel ar sevel-tiez, an industriezh, ar yec'hed, an energiezh, ar c'hendalc'hoù hag an aseuranchoù, hag ivez al labour-douar hag ar boued-douar, ma chom ul lodenn vras anezho war-bouez c'hoazh hiziv an deiz.",
         "points": [
-          "Diorren ha mentoniñ lec'hiennoù-merk, lec'hiennoù produ, etrefasoù implijer, platennoù e-commerce hag ostilhoù micherel",
-          "Labourat evel Tech Lead / Lead Dev war raktresoù kustumer emdroet, rannañ ar mentoù mat, heuliañ ar skipailhoù",
-          "Ober mentoniñ reizhus, emdroadel hag arloadel dre zisplegañ ha diskoulmañ ar c'hudennoù teknikel, an dic'hoprioù hag an degouezhioù",
-          "Industrialaat Starter Kits diabarzh (WordPress ha Drupal) : skoueriekaat, CI/CD ha darnoù adimplijadus evit diazezoù ar raktresoù",
-          "Ober adweladennoù kod hag arnodennoù kalite (Buander, SEO, Surentez, Haezadusted RGAA)",
-          "Lakaat en implij diskoulmoù tracking ha dielfennadur evit muzuliañ ha gwellaat buander al lec'hiennoù (Matomo, Google Analytics)",
-          "Derc'hel ur gwiziegezh vev war ar mentoù nevez ha rannañ ar c'houlz-skiant e-barzh ur skipailh liesdazont",
-          "Kemer perzh e buhez an asantiezh : onboarding, ezel eus ar CSE hag ezel eus ar skipailh Happiness karget eus obererezhioù ar mad-vezañ"
+          "Studiañ ha diorren lec'hiennoù-merk, katalogoù, lec'hiennoù kevredigezhel, e-commerce hag ostilhoù micherel",
+          "Lead Dev / Tech Lead war raktresoù kustumer emdroet : frammañ ar raktres, framm teknikel, posupted ha priziañ gant ar Product Owners",
+          "Heuliañ an diorroerien : adweladennoù kod, teuliadur, mentoù mat ha kalite",
+          "Industrialaat ar Starter Kits CMS : diazezoù skouerieket, darnoù adimplijadus ha pipelines CI/CD",
+          "Diorren API REST hag enframmañ gant an ostilhoù micherel",
+          "TMA ha mentoniñ arloadel : dielfennañ ha diskoulmañ an dic'hoprioù hag an degouezhioù, mentoniñ reizhus hag emdroadel",
+          "Arnodennoù kalite ha kenglotadur : buander, surentez, RGAA, tracking ha dielfennadur buander",
+          "Gwiziegezh deknikel ha rannañ ar c'houlz-skiant e-barzh ar skipailh Tech",
+          "Buhez an asantiezh : onboarding an dud nevez ha kemer perzh er skipailh Happiness"
         ]
       },
       "donJigiFest": {

@@ -19,6 +19,7 @@ export const EXPERIENCE_TIMELINE: TimelineItem[] = [
       'experienceSection.items.gingerminds.points.5',
       'experienceSection.items.gingerminds.points.6',
       'experienceSection.items.gingerminds.points.7',
+      'experienceSection.items.gingerminds.points.8',
     ],
   },
   {

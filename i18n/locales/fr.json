@@ -155,14 +155,15 @@
         "location": "Nantes (Hybride) · Agence digitale",
         "intro": "Contribution sur plus de 50 projets clients chez Gingerminds, dans des secteurs variés tels que le bâtiment, l'industrie, la santé, l'énergie, les mutuelles et assurances, ainsi que l'agriculture et l'agroalimentaire, dont une grande partie est toujours en production aujourd'hui.",
         "points": [
-          "Développer et maintenir des sites de marque, sites produits, interfaces utilisateur, plateformes e-commerce et outils métiers",
-          "Intervenir en tant que Tech Lead / Lead Dev sur des projets clients récurrents, partager les bonnes pratiques, accompagner les équipes",
-          "Assurer la maintenance corrective, évolutive et applicative en analysant, résolvant les problématiques techniques, anomalies et incidents",
-          "Industrialisation de Starter Kits internes (WordPress et Drupal) : standardisation, CI/CD et composants réutilisables pour les socles projets",
-          "Réaliser des revues de code et audits de qualité (Performances, SEO, Sécurité, Accessibilité RGAA)",
-          "Implémenter des solutions de tracking et d'analyse afin de mesurer et optimiser les performances des sites (Matomo, Google Analytics)",
-          "Assurer une veille active autour des nouvelles pratiques et partager les connaissances au sein d'une équipe multidisciplinaire",
-          "Participer à la vie de l'agence : onboarding, membre du CSE et membre de l'équipe Happiness en charge des initiatives de bien-être"
+          "Conception et développement de sites de marque, catalogues, institutionnels, e-commerce et outils métiers",
+          "Lead Dev / Tech Lead sur des projets clients récurrents : cadrage, architecture, faisabilité et chiffrage avec les Product Owners",
+          "Encadrement des développeurs : revues de code, documentation, bonnes pratiques et qualité",
+          "Industrialisation des Starter Kits CMS : socles standardisés, composants réutilisables et pipelines CI/CD",
+          "Développement d'API REST et intégration avec les outils métiers",
+          "TMA et maintenance applicative : analyse et résolution d'anomalies et d'incidents, maintenance corrective et évolutive",
+          "Audits qualité et conformité : performance, sécurité, RGAA, tracking et analyse de performance",
+          "Veille technique et partage de connaissances au sein de l'équipe Tech",
+          "Vie d'agence : onboarding des nouveaux arrivants et participation à l'équipe Happiness"
         ]
       },
       "donJigiFest": {
