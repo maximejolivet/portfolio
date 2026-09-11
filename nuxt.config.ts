@@ -1,6 +1,60 @@
 import { execSync } from 'node:child_process'
+import { readdirSync, readFileSync } from 'node:fs'
 import tailwindcss from '@tailwindcss/vite'
+import type { Plugin } from 'vite'
 import routes from './routes.json'
+
+// pdfjs-viewer-element resolves its own pdf.js core module, viewer module
+// and both theme stylesheets with `new URL("./file", "" + import.meta.url)`.
+// The string concatenation is deliberate upstream (it avoids bundlers that
+// don't support import.meta.url at all), but it defeats Vite's static
+// analysis, which only recognizes the literal `new URL(<string>,
+// import.meta.url)` form - so these four never get bundled/hashed/copied,
+// and 404 in production (dev works because the package isn't pre-bundled,
+// see vite.optimizeDeps.exclude below, so import.meta.url still points at
+// the real node_modules files). Rewriting the concatenation away lets Vite
+// recognize the pattern and treat these exactly like any other bundled
+// asset - copying them into the output with a normal content hash - same
+// as everything else in the app. The worker file has its own explicit
+// worker-src override for an unrelated Safari issue (see pages/cv.vue) and
+// isn't affected by this either way.
+function fixPdfjsViewerElementAssetUrls(): Plugin {
+  return {
+    name: 'fix-pdfjs-viewer-element-asset-urls',
+    transform(code, id) {
+      if (!id.includes('pdfjs-viewer-element') || !code.includes('+import.meta.url)')) return
+      return code.replace(
+        /new URL\("\.\/([^"]+)",\s*""\s*\+\s*import\.meta\.url\)/g,
+        'new URL("./$1", import.meta.url)',
+      )
+    },
+  }
+}
+
+// viewer.css (bundled by the plugin above) references its toolbar icons
+// with plain relative `url(images/foo.svg)`, resolved by the browser
+// against viewer.css's own served location - so those icons need to exist,
+// unhashed, in an images/ folder next to it. Vite's CSS asset pipeline only
+// rewrites url() in CSS it imports as a module; a CSS file only reached via
+// new URL() (as this one is) is copied as an opaque blob, so those
+// references are never seen or rewritten. Emitting the source images
+// directly as build assets is the one mechanism guaranteed to land them in
+// the real output next to every other bundled asset.
+function copyPdfjsViewerImages(): Plugin {
+  return {
+    name: 'copy-pdfjs-viewer-images',
+    buildStart() {
+      const dir = 'node_modules/pdfjs-viewer-element/dist/images'
+      for (const file of readdirSync(dir)) {
+        this.emitFile({
+          type: 'asset',
+          fileName: `_nuxt/images/${file}`,
+          source: readFileSync(`${dir}/${file}`),
+        })
+      }
+    },
+  }
+}
 
 function resolveCommitSha(): string {
   if (process.env.VERCEL_GIT_COMMIT_SHA) return process.env.VERCEL_GIT_COMMIT_SHA
@@ -144,7 +198,7 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), fixPdfjsViewerElementAssetUrls(), copyPdfjsViewerImages()],
     optimizeDeps: {
       exclude: ['pdfjs-viewer-element'],
       include: ['@vue/devtools-core', '@vue/devtools-kit'],
