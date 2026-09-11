@@ -155,14 +155,15 @@
         "location": "Nantes (Hybrid) · Digital agency",
         "intro": "Contributed to more than 50 client projects across a range of sectors such as construction, industry, healthcare, energy, insurance & mutual funds, and agriculture and agri-food, many of which are still in production today.",
         "points": [
-          "Develop and maintain product sites, brand sites, user interfaces, e-commerce platforms and business tools",
-          "Act as Tech Lead / Lead Dev on recurring client projects, share best practices, support teams",
-          "Handle corrective, evolutive and application maintenance by analyzing and resolving technical issues, bugs and incidents",
-          "Industrialize internal starter kits (WordPress and Drupal): standardization, CI/CD and reusable components for project foundations",
-          "Carry out code reviews and quality audits (performance, SEO, security, RGAA accessibility)",
-          "Implement tracking and analytics solutions to measure and optimize site performance (Matomo, Google Analytics)",
-          "Keep an active watch on new practices and share knowledge within a multidisciplinary team",
-          "Take part in agency life: onboarding, CSE member, and member of the Happiness team in charge of wellbeing initiatives"
+          "Design and development of brand, catalog, institutional, e-commerce sites and business tools",
+          "Lead Dev / Tech Lead on recurring client projects: scoping, architecture, feasibility and estimates with Product Owners",
+          "Mentoring developers: code reviews, documentation, best practices and quality",
+          "Industrialization of CMS starter kits: standardized foundations, reusable components and CI/CD pipelines",
+          "REST API development and integration with business tools",
+          "TMA and application maintenance: analyzing and resolving issues and incidents, corrective and evolutive maintenance",
+          "Quality and compliance audits: performance, security, RGAA, tracking and performance analysis",
+          "Technical watch and knowledge sharing within the Tech team",
+          "Agency life: onboarding new joiners and taking part in the Happiness team"
         ]
       },
       "donJigiFest": {
