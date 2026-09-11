@@ -163,12 +163,12 @@ v-if="qrDataUrl" :src="qrDataUrl" :alt="t('cv.quickView.qrAlt')" width="140" hei
 
     <button
 v-if="!calRefused" type="button"
-      class="fixed bottom-44 right-6 z-50 flex items-center gap-2 rounded-full bg-primary px-3.5 py-2.5 font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 sm:px-5 sm:py-3.5"
-      :data-cal-link="CAL_LINK" :data-cal-namespace="CAL_NAMESPACE"
+      class="fixed bottom-18 right-0 z-50 flex size-11 items-center justify-center gap-2 rounded-l-full border-y border-l-0 border-r border-primary bg-primary font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:border-accent hover:bg-accent md:bottom-44 md:right-6 md:size-auto md:rounded-full md:border md:px-5 md:py-3.5"
+      :aria-label="$t('home.contact.bookCall')" :data-cal-link="CAL_LINK" :data-cal-namespace="CAL_NAMESPACE"
       data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
 >
       <UiAppIcon icon="lucide:calendar" class="pointer-events-none size-4" />
-      {{ $t('home.contact.bookCall') }}
+      <span class="hidden md:inline">{{ $t('home.contact.bookCall') }}</span>
     </button>
   </div>
 </template>
