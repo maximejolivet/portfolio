@@ -8,6 +8,8 @@ export const TECH_CATEGORIES: TechCategory[] = [
     items: [
       { id: 'php', name: 'PHP', icon: 'material-icon-theme:php' },
       { id: 'javascript', name: 'JavaScript', icon: 'logos:javascript' },
+      { id: 'typescript', name: 'TypeScript', icon: 'logos:typescript-icon' },
+      { id: 'sql', name: 'SQL', icon: 'lucide:database' },
     ],
   },
   {
@@ -17,10 +19,14 @@ export const TECH_CATEGORIES: TechCategory[] = [
     items: [
       { id: 'html', name: 'HTML', icon: 'logos:html-5' },
       { id: 'modern-css', name: 'Modern CSS', icon: 'devicon:css' },
+      { id: 'sass', name: 'Sass', icon: 'logos:sass' },
       { id: 'vue', name: 'Vue.js', icon: 'logos:vue' },
       { id: 'nuxt', name: 'Nuxt', icon: 'logos:nuxt-icon' },
+      { id: 'react', name: 'React', icon: 'logos:react' },
       { id: 'tailwind', name: 'Tailwind', icon: 'logos:tailwindcss-icon' },
       { id: 'bootstrap', name: 'Bootstrap', icon: 'logos:bootstrap' },
+      { id: 'shadcn-vue', name: 'shadcn-vue', icon: 'lucide:blocks' },
+      { id: 'pinia', name: 'Pinia', icon: 'logos:pinia' },
     ],
   },
   {
@@ -30,6 +36,9 @@ export const TECH_CATEGORIES: TechCategory[] = [
     items: [
       { id: 'symfony', name: 'Symfony', icon: 'logos:symfony' },
       { id: 'laravel', name: 'Laravel', icon: 'logos:laravel' },
+      { id: 'api-rest', name: 'API REST', icon: 'lucide:webhook' },
+      { id: 'twig', name: 'Twig', icon: 'material-icon-theme:twig' },
+      { id: 'composer', name: 'Composer', icon: 'logos:composer' },
     ],
   },
   {
@@ -40,6 +49,8 @@ export const TECH_CATEGORIES: TechCategory[] = [
       { id: 'drupal', name: 'Drupal', icon: 'logos:drupal-icon' },
       { id: 'wordpress', name: 'WordPress', icon: 'logos:wordpress-icon' },
       { id: 'webflow', name: 'Webflow', icon: 'skill-icons:webflow' },
+      { id: 'typo3', name: 'TYPO3', icon: 'logos:typo3-icon' },
+      { id: 'prestashop', name: 'PrestaShop', icon: 'logos:prestashop-icon' },
     ],
   },
   {
@@ -48,8 +59,10 @@ export const TECH_CATEGORIES: TechCategory[] = [
     descriptionKey: 'techSection.categories.database.description',
     items: [
       { id: 'mysql', name: 'MySQL', icon: 'logos:mysql' },
+      { id: 'mariadb', name: 'MariaDB', icon: 'logos:mariadb-icon' },
       { id: 'postgresql', name: 'PostgreSQL', icon: 'logos:postgresql' },
       { id: 'redis', name: 'Redis', icon: 'logos:redis' },
+      { id: 'qdrant', name: 'Qdrant', icon: 'logos:qdrant-icon' },
     ],
   },
   {
@@ -87,7 +100,10 @@ export const TECH_CATEGORIES: TechCategory[] = [
     descriptionKey: 'techSection.categories.devops.description',
     items: [
       { id: 'docker', name: 'Docker', icon: 'logos:docker-icon' },
+      { id: 'kubernetes', name: 'Kubernetes', icon: 'logos:kubernetes' },
+      { id: 'traefik', name: 'Traefik', icon: 'selfhst:traefik' },
       { id: 'cicd', name: 'Pipelines CI/CD', icon: 'lucide:workflow' },
+      { id: 'linux', name: 'Linux', icon: 'logos:linux-tux' },
       { id: 'vercel', name: 'Vercel', icon: 'logos:vercel-icon' },
       { id: 'gcp', name: 'Google Cloud', icon: 'logos:google-cloud' },
       { id: 'firebase', name: 'Firebase', icon: 'selfhst:firebase' },
@@ -99,14 +115,18 @@ export const TECH_CATEGORIES: TechCategory[] = [
     labelKey: 'techSection.categories.security.label',
     descriptionKey: 'techSection.categories.security.description',
     items: [
+      { id: 'owasp', name: 'OWASP', icon: 'lucide:shield-alert' },
       { id: 'ssl', name: 'SSL/TLS', icon: 'lucide:lock' },
       { id: 'csp', name: 'CSP', icon: 'lucide:shield' },
       { id: '2fa', name: '2FA', icon: 'lucide:shield-check' },
+      { id: 'rgpd', name: 'RGPD', icon: 'lucide:scale' },
       { id: 'snyk', name: 'Snyk', icon: 'logos:snyk' },
       { id: 'eslint', name: 'ESLint', icon: 'logos:eslint' },
       { id: 'prettier', name: 'Prettier', icon: 'logos:prettier' },
       { id: 'phpstan', name: 'PHPStan', icon: 'material-icon-theme:phpstan' },
       { id: 'rgaa', name: 'Accessibilité RGAA', icon: 'lucide:accessibility' },
+      { id: 'core-web-vitals', name: 'Core Web Vitals', icon: 'lucide:gauge' },
+      { id: 'rgesn', name: 'Éco-conception RGESN', icon: 'lucide:leaf' },
     ],
   },
   {
@@ -117,6 +137,7 @@ export const TECH_CATEGORIES: TechCategory[] = [
       { id: 'postman', name: 'Postman', icon: 'logos:postman-icon' },
       { id: 'bruno', name: 'Bruno', icon: 'devicon:bruno' },
       { id: 'phpunit', name: 'PHPUnit', icon: 'material-icon-theme:phpunit' },
+      { id: 'vitest', name: 'Vitest', icon: 'logos:vitest' },
       { id: 'functional-tests', name: 'Tests fonctionnels', icon: 'lucide:clipboard-check' },
       { id: 'uat', name: 'Recette fonctionnelle', icon: 'lucide:clipboard-list' },
     ],
@@ -138,6 +159,8 @@ export const TECH_CATEGORIES: TechCategory[] = [
       { id: 'mantis', name: 'Mantis', icon: 'lucide:bug' },
       { id: 'matomo', name: 'Matomo', icon: 'selfhst:matomo' },
       { id: 'google-analytics', name: 'Google Analytics', icon: 'logos:google-analytics' },
+      { id: 'seo', name: 'SEO technique', icon: 'ri:seo-line' },
+      { id: 'vueuse', name: 'VueUse', icon: 'logos:vueuse' },
     ],
   },
   {
@@ -147,8 +170,6 @@ export const TECH_CATEGORIES: TechCategory[] = [
     items: [
       { id: 'python', name: 'Python', icon: 'logos:python' },
       { id: 'django', name: 'Django', icon: 'logos:django-icon' },
-      { id: 'react', name: 'React', icon: 'logos:react' },
-      { id: 'typescript', name: 'TypeScript', icon: 'logos:typescript-icon' },
     ],
   },
 ]
