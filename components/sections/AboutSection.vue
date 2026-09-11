@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const localePath = useLocalePath()
-
 const highlightKeys = ['highlight1', 'highlight2', 'highlight3'] as const
 
 const tagKeys = [
@@ -55,34 +53,14 @@ const tagKeys = [
         </div>
       </div>
 
-      <div class="relative w-full min-w-0 max-w-full">
-        <div class="absolute -right-3.5 -top-3.5 z-10 size-[52px] rounded-full bg-mint" />
-        <div class="absolute -bottom-3 -left-3 z-10 size-10 rounded-full bg-primary" />
-        <div class="relative h-[420px] w-full overflow-hidden rounded-[18px]">
-          <NuxtImg
-            src="/maximejolivet.jpg"
-            :alt="$t('aboutSection.imageAlt')"
-            width="640"
-            height="640"
-            loading="lazy"
-            class="size-full object-cover"
-          />
-
-          <NuxtLink
-            :to="{ path: localePath('/mentions-legales'), hash: '#ai' }"
-            class="absolute bottom-3 right-3 z-10 flex w-fit max-w-[85%] items-center gap-2 rounded-full bg-background/90 py-1 pl-1 pr-3 shadow-md backdrop-blur-sm transition-colors hover:bg-background"
-          >
-            <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-white">
-              <UiAppIcon icon="ri:sparkling-2-line" class="size-4 text-accent" />
-            </span>
-            <span
-              class="whitespace-pre-line font-mono text-[0.6875rem] font-semibold leading-tight text-foreground"
-            >
-              {{ $t('aboutSection.aiDisclosure') }}
-            </span>
-          </NuxtLink>
-        </div>
-      </div>
+      <img
+        src="/maxime-sticker.svg"
+        :alt="$t('aboutSection.imageAlt')"
+        width="640"
+        height="640"
+        loading="lazy"
+        class="w-full"
+      />
     </div>
   </LayoutPageSection>
 </template>

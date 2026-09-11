@@ -74,8 +74,7 @@
     "highlight1": "10 years of experience in digital agencies",
     "highlight2": "Drupal & WordPress expert, strong in PHP & JavaScript",
     "highlight3": "Performance and accessibility-first approach",
-    "imageAlt": "Portrait of Maxime Jolivet",
-    "aiDisclosure": "Portrait partially generated\n by AI from a photo of me",
+    "imageAlt": "Maxime Jolivet's sticker illustration",
     "tags": {
       "conceptionUiUx": "Design & UI/UX",
       "webDev": "Web development",
@@ -330,7 +329,8 @@
     "title": "Konami code detected",
     "message": "Nice work reading the code this far. The real easter egg is the repo itself:",
     "cta": "View the GitHub repo",
-    "close": "Close"
+    "close": "Close",
+    "photoAlt": "Photo of Maxime Jolivet"
   },
   "blog": {
     "eyebrow": "BLOG - NOTES FROM THE FIELD",

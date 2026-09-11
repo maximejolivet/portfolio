@@ -70,7 +70,13 @@ onUnmounted(() => {
     >
       <div class="flex items-start justify-between gap-3">
         <div class="flex items-center gap-2">
-          <UiAppIcon icon="lucide:sparkles" class="size-4 text-mint" />
+          <img
+            src="/maximejolivet.jpg"
+            :alt="t('konami.photoAlt')"
+            width="28"
+            height="28"
+            class="size-7 shrink-0 rounded-full object-cover shadow-sm"
+          />
           <h2 class="text-sm font-bold">
             {{ t('konami.title') }}
           </h2>

@@ -74,8 +74,7 @@
     "highlight1": "10 ans d'expérience en agence digitale",
     "highlight2": "Expert Drupal et WordPress, solide en PHP & JavaScript",
     "highlight3": "Approche orientée performance et accessibilité",
-    "imageAlt": "Portrait de Maxime Jolivet",
-    "aiDisclosure": "Portrait partiellement généré par \nune IA à partir d'une photo de moi",
+    "imageAlt": "Sticker illustré de Maxime Jolivet",
     "tags": {
       "conceptionUiUx": "Conception UI/UX",
       "webDev": "Développement web",
@@ -330,7 +329,8 @@
     "title": "Code Konami détecté",
     "message": "Bravo d'avoir lu le code jusqu'ici. Le vrai easter egg, c'est le dépôt lui-même :",
     "cta": "Voir le dépôt GitHub",
-    "close": "Fermer"
+    "close": "Fermer",
+    "photoAlt": "Photo de Maxime Jolivet"
   },
   "blog": {
     "eyebrow": "BLOG - NOTES DE TERRAIN",

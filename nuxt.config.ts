@@ -130,7 +130,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-09-08',
+  compatibilityDate: '2026-09-11',
 
   nitro: {
     // Default Vercel function timeout (10s) is too short for a live
@@ -249,8 +249,9 @@ export default defineNuxtConfig({
         'font-src': ['\'self\'', 'data:'],
         // worker-src => explicit, since Safari/WebKit doesn't reliably fall back
         // to script-src for Worker construction when this is left unset -
-        // needed for pdf.js's worker on /cv (pdfjs-viewer-element).
-        'worker-src': ['\'self\''],
+        // needed for pdf.js's worker on /cv (pdfjs-viewer-element), which
+        // constructs its worker from a blob: URL rather than a same-origin file.
+        'worker-src': ['\'self\'', 'blob:'],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
         'frame-src': ['\'self\'', 'https://app.cal.eu', 'https://ia.maxime.bzh'],
