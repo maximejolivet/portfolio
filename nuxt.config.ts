@@ -39,10 +39,15 @@ function fixPdfjsViewerElementAssetUrls(): Plugin {
 // new URL() (as this one is) is copied as an opaque blob, so those
 // references are never seen or rewritten. Emitting the source images
 // directly as build assets is the one mechanism guaranteed to land them in
-// the real output next to every other bundled asset.
+// the real output next to every other bundled asset. Build-only (`apply:
+// 'build'`): this.emitFile() isn't supported in dev/serve mode, and isn't
+// needed there either - the package is excluded from optimizeDeps (see
+// vite.optimizeDeps.exclude below), so dev serves it straight from
+// node_modules, images included.
 function copyPdfjsViewerImages(): Plugin {
   return {
     name: 'copy-pdfjs-viewer-images',
+    apply: 'build',
     buildStart() {
       const dir = 'node_modules/pdfjs-viewer-element/dist/images'
       for (const file of readdirSync(dir)) {
