@@ -74,8 +74,7 @@
     "highlight1": "10 vloaz a skiant-prenet en un asantiezh niverel",
     "highlight2": "Ekspert Drupal ha WordPress, kreñv e PHP & JavaScript",
     "highlight3": "Doare labour tost d'ar buander hag an haezadusted",
-    "imageAlt": "Poltred Maxime Jolivet",
-    "aiDisclosure": "Poltred graet e-parzh gant \nun IA diwar ur skeudenn ac'hanon",
+    "imageAlt": "Sticker luniet Maxime Jolivet",
     "tags": {
       "conceptionUiUx": "Design UI/UX",
       "webDev": "Diorren web",
@@ -330,7 +329,8 @@
     "title": "Kod Konami dizoloet",
     "message": "Brav eo bezañ lennet ar c'hod betek amañ. An easter egg gwirion eo an depod e-unan :",
     "cta": "Gwelet an depod GitHub",
-    "close": "Serriñ"
+    "close": "Serriñ",
+    "photoAlt": "Skeudenn Maxime Jolivet"
   },
   "blog": {
     "eyebrow": "BLOG - NOTENNOÙ DACHENN",
