@@ -179,6 +179,7 @@ useSeoMeta({
             </div>
           </div>
 
+          <!-- eslint-disable vue/no-v-html -- content is passed through sanitizeHtml() before rendering -->
           <div v-if="hasCaseStudy" class="mt-10 flex flex-col gap-10 pb-16">
             <div v-if="project.contexte" class="flex flex-col gap-2">
               <h2 class="font-sans text-lg font-bold text-foreground">
@@ -217,6 +218,7 @@ useSeoMeta({
               />
             </div>
           </div>
+          <!-- eslint-enable vue/no-v-html -->
           <UiEmptyState
             v-else
             icon="lucide:hammer"

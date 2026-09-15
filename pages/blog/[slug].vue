@@ -154,6 +154,7 @@ useSeoMeta({
             :alt="title"
             class="mt-10 w-full rounded-2xl border border-border object-cover"
           />
+          <!-- eslint-disable vue/no-v-html -- content is passed through sanitizeHtml() before rendering -->
           <div class="mt-10 flex flex-col gap-5 pb-24">
             <p
               v-for="paragraph in paragraphs"
@@ -162,6 +163,7 @@ useSeoMeta({
               v-html="sanitizeHtml(paragraph)"
             />
           </div>
+          <!-- eslint-enable vue/no-v-html -->
         </template>
       </UiContainer>
     </LayoutPageSection>
