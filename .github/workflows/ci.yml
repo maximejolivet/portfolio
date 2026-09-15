@@ -26,3 +26,25 @@ jobs:
       - run: npm run lint
 
       - run: npm run test
+
+  sonarqube:
+    name: SonarQube Cloud
+    needs: lint-test
+    runs-on: ubuntu-latest
+    # Skip on forked PRs: SONAR_TOKEN secret isn't exposed to fork workflows
+    if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name != 'pull_request'
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0 # SonarQube needs full history for accurate new-code/blame analysis
+
+      - uses: SonarSource/sonarqube-scan-action@v8.2.1
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - uses: SonarSource/sonarqube-quality-gate-action@v1.2.1
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
