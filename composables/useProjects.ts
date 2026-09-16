@@ -1,10 +1,22 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { createError } from 'h3'
 
-export const fetchProjects = async (supabase: SupabaseClient): Promise<ProjectRow[]> => {
+// Card/list contexts only - never selects the confidential prose fields
+// (contexte/solution/points/resultat/role/duree/equipe/impact), which can
+// hold full "pro" client case-study detail. Selecting those into a list
+// response would leak them to every visitor via the SSR payload regardless
+// of which category a UI filter happens to display (see ProjectCardRow).
+const PROJECT_CARD_COLUMNS = [
+  'id', 'slug', 'year', 'dot', 'live', 'category', 'company', 'employer',
+  'website_url', 'image', 'logo', 'logo_color', 'tags',
+  'type_fr', 'type_en', 'title_fr', 'title_en', 'tagline_fr', 'tagline_en',
+  'published_at',
+].join(', ')
+
+export const fetchProjects = async (supabase: SupabaseClient): Promise<ProjectCardRow[]> => {
   const { data, error } = await supabase
     .from('projects')
-    .select('*')
+    .select(PROJECT_CARD_COLUMNS)
     .lte('published_at', new Date().toISOString())
     .order('published_at', { ascending: false })
 
@@ -13,12 +25,12 @@ export const fetchProjects = async (supabase: SupabaseClient): Promise<ProjectRo
     throw createError({ statusCode: 500, statusMessage: 'Unable to load projects' })
   }
 
-  return data ?? []
+  return (data ?? []) as unknown as ProjectCardRow[]
 }
 
 export const useProjects = () => {
   const supabase = useSupabase()
-  return useAsyncData<ProjectRow[]>('projects', () => fetchProjects(supabase), {
+  return useAsyncData<ProjectCardRow[]>('projects', () => fetchProjects(supabase), {
     // Fetched server-side (unlike the blog's useArticles) so SEO meta that
     // depends on this data - notably the category-based noindex on
     // pages/projects/[slug].vue - is correct in the HTML crawlers actually
