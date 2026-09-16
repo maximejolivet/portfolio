@@ -48,6 +48,7 @@ async function buildProjectsSection(locale: Locale): Promise<string> {
   const { data, error } = await supabase
     .from('projects')
     .select('*')
+    .eq('category', 'personal')
     .lte('published_at', new Date().toISOString())
     .order('published_at', { ascending: false })
 
