@@ -78,7 +78,6 @@ function resolveBuildDate(): string {
 
 export default defineNuxtConfig({
   modules: [
-    ['@pinia/nuxt', { autoImports: ['defineStore', 'storeToRefs'] }],
     'nuxt-security',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
