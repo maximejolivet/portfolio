@@ -8,7 +8,10 @@ useSeoMeta({
   description: () => t('blog.subtitle'),
 })
 
+// The whole blog section is kept out of search results (see the same
+// meta on pages/blog/[slug].vue).
 useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
   link: [
     {
       rel: 'alternate',

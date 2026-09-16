@@ -36,7 +36,7 @@ Vitest. Tests live in `test/**/*.spec.ts`, environment `node`. Run with `npm run
 
 ## Design System
 
-Tailwind v4 (via `@tailwindcss/vite`, not PostCSS) + shadcn-vue (`components.json`, style "new-york", baseColor "neutral"). shadcn components live in `components/ui/shadcn/` and are excluded from Nuxt's component auto-import (`nuxt.config.ts` dirs config) - import them via the `@/components/ui/shadcn` alias, not auto-import.
+Tailwind v4 (via `@tailwindcss/vite`, not PostCSS). Base UI primitives (`Badge`, `Button`, `Card` in `components/ui/`) are hand-rolled - originally scaffolded from shadcn-vue (style "new-york", baseColor "neutral"), but the shadcn-vue dependency, `components.json`, and `components/ui/shadcn/` were removed; the Tailwind variant classes were inlined directly into the `Ui*` wrappers instead.
 
 ## i18n
 
@@ -59,7 +59,9 @@ Translation files live in `i18n/locales/`. Always update **all three** of `i18n/
 
 ## Deployment
 
-Hosted on **Vercel**, connected via Vercel's own Git integration (not a GitHub Actions workflow — there is none in this repo). Vercel auto-deploys on push to `master` using its standard Nuxt SSR build. Working branch is `develop`. To deploy: open a PR from `develop` → `master`.
+Hosted on **Vercel**, connected via Vercel's own Git integration (not a GitHub Actions workflow — deployment itself isn't driven by CI). Vercel auto-deploys on push to `master` using its standard Nuxt SSR build. Working branch is `develop`. To deploy: open a PR from `develop` → `master`.
+
+`.github/workflows/ci.yml` runs on push/PR to `master` (not on plain pushes to `develop`) as a check, separate from Vercel's own deploy: `npm run lint` + `npm run test`, a Socket Firewall-gated `npm ci` (`sfw npm ci` — blocks malicious/typosquatted packages at install time), and a SonarQube Cloud scan with a blocking quality gate. The Socket Security GitHub App (installed via the GitHub Marketplace, not repo config) additionally comments/checks PRs for dependency risk.
 
 - `npm run generate` (static export, `.output/public`) and `npm run deploy` still exist as local/manual commands but are **not** the production deploy path — Vercel builds SSR directly from `master`, it doesn't consume `dist/` or a static export.
 - `site.url` is set to `https://www.maxime.bzh` in `nuxt.config.ts` (required for sitemaps/OG images).

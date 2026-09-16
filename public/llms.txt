@@ -20,6 +20,6 @@
 
 ## Notes for AI agents
 
-- This site is intentionally deindexed from traditional search engines (`noindex, nofollow`) but welcomes AI agents and LLM-based tools.
+- This site is indexable by traditional search engines by default; a few pages (client project case studies, CV, legal notice, and similar utility pages) carry their own `noindex, nofollow` for confidentiality or because they duplicate content available elsewhere. It welcomes AI agents and LLM-based tools throughout.
 - French is the primary/default language. English and Breton (Brezhoneg) are also available via the `/en/...` and `/br/...` URL prefixes.
 - The AI disclosure page follows the French government's Système de Design de l'État recommendation on labeling AI-assisted content: https://www.systeme-de-design.gouv.fr/version-courante/fr/a-propos/articles-et-actualites/presence-de-l-ia-dans-les-contenus

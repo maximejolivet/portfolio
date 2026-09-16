@@ -5,6 +5,8 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Site multili
 [![License](https://img.shields.io/badge/license-MIT-b8860b?logo=opensourceinitiative&logoColor=white)](LICENSE.md)
 ![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
 [![Lighthouse](https://www.maxime.bzh/api/lighthouse-badge.svg)](https://www.maxime.bzh)
+[![CI](https://github.com/maximejolivet/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/maximejolivet/portfolio/actions/workflows/ci.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=maximejolivet_portfolio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=maximejolivet_portfolio)
 
 ![Node.js version](https://img.shields.io/badge/Node-24-5FA04E?logo=nodedotjs&logoColor=white)
 ![Nuxt version](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxtdotjs&logoColor=white)
@@ -205,12 +207,21 @@ make clean         # Supprime .nuxt, .output, node_modules
 
 Pas de point-virgule, guillemets simples, indentation 2 espaces, largeur de ligne 100 (voir `CLAUDE.md` pour le détail des conventions).
 
+### CI & sécurité
+
+`.github/workflows/ci.yml` tourne sur push/PR vers `master` (pas sur simple push `develop`) :
+
+- **lint-test** : `npm run lint`, `npm run test`, et un `npm ci` passé par [Socket Firewall](https://socket.dev) (`sfw npm ci`) qui bloque les paquets malveillants/typosquattés à l'installation
+- **SonarQube Cloud** : scan + quality gate bloquant
+
+La [Socket Security GitHub App](https://github.com/marketplace/socket-security) (installée hors dépôt) complète en commentant/vérifiant chaque PR sur le risque des dépendances ajoutées.
+
 ## Releases (dev)
 
 Chaque commit bump automatiquement la version patch du `package.json` et ajoute un tag ci-dessous (hook `pre-commit`, `scripts/update-release-log.mjs`). Historique généré automatiquement, ne pas éditer à la main.
 
 <!-- releases:start -->
 
-![v1.1.67](https://img.shields.io/badge/v1.1.67-2026--09--15-F97316)
+![v1.1.80](https://img.shields.io/badge/v1.1.80-2026--09--16-F97316)
 
 <!-- releases:end -->

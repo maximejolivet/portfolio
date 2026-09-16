@@ -45,6 +45,6 @@ export const useArticle = (slug: string) => {
   return useAsyncData<Article | null>(
     `article-${locale.value}-${slug}`,
     () => fetchArticle(supabase, slug, locale.value),
-    { server: false, watch: [locale] },
+    { watch: [locale] },
   )
 }

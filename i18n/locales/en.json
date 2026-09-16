@@ -265,10 +265,6 @@
         }
       }
     },
-    "blog": {
-      "sectionTitle": "Blog",
-      "viewAll": "all articles"
-    },
     "contact": {
       "eyebrow": "CONTACT",
       "title": "Let's build what's next together",

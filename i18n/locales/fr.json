@@ -265,10 +265,6 @@
         }
       }
     },
-    "blog": {
-      "sectionTitle": "Blog",
-      "viewAll": "tout le blog"
-    },
     "contact": {
       "eyebrow": "CONTACT",
       "title": "Construisons la suite ensemble",

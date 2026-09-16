@@ -44,6 +44,10 @@ const formattedDate = computed(() => {
   )
 })
 
+function isCodeBlock(paragraph: string) {
+  return paragraph.trim().startsWith('<pre>')
+}
+
 const readingTime = computed(() => {
   if (!article.value) return 0
   const content = locale.value === 'en' ? article.value.content_en : article.value.content_fr
@@ -101,6 +105,28 @@ useSeoMeta({
   description: () => excerpt.value || t('blog.subtitle'),
   ogImage: () => article.value?.cover_image_url ?? undefined,
 })
+
+// The whole blog section is kept out of search results (see the same
+// meta on pages/blog/index.vue).
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+  script: () => article.value
+    ? [{
+        key: 'ld-json-article',
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          'headline': title.value,
+          'description': excerpt.value,
+          'image': article.value.cover_image_url ?? undefined,
+          'datePublished': article.value.published_at,
+          'inLanguage': locale.value,
+          'author': { '@type': 'Person', 'name': 'Maxime Jolivet', 'url': 'https://www.maxime.bzh' },
+        }),
+      }]
+    : [],
+})
 </script>
 
 <template>
@@ -156,12 +182,18 @@ useSeoMeta({
           />
           <!-- eslint-disable vue/no-v-html -- content is passed through sanitizeHtml() before rendering -->
           <div class="mt-10 flex flex-col gap-5 pb-24">
-            <p
-              v-for="paragraph in paragraphs"
-              :key="paragraph"
-              class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground"
-              v-html="sanitizeHtml(paragraph)"
-            />
+            <template v-for="paragraph in paragraphs" :key="paragraph">
+              <div
+                v-if="isCodeBlock(paragraph)"
+                class="overflow-x-auto rounded-xl border border-panel-foreground/10 bg-panel p-4 font-mono text-[0.85rem] leading-[1.6] text-panel-foreground [&_pre]:whitespace-pre-wrap"
+                v-html="sanitizeHtml(paragraph)"
+              />
+              <p
+                v-else
+                class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground"
+                v-html="sanitizeHtml(paragraph)"
+              />
+            </template>
           </div>
           <!-- eslint-enable vue/no-v-html -->
         </template>

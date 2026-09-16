@@ -27,16 +27,16 @@ function openCookieSettings() {
       class="mx-auto flex max-w-[1180px] flex-col items-center gap-3 font-sans text-[0.75rem] text-subtle sm:flex-row sm:justify-between sm:gap-4"
     >
       <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-        <NuxtLink :to="localePath('mentions-legales')" class="transition-colors hover:text-accent">
+        <NuxtLink :to="localePath('mentions-legales')" rel="nofollow" class="transition-colors hover:text-accent">
           {{ $t('footer.legalMentions') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('accessibilite')" class="transition-colors hover:text-accent">
+        <NuxtLink :to="localePath('accessibilite')" rel="nofollow" class="transition-colors hover:text-accent">
           {{ $t('footer.accessibility') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('changelog')" class="transition-colors hover:text-accent">
+        <NuxtLink :to="localePath('changelog')" rel="nofollow" class="transition-colors hover:text-accent">
           {{ $t('footer.changelog') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('status')" class="transition-colors hover:text-accent">
+        <NuxtLink :to="localePath('status')" rel="nofollow" class="transition-colors hover:text-accent">
           {{ $t('footer.status') }}
         </NuxtLink>
         <button
@@ -75,6 +75,7 @@ function openCookieSettings() {
           :href="item.href"
           :hash="item.hash"
           :open-chat="item.openChat"
+          :rel="item.rel"
         >
           {{ $t(item.labelKey) }}
         </NavigationNavLink>

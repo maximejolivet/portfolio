@@ -27,3 +27,5 @@ Please don't:
 - HTML content from Supabase (blog articles, project case studies) is sanitized (`isomorphic-dompurify` via `utils/sanitizeHtml.ts`, fixed tag/attribute allowlist) before being rendered
 - No secrets committed to the repository; deployment auth to Vercel/GitHub uses platform-managed tokens, not hardcoded credentials
 - Dependencies tracked via `package-lock.json`; update with `npm audit` / `ncu` (see `README.md`, "Update Dependencies")
+- CI (`.github/workflows/ci.yml`) gates every `master` push/PR with a SonarQube Cloud scan (blocking quality gate) and a Socket Firewall-wrapped `npm ci` (`sfw npm ci`) that blocks malicious/typosquatted packages at install time
+- The [Socket Security GitHub App](https://github.com/marketplace/socket-security) reviews dependency changes on every PR (installed via GitHub Marketplace, not repo config)

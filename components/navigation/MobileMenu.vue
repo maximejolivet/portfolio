@@ -62,7 +62,7 @@ function onItemClick(item: NavItem, event: MouseEvent) {
           "
           :href="item.href"
           :target="item.href ? '_blank' : undefined"
-          :rel="item.href ? 'noopener noreferrer' : undefined"
+          :rel="item.href ? 'noopener noreferrer' : item.rel"
           class="flex items-center gap-2.5 rounded-full px-3.5 py-3 font-mono text-xs font-semibold transition-colors"
           :class="
             isActive(item)

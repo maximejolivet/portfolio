@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Card as ShadcnCard } from '~/components/ui/shadcn/card'
+import { cn } from '~/lib/utils'
 
 const props = defineProps<{
   class?: string
@@ -7,7 +7,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <ShadcnCard :class="['gap-3.5 rounded-2xl p-6 shadow-none', props.class]">
+  <div :class="cn('flex flex-col gap-3.5 rounded-2xl border bg-card p-6 text-card-foreground shadow-none', props.class)">
     <slot />
-  </ShadcnCard>
+  </div>
 </template>

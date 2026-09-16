@@ -44,6 +44,23 @@ jobs:
         with:
           fetch-depth: 0 # SonarQube needs full history for accurate new-code/blame analysis
 
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - uses: SocketDev/action@ba6de6cc0565af1f42295590380973573297e31f # v1.3.2
+        with:
+          mode: firewall-free
+
+      - run: sfw npm ci
+
+      # Own job/runner from lint-test, so the coverage report has to be
+      # regenerated here too - it's not shared across jobs without an
+      # explicit artifact upload/download, and the scan action below reads
+      # it straight off this runner's filesystem (sonar.javascript.lcov.reportPaths).
+      - run: npm run test:coverage
+
       - uses: SonarSource/sonarqube-scan-action@22918119ff8e1ca75a623e15c8296b6ea4fbe28f # v8.2.1
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

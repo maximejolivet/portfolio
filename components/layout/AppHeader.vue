@@ -37,7 +37,7 @@ onUnmounted(() => {
       </div>
 
       <div class="flex items-center gap-6 font-mono text-sm">
-        <UiButton :to="localePath('/cv')" size="pill" class="md:hidden">
+        <UiButton :to="localePath('/cv')" rel="nofollow" size="pill" class="md:hidden">
           {{ $t('cv.read') }}
         </UiButton>
         <nav class="hidden items-center gap-6 md:flex">
@@ -51,6 +51,7 @@ onUnmounted(() => {
             :icon-only="item.iconOnly"
             :open-chat="item.openChat"
             :sparkle="item.sparkle"
+            :rel="item.rel"
             :aria-label="item.iconOnly ? $t(item.labelKey) : undefined"
             large
           >
@@ -62,6 +63,7 @@ onUnmounted(() => {
 
         <UiButton
           :to="localePath('/cv')"
+          rel="nofollow"
           size="pill"
           icon="lucide:arrow-right"
           class="hidden md:inline-flex"
