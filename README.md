@@ -222,6 +222,6 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
-![v1.1.81](https://img.shields.io/badge/v1.1.81-2026--09--16-F97316)
+![v1.1.83](https://img.shields.io/badge/v1.1.83-2026--09--16-F97316)
 
 <!-- releases:end -->

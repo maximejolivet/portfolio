@@ -40,6 +40,27 @@ export interface ProjectRow {
   published_at: string
 }
 
+// The prose fields on ProjectRow (contexte/solution/points/resultat/role/
+// duree/equipe/impact) can hold confidential client case-study detail.
+// Card/list contexts (homepage preview, the /projects grid, tech-filter
+// matching) never render them, so the query behind those contexts should
+// never select them either - selecting them into a list response leaks
+// full "pro" project detail to every visitor via the SSR payload
+// regardless of what a UI filter happens to display. This type is what
+// that trimmed query returns; localizeProject() accepts either this or a
+// full ProjectRow (single-project detail fetches still need everything).
+type ConfidentialProjectFields
+  = | 'impact_fr' | 'impact_en'
+    | 'contexte_fr' | 'contexte_en'
+    | 'solution_fr' | 'solution_en'
+    | 'points_fr' | 'points_en'
+    | 'resultat_fr' | 'resultat_en'
+    | 'role_fr' | 'role_en'
+    | 'duree_fr' | 'duree_en'
+    | 'equipe_fr' | 'equipe_en'
+
+export type ProjectCardRow = Omit<ProjectRow, ConfidentialProjectFields>
+
 export interface LocalizedProject {
   id: string
   slug: string
@@ -67,7 +88,10 @@ export interface LocalizedProject {
   equipe: string | null
 }
 
-export function localizeProject(row: ProjectRow, locale: string): LocalizedProject {
+export function localizeProject(
+  row: ProjectCardRow & Partial<Pick<ProjectRow, ConfidentialProjectFields>>,
+  locale: string,
+): LocalizedProject {
   const en = locale === 'en'
   return {
     id: row.id,
@@ -86,13 +110,13 @@ export function localizeProject(row: ProjectRow, locale: string): LocalizedProje
     type: en ? row.type_en : row.type_fr,
     title: en ? row.title_en : row.title_fr,
     tagline: en ? row.tagline_en : row.tagline_fr,
-    impact: en ? row.impact_en : row.impact_fr,
-    contexte: en ? row.contexte_en : row.contexte_fr,
-    solution: en ? row.solution_en : row.solution_fr,
+    impact: (en ? row.impact_en : row.impact_fr) ?? null,
+    contexte: (en ? row.contexte_en : row.contexte_fr) ?? null,
+    solution: (en ? row.solution_en : row.solution_fr) ?? null,
     points: ((en ? row.points_en : row.points_fr) ?? []).filter(Boolean),
-    resultat: en ? row.resultat_en : row.resultat_fr,
-    role: en ? row.role_en : row.role_fr,
-    duree: en ? row.duree_en : row.duree_fr,
-    equipe: en ? row.equipe_en : row.equipe_fr,
+    resultat: (en ? row.resultat_en : row.resultat_fr) ?? null,
+    role: (en ? row.role_en : row.role_fr) ?? null,
+    duree: (en ? row.duree_en : row.duree_fr) ?? null,
+    equipe: (en ? row.equipe_en : row.equipe_fr) ?? null,
   }
 }
