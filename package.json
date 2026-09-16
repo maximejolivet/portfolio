@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "version": "1.1.80",
+  "version": "1.1.81",
   "repository": "git@github.com:maximejolivet/portfolio.git",
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
@@ -31,7 +31,7 @@
   },
   "overrides": {
     "html-encoding-sniffer": "4.0.0",
-    "jsdom": "27.3.0"
+    "jsdom": "26.1.0"
   },
   "devDependencies": {
     "@iconify-json/devicon": "^1.2.63",
