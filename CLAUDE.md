@@ -36,7 +36,7 @@ Vitest. Tests live in `test/**/*.spec.ts`, environment `node`. Run with `npm run
 
 ## Design System
 
-Tailwind v4 (via `@tailwindcss/vite`, not PostCSS) + shadcn-vue (`components.json`, style "new-york", baseColor "neutral"). shadcn components live in `components/ui/shadcn/` and are excluded from Nuxt's component auto-import (`nuxt.config.ts` dirs config) - import them via the `@/components/ui/shadcn` alias, not auto-import.
+Tailwind v4 (via `@tailwindcss/vite`, not PostCSS). Base UI primitives (`Badge`, `Button`, `Card` in `components/ui/`) are hand-rolled - originally scaffolded from shadcn-vue (style "new-york", baseColor "neutral"), but the shadcn-vue dependency, `components.json`, and `components/ui/shadcn/` were removed; the Tailwind variant classes were inlined directly into the `Ui*` wrappers instead.
 
 ## i18n
 

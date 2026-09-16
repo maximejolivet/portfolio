@@ -1,6 +1,6 @@
 # Design System
 
-> Stack : Nuxt 4 + Tailwind v4 (`@tailwindcss/vite`, tokens `@theme inline` dans [`assets/css/main.css`](../../assets/css/main.css)) + shadcn-vue (style "new-york", composants sous `components/ui/shadcn/`, enveloppés par des wrappers `Ui*` dans `components/ui/`). Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) et [TYPOGRAPHY.md](./TYPOGRAPHY.md) pour les tokens couleur/texte détaillés, [ICONOGRAPHY.md](./ICONOGRAPHY.md) pour les icônes.
+> Stack : Nuxt 4 + Tailwind v4 (`@tailwindcss/vite`, tokens `@theme inline` dans [`assets/css/main.css`](../../assets/css/main.css)) + primitives `Ui*` maison dans `components/ui/` (style "new-york", à l'origine scaffoldées depuis shadcn-vue, dépendance retirée depuis - classes Tailwind inlinées directement). Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) et [TYPOGRAPHY.md](./TYPOGRAPHY.md) pour les tokens couleur/texte détaillés, [ICONOGRAPHY.md](./ICONOGRAPHY.md) pour les icônes.
 
 ---
 
@@ -120,7 +120,7 @@ _(Non encore massivement implémentés dans les pages actuelles — recommandati
 
 ### Cards
 
-`Card.vue` (wrapper) : `gap-3.5 rounded-2xl p-6 shadow-none` posé sur le `Card` shadcn qui apporte `bg-card text-card-foreground flex flex-col border`.
+`Card.vue` : `flex flex-col gap-3.5 rounded-2xl border bg-card p-6 text-card-foreground shadow-none`, tout en un (plus de wrapper séparé autour d'un `Card` shadcn).
 
 - Fond : `--card` (blanc cassé jour / bleu-nuit foncé nuit).
 - Pas d'ombre — séparation par bordure `border` (1px, `--line`) uniquement.
@@ -351,7 +351,7 @@ _(Not yet heavily implemented across current pages — recommendation based on e
 
 ### Cards
 
-`Card.vue` (wrapper): `gap-3.5 rounded-2xl p-6 shadow-none` layered on the shadcn `Card` which provides `bg-card text-card-foreground flex flex-col border`.
+`Card.vue`: `flex flex-col gap-3.5 rounded-2xl border bg-card p-6 text-card-foreground shadow-none`, all in one component (no separate wrapper around a shadcn `Card` anymore).
 
 - Background: `--card` (off-white in day mode / dark navy in night mode).
 - No shadow — separation via a 1px `border` (`--line`) only.

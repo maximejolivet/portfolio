@@ -87,15 +87,6 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
   ],
 
-  components: {
-    dirs: [
-      {
-        path: '~/components',
-        ignore: ['**/ui/shadcn/**'],
-      },
-    ],
-  },
-
   devtools: { enabled: true },
 
   app: {
@@ -189,7 +180,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-09-11',
+  compatibilityDate: '2026-09-16',
 
   nitro: {
     // Default Vercel function timeout (10s) is too short for a live
