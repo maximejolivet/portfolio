@@ -10,6 +10,7 @@ const props = defineProps<{
   iconOnly?: boolean
   openChat?: boolean
   sparkle?: boolean
+  rel?: string
 }>()
 
 const STAR_CLIP
@@ -39,7 +40,7 @@ function onClick(event: MouseEvent) {
     :to="href ? undefined : resolvedTo"
     :href="href"
     :target="href ? '_blank' : undefined"
-    :rel="href ? 'noopener noreferrer' : undefined"
+    :rel="href ? 'noopener noreferrer' : rel"
     class="relative inline-flex items-center gap-1.5 pb-0.5 font-sans transition-colors"
     :class="[
       large ? 'text-sm' : 'text-xs',
