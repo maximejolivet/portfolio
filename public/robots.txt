@@ -10,3 +10,9 @@ Disallow: /*?*
 # and /projects' noindex).
 Disallow: /logo-project-*
 Disallow: /api/project-title.svg
+
+# llms.txt tells AI agents to add ?lang=en to these two endpoints for the
+# English version - carve them out of the blanket query-string disallow
+# above so agents that honor robots.txt can actually reach them.
+Allow: /api/cv.json?lang=en
+Allow: /llms-full.txt?lang=en

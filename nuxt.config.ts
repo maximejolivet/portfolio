@@ -323,11 +323,29 @@ export default defineNuxtConfig({
     },
   },
 
-  // Project case studies stay out of the sitemap - some cover client work
-  // that shouldn't be indexed even though the rest of the site now is (each
-  // of those pages also sets its own noindex meta, which is what actually
-  // keeps them out of search results - this just avoids listing them here).
   sitemap: {
-    exclude: ['/*/projets/**', '/*/projects/**', '/*/raktresou/**'],
+    // Project detail routes are dynamic (Supabase-backed, no static params),
+    // so Nuxt's page scanner never finds them on its own - this source adds
+    // the indexable ones (personal projects) from the database. The blog is
+    // entirely noindex'd (see pages/blog/**), so it isn't added here.
+    // See server/api/__sitemap__/urls.ts.
+    sources: ['/api/__sitemap__/urls'],
+    // Every route below sets its own `noindex, nofollow` via useHead (see
+    // pages/**) - keep this list in sync with that set of pages, or Google
+    // Search Console flags them as "Submitted URL marked noindex". One
+    // pattern per locale's translated path (routes.json), since Nuxt's page
+    // scanner can't be told "exclude this route name across all locales".
+    // Pro-category project detail pages are simply never added as sitemap
+    // entries in the first place (see the dynamic source above), so they
+    // don't need an exclude pattern of their own.
+    exclude: [
+      '/*/projets', '/*/projects', '/*/raktresou',
+      '/*/cv',
+      '/*/accessibilite', '/*/accessibility', '/*/haezadusted',
+      '/*/mentions-legales', '/*/legal-notice', '/*/menegou-lezennel',
+      '/*/nouveautes', '/*/changelog', '/*/kemmou-nevez',
+      '/*/status',
+      '/*/blog',
+    ],
   },
 })
