@@ -4,6 +4,8 @@ const i18nHead = useLocaleHead()
 
 useHead({
   htmlAttrs: computed(() => i18nHead.value.htmlAttrs),
+  link: computed(() => i18nHead.value.link),
+  meta: computed(() => i18nHead.value.meta),
   script: [
     {
       key: 'tarteaucitron-lang',
