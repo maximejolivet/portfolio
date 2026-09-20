@@ -145,6 +145,7 @@
   },
   "experienceSection": {
     "eyebrow": "Parcours",
+    "toggleDetails": "Afficher ou masquer le détail : {organization}",
     "titleStart": "Dix ans à",
     "titleHighlight": "construire pour de vrais clients",
     "titleEnd": ".",

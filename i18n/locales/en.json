@@ -145,6 +145,7 @@
   },
   "experienceSection": {
     "eyebrow": "Career",
+    "toggleDetails": "Show or hide details: {organization}",
     "titleStart": "Ten years of",
     "titleHighlight": "building for real clients",
     "titleEnd": ".",

@@ -23,7 +23,7 @@ const LOCALES = [
           : 'text-primary-foreground/60 hover:text-accent'
       "
     >
-      <img :src="item.flag" alt="" class="h-4 w-6 rounded-[2px] object-cover" />
+      <img :src="item.flag" alt="" class="h-4 w-6 object-contain" />
     </NuxtLink>
   </div>
 </template>
