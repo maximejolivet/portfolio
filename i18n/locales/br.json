@@ -145,6 +145,7 @@
   },
   "experienceSection": {
     "eyebrow": "Hent",
+    "toggleDetails": "Diskouez pe kuzhat ar munudoù : {organization}",
     "titleStart": "Dek vloaz o",
     "titleHighlight": "sevel evit gwir gustumerien",
     "titleEnd": ".",

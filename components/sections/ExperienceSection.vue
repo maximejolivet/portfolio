@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { EXPERIENCE_TIMELINE } from '~/constants/experience'
 
-const CHARS_PER_TICK = 2
-const TICK_MS = 10
-
 const { t } = useI18n()
+// The latest entry is always unfolded and types itself when the section scrolls into view;
+// the others start folded and type the first time they are unfolded.
+const alwaysOpenId = EXPERIENCE_TIMELINE[0].id
+const { isOpen, toggle } = useCollapsible([alwaysOpenId])
+const { visibleChars, type, typeOnceVisible, stop } = useTypewriter()
+const alreadyTyped = new Set<string>()
+const rootEl = ref<HTMLElement>()
 
 function logLines(item: (typeof EXPERIENCE_TIMELINE)[number]) {
   return [
@@ -26,71 +30,39 @@ function logoMaskStyle(logo: string) {
   }
 }
 
-// Starts fully revealed so SSR / no-JS output shows the full log; a scroll-triggered
-// IntersectionObserver resets this to 0 and animates it back up, mirroring the hero panel.
-const visibleChars = ref(Infinity)
-
-function reveal(consumed: { value: number }, text: string) {
-  const start = consumed.value
-  consumed.value += text.length
-  const visible = Math.max(0, Math.min(text.length, visibleChars.value - start))
-  return { text: text.slice(0, visible), isStarted: visible > 0, isDone: visible >= text.length }
-}
-
-const entries = computed(() => {
-  const consumed = { value: 0 }
-  return EXPERIENCE_TIMELINE.map((item) => ({
-    item,
-    location: reveal(consumed, `# ${t(item.locationKey)}`),
-    intro: item.introKey ? reveal(consumed, t(item.introKey)) : null,
-    points: logLines(item).map((line) => reveal(consumed, line)),
-    totalChars: consumed.value,
-  }))
-})
-
-const totalChars = computed(() => entries.value.at(-1)?.totalChars ?? 0)
-const typingDone = computed(() => visibleChars.value >= totalChars.value)
-
-let rafId = 0
-const rootEl = ref<HTMLElement>()
-
-function animateTyping() {
-  visibleChars.value = 0
-  let lastTick = 0
-
-  function step(now: number) {
-    if (now - lastTick >= TICK_MS) {
-      visibleChars.value = Math.min(visibleChars.value + CHARS_PER_TICK, totalChars.value)
-      lastTick = now
+const entries = computed(() =>
+  EXPERIENCE_TIMELINE.map((item) => {
+    const texts = [
+      `# ${t(item.locationKey)}`,
+      ...(item.introKey ? [t(item.introKey)] : []),
+      ...logLines(item),
+    ]
+    const [location, ...rest] = revealLines(texts, visibleChars(item.id))
+    return {
+      item,
+      location,
+      intro: item.introKey ? rest[0] : null,
+      points: item.introKey ? rest.slice(1) : rest,
+      totalChars: texts.join('').length,
     }
-    if (visibleChars.value < totalChars.value) {
-      rafId = requestAnimationFrame(step)
-    }
+  }),
+)
+
+function onToggle(entry: (typeof entries.value)[number]) {
+  if (entry.item.id === alwaysOpenId) return
+  const opening = !isOpen(entry.item.id)
+  toggle(entry.item.id)
+  if (opening && !alreadyTyped.has(entry.item.id)) {
+    alreadyTyped.add(entry.item.id)
+    type(entry.item.id, entry.totalChars)
   }
-
-  rafId = requestAnimationFrame(step)
 }
 
 onMounted(() => {
-  const skipAnimation
-    = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      || window.matchMedia('(max-width: 767px)').matches
-  if (skipAnimation || !rootEl.value) return
-
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) return
-      animateTyping()
-      observer.disconnect()
-    },
-    { threshold: 0.2 },
-  )
-  observer.observe(rootEl.value)
+  if (rootEl.value) typeOnceVisible(rootEl.value, alwaysOpenId, entries.value[0].totalChars)
 })
 
-onUnmounted(() => {
-  if (rafId) cancelAnimationFrame(rafId)
-})
+onUnmounted(stop)
 </script>
 
 <template>
@@ -120,7 +92,8 @@ onUnmounted(() => {
         <div v-for="(entry, index) in entries" :key="entry.item.id" class="group mb-5 last:mb-0">
           <div
             class="-mx-2 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md px-2 transition-colors group-hover:bg-panel-foreground/5"
-            :class="index === 0 && 'mb-1'"
+            :class="index === 0 ? 'mb-1' : 'cursor-pointer'"
+            @click="onToggle(entry)"
           >
             <span
               aria-hidden="true"
@@ -151,6 +124,7 @@ onUnmounted(() => {
               rel="noopener noreferrer"
               :aria-label="entry.item.logo ? t(entry.item.organizationKey) : undefined"
               class="inline-flex items-center gap-2 text-primary underline decoration-dotted underline-offset-2 transition-colors hover:text-mint"
+              @click.stop
             >
               <span :class="entry.item.logo && 'hidden'">{{ t(entry.item.organizationKey) }}</span>
               <span
@@ -161,7 +135,30 @@ onUnmounted(() => {
               />
             </a>
             <span v-else class="text-primary">{{ t(entry.item.organizationKey) }}</span>
+            <button
+              v-if="entry.item.id !== alwaysOpenId"
+              type="button"
+              :aria-expanded="isOpen(entry.item.id)"
+              :aria-controls="`experience-${entry.item.id}`"
+              :aria-label="t('experienceSection.toggleDetails', { organization: t(entry.item.organizationKey) })"
+              class="ml-auto flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md text-panel-foreground/50 transition-colors hover:text-panel-foreground"
+              @click.stop="onToggle(entry)"
+            >
+              <UiAppIcon
+                icon="lucide:chevron-down"
+                class="size-4 transition-transform motion-reduce:transition-none"
+                :class="!isOpen(entry.item.id) && '-rotate-90'"
+              />
+            </button>
           </div>
+
+          <div
+            :id="`experience-${entry.item.id}`"
+            class="grid transition-[grid-template-rows] duration-300 motion-reduce:transition-none"
+            :class="isOpen(entry.item.id) ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+            :inert="!isOpen(entry.item.id)"
+          >
+            <div class="min-h-0 overflow-hidden">
 
           <p v-show="entry.location.isStarted" class="pl-2 text-panel-foreground/55">
             {{ entry.location.text
@@ -187,9 +184,11 @@ onUnmounted(() => {
             }}</span>
             <span>{{ line.text }}<span v-if="!line.isDone" class="animate-blink">▎</span></span>
           </p>
+            </div>
+          </div>
         </div>
 
-        <p v-show="typingDone" class="mt-1 text-panel-foreground/30">
+        <p class="mt-1 text-panel-foreground/30">
           <span class="text-mint">$</span> <span class="animate-blink">▎</span>
         </p>
       </div>
