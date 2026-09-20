@@ -20,10 +20,11 @@ const { refused: calRefused } = useCalConsent()
       {{ $t('home.contact.title') }}<span class="text-accent">.</span>
     </h2>
     <p
-      class="max-w-[460px] py-8 mx-auto text-pretty font-sans text-[1rem] leading-[1.7] text-muted-foreground"
+      class="max-w-[500px] py-8 mx-auto text-pretty font-sans text-[1rem] leading-[1.7] text-muted-foreground"
     >
       {{ $t('home.contact.subtitle') }}<br />
-      {{ $t('home.contact.subtitleSecondary') }}
+      {{ $t('home.contact.subtitleSecondary') }}<br />
+      {{ $t('home.contact.subtitleTertiary') }}
     </p>
     <div class="mt-2 flex flex-wrap items-center justify-center gap-6">
       <UiButton :href="`mailto:${CONTACT_EMAIL}`">
