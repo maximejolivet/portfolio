@@ -47,6 +47,85 @@ Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introdu
 - **SEO** : `@nuxtjs/sitemap`, `@nuxt/image`
 - **Icônes** : collections `@iconify-json/*` (devicon, devicon-plain, logos, lucide, material-icon-theme, selfhst, skill-icons), résolues via `utils/resolveIcon.ts` à partir d'un sous-ensemble généré (voir [Icônes](#icônes))
 
+## Architecture
+
+```mermaid
+flowchart TD
+  visitor((Visitor))
+
+  subgraph presentation["Portfolio presentation"]
+    app["Nuxt application<br/>app.vue"]
+    home["Home page<br/>index.vue"]
+    sections["Portfolio sections"]
+    locale["Locale rendering<br/>i18n.config.ts"]
+  end
+
+  subgraph engagement["Visitor engagement"]
+    chat["AI chat widget"]
+    contact["Contact section<br/>ContactSection.vue"]
+    cal["Cal.eu booking"]
+  end
+
+  subgraph content["Content and projects"]
+    projects["Projects listing<br/>index.vue"]
+    study["Project case study<br/>[slug].vue"]
+    blog["Blog listing<br/>index.vue"]
+    article["Blog article<br/>[slug].vue"]
+    clients["Client sectors<br/>ClientsSection.vue"]
+    cards["Project cards<br/>ProjectCard.vue"]
+    projectQ["Project queries<br/>useProjects.ts"]
+    articleQ["Article queries<br/>useArticle.ts"]
+    listQ["Article list queries<br/>useArticles.ts"]
+  end
+
+  subgraph ssr["SSR and APIs"]
+    api["Machine-readable APIs"]
+    llm["LLM content endpoint"]
+    db[("Supabase content")]
+  end
+
+  visitor -->|requests route| app
+  app -->|renders route| home
+  app -->|loads locale| locale
+  app -.->|loads widget| chat
+  home -->|renders sections| sections
+  home -->|translates content| locale
+
+  contact -.->|books call| cal
+
+  app -->|renders route| projects
+  app -->|renders route| study
+  app -->|renders route| blog
+  app -->|renders route| article
+
+  projects -->|renders sectors| clients
+  projects -->|renders results| cards
+  projects -->|loads projects| projectQ
+  projectQ -->|returns projects| projects
+  study -->|loads case study| projectQ
+  blog -->|loads articles| listQ
+  listQ -->|returns articles| blog
+  article -->|loads article| articleQ
+  articleQ -->|returns article| article
+
+  content -->|translates filters, studies, articles| locale
+
+  projectQ -->|reads projects| db
+  articleQ -->|reads article| db
+  listQ -->|reads articles| db
+  api -->|serves content| db
+  llm -->|reads projects| db
+
+  classDef presentationNode fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+  classDef engagementNode fill:#ffe4e6,stroke:#be123c,color:#881337
+  classDef contentNode fill:#fef3c7,stroke:#d97706,color:#78350f
+  classDef ssrNode fill:#dcfce7,stroke:#16a34a,color:#14532d
+  class app,home,sections,locale presentationNode
+  class chat,contact,cal engagementNode
+  class projects,study,blog,article,clients,cards,projectQ,articleQ,listQ contentNode
+  class api,llm,db ssrNode
+```
+
 ## Pages
 
 | Route (FR)          | Route (EN)       | Route (BR)          | Contenu                                      |
@@ -222,6 +301,6 @@ Chaque commit bump automatiquement la version patch du `package.json` et ajoute 
 
 <!-- releases:start -->
 
-![v1.1.84](https://img.shields.io/badge/v1.1.84-2026--09--16-F97316)
+![v1.1.88](https://img.shields.io/badge/v1.1.88-2026--09--20-F97316)
 
 <!-- releases:end -->

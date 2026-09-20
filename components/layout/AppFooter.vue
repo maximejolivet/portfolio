@@ -55,7 +55,7 @@ function openCookieSettings() {
           >
             {{ $t('footer.madeInPrefix') }}
             <img
-              src="/flag-bretagne.svg"
+              src="/flag-br.svg"
               :alt="$t('footer.madeInPlace')"
               :title="$t('footer.madeInPlace')"
               width="29"
