@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const localePath = useLocalePath()
-
 const highlightKeys = ['highlight1', 'highlight2', 'highlight3'] as const
 
 const tagKeys = [
@@ -69,7 +67,7 @@ const tagKeys = [
           />
 
           <NuxtLink
-            :to="{ path: localePath('/mentions-legales'), hash: '#ai' }"
+            :to="{ path: $localePath('/mentions-legales'), hash: '#ai' }"
             class="absolute bottom-3 right-3 z-10 flex w-fit items-center gap-2 rounded-full bg-foreground py-1.5 pl-1.5 pr-4 text-background shadow-lg transition-colors hover:bg-foreground/85"
           >
             <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-white">
