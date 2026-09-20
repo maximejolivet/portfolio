@@ -270,8 +270,9 @@
     "contact": {
       "eyebrow": "DAREMPRED",
       "title": "Savomp ar sujidigezh a-gevret",
-      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer",
-      "subtitleSecondary": "Tech Lead · IA & Prompt Engineering",
+      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer · Tech Lead",
+      "subtitleSecondary": "Prompt Engineering · AI Engineer · AI Product Engineer",
+      "subtitleTertiary": "PHP, JavaScript · Expert Drupal & WordPress",
       "bookCall": "Ober un emgav",
       "chat": "Kaozeal gant ar skoazeller IA"
     }

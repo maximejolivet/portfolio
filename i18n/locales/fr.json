@@ -270,8 +270,9 @@
     "contact": {
       "eyebrow": "CONTACT",
       "title": "Construisons la suite ensemble",
-      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer",
-      "subtitleSecondary": "Tech Lead · IA & Prompt Engineering",
+      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer · Tech Lead",
+      "subtitleSecondary": "Prompt Engineering · AI Engineer · AI Product Engineer",
+      "subtitleTertiary": "PHP, JavaScript · Expert Drupal & WordPress",
       "bookCall": "Prendre rendez-vous",
       "chat": "Discuter avec l'assistant IA"
     }
