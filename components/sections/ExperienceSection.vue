@@ -2,64 +2,14 @@
 import { EXPERIENCE_TIMELINE } from '~/constants/experience'
 
 const { t } = useI18n()
-// The latest entry is always unfolded and types itself when the section scrolls into view;
-// the others start folded and type the first time they are unfolded.
-const alwaysOpenId = EXPERIENCE_TIMELINE[0].id
-const { isOpen, toggle } = useCollapsible([alwaysOpenId])
-const { visibleChars, type, typeOnceVisible, stop } = useTypewriter()
-const alreadyTyped = new Set<string>()
+const { entries, alwaysOpenId, isOpen, onToggle, start, stop } = useExperienceLog(
+  EXPERIENCE_TIMELINE,
+  t,
+)
 const rootEl = ref<HTMLElement>()
 
-function logLines(item: (typeof EXPERIENCE_TIMELINE)[number]) {
-  return [
-    ...(item.descriptionKey ? [t(item.descriptionKey)] : []),
-    ...(item.descriptionPointsKeys?.map((key) => t(key)) ?? []),
-  ]
-}
-
-function logoMaskStyle(logo: string) {
-  return {
-    maskImage: `url(${logo})`,
-    maskSize: 'contain',
-    maskRepeat: 'no-repeat',
-    maskPosition: 'left center',
-    WebkitMaskImage: `url(${logo})`,
-    WebkitMaskSize: 'contain',
-    WebkitMaskRepeat: 'no-repeat',
-    WebkitMaskPosition: 'left center',
-  }
-}
-
-const entries = computed(() =>
-  EXPERIENCE_TIMELINE.map((item) => {
-    const texts = [
-      `# ${t(item.locationKey)}`,
-      ...(item.introKey ? [t(item.introKey)] : []),
-      ...logLines(item),
-    ]
-    const [location, ...rest] = revealLines(texts, visibleChars(item.id))
-    return {
-      item,
-      location,
-      intro: item.introKey ? rest[0] : null,
-      points: item.introKey ? rest.slice(1) : rest,
-      totalChars: texts.join('').length,
-    }
-  }),
-)
-
-function onToggle(entry: (typeof entries.value)[number]) {
-  if (entry.item.id === alwaysOpenId) return
-  const opening = !isOpen(entry.item.id)
-  toggle(entry.item.id)
-  if (opening && !alreadyTyped.has(entry.item.id)) {
-    alreadyTyped.add(entry.item.id)
-    type(entry.item.id, entry.totalChars)
-  }
-}
-
 onMounted(() => {
-  if (rootEl.value) typeOnceVisible(rootEl.value, alwaysOpenId, entries.value[0].totalChars)
+  if (rootEl.value) start(rootEl.value)
 })
 
 onUnmounted(stop)

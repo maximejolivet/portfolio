@@ -35,6 +35,8 @@ describe('useTypewriter', () => {
     const { visibleChars, type } = useTypewriter()
     type('a', 5)
     expect(visibleChars('a')).toBe(0)
+    browser.tick(5)
+    expect(visibleChars('a')).toBe(0)
     browser.tick(10)
     expect(visibleChars('a')).toBe(2)
     browser.tick(20)
