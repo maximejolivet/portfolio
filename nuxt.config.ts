@@ -179,7 +179,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-09-16',
+  compatibilityDate: '2026-09-20',
 
   nitro: {
     // Default Vercel function timeout (10s) is too short for a live
