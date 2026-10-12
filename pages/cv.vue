@@ -82,26 +82,34 @@ useSeoMeta({
 <template>
   <div>
     <h1 class="sr-only">Maxime Jolivet · Curriculum vitæ</h1>
-    <pdfjs-viewer-element ref="pdfViewer"
+    <pdfjs-viewer-element
+ref="pdfViewer"
       src="/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-php-drupal-javascript-ia.pdf"
-      :worker-src="workerSrc" viewer-css-theme="DARK" zoom="auto" class="block h-[calc(100vh-58px)] w-full" />
+      :worker-src="workerSrc" viewer-css-theme="DARK" zoom="auto" class="block h-[calc(100vh-58px)] w-full"
+/>
 
-    <a href="/api/cv.json" target="_blank" rel="noopener noreferrer"
-      class="fixed bottom-62 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex">
+    <a
+href="/api/cv.json" target="_blank" rel="noopener noreferrer"
+      class="fixed bottom-62 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
+>
       <UiAppIcon icon="lucide:braces" class="size-3.5" />
       JSON Resume
     </a>
 
-    <button type="button"
+    <button
+type="button"
       class="fixed bottom-76 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
-      @click="summaryOpen = true">
+      @click="summaryOpen = true"
+>
       <UiAppIcon icon="lucide:zap" class="size-3.5" />
       {{ t('cv.quickView.trigger') }}
     </button>
 
-    <div v-if="summaryOpen"
+    <div
+v-if="summaryOpen"
       class="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm"
-      @click.self="summaryOpen = false">
+      @click.self="summaryOpen = false"
+>
       <div class="flex w-full max-w-sm flex-col gap-4 rounded-2xl border border-border bg-background p-6 shadow-2xl">
         <div class="flex items-start justify-between gap-3">
           <div>
@@ -112,9 +120,11 @@ useSeoMeta({
               {{ t('hero.role') }}
             </p>
           </div>
-          <button type="button" :aria-label="t('cv.quickView.close')"
+          <button
+type="button" :aria-label="t('cv.quickView.close')"
             class="flex size-8 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-accent"
-            @click="summaryOpen = false">
+            @click="summaryOpen = false"
+>
             <UiAppIcon icon="lucide:x" class="size-4" />
           </button>
         </div>
@@ -131,8 +141,10 @@ useSeoMeta({
         </p>
 
         <div class="flex flex-col items-center gap-2 border-t border-border pt-4">
-          <img v-if="qrDataUrl" :src="qrDataUrl" :alt="t('cv.quickView.qrAlt')" width="140" height="140"
-            class="rounded-lg">
+          <img
+v-if="qrDataUrl" :src="qrDataUrl" :alt="t('cv.quickView.qrAlt')" width="140" height="140"
+            class="rounded-lg"
+>
           <p class="text-center font-mono text-[0.6875rem] text-subtle">
             {{ t('cv.quickView.qrCaption') }}
           </p>
@@ -149,10 +161,12 @@ useSeoMeta({
       </div>
     </div>
 
-    <button v-if="!calRefused" type="button"
+    <button
+v-if="!calRefused" type="button"
       class="fixed bottom-18 right-0 z-50 flex size-11 items-center justify-center gap-2 rounded-l-full border-y border-l-0 border-r border-primary bg-primary font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:border-accent hover:bg-accent md:bottom-44 md:right-6 md:size-auto md:rounded-full md:border md:px-5 md:py-3.5"
       :aria-label="$t('home.contact.bookCall')" :data-cal-link="CAL_LINK" :data-cal-namespace="CAL_NAMESPACE"
-      data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}">
+      data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
+>
       <UiAppIcon icon="lucide:calendar" class="pointer-events-none size-4" />
       <span class="hidden md:inline">{{ $t('home.contact.bookCall') }}</span>
     </button>
