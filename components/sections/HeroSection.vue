@@ -41,6 +41,7 @@ const MARQUEE_STACK = [
   'Tailwind',
   'Docker',
   'CI/CD',
+  'IA',
 ]
 
 const marqueeAutoplay = { delay: 1, disableOnInteraction: false, pauseOnMouseEnter: false }

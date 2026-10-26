@@ -59,8 +59,8 @@
     "chatTeaser": "New: chat with my AI assistant",
     "role": "Senior Full-Stack Web Developer",
     "location": "Nantes, France",
-    "bio": "I build and maintain brand sites, product sites, user interfaces and business tools.",
-    "subtitle": "10 years of experience, mostly in digital agencies. Strong PHP and JavaScript skills, CMS expertise applied to complex, demanding projects, with constant attention to code quality and the long-term reliability of technical choices.",
+    "bio": "I design and maintain brand sites, product sites, user interfaces and business tools, with agentic AI built into the development workflow.",
+    "subtitle": "10 years of experience, mostly in digital agencies. Expertise in PHP, JavaScript and CMS on complex, demanding projects, with constant attention to code quality, security and accessibility. I practice agentic AI daily (Claude Code, GitHub Copilot, Cursor, Codex), keeping control over the code review of what the agents produce.",
     "ctaSecondary": "See the projects",
     "ctaContact": "get in touch"
   },
@@ -138,8 +138,8 @@
         "description": "My day-to-day working environment."
       },
       "watch": {
-        "label": "Watching",
-        "description": "Technologies I'm keeping an eye on, not yet used in production."
+        "label": "Self-training and skill growth",
+        "description": "Learning and hands-on practice through personal projects"
       }
     }
   },
@@ -158,11 +158,12 @@
         "intro": "Contributed to more than 50 client projects across a range of sectors such as construction, industry, healthcare, energy, insurance & mutual funds, and agriculture and agri-food, many of which are still in production today.",
         "points": [
           "Design and development of brand, catalog, institutional, e-commerce sites and business tools",
-          "Lead Dev / Tech Lead on recurring client projects: scoping, architecture, feasibility and estimates with Product Owners",
-          "Mentoring developers: code reviews, documentation, best practices and quality",
+          "Lead Dev / Tech Lead on recurring client projects: scoping, technical analysis and estimates with Product Owners",
+          "Code review and mentoring of developers: documentation, best practices and quality",
           "Industrialization of CMS starter kits: standardized foundations, reusable components and CI/CD pipelines",
-          "REST API development and integration with business tools",
+          "CMS configuration and adaptation, REST API development and integration with business tools",
           "TMA and application maintenance: analyzing and resolving issues and incidents, corrective and evolutive maintenance",
+          "Integration of agentic AI into the development workflow on client projects",
           "Quality and compliance audits: performance, security, RGAA, tracking and performance analysis",
           "Technical watch and knowledge sharing within the Tech team",
           "Agency life: onboarding new joiners and taking part in the Happiness team"
@@ -270,7 +271,7 @@
     "contact": {
       "eyebrow": "CONTACT",
       "title": "Let's build what's next together",
-      "subtitle": "Senior Full-Stack Web Developer · Lead Developer · Tech Lead",
+      "subtitle": "Senior Full-Stack Web Developer · Lead Developer · AI Agentic Developer",
       "subtitleSecondary": "Prompt Engineering · AI Engineer · AI Product Engineer",
       "subtitleTertiary": "PHP, JavaScript · Drupal & WordPress Expert",
       "bookCall": "Book a meeting",
