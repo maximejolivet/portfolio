@@ -59,8 +59,8 @@
     "chatTeaser": "Nevez: kaozeit gant ma skoazeller IA",
     "role": "Diorroer web full-stack uhel",
     "location": "Naoned, Frañs",
-    "bio": "Diorren ha mentoniñ a ran lec'hiennoù-merk, lec'hiennoù produ, etrefasoù implijer hag ostilhoù micherel.",
-    "subtitle": "10 vloaz a skiant-prenet, dreist-holl en asantiezhioù niverel. Barregezhioù kreñv e PHP ha JavaScript, ur c'hallout CMS arloet da raktresoù kompleksed ha kalz goulennus, gant evezh diehan war kalite ar c'hod hag war bad-mat an dibaboù teknikel.",
+    "bio": "Diorren a ran lec'hiennoù-merk, lec'hiennoù produ, etrefasoù implijer ha teulioù micherel, o lakaat an IA agentek e-barzh al labour diorren.",
+    "subtitle": "10 vloaz a skiant-prenet, dreist-holl en asantiezhioù niverel. Barregezhioù e PHP, JavaScript ha CMS war raktresoù kompleksed ha kalz goulennus, gant evezh diehan war kalite ar c'hod, surentez ha hegerzded. Pratikañ a ran an IA agentek bemdez (Claude Code, GitHub Copilot, Cursor, Codex), o chom evit ar gwiriegezh ar c'hod a ra an agentoù.",
     "ctaSecondary": "Gwelet ar raktresoù",
     "ctaContact": "daremprediñ ac'hanon"
   },
@@ -138,8 +138,8 @@
         "description": "Va endro labour bemdez."
       },
       "watch": {
-        "label": "War evezh",
-        "description": "Teknologiezhioù heuliet gant preder, n'int ket bet implijet c'hoazh war-bouez."
+        "label": "Oberiantiz hag astenn ar skilioù",
+        "description": "Deskiñ ha pleustriñ dre raktresoù personel"
       }
     }
   },
@@ -158,13 +158,14 @@
         "intro": "Kemmesk war ouzhpenn 50 raktres kustumer e Gingerminds, e tachennoù liesseurt evel ar sevel-tiez, an industriezh, ar yec'hed, an energiezh, ar c'hendalc'hoù hag an aseuranchoù, hag ivez al labour-douar hag ar boued-douar, ma chom ul lodenn vras anezho war-bouez c'hoazh hiziv an deiz.",
         "points": [
           "Studiañ ha diorren lec'hiennoù-merk, katalogoù, lec'hiennoù kevredigezhel, e-commerce hag ostilhoù micherel",
-          "Lead Dev / Tech Lead war raktresoù kustumer emdroet : frammañ ar raktres, framm teknikel, posupted ha priziañ gant ar Product Owners",
-          "Heuliañ an diorroerien : adweladennoù kod, teuliadur, mentoù mat ha kalite",
+          "Lead Dev / Tech Lead war raktresoù kustumer emdroet : frammañ ar raktres, dielfennadurioù teknikel, posupted ha priziañ gant ar Product Owners",
+          "Adweladennoù kod ha heuliañ an diorroerien : teuliadur, mentoù mat ha kalite",
           "Industrialaat ar Starter Kits CMS : diazezoù skouerieket, darnoù adimplijadus ha pipelines CI/CD",
-          "Diorren API REST hag enframmañ gant an ostilhoù micherel",
+          "Adaptiñ ha kefluniañ CMS, diorren API REST hag enframmañ gant an ostilhoù micherel",
           "TMA ha mentoniñ arloadel : dielfennañ ha diskoulmañ an dic'hoprioù hag an degouezhioù, mentoniñ reizhus hag emdroadel",
+          "Enframmañ an IA agentek e-barzh al labour diorren war raktresoù kustumer",
           "Arnodennoù kalite ha kenglotadur : buander, surentez, RGAA, tracking ha dielfennadur buander",
-          "Gwiziegezh deknikel ha rannañ ar c'houlz-skiant e-barzh ar skipailh Tech",
+          "Gwiziegezh teknikel ha rannañ ar c'houlz-skiant e-barzh ar skipailh Tech",
           "Buhez an asantiezh : onboarding an dud nevez ha kemer perzh er skipailh Happiness"
         ]
       },
@@ -270,7 +271,7 @@
     "contact": {
       "eyebrow": "DAREMPRED",
       "title": "Savomp ar sujidigezh a-gevret",
-      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer · Tech Lead",
+      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer · Développeur IA agentique",
       "subtitleSecondary": "Prompt Engineering · AI Engineer · AI Product Engineer",
       "subtitleTertiary": "PHP, JavaScript · Expert Drupal & WordPress",
       "bookCall": "Ober un emgav",

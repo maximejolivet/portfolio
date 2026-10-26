@@ -59,8 +59,8 @@
     "chatTeaser": "Nouveau : discutez avec mon assistant IA",
     "role": "Développeur web full-stack senior",
     "location": "Nantes, France",
-    "bio": "Je développe et maintiens des sites de marque, des sites produits, des interfaces utilisateur et des outils métiers.",
-    "subtitle": "10 ans d'expérience, principalement en agence digitale. Solides compétences PHP et JavaScript, expertise CMS appliquée à des projets complexes et exigeants, avec un souci constant de la qualité du code et de la pérennité des choix techniques.",
+    "bio": "Je conçois et fais évoluer des sites de marque, des sites produits, des interfaces utilisateur et des outils métiers, en intégrant l'IA agentique au workflow de développement.",
+    "subtitle": "10 ans d'expérience, principalement en agence digitale. Expertise PHP, JavaScript et CMS sur des projets complexes et exigeants, avec un souci constant de la qualité du code, de la sécurité et de l'accessibilité. Je pratique l'IA agentique au quotidien (Claude Code, GitHub Copilot, Cursor, Codex), en gardant la main sur la revue du code produit par les agents.",
     "ctaSecondary": "Voir les projets",
     "ctaContact": "me contacter"
   },
@@ -138,8 +138,8 @@
         "description": "Mon environnement de travail au quotidien."
       },
       "watch": {
-        "label": "En veille",
-        "description": "Technologies suivies avec intérêt, pas encore utilisées en production."
+        "label": "Autoformation et montée en compétences",
+        "description": "Apprentissage et mise en pratique à travers des projets personnels"
       }
     }
   },
@@ -158,11 +158,12 @@
         "intro": "Contribution sur plus de 50 projets clients chez Gingerminds, dans des secteurs variés tels que le bâtiment, l'industrie, la santé, l'énergie, les mutuelles et assurances, ainsi que l'agriculture et l'agroalimentaire, dont une grande partie est toujours en production aujourd'hui.",
         "points": [
           "Conception et développement de sites de marque, catalogues, institutionnels, e-commerce et outils métiers",
-          "Lead Dev / Tech Lead sur des projets clients récurrents : cadrage, architecture, faisabilité et chiffrage avec les Product Owners",
-          "Encadrement des développeurs : revues de code, documentation, bonnes pratiques et qualité",
+          "Lead Dev / Tech Lead sur des projets clients récurrents : cadrage, analyses techniques et chiffrage avec les Product Owners",
+          "Revue de code et encadrement des développeurs : documentation, bonnes pratiques et qualité",
           "Industrialisation des Starter Kits CMS : socles standardisés, composants réutilisables et pipelines CI/CD",
-          "Développement d'API REST et intégration avec les outils métiers",
+          "Adaptation et paramétrage de CMS, développement d'API REST et intégration aux outils métiers",
           "TMA et maintenance applicative : analyse et résolution d'anomalies et d'incidents, maintenance corrective et évolutive",
+          "Intégration de l'IA agentique dans le workflow de développement sur projets clients",
           "Audits qualité et conformité : performance, sécurité, RGAA, tracking et analyse de performance",
           "Veille technique et partage de connaissances au sein de l'équipe Tech",
           "Vie d'agence : onboarding des nouveaux arrivants et participation à l'équipe Happiness"
@@ -270,11 +271,12 @@
     "contact": {
       "eyebrow": "CONTACT",
       "title": "Construisons la suite ensemble",
-      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer · Tech Lead",
-      "subtitleSecondary": "Prompt Engineering · AI Engineer · AI Product Engineer",
-      "subtitleTertiary": "PHP, JavaScript · Expert Drupal & WordPress",
+      "subtitle": "Développeur Web Full-Stack Senior · Lead Developer",
+      "subtitleSecondary": "Prompt Engineering · Développeur IA agentique",
+      "subtitleTertiary": "AI Engineer · AI Product Engineer",
       "bookCall": "Prendre rendez-vous",
-      "chat": "Discuter avec l'assistant IA"
+      "chat": "Discuter avec l'assistant IA",
+      "subtitleQuaternary": "PHP, JavaScript · Expert Drupal & WordPress"
     }
   },
   "projectDetail": {
