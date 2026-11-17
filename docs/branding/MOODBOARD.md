@@ -1,63 +1,56 @@
 # Moodboard
 
-> Moodboard textuel — traduit en tokens concrets dans [COLOR_PALETTE.md](./COLOR_PALETTE.md), [TYPOGRAPHY.md](./TYPOGRAPHY.md) et [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md). Prompts prêts à l'emploi pour Midjourney/Flux/DALL·E en fin de document (voir aussi [AI_PROMPTS.md](./AI_PROMPTS.md) pour la bibliothèque complète).
+**🇫🇷 En une phrase : terminal chaleureux × studio de design × papeterie fine — géométrie + chaleur + technique.** · **🇬🇧 In one line: warm terminal × design studio × fine stationery — geometry + warmth + technicality.**
+
+> Moodboard textuel, traduit en tokens concrets dans / text moodboard, turned into concrete tokens in [COLOR_PALETTE.md](./COLOR_PALETTE.md), [TYPOGRAPHY.md](./TYPOGRAPHY.md), [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md). Bibliothèque complète de prompts / full prompt library: [AI_PROMPTS.md](./AI_PROMPTS.md).
 
 ---
 
 ## 🇫🇷 Français
 
-### Inspirations
+### Les 3 inspirations
 
-- **Terminal / IDE moderne** — thèmes de code sombres et chaleureux (pas les classiques noir/vert néon), curseur clignotant, indicateurs de statut système.
-- **Studio de design produit** — le sérieux d'un cabinet de branding (Pentagram, Wolff Olins) appliqué à un CV vivant plutôt qu'à un client.
-- **Papeterie fine chaude** — crème, encre profonde, touches gold : l'univers d'un carnet Moleskine haut de gamme plutôt que d'un dashboard SaaS froid.
+1. **Terminal / IDE moderne** — thèmes de code sombres et chaleureux (pas le noir/vert néon), curseur clignotant, indicateurs de statut système.
+2. **Studio de design produit** — le sérieux d'un cabinet de branding (Pentagram, Wolff Olins) appliqué à un CV vivant.
+3. **Papeterie fine chaude** — crème, encre profonde, touches gold : un Moleskine haut de gamme, pas un dashboard SaaS froid.
 
-### Matières (métaphoriques)
-
-Papier crème légèrement texturé, laiton brossé mat (pour le gold), céramique émaillée vert d'eau (pour le mint), encre de Chine profonde (pour l'ink). Rien de brillant, rien de plastique — des matières qui vieillissent bien, cohérent avec le discours de "pérennité des choix techniques".
+**Synthèse visuelle** : le monogramme du logo (cercle organique + chevrons).
 
 ### Couleurs
 
-Voir palette complète : [COLOR_PALETTE.md](./COLOR_PALETTE.md).
+Palette complète : [COLOR_PALETTE.md](./COLOR_PALETTE.md).
 
-- Fond crème chaud `#F3F4F0` / bleu-nuit profond `#152833` (jour/nuit)
-- Encre `#1D3540`
-- Gold `#EFC78A` — chaleur, rareté, valeur
-- Mint `#7FD9C4` — fraîcheur technique, vivacité
-- Terracotta cassé `#C65B4F` — la seule couleur d'alerte, jamais criarde
-
-### Objets
-
-Un carnet à spirale ouvert avec des annotations à la main à l'encre, une tasse de café en céramique mate vert d'eau, un clavier mécanique discret, un point lumineux ambre sur un bureau sombre, une règle graduée en laiton.
+| Couleur                | Valeur                            | Évoque                                 |
+| ---------------------- | --------------------------------- | -------------------------------------- |
+| Fond crème / bleu-nuit | `#F3F4F0` / `#152833` (jour/nuit) | Papier, nuit calme                     |
+| Encre                  | `#1D3540`                         | Encre de Chine                         |
+| Gold                   | `#EFC78A`                         | Chaleur, rareté, valeur                |
+| Mint                   | `#7FD9C4`                         | Fraîcheur technique, vivacité          |
+| Terracotta cassé       | `#C65B4F`                         | Seule couleur d'alerte, jamais criarde |
 
 ### Typographies
 
-- **Space Grotesk** — géométrique, chaleureuse dans ses courbes, l'équivalent visuel d'une signature nette et confiante.
-- **JetBrains Mono** — la police "outil de précision", comme un tampon numéroté ou une étiquette de dossier technique.
+- **Space Grotesk** — géométrique, chaleureuse dans ses courbes : une signature nette et confiante.
+- **JetBrains Mono** — "outil de précision" : tampon numéroté, étiquette de dossier technique.
 
-Voir [TYPOGRAPHY.md](./TYPOGRAPHY.md) pour l'échelle complète.
+Échelle complète : [TYPOGRAPHY.md](./TYPOGRAPHY.md).
 
-### Architecture
+### Matières & objets
 
-Bureaux d'agence scandinave-minimaliste : bois clair, murs crème, une seule touche de couleur vive par pièce (un fauteuil gold, une porte mint). Lignes nettes, rien de superflu, beaucoup de lumière naturelle diffuse.
+- **Matières (métaphoriques)** — papier crème légèrement texturé, laiton brossé mat (gold), céramique émaillée vert d'eau (mint), encre de Chine (ink). Rien de brillant ni de plastique : des matières qui vieillissent bien, comme des choix techniques pérennes.
+- **Objets** — carnet à spirale annoté à l'encre, tasse en céramique mate vert d'eau, clavier mécanique discret, point lumineux ambre sur un bureau sombre, règle graduée en laiton.
 
-### Paysages
+### Univers
 
-Non pertinent pour ce portfolio technique — volontairement absent du moodboard (voir [PHOTOGRAPHY.md](./PHOTOGRAPHY.md), "Nature").
+- **Interfaces** — dashboards épurés clairs ou sombres, cartes à bordures fines et coins généreux, badges monospace, points de statut pulsants ambre/vert d'eau. "Control room élégante", pas "SaaS générique bleu".
+- **Styles graphiques** — flat strict, aucune ombre décorative, aucun dégradé, formes géométriques simples aux angles arrondis.
+- **Architecture** — agence scandinave-minimaliste : bois clair, murs crème, une seule touche vive par pièce (fauteuil gold, porte mint), lumière naturelle diffuse.
+- **Packaging** — boîtes mates crème, liseré gold à chaud, étiquettes monospace "numéro de série" : objet technique premium (outil d'artisan), pas packaging grand public coloré.
+- **Paysages** — volontairement absents, hors sujet ([PHOTOGRAPHY.md](./PHOTOGRAPHY.md), "Sujets").
 
-### Packaging
+### Prompts
 
-Boîtes mates crème avec liseré gold à chaud, étiquettes en typo monospace façon "numéro de série" — l'esthétique d'un objet technique premium (type outil d'artisan haut de gamme) plutôt qu'un packaging grand public coloré.
-
-### Interfaces
-
-Dashboards épurés à fond clair ou sombre, cartes à bordures fines et coins arrondis généreux, badges monospace, points de statut pulsants ambre/vert d'eau — l'esthétique "control room élégante" plutôt que "SaaS générique bleu".
-
-### Styles graphiques
-
-Flat design strict, aucune ombre décorative, aucun dégradé, formes géométriques simples adoucies par des angles arrondis. Le monogramme du logo (cercle organique + chevrons) est la meilleure synthèse visuelle de tout le moodboard : géométrie + chaleur + technique.
-
-### Prompts Midjourney
+**Midjourney**
 
 ```
 /imagine warm minimalist mood board collage, cream and deep navy
@@ -76,7 +69,7 @@ rounded corners, clean minimal SaaS aesthetic, professional developer
 tool, no gradients no shadows --ar 16:9 --v 6
 ```
 
-### Prompts Flux
+**Flux**
 
 ```
 Minimalist warm tech branding moodboard, cream (#F3F4F0) and deep
@@ -88,7 +81,7 @@ no neon, no glossy plastic, high detail, professional brand identity
 board layout
 ```
 
-### Prompts DALL·E
+**DALL·E**
 
 ```
 A professional brand moodboard image showing a warm minimal color
@@ -103,65 +96,46 @@ no text overlays, high resolution
 
 ## 🇬🇧 English
 
-### Inspirations
+### The 3 inspirations
 
-- **Terminal / modern IDE** — warm dark code themes (not the classic black/neon-green), blinking cursor, system status indicators.
-- **Product design studio** — the seriousness of a branding house (Pentagram, Wolff Olins) applied to a living résumé instead of a client.
-- **Fine warm stationery** — cream, deep ink, gold touches: the world of a high-end Moleskine notebook rather than a cold SaaS dashboard.
+1. **Terminal / modern IDE** — warm dark code themes (not black/neon-green), blinking cursor, system status indicators.
+2. **Product design studio** — the seriousness of a branding house (Pentagram, Wolff Olins) applied to a living résumé.
+3. **Fine warm stationery** — cream, deep ink, gold touches: a high-end Moleskine, not a cold SaaS dashboard.
 
-### Materials (metaphorical)
-
-Slightly textured cream paper, matte brushed brass (for gold), glazed seafoam ceramic (for mint), deep India ink (for ink). Nothing glossy, nothing plastic — materials that age well, consistent with the "durability of technical choices" narrative.
+**Visual synthesis**: the logo monogram (organic circle + chevrons).
 
 ### Colors
 
 Full palette: [COLOR_PALETTE.md](./COLOR_PALETTE.md).
 
-- Warm cream background `#F3F4F0` / deep navy `#152833` (day/night)
-- Ink `#1D3540`
-- Gold `#EFC78A` — warmth, rarity, value
-- Mint `#7FD9C4` — technical freshness, vividness
-- Broken terracotta `#C65B4F` — the sole alert color, never garish
-
-### Objects
-
-An open spiral notebook with handwritten ink annotations, a matte seafoam ceramic coffee mug, a discreet mechanical keyboard, a warm amber pinpoint light on a dark desk, a brass ruler.
+| Color                        | Value                             | Evokes                         |
+| ---------------------------- | --------------------------------- | ------------------------------ |
+| Cream / deep navy background | `#F3F4F0` / `#152833` (day/night) | Paper, calm night              |
+| Ink                          | `#1D3540`                         | India ink                      |
+| Gold                         | `#EFC78A`                         | Warmth, rarity, value          |
+| Mint                         | `#7FD9C4`                         | Technical freshness, vividness |
+| Broken terracotta            | `#C65B4F`                         | Sole alert color, never garish |
 
 ### Typography
 
-- **Space Grotesk** — geometric, warm in its curves, the visual equivalent of a clean, confident signature.
-- **JetBrains Mono** — the "precision tool" font, like a numbered stamp or a technical file label.
+- **Space Grotesk** — geometric, warm in its curves: a clean, confident signature.
+- **JetBrains Mono** — "precision tool": numbered stamp, technical file label.
 
-See [TYPOGRAPHY.md](./TYPOGRAPHY.md) for the full scale.
+Full scale: [TYPOGRAPHY.md](./TYPOGRAPHY.md).
 
-### Architecture
+### Materials & objects
 
-Scandinavian-minimalist agency offices: light wood, cream walls, a single bright color touch per room (a gold armchair, a mint door). Clean lines, nothing superfluous, plenty of diffused natural light.
+- **Materials (metaphorical)** — slightly textured cream paper, matte brushed brass (gold), glazed seafoam ceramic (mint), India ink (ink). Nothing glossy or plastic: materials that age well, like durable technical choices.
+- **Objects** — spiral notebook with ink annotations, matte seafoam ceramic mug, discreet mechanical keyboard, warm amber pinpoint light on a dark desk, brass ruler.
 
-### Landscapes
+### World
 
-Not relevant for this technical portfolio — deliberately absent from the moodboard (see [PHOTOGRAPHY.md](./PHOTOGRAPHY.md), "Nature").
+- **Interfaces** — clean light or dark dashboards, thin-bordered cards with generous corners, monospace badges, pulsing amber/seafoam status dots. "Elegant control room", not "generic blue SaaS".
+- **Graphic styles** — strict flat, no decorative shadows, no gradients, simple geometric shapes with rounded corners.
+- **Architecture** — Scandinavian-minimalist agency: light wood, cream walls, one bright touch per room (gold armchair, mint door), diffused natural light.
+- **Packaging** — matte cream boxes, hot-stamped gold trim, monospace "serial number" labels: premium technical object (craftsman's tool), not colorful consumer packaging.
+- **Landscapes** — deliberately absent, out of scope ([PHOTOGRAPHY.md](./PHOTOGRAPHY.md), "Subjects").
 
-### Packaging
+### Prompts
 
-Matte cream boxes with hot-stamped gold trim, monospace "serial number"-style labels — the aesthetic of a premium technical object (a high-end craftsman's tool) rather than colorful consumer packaging.
-
-### Interfaces
-
-Clean dashboards on light or dark backgrounds, thin-bordered cards with generous rounded corners, monospace badges, pulsing amber/seafoam status dots — an "elegant control room" aesthetic rather than "generic blue SaaS."
-
-### Graphic styles
-
-Strict flat design, no decorative shadows, no gradients, simple geometric shapes softened by rounded corners. The logo monogram (organic circle + chevrons) is the best single visual synthesis of this entire moodboard: geometry + warmth + technicality.
-
-### Midjourney prompts
-
-See the FR section above — the three prompt blocks are directly reusable as-is (Midjourney prompts are written in English regardless of documentation language).
-
-### Flux prompts
-
-See the FR section above.
-
-### DALL·E prompts
-
-See the FR section above.
+The Midjourney, Flux and DALL·E prompts in the FR section above are written in English and reusable as-is — copy them from there.

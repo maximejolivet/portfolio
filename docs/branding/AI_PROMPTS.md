@@ -1,8 +1,23 @@
 # Prompts IA / AI Prompts
 
-> Bibliothèque de prompts pour production visuelle assistée par IA. Les prompts sont écrits en anglais (standard du secteur, meilleure fidélité de rendu sur la plupart des moteurs) — les titres de section sont bilingues. Toujours vérifier le résultat contre [COLOR_PALETTE.md](./COLOR_PALETTE.md), [TYPOGRAPHY.md](./TYPOGRAPHY.md) et [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) avant usage. Pour le logo et la photographie, voir aussi [LOGO.md](./LOGO.md) et [PHOTOGRAPHY.md](./PHOTOGRAPHY.md) (bibliothèques dédiées, plus détaillées).
+**🇫🇷 Générer un visuel : coller le bloc de marque ci-dessous, puis le prompt du livrable, puis remplacer le texte et corriger les couleurs à la main.**
+**🇬🇧 Generate a visual: paste the brand block below, then the deliverable's prompt, then replace the text and correct colors by hand.**
 
-**Constante de marque à répéter dans chaque prompt** (bloc réutilisable) :
+> Prompts en anglais (standard du secteur, meilleure fidélité) ; titres bilingues. / Prompts in English (industry standard, better fidelity); bilingual headings. Bibliothèques détaillées / detailed libraries: [LOGO.md](./LOGO.md), [PHOTOGRAPHY.md](./PHOTOGRAPHY.md), [MOODBOARD.md](./MOODBOARD.md).
+
+## Étapes / Steps
+
+1. **FR** Coller le bloc de marque en préfixe. **EN** Prepend the brand block.
+   - Midjourney : `--sref` (style de référence) une fois quelques rendus validés / once a few outputs are validated.
+   - Flux/SD : concaténer directement au prompt / concatenate directly.
+2. **FR** Ajouter le prompt du livrable (sections ci-dessous). **EN** Add the deliverable's prompt (sections below).
+3. **FR** Remplacer tout texte généré par le vrai texte (Space Grotesk / JetBrains Mono) en post-production — l'IA gère mal la typo. **EN** Replace any generated text with real text (Space Grotesk / JetBrains Mono) in post — AI handles typography poorly.
+4. **FR** Comparer les couleurs aux HEX exacts ([COLOR_PALETTE.md](./COLOR_PALETTE.md)) et corriger — les moteurs dérivent presque toujours. **EN** Compare colors to exact HEX ([COLOR_PALETTE.md](./COLOR_PALETTE.md)) and correct — engines almost always drift.
+5. **FR** Vérifier contre [TYPOGRAPHY.md](./TYPOGRAPHY.md) et [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md). **EN** Check against [TYPOGRAPHY.md](./TYPOGRAPHY.md) and [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md).
+
+**⚠️ Logo** — jamais un rendu IA comme asset final / never use an AI render as the final asset. Le SVG codé [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) reste l'unique source de vérité / stays the single source of truth ([LOGO.md](./LOGO.md)).
+
+## Bloc de marque / Brand block
 
 ```
 Brand color palette: warm cream background #F3F4F0 (or deep navy
@@ -17,15 +32,7 @@ minimal, technical-but-approachable senior developer personal brand.
 
 ---
 
-## 🇫🇷 Français — Guide d'usage
-
-Chaque bloc ci-dessous cible un livrable précis. Coller le "bloc réutilisable" ci-dessus en préfixe si le moteur le permet (Midjourney : `--sref`/style de référence recommandé après quelques générations validées ; Flux/SD : peut être concaténé directement au prompt).
-
-## 🇬🇧 English — Usage guide
-
-Each block below targets one specific deliverable. Prepend the reusable brand block above when the engine supports it (Midjourney: consider a `--sref` style reference once a few outputs are validated; Flux/SD: can be concatenated directly into the prompt).
-
----
+## Identité / Identity
 
 ### Logo
 
@@ -58,6 +65,8 @@ strokes, rounded caps, minimal geometric character or object, no
 gradients, no textures, clean editorial tech-illustration style,
 24-32px icon grid consistency
 ```
+
+## Interfaces
 
 ### Homepage (desktop hero)
 
@@ -96,6 +105,8 @@ professional developer/productivity app aesthetic, two screens shown
 side by side, high fidelity UI mockup
 ```
 
+## Print
+
 ### Cartes de visite / Business cards
 
 ```
@@ -130,6 +141,8 @@ in a corner, minimal mint accent line, flat design, no gradients,
 confident minimal typographic poster, professional developer/tech
 event poster aesthetic, print-ready
 ```
+
+## Réseaux & produits / Social & products
 
 ### Réseaux sociaux / Social media
 
@@ -182,6 +195,8 @@ soft natural light, warm minimal styling, no clutter, professional
 brand merchandise presentation
 ```
 
+## Ambiance / Mood
+
 ### Moodboard
 
 _(Bibliothèque complète : [MOODBOARD.md](./MOODBOARD.md))_
@@ -206,11 +221,3 @@ subject centered chest-up crop, natural genuine smile, approachable
 professional look, minimal color grading, high resolution, shallow
 depth of field on background only
 ```
-
----
-
-## Notes de qualité / Quality notes
-
-- **FR/EN** : toujours vérifier que le rendu respecte le principe "aucun texte généré par l'IA n'est utilisable tel quel" — les moteurs d'image gèrent mal la typographie précise. Utiliser l'IA pour la composition/l'ambiance, puis surcharger le texte réel (Space Grotesk / JetBrains Mono) en post-production.
-- Toujours comparer le rendu de couleur généré au HEX exact de la palette ([COLOR_PALETTE.md](./COLOR_PALETTE.md)) — les moteurs dérivent souvent la teinte demandée, une correction colorimétrique post-génération est presque toujours nécessaire.
-- Ne jamais utiliser un rendu IA du logo comme asset final — le SVG codé ([`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue)) reste l'unique source de vérité (voir [LOGO.md](./LOGO.md)).
