@@ -1,31 +1,38 @@
 # Security Policy
 
-This is a personal portfolio site (single maintainer, no bug bounty program), but reports of genuine security issues are welcome and taken seriously.
+**Found a vulnerability? Email maximejolivet.pro@gmail.com** — or use [GitHub private vulnerability reporting](https://github.com/maximejolivet/portfolio/security/advisories/new). Never a public issue.
 
-## Supported Versions
+## How to report
 
-This repo doesn't cut versioned releases — `master` is the only branch deployed to production (auto-deployed to Vercel on every push). Only the latest commit on `master` is supported; there is no older version to patch.
+1. Write what you found.
+2. Add steps to reproduce.
+3. Add the potential impact, if known.
+4. Send it privately (email or GitHub link above).
 
-## Reporting a Vulnerability
+Expect an acknowledgment within **3 to 5 days**. Single maintainer, no bug bounty — but genuine reports are taken seriously.
 
-Please report security issues privately, not via a public GitHub issue.
+## Don't
 
-- Email: **maximejolivet.pro@gmail.com**
-- Or use [GitHub's private vulnerability reporting](https://github.com/maximejolivet/portfolio/security/advisories/new) for this repository.
+- Access, modify, or exfiltrate data beyond what proves the issue
+- Run automated scanners that put significant load on the live site
+- Disclose publicly before a fix ships
 
-Include what you found, steps to reproduce, and potential impact if known. As a solo-maintained project, response times are best-effort — expect an acknowledgment within a few days.
+## Supported versions
 
-Please don't:
+Only the latest commit on `master`. No versioned releases: every push to `master` auto-deploys to Vercel, so there is no older version to patch.
 
-- Access, modify, or exfiltrate data beyond what's needed to demonstrate the issue
-- Run automated scanners that generate significant load against the live site
-- Publicly disclose the issue before it's been addressed
+## Already in place
 
-## What's already in place
+**App**
 
-- Strict Content Security Policy with per-request nonces, and CSRF protection (`nuxt-security`, see `nuxt.config.ts`)
-- HTML content from Supabase (blog articles, project case studies) is sanitized (`isomorphic-dompurify` via `utils/sanitizeHtml.ts`, fixed tag/attribute allowlist) before being rendered
-- No secrets committed to the repository; deployment auth to Vercel/GitHub uses platform-managed tokens, not hardcoded credentials
-- Dependencies tracked via `package-lock.json`; update with `npm audit` / `ncu` (see `README.md`, "Update Dependencies")
-- CI (`.github/workflows/ci.yml`) gates every `master` push/PR with a SonarQube Cloud scan (blocking quality gate) and a Socket Firewall-wrapped `npm ci` (`sfw npm ci`) that blocks malicious/typosquatted packages at install time
-- The [Socket Security GitHub App](https://github.com/marketplace/socket-security) reviews dependency changes on every PR (installed via GitHub Marketplace, not repo config)
+- Strict CSP with per-request nonces + CSRF protection (`nuxt-security`, see `nuxt.config.ts`)
+- Supabase HTML (blog articles, case studies) sanitized before render (`isomorphic-dompurify` via `utils/sanitizeHtml.ts`, fixed tag/attribute allowlist)
+- No secrets in the repo; Vercel/GitHub auth uses platform-managed tokens
+
+**Supply chain**
+
+- Dependencies locked in `package-lock.json`; update with `npm audit` / `ncu` (see `README.md`, "Update Dependencies")
+- CI (`.github/workflows/ci.yml`) gates every `master` push/PR:
+  - SonarQube Cloud scan, blocking quality gate
+  - `sfw npm ci` (Socket Firewall) blocks malicious/typosquatted packages at install
+- [Socket Security GitHub App](https://github.com/marketplace/socket-security) reviews dependency changes on every PR (installed via Marketplace, not repo config)

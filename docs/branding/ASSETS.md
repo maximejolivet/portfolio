@@ -1,109 +1,155 @@
 # Assets
 
-> Inventaire des ressources de marque : ce qui existe déjà dans le repo, ce qui reste à produire. Voir [LOGO.md](./LOGO.md), [PHOTOGRAPHY.md](./PHOTOGRAPHY.md) et [COLOR_PALETTE.md](./COLOR_PALETTE.md) pour les spécifications de chaque type d'asset.
+**🇫🇷 Prochaine action : remplacer les captures placeholder de `constants/projects.ts`.** · **🇬🇧 Next action: replace the placeholder screenshots in `constants/projects.ts`.**
+
+> Specs par type d'asset / per-asset specs: [LOGO.md](./LOGO.md), [PHOTOGRAPHY.md](./PHOTOGRAPHY.md), [COLOR_PALETTE.md](./COLOR_PALETTE.md).
 
 ---
 
 ## 🇫🇷 Français
 
-### État des lieux
+### Priorités
 
-| Asset                             | Statut                 | Emplacement                                                                                                                                                                                                                                                                                                 |
-| --------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Logo SVG (monogramme)             | ✅ Existe              | [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) (inline, pas un fichier `.svg` statique)                                                                                                                                                                                                   |
-| Logo SVG statique                 | ⚠️ Partiel             | `public/maxime.svg` — à vérifier si identique au composant `LogoMark`                                                                                                                                                                                                                                       |
-| Favicon                           | ✅ Existe              | `public/favicon.ico`, `public/favicon.png`                                                                                                                                                                                                                                                                  |
-| Portrait                          | ✅ Existe              | `public/maximejolivet.jpg`                                                                                                                                                                                                                                                                                  |
-| Image Open Graph                  | ✅ Existe              | `public/open-graph-maximejolivet.jpg`                                                                                                                                                                                                                                                                       |
-| CV (PDF)                          | ✅ Existe (3 versions) | `public/cv-maximejolivet-developpeur.pdf`, `public/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-tech-lead.pdf`, `public/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-tech-lead-ia.pdf` — ⚠️ 3 versions actives, clarifier laquelle est canonique ou pourquoi 3 sont nécessaires |
-| Capture de projet                 | ⚠️ 1 seule             | `public/projects/vygon.jpg` — les autres études de cas (`constants/projects.ts` : ecommerce/marque/interventions/media) utilisent du contenu placeholder, voir mémoire projet                                                                                                                               |
-| Logo PNG                          | ❌ À produire          | Export du SVG à 512px, 256px, 128px (fond transparent)                                                                                                                                                                                                                                                      |
-| Logo PDF (vectoriel print)        | ❌ À produire          | Pour supports imprimés (cartes de visite, etc.)                                                                                                                                                                                                                                                             |
-| Icônes custom                     | N/A                    | Le système utilise Lucide (bibliothèque tierce via Iconify), pas d'icônes custom à produire — voir [ICONOGRAPHY.md](./ICONOGRAPHY.md)                                                                                                                                                                     |
-| Illustrations                     | ❌ Non existantes      | Pas de style d'illustration établi — voir [ICONOGRAPHY.md](./ICONOGRAPHY.md) pour la recommandation si besoin futur                                                                                                                                                                                       |
-| Bannières réseaux sociaux         | ❌ À produire          | LinkedIn (1584×396), Open Graph déjà couvert                                                                                                                                                                                                                                                                |
-| Photos marketing additionnelles   | ❌ À produire          | Voir [PHOTOGRAPHY.md](./PHOTOGRAPHY.md)                                                                                                                                                                                                                                                                   |
-| Textures / motifs                 | ✅ Génératif (CSS)     | Motif de rayures `--stripe` défini en CSS (`ImagePlaceholder.vue`), pas un fichier image                                                                                                                                                                                                                    |
-| Templates (deck, doc)             | ❌ À produire          | —                                                                                                                                                                                                                                                                                                           |
-| Réseaux sociaux (avatars, covers) | ❌ À produire          | —                                                                                                                                                                                                                                                                                                           |
-| Présentation PowerPoint           | ❌ À produire          | —                                                                                                                                                                                                                                                                                                           |
-| Cartes de visite                  | ❌ À produire          | Voir prompts dans [AI_PROMPTS.md](./AI_PROMPTS.md)                                                                                                                                                                                                                                                          |
-| Signature mail                    | ❌ À produire          | Recommandation : nom en Space Grotesk 600, rôle en JetBrains Mono, logo 24px, lien vers le portfolio                                                                                                                                                                                                        |
-| Goodies                           | ❌ Non prioritaire     | Hors scope actuel d'un portfolio personnel                                                                                                                                                                                                                                                                  |
-| Mockups (device/produit)          | ❌ À produire          | Voir prompts dans [AI_PROMPTS.md](./AI_PROMPTS.md)                                                                                                                                                                                                                                                          |
-| Packaging                         | ❌ Non pertinent       | Pas de produit physique associé à la marque actuellement                                                                                                                                                                                                                                                    |
+1. **Remplacer les captures placeholder** — contenu fictif dans `constants/projects.ts` (voir mémoire projet, "Content still fictional, needs replacing by Maxime").
+2. **Exporter le logo en PNG/PDF** — candidatures, print.
+3. **Produire une signature mail** — usage fréquent, coût faible.
 
-### Priorités recommandées
+### Existe déjà
 
-1. **Clarifier les 3 CV PDF** — un seul fichier canonique évite la confusion (nom de fichier, contenu à jour).
-2. **Compléter les captures de projets réelles** — remplacer le contenu placeholder de `constants/projects.ts` (voir mémoire projet, "Content still fictional, needs replacing by Maxime").
-3. **Exporter le logo en PNG/PDF** pour les usages hors-web (candidature, print).
-4. **Produire une signature mail** — usage fréquent, coût de production faible.
+**Identité**
 
-### Conventions de nommage
+| Asset                 | Statut             | Emplacement                                                                                               |
+| --------------------- | ------------------ | --------------------------------------------------------------------------------------------------------- |
+| Logo SVG (monogramme) | ✅ Existe          | [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) (inline, pas un fichier `.svg` statique) |
+| Logo SVG statique     | ⚠️ Partiel         | `public/maxime.svg` — à vérifier si identique au composant `LogoMark`                                     |
+| Favicon               | ✅ Existe          | `public/favicon.ico`, `public/favicon.png`                                                                |
+| Textures / motifs     | ✅ Génératif (CSS) | Motif de rayures `--stripe` en CSS (`ImagePlaceholder.vue`), pas un fichier image                         |
 
-Suivre le pattern déjà en place dans `public/` : `[nom-du-fichier]-maximejolivet[-descripteur].{ext}`, en minuscules, mots séparés par des tirets, sans accents.
+**Contenu**
 
-### Formats et résolutions recommandés
+| Asset             | Statut     | Emplacement                                                                                                                                 |
+| ----------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Portrait          | ✅ Existe  | `public/maximejolivet.jpg`                                                                                                                  |
+| Image Open Graph  | ✅ Existe  | `public/open-graph-maximejolivet.jpg`                                                                                                       |
+| CV (PDF)          | ✅ Existe  | `public/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-php-symfony-drupal-wordpress-javascript-vuejs-ia.pdf` (fichier unique)   |
+| Capture de projet | ⚠️ 1 seule | `public/projects/vygon.jpg` — les autres études de cas (`constants/projects.ts` : ecommerce/marque/interventions/media) sont en placeholder |
 
-| Type                   | Format               | Résolution / poids                                                                                      |
-| ---------------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
-| Logo web               | SVG (préféré) ou PNG | SVG vectoriel ; PNG à 512×512 min si raster nécessaire                                                  |
-| Favicon                | ICO + PNG            | 16×16, 32×32, 180×180 (apple-touch-icon)                                                                |
-| Photos web             | JPG/WebP             | Largeur max 1600px, compression optimisée (`@nuxt/image` déjà en place pour l'optimisation automatique) |
-| Open Graph             | JPG                  | 1200×630px                                                                                              |
-| CV                     | PDF                  | A4, poids < 2Mo                                                                                         |
-| Print (cartes, flyers) | PDF vectoriel (CMJN) | 300 DPI minimum                                                                                         |
+### À produire
+
+**Logo & print**
+
+| Asset                      | Notes                                                                               |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| Logo PNG                   | Export du SVG à 512px, 256px, 128px (fond transparent)                              |
+| Logo PDF (vectoriel print) | Supports imprimés (cartes de visite, etc.)                                          |
+| Cartes de visite           | Prompts dans [AI_PROMPTS.md](./AI_PROMPTS.md)                                       |
+| Signature mail             | Nom en Space Grotesk 600, rôle en JetBrains Mono, logo 24px, lien vers le portfolio |
+
+**Réseaux & marketing**
+
+| Asset                             | Notes                                         |
+| --------------------------------- | --------------------------------------------- |
+| Bannières réseaux sociaux         | LinkedIn (1584×396) ; Open Graph déjà couvert |
+| Réseaux sociaux (avatars, covers) | —                                             |
+| Photos marketing additionnelles   | Voir [PHOTOGRAPHY.md](./PHOTOGRAPHY.md)       |
+| Mockups (device/produit)          | Prompts dans [AI_PROMPTS.md](./AI_PROMPTS.md) |
+| Templates (deck, doc), PowerPoint | —                                             |
+
+### Hors scope
+
+| Asset         | Raison                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| Icônes custom | N/A — Lucide via Iconify, voir [ICONOGRAPHY.md](./ICONOGRAPHY.md)                           |
+| Illustrations | Aucun style établi — recommandation si besoin futur dans [ICONOGRAPHY.md](./ICONOGRAPHY.md) |
+| Goodies       | Non prioritaire pour un portfolio personnel                                                 |
+| Packaging     | Aucun produit physique associé à la marque                                                  |
+
+### Nommer un fichier
+
+Pattern de `public/` : `[nom-du-fichier]-maximejolivet[-descripteur].{ext}` — minuscules, tirets, sans accents.
+
+### Formats et résolutions
+
+| Type                   | Format               | Résolution / poids                                          |
+| ---------------------- | -------------------- | ----------------------------------------------------------- |
+| Logo web               | SVG (préféré) ou PNG | SVG vectoriel ; PNG 512×512 min si raster nécessaire        |
+| Favicon                | ICO + PNG            | 16×16, 32×32, 180×180 (apple-touch-icon)                    |
+| Photos web             | JPG/WebP             | Largeur max 1600px (`@nuxt/image` optimise automatiquement) |
+| Open Graph             | JPG                  | 1200×630px                                                  |
+| CV                     | PDF                  | A4, < 2 Mo                                                  |
+| Print (cartes, flyers) | PDF vectoriel (CMJN) | 300 DPI minimum                                             |
 
 ---
 
 ## 🇬🇧 English
 
-### Current inventory
+### Priorities
 
-| Asset                          | Status                 | Location                                                                                                                                                                                                                                                                                  |
-| ------------------------------ | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Logo SVG (monogram)            | ✅ Exists              | [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) (inline, not a static `.svg` file)                                                                                                                                                                                       |
-| Static logo SVG                | ⚠️ Partial             | `public/maxime.svg` — verify whether it matches the `LogoMark` component                                                                                                                                                                                                                  |
-| Favicon                        | ✅ Exists              | `public/favicon.ico`, `public/favicon.png`                                                                                                                                                                                                                                                |
-| Portrait                       | ✅ Exists              | `public/maximejolivet.jpg`                                                                                                                                                                                                                                                                |
-| Open Graph image               | ✅ Exists              | `public/open-graph-maximejolivet.jpg`                                                                                                                                                                                                                                                     |
-| CV (PDF)                       | ✅ Exists (3 versions) | `public/cv-maximejolivet-developpeur.pdf`, `public/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-tech-lead.pdf`, `public/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-tech-lead-ia.pdf` — ⚠️ 3 active versions, clarify which is canonical or why 3 are needed |
-| Project screenshot             | ⚠️ Only 1              | `public/projects/vygon.jpg` — the other case studies (`constants/projects.ts`: ecommerce/marque/interventions/media) use placeholder content, see project memory                                                                                                                          |
-| Logo PNG                       | ❌ To produce          | SVG export at 512px, 256px, 128px (transparent background)                                                                                                                                                                                                                                |
-| Logo PDF (print vector)        | ❌ To produce          | For printed materials (business cards, etc.)                                                                                                                                                                                                                                              |
-| Custom icons                   | N/A                    | The system uses Lucide (third-party library via Iconify), no custom icons to produce — see [ICONOGRAPHY.md](./ICONOGRAPHY.md)                                                                                                                                                           |
-| Illustrations                  | ❌ None existing       | No established illustration style — see [ICONOGRAPHY.md](./ICONOGRAPHY.md) for the recommendation if needed in the future                                                                                                                                                               |
-| Social media banners           | ❌ To produce          | LinkedIn (1584×396), Open Graph already covered                                                                                                                                                                                                                                           |
-| Additional marketing photos    | ❌ To produce          | See [PHOTOGRAPHY.md](./PHOTOGRAPHY.md)                                                                                                                                                                                                                                                  |
-| Textures / patterns            | ✅ Generative (CSS)    | `--stripe` stripe pattern defined in CSS (`ImagePlaceholder.vue`), not an image file                                                                                                                                                                                                      |
-| Templates (deck, doc)          | ❌ To produce          | —                                                                                                                                                                                                                                                                                         |
-| Social media (avatars, covers) | ❌ To produce          | —                                                                                                                                                                                                                                                                                         |
-| PowerPoint presentation        | ❌ To produce          | —                                                                                                                                                                                                                                                                                         |
-| Business cards                 | ❌ To produce          | See prompts in [AI_PROMPTS.md](./AI_PROMPTS.md)                                                                                                                                                                                                                                           |
-| Email signature                | ❌ To produce          | Recommendation: name in Space Grotesk 600, role in JetBrains Mono, 24px logo, link to the portfolio                                                                                                                                                                                       |
-| Goodies                        | ❌ Not a priority      | Out of scope for a personal portfolio currently                                                                                                                                                                                                                                           |
-| Mockups (device/product)       | ❌ To produce          | See prompts in [AI_PROMPTS.md](./AI_PROMPTS.md)                                                                                                                                                                                                                                           |
-| Packaging                      | ❌ Not applicable      | No physical product associated with the brand currently                                                                                                                                                                                                                                   |
+1. **Replace placeholder screenshots** — fictional content in `constants/projects.ts` (see project memory, "Content still fictional, needs replacing by Maxime").
+2. **Export the logo as PNG/PDF** — applications, print.
+3. **Produce an email signature** — frequent use, low cost.
 
-### Recommended priorities
+### Already exists
 
-1. **Clarify the 3 CV PDFs** — a single canonical file avoids confusion (file naming, up-to-date content).
-2. **Complete real project screenshots** — replace the placeholder content in `constants/projects.ts` (see project memory, "Content still fictional, needs replacing by Maxime").
-3. **Export the logo as PNG/PDF** for non-web usage (applications, print).
-4. **Produce an email signature** — frequent use, low production cost.
+**Identity**
 
-### Naming conventions
+| Asset               | Status              | Location                                                                                            |
+| ------------------- | ------------------- | --------------------------------------------------------------------------------------------------- |
+| Logo SVG (monogram) | ✅ Exists           | [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) (inline, not a static `.svg` file) |
+| Static logo SVG     | ⚠️ Partial          | `public/maxime.svg` — verify whether it matches the `LogoMark` component                            |
+| Favicon             | ✅ Exists           | `public/favicon.ico`, `public/favicon.png`                                                          |
+| Textures / patterns | ✅ Generative (CSS) | `--stripe` stripe pattern in CSS (`ImagePlaceholder.vue`), not an image file                        |
 
-Follow the pattern already in place under `public/`: `[filename]-maximejolivet[-descriptor].{ext}`, lowercase, words separated by hyphens, no accented characters.
+**Content**
 
-### Recommended formats and resolutions
+| Asset              | Status    | Location                                                                                                                               |
+| ------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Portrait           | ✅ Exists | `public/maximejolivet.jpg`                                                                                                             |
+| Open Graph image   | ✅ Exists | `public/open-graph-maximejolivet.jpg`                                                                                                  |
+| CV (PDF)           | ✅ Exists | `public/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-php-symfony-drupal-wordpress-javascript-vuejs-ia.pdf` (single file) |
+| Project screenshot | ⚠️ Only 1 | `public/projects/vygon.jpg` — the other case studies (`constants/projects.ts`: ecommerce/marque/interventions/media) are placeholders  |
 
-| Type                  | Format                 | Resolution / weight                                                                                 |
-| --------------------- | ---------------------- | --------------------------------------------------------------------------------------------------- |
-| Web logo              | SVG (preferred) or PNG | Vector SVG; PNG at 512×512 min if raster is required                                                |
-| Favicon               | ICO + PNG              | 16×16, 32×32, 180×180 (apple-touch-icon)                                                            |
-| Web photos            | JPG/WebP               | Max width 1600px, optimized compression (`@nuxt/image` already in place for automatic optimization) |
-| Open Graph            | JPG                    | 1200×630px                                                                                          |
-| CV                    | PDF                    | A4, weight < 2MB                                                                                    |
-| Print (cards, flyers) | Vector PDF (CMYK)      | 300 DPI minimum                                                                                     |
+### To produce
+
+**Logo & print**
+
+| Asset                   | Notes                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| Logo PNG                | SVG export at 512px, 256px, 128px (transparent background)                   |
+| Logo PDF (print vector) | Printed materials (business cards, etc.)                                     |
+| Business cards          | Prompts in [AI_PROMPTS.md](./AI_PROMPTS.md)                                  |
+| Email signature         | Name in Space Grotesk 600, role in JetBrains Mono, 24px logo, portfolio link |
+
+**Social & marketing**
+
+| Asset                             | Notes                                           |
+| --------------------------------- | ----------------------------------------------- |
+| Social media banners              | LinkedIn (1584×396); Open Graph already covered |
+| Social media (avatars, covers)    | —                                               |
+| Additional marketing photos       | See [PHOTOGRAPHY.md](./PHOTOGRAPHY.md)          |
+| Mockups (device/product)          | Prompts in [AI_PROMPTS.md](./AI_PROMPTS.md)     |
+| Templates (deck, doc), PowerPoint | —                                               |
+
+### Out of scope
+
+| Asset         | Reason                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| Custom icons  | N/A — Lucide via Iconify, see [ICONOGRAPHY.md](./ICONOGRAPHY.md)                           |
+| Illustrations | No established style — recommendation if ever needed in [ICONOGRAPHY.md](./ICONOGRAPHY.md) |
+| Goodies       | Not a priority for a personal portfolio                                                    |
+| Packaging     | No physical product associated with the brand                                              |
+
+### Naming a file
+
+Pattern used in `public/`: `[filename]-maximejolivet[-descriptor].{ext}` — lowercase, hyphens, no accents.
+
+### Formats and resolutions
+
+| Type                  | Format                 | Resolution / weight                                      |
+| --------------------- | ---------------------- | -------------------------------------------------------- |
+| Web logo              | SVG (preferred) or PNG | Vector SVG; PNG 512×512 min if raster required           |
+| Favicon               | ICO + PNG              | 16×16, 32×32, 180×180 (apple-touch-icon)                 |
+| Web photos            | JPG/WebP               | Max width 1600px (`@nuxt/image` optimizes automatically) |
+| Open Graph            | JPG                    | 1200×630px                                               |
+| CV                    | PDF                    | A4, < 2MB                                                |
+| Print (cards, flyers) | Vector PDF (CMYK)      | 300 DPI minimum                                          |

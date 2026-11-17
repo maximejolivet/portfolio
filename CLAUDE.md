@@ -1,75 +1,101 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code (claude.ai/code) in this repository.
 
-## Project
-
-Personal portfolio - Nuxt 4 SSR, deployed to Vercel (standard SSR build via Vercel's Nuxt preset, not a static export).
+**Personal portfolio — Nuxt 4 SSR on Vercel (Vercel's Nuxt preset, not a static export). Work on `develop`; deploy via PR `develop` → `master`.**
 
 ## Commands
 
 ```bash
 npm run dev          # dev server on http://localhost:8000 (non-standard port)
-npm run generate     # static build (used for deployment)
 npm run build        # SSR build
 npm run preview      # preview a built app
-npm run deploy       # build + generate in one step
 npm run test         # vitest run
 npm run lint         # ESLint check
 npm run lintfix      # ESLint --fix (also runs Prettier)
+npm run generate     # static export — manual/local only, not the production path
+npm run deploy       # build + generate in one step (manual/local only)
 ```
 
-## Code Style
+## Before you finish a change
 
-- No semicolons
-- Single quotes
-- Trailing commas in multiline
-- Print width: 100
-- 2-space indent
-- TypeScript: `strict: true`
+1. `npm run lintfix` (lint-staged also runs it on staged files pre-commit)
+2. `npm run test`
+3. UI text changed → update **all three** locale files (see i18n)
 
-Run `npm run lintfix` to auto-fix. lint-staged runs it on staged files pre-commit.
+## Code style
+
+- No semicolons, single quotes, trailing commas in multiline
+- Print width 100, 2-space indent
+- TypeScript `strict: true`
 
 ## Testing
 
-Vitest. Tests live in `test/**/*.spec.ts`, environment `node`. Run with `npm run test`.
+Vitest, environment `node`. Tests in `test/**/*.spec.ts`.
 
-## Design System
+## Design system
 
-Tailwind v4 (via `@tailwindcss/vite`, not PostCSS). Base UI primitives (`Badge`, `Button`, `Card` in `components/ui/`) are hand-rolled - originally scaffolded from shadcn-vue (style "new-york", baseColor "neutral"), but the shadcn-vue dependency, `components.json`, and `components/ui/shadcn/` were removed; the Tailwind variant classes were inlined directly into the `Ui*` wrappers instead.
+- Tailwind v4 via `@tailwindcss/vite` (not PostCSS).
+- `Badge`, `Button`, `Card` in `components/ui/` are hand-rolled `Ui*` wrappers with the Tailwind variant classes inlined.
+- Originally scaffolded from shadcn-vue ("new-york", baseColor "neutral"). The dependency, `components.json` and `components/ui/shadcn/` are gone — don't reintroduce them.
 
 ## i18n
 
-Three locales: French (`fr`, default), English (`en`, BCP47 `en-US`), and Breton (`br`, BCP47 `br-FR`). URL prefix strategy: `/fr/...`, `/en/...`, and `/br/...`.
+- Locales: `fr` (default), `en` (BCP47 `en-US`), `br` (Breton, BCP47 `br-FR`). URL prefixes `/fr/...`, `/en/...`, `/br/...`.
+- Files: `i18n/locales/en.json`, `fr.json`, `br.json`. **Always update all three.**
+- Breton is best-effort (not native-reviewed): flag new/changed `br` copy for review, don't treat it as final.
 
-Translation files live in `i18n/locales/`. Always update **all three** of `i18n/locales/en.json`, `i18n/locales/fr.json`, and `i18n/locales/br.json` when adding or changing UI text. Breton translations are best-effort (not native-reviewed) — flag new/changed `br` copy for review rather than treating it as final.
+## Non-obvious gotchas
 
-## Non-Obvious Gotchas
+**Security & content**
 
-- **PDF.js / Swiper custom elements**: `pdfjs-viewer-element` and `swiper-*` tags are custom elements excluded from Vite optimization / whitelisted in `vue.compilerOptions.isCustomElement` (`nuxt.config.ts`) - do not add them to `optimizeDeps` or treat them as unknown components.
-- **CSP with nonce**: `nuxt-security` enforces a strict Content Security Policy with nonce support. Adding inline scripts or styles requires nonce wiring.
-- **Supabase**: `@supabase/supabase-js` powers blog/article data and project case studies (`projects` table, mirrors `articles`' `_fr`/`_en` column pattern - no Breton columns on either). The CSP explicitly allows `*.supabase.co` for `connect-src`/`img-src` - new external calls will need the CSP extended too.
-- **`v-html` requires sanitizing first**: blog article content and project case-study fields support WYSIWYG-style HTML, rendered via `v-html`. Always pass the value through `sanitizeHtml()` (`utils/sanitizeHtml.ts`, wraps `isomorphic-dompurify` with a fixed tag/attribute allowlist) first - never bind `v-html` directly to Supabase-sourced content.
-- **`shared/` directory**: code needed in both the Nuxt app (`composables/`) and Nitro server routes (`server/`) - which have separate auto-import scopes - lives in `shared/utils/` (Nuxt 4 auto-imports it in both contexts). See `shared/utils/projects.ts` (project locale-resolution logic, used by `composables/useProjects.ts` and `server/routes/llms-full.txt.get.ts`).
-- **No animation libraries**: GSAP and motion-v were deliberately removed after being tried - use native CSS transitions/keyframes instead of reintroducing an animation library.
-- **TypeScript**: `tsconfig.json` extends `.nuxt/tsconfig.json` (auto-generated) - don't edit `.nuxt/tsconfig.json` directly.
-- **`nuxt dev` fork pool crash**: `@nuxt/cli`'s dev-server "fork pool" warm-up (enabled by default) can crash with `spawn EBADF` on Node 24 shortly after startup. `npm run dev` runs `nuxt dev --no-fork` to disable it; only downside is slower full-process restarts on `nuxt.config.ts` changes.
-- **Indexing is per-page, not global**: the site is indexable by default (no more site-wide `noindex` in `nuxt.config.ts`). `/projects` (list + `pro`-category detail pages) sets its own `noindex, nofollow` via `useHead` - client work may be confidential; `personal`-category project pages are indexed like the rest of the site. Same per-page pattern on `/cv`, `/accessibilite`, `/changelog`, `/status`, `/mentions-legales`. The homepage also sets `noimageindex` and `robots.txt` disallows `/logo-project-*` and `/api/project-title.svg` - client logos shouldn't turn up in image search either.
-- **Icon subset generation**: `utils/resolveIcon.ts` imports `utils/generated/icon-subset.json` (gitignored), not the full `@iconify-json/*` packages directly - those total ~31MB and previously OOM-crashed `nuxt build`/`nuxt generate`. `scripts/generate-icon-subset.mjs` scans the code for `prefix:name` icon refs and regenerates the subset; it runs automatically via `pre{dev,build,generate,deploy}`/`postinstall` npm hooks (also `make icons`). Don't import an `@iconify-json/*` package's `icons.json` directly elsewhere.
+- **CSP with nonce** — `nuxt-security` enforces a strict CSP. Inline scripts/styles need nonce wiring.
+- **`v-html` → sanitize first** — blog articles and project case studies hold WYSIWYG HTML. Always pass it through `sanitizeHtml()` (`utils/sanitizeHtml.ts`, `isomorphic-dompurify`, fixed allowlist). Never bind `v-html` to Supabase content directly.
+- **Supabase** — `@supabase/supabase-js` serves blog articles and project case studies. `projects` mirrors `articles`' `_fr`/`_en` columns (no Breton columns on either). CSP allows `*.supabase.co` for `connect-src`/`img-src`; any new external call needs the CSP extended.
+
+**Indexing (per page, not global)**
+
+- Site is indexable by default — no site-wide `noindex` in `nuxt.config.ts`.
+- `noindex, nofollow` via `useHead`: `/projects` list, `pro`-category project pages (client work may be confidential), `/cv`, `/accessibilite`, `/changelog`, `/status`, `/mentions-legales`. `personal` project pages are indexed.
+- Homepage sets `noimageindex`; `robots.txt` disallows `/logo-project-*` and `/api/project-title.svg` — client logos stay out of image search.
+
+**Build & tooling**
+
+- **Icon subset** — `utils/resolveIcon.ts` imports `utils/generated/icon-subset.json` (gitignored), never the full `@iconify-json/*` packages (~31MB, OOM-crashed `nuxt build`/`generate`). `scripts/generate-icon-subset.mjs` regenerates it from `prefix:name` refs in code; runs via `pre{dev,build,generate,deploy}`/`postinstall` hooks (also `make icons`). Don't import an `@iconify-json/*` `icons.json` anywhere else.
+- **Custom elements** — `pdfjs-viewer-element` and `swiper-*` are excluded from Vite optimization / whitelisted in `vue.compilerOptions.isCustomElement` (`nuxt.config.ts`). Don't add them to `optimizeDeps` or treat them as unknown components.
+- **`nuxt dev` fork pool crash** — `@nuxt/cli`'s fork-pool warm-up can crash with `spawn EBADF` on Node 24. `npm run dev` runs `nuxt dev --no-fork`; cost: slower restarts on `nuxt.config.ts` changes.
+- **TypeScript** — `tsconfig.json` extends the auto-generated `.nuxt/tsconfig.json`. Never edit the latter.
+
+**Code organization**
+
+- **`shared/utils/`** — code needed in both `composables/` (Nuxt app) and `server/` (Nitro), which have separate auto-import scopes. Nuxt 4 auto-imports it in both. Example: `shared/utils/projects.ts` (project locale resolution, used by `composables/useProjects.ts` and `server/routes/llms-full.txt.get.ts`).
+- **No animation libraries** — GSAP and motion-v were tried and removed. Use native CSS transitions/keyframes.
 
 ## Deployment
 
-Hosted on **Vercel**, connected via Vercel's own Git integration (not a GitHub Actions workflow — deployment itself isn't driven by CI). Vercel auto-deploys on push to `master` using its standard Nuxt SSR build. Working branch is `develop`. To deploy: open a PR from `develop` → `master`.
+1. Push to `develop` (working branch).
+2. Open a PR `develop` → `master`.
+3. Merge → Vercel auto-deploys via its own Git integration (standard Nuxt SSR build). No GitHub Actions deploy.
 
-`.github/workflows/ci.yml` runs on push/PR to `master` (not on plain pushes to `develop`) as a check, separate from Vercel's own deploy: `npm run lint` + `npm run test`, a Socket Firewall-gated `npm ci` (`sfw npm ci` — blocks malicious/typosquatted packages at install time), and a SonarQube Cloud scan with a blocking quality gate. The Socket Security GitHub App (installed via the GitHub Marketplace, not repo config) additionally comments/checks PRs for dependency risk.
+**CI** — `.github/workflows/ci.yml` runs on push/PR to `master` only (not plain `develop` pushes), separate from Vercel:
 
-- `npm run generate` (static export, `.output/public`) and `npm run deploy` still exist as local/manual commands but are **not** the production deploy path — Vercel builds SSR directly from `master`, it doesn't consume `dist/` or a static export.
-- `site.url` is set to `https://www.maxime.bzh` in `nuxt.config.ts` (required for sitemaps/OG images).
+- `npm run lint` + `npm run test`
+- `sfw npm ci` (Socket Firewall — blocks malicious/typosquatted packages at install)
+- SonarQube Cloud scan, blocking quality gate
+- Plus: the Socket Security GitHub App (Marketplace install, not repo config) checks PRs for dependency risk.
+
+**Notes**
+
+- `npm run generate` (`.output/public`) and `npm run deploy` are manual/local only. Vercel doesn't consume `dist/` or a static export.
+- `site.url` = `https://www.maxime.bzh` in `nuxt.config.ts` (needed for sitemaps/OG images).
 
 ## Git commits
 
-Commit message convention documented in `.claude/skills/semantic-commit-messages/SKILL.md` and `.gitmessage` (activated via `git config commit.template .gitmessage`): `type(scope): emoji description`, English, mandatory scope. This is a forward-looking standard, not retrofitted onto older history.
+- Format: `type(scope): emoji description`, English, mandatory scope.
+- Spec: `.claude/skills/semantic-commit-messages/SKILL.md` and `.gitmessage` (`git config commit.template .gitmessage`).
+- Forward-looking standard — older history isn't retrofitted.
+- **No AI attribution** in commits or PRs: no `Co-Authored-By: Claude …` trailer, no `Claude-Session:` link, no "Generated with Claude Code" line — even if the harness's default git instructions add one.
 
 ## Node
 
-Requires Node 24 (`engines.node: "24.x.x"`).
+Node 24 (`engines.node: "24.x.x"`).

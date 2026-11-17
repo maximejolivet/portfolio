@@ -2,10 +2,9 @@
 
 ## CodeGraph
 
-In repositories indexed by CodeGraph (a `.codegraph/` directory exists at the repo root), reach for it BEFORE grep/find or reading files when you need to understand or locate code:
+**`.codegraph/` at the repo root? Query CodeGraph before grep/find or reading files.** No `.codegraph/` → skip CodeGraph entirely (indexing is the user's decision).
 
-- **MCP tool** (when available): `codegraph_explore` answers most code questions in one call — the relevant symbols' verbatim source plus the call paths between them, including dynamic-dispatch hops grep can't follow. Name a file or symbol in the query to read its current line-numbered source. If it's listed but deferred, load it by name via tool search.
-- **Shell** (always works): `codegraph explore "<symbol names or question>"` prints the same output.
+1. **MCP tool** (when available): `codegraph_explore` — one call returns the relevant symbols' verbatim source + call paths between them, including dynamic-dispatch hops grep can't follow. Name a file or symbol to get its current line-numbered source. Listed but deferred → load it by name via tool search.
+2. **Shell** (always works): `codegraph explore "<symbol names or question>"` — same output.
 
-If there is no `.codegraph/` directory, skip CodeGraph entirely — indexing is the user's decision.
 <!-- CODEGRAPH_END -->

@@ -1,35 +1,64 @@
 # Charte graphique / Brand Guidelines
 
-> Document stratégique de référence. Pour l'application concrète des règles ci-dessous, voir [COLOR_PALETTE.md](./COLOR_PALETTE.md), [TYPOGRAPHY.md](./TYPOGRAPHY.md), [LOGO.md](./LOGO.md), [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md). Pour le ton éditorial, voir [BRAND_VOICE.md](./BRAND_VOICE.md).
+**🇫🇷 Avant de livrer un élément visuel : tokens sémantiques uniquement, vérifié en mode jour ET nuit, gold/mint réservés aux CTA/focus/statut.** · **🇬🇧 Before shipping a visual element: semantic tokens only, checked in day AND night mode, gold/mint reserved for CTA/focus/status.**
+
+> Document stratégique. Application concrète / concrete application: [COLOR_PALETTE.md](./COLOR_PALETTE.md), [TYPOGRAPHY.md](./TYPOGRAPHY.md), [LOGO.md](./LOGO.md), [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md). Ton / tone: [BRAND_VOICE.md](./BRAND_VOICE.md).
 
 ---
 
 ## 🇫🇷 Français
 
-### ADN de la marque
+### Les 5 principes graphiques
 
-Maxime Jolivet est développeur web full-stack senior (10 ans d'expérience, principalement en agence digitale), expert Drupal et WordPress, solide en PHP et JavaScript modernes. Son portfolio personnel est la vitrine de ce positionnement : un développeur qui **pense expérience utilisateur, pas juste code** — la conception d'interfaces (UI/UX) fait partie intégrante de sa pratique, pas une compétence annexe.
+1. **Deux couleurs de marque fixes** (gold, mint), jamais inversées entre jour et nuit — la seule constante visuelle absolue.
+2. **Deux polices, pas trois** — Space Grotesk = propos, JetBrains Mono = données, jamais interchangeables.
+3. **Actions rondes, contenus arrondis** — `rounded-full` pour ce qui s'actionne, `rounded-2xl` pour ce qui se lit.
+4. **Bordures plutôt qu'ombres** — l'ombre est réservée à l'élévation réelle (éléments flottants).
+5. **Honnêteté visuelle** — un placeholder dit qu'il est un placeholder ; un site en construction le dit.
 
-L'ADN se résume en trois idées :
+### Checklist avant livraison
 
-1. **La rigueur technique** — code de qualité, choix pérennes, accessibilité, performance.
-2. **Le sens du design** — un développeur qui sait aussi concevoir, pas seulement exécuter une maquette.
-3. **La sobriété assumée** — pas de sur-promesse, pas de jargon marketing, le travail parle.
+- [ ] Tokens sémantiques (`bg-primary`, `text-muted-foreground`), jamais de couleur codée en dur — [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)
+- [ ] Rendu vérifié en mode jour **et** nuit
+- [ ] Gold et mint seulement sur ce qui compte (CTA, focus, statut) — leur rareté leur donne du poids
+- [ ] Chaque affirmation forte (expertise, expérience) adossée à un élément concret (étude de cas, stack, CV)
 
-### Objectifs
+### À éviter
 
-- Démontrer par la preuve (études de cas, stack technique réelle, 10 ans d'expérience) plutôt que par la déclaration.
-- Se positionner comme un profil senior polyvalent : à la fois technique (PHP/JS/Drupal/WordPress) et sensible au design (UI/UX).
-- Rassurer sur la fiabilité et la pérennité des choix techniques — un critère différenciant pour des clients B2B qui ont déjà été échaudés par du code jetable.
-- Rester crédible aussi bien pour un recruteur (poste salarié) que pour un décideur B2B (mission freelance) — double lecture sans double discours.
+**Visuel**
+
+- ❌ Une troisième couleur de marque ou un dégradé décoratif.
+- ❌ Mélanger angles droits et arrondis sur un même type d'élément.
+- ❌ Multiplier les emoji — un seul usage assumé (🚧), voir [ICONOGRAPHY.md](./ICONOGRAPHY.md).
+
+**Technique & ton**
+
+- ❌ Réintroduire une lib d'animation (GSAP, motion-v retirées exprès — voir `CLAUDE.md`). CSS natif.
+- ❌ Ton marketing gonflé ("révolutionnaire", "disruptif") — voir [BRAND_VOICE.md](./BRAND_VOICE.md).
+- ❌ Sortir le site de sa sobriété volontaire (pas de recherche de reach maximal ; le travail client reste en `noindex, nofollow`).
+
+### ADN
+
+Maxime Jolivet : développeur web full-stack senior, 10 ans d'expérience (surtout en agence digitale), expert Drupal et WordPress, solide en PHP et JavaScript modernes. Un développeur qui **pense expérience utilisateur, pas juste code** — l'UI/UX fait partie de sa pratique.
+
+1. **Rigueur technique** — code de qualité, choix pérennes, accessibilité, performance.
+2. **Sens du design** — concevoir, pas seulement exécuter une maquette.
+3. **Sobriété assumée** — pas de sur-promesse, pas de jargon marketing, le travail parle.
 
 ### Positionnement
 
-**"Le développeur senior qui pense produit, pas seulement code."** Ni une agence, ni un simple exécutant technique : un profil hybride dev/design, capable de tenir un projet du cadrage jusqu'à la maintenance long terme. Le positionnement se distingue par :
+**"Le développeur senior qui pense produit, pas seulement code."** Ni agence, ni simple exécutant : un profil hybride dev/design, du cadrage à la maintenance long terme.
 
-- **Expertise CMS pointue** (Drupal, WordPress) sur des projets B2B complexes — un créneau technique précis, pas un généraliste vague.
-- **Approche orientée durée** — "pérennité des choix techniques" est une expression du bio original, pas un mot-clé ajouté après coup : c'est une vraie conviction professionnelle.
-- **Sensibilité UI/UX** en plus du code — rare chez les profils purement backend/CMS.
+- **Expertise CMS pointue** (Drupal, WordPress) sur des projets B2B complexes — un créneau précis, pas un généraliste vague.
+- **Orientation durée** — "pérennité des choix techniques" vient du bio original : une conviction, pas un mot-clé ajouté.
+- **Sensibilité UI/UX** en plus du code — rare chez les profils backend/CMS.
+
+### Objectifs
+
+1. Prouver (études de cas, stack réelle, 10 ans d'expérience) plutôt que déclarer.
+2. Se positionner senior polyvalent : technique (PHP/JS/Drupal/WordPress) + design (UI/UX).
+3. Rassurer sur la fiabilité et la pérennité — différenciant pour des clients B2B échaudés par du code jetable.
+4. Rester crédible pour un recruteur (salarié) comme pour un décideur B2B (freelance) — double lecture, pas double discours.
 
 ### Public cible
 
@@ -38,85 +67,83 @@ L'ADN se résume en trois idées :
 | **Décideurs techniques/marketing en agence ou entreprise B2B** | Un développeur senior fiable pour une mission ou un projet complexe (souvent CMS) | Études de cas concrètes, stack maîtrisée, expérience longue                                                    |
 | **Recruteurs / responsables techniques (poste salarié)**       | Un profil senior capable d'autonomie et de leadership technique                   | Parcours (5 postes, `ExperienceSection`), CV téléchargeable, stack complète (`TechStackSection`, 9 catégories) |
 
-Le site ne tranche pas entre les deux cibles — il documente honnêtement un parcours et laisse chaque visiteur y projeter son propre besoin (mission ou embauche).
+Le site ne tranche pas : il documente honnêtement un parcours, chaque visiteur y projette son besoin (mission ou embauche).
 
-### Personnalité de marque
+### Personnalité
 
-| Trait                         | Se traduit par                                                                                                                                      | Ne se traduit PAS par                               |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| **Rigoureux**                 | Code den qualité, palette et typo cohérentes partout, accessibilité pensée (contrastes, focus visibles)                                             | Rigidité visuelle, absence de personnalité          |
-| **Chaleureux**                | Gold + mint, portrait souriant sur fond couleur de marque, formulations directes et personnelles ("Bonjour, moi c'est Maxime")                      | Familiarité excessive, ton "startup fun" artificiel |
-| **Technique sans être froid** | JetBrains Mono sur les métadonnées (clin d'œil constant au métier), logo en chevrons de code                                                        | Jargon technique imposé au visiteur non-dev         |
-| **Honnête**                   | Placeholders explicites ("capture - bientôt"), badge "site en construction 🚧", captures brutes sans mockup                                         | Sur-promesse, mise en scène artificielle du travail |
-| **Discret**                   | Site volontairement `noindex, nofollow` — pas une vitrine de visibilité SEO mais un support de conversation avec des interlocuteurs déjà en contact | Recherche d'audience large                          |
+| Trait                         | Se traduit par                                                                                                                                                                                           | Ne se traduit PAS par                               |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| **Rigoureux**                 | Code de qualité, palette et typo cohérentes partout, accessibilité pensée (contrastes, focus visibles)                                                                                                   | Rigidité visuelle, absence de personnalité          |
+| **Chaleureux**                | Gold + mint, portrait souriant sur fond couleur de marque, formulations directes et personnelles ("Bonjour, moi c'est Maxime")                                                                           | Familiarité excessive, ton "startup fun" artificiel |
+| **Technique sans être froid** | JetBrains Mono sur les métadonnées (clin d'œil constant au métier), logo en chevrons de code                                                                                                             | Jargon technique imposé au visiteur non-dev         |
+| **Honnête**                   | Placeholders explicites ("capture - bientôt"), badge "site en construction 🚧", captures brutes sans mockup                                                                                              | Sur-promesse, mise en scène artificielle du travail |
+| **Discret**                   | Site indexable, mais travail client confidentiel : projets `pro`, `/projets`, `/cv` en `noindex, nofollow`, logos clients hors recherche d'images — un support de conversation plutôt qu'une vitrine SEO | Recherche d'audience large                          |
 
 ### Univers graphique
 
-- **Palette** : un fond neutre chaud (crème/encre profonde selon le thème) porté par deux couleurs de marque fixes — gold et mint — jamais mélangées de façon décorative, toujours utilisées comme accents ciblés (voir [COLOR_PALETTE.md](./COLOR_PALETTE.md)).
-- **Typographie** : duo Space Grotesk (propos) / JetBrains Mono (données), voir [TYPOGRAPHY.md](./TYPOGRAPHY.md).
-- **Formes** : cercles organiques (logo), radius généreux et cohérents (`rounded-2xl` sur cartes, `rounded-full` sur actions) — rien d'anguleux ou de dur.
-- **Densité** : sections aérées (`py-16`/`py-24`), pas de sur-densité d'information — la rigueur passe par la clarté, pas par l'exhaustivité visuelle.
+- **Style** — minimalisme fonctionnel à touches chaleureuses. Fond neutre et discret ; le contenu porte le message ; gold et mint guident l'œil (CTA, focus, accents), jamais décoratifs.
+- **Ambiance** — studio de dev senior, pas vitrine d'agence : sobre, net, un peu "terminal chic" (JetBrains Mono, curseur clignotant, points de statut) sans le cliché "hacker" noir/vert néon.
+- **Palette** — fond neutre chaud (crème / encre profonde selon thème) + gold et mint comme accents ciblés, jamais mélangés décorativement ([COLOR_PALETTE.md](./COLOR_PALETTE.md)).
+- **Formes** — cercles organiques (logo), radius généreux et cohérents (`rounded-2xl` cartes, `rounded-full` actions) — rien d'anguleux.
+- **Densité** — sections aérées (`py-16`/`py-24`) ; la rigueur passe par la clarté, pas l'exhaustivité.
 
-### Style général
-
-Minimalisme fonctionnel à touches chaleureuses. Le fond est neutre et discret pour laisser le contenu (études de cas, stack, expérience) porter le message ; le gold et le mint interviennent uniquement pour guider l'œil (CTA, focus, accents) — jamais pour décorer.
-
-### Ambiance
-
-Studio de développeur senior plutôt que vitrine d'agence : sobre, net, un peu "terminal chic" (JetBrains Mono, curseur clignotant, points de statut façon indicateur système) sans jamais tomber dans l'esthétique "hacker" clichée à fond noir/vert néon.
-
-### Principes graphiques
-
-1. **Deux couleurs de marque fixes** (gold, mint) qui ne s'inversent jamais entre thème jour/nuit — la seule constante visuelle absolue du système.
-2. **Deux polices, pas trois** — chaque police a un rôle fixe (Space Grotesk = propos, JetBrains Mono = données), jamais interchangeables.
-3. **Actions rondes, contenus arrondis-mais-carrés** — `rounded-full` pour tout ce qui s'actionne, `rounded-2xl` pour tout ce qui se lit.
-4. **Bordures plutôt qu'ombres** pour la séparation de contenu — l'ombre est réservée à l'élévation réelle (éléments flottants).
-5. **Honnêteté visuelle** — un placeholder dit qu'il est un placeholder, un site en construction le dit.
-
-### Bonnes pratiques
-
-- Toujours utiliser les tokens sémantiques (`bg-primary`, `text-muted-foreground`) plutôt que des couleurs codées en dur — voir [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md).
-- Toujours vérifier le rendu en mode jour **et** nuit avant de valider un nouvel élément visuel.
-- Réserver gold et mint aux moments qui comptent (CTA, focus, statut) — leur rareté est ce qui leur donne du poids.
-- Garder le ton "preuve" : chaque affirmation forte (expertise, expérience) doit pouvoir être adossée à un élément concret du site (étude de cas, stack, CV).
-
-### Ce qu'il faut éviter
-
-- ❌ Ajouter une troisième couleur de marque ou un dégradé décoratif.
-- ❌ Réintroduire une librairie d'animation (GSAP, motion-v ont été délibérément retirées — voir `CLAUDE.md`) — rester sur CSS natif.
-- ❌ Utiliser un ton marketing gonflé ("révolutionnaire", "disruptif") — voir [BRAND_VOICE.md](./BRAND_VOICE.md) pour le ton réel attendu.
-- ❌ Casser la règle radius (mélanger angles droits et arrondis sur un même type d'élément).
-- ❌ Multiplier les emoji dans l'UI — un seul usage assumé actuellement (🚧), voir [ICONOGRAPHY.md](./ICONOGRAPHY.md).
-- ❌ Sortir le site de sa sobriété volontaire (`noindex, nofollow` assumé, pas une recherche de reach maximal).
+Typographie : duo Space Grotesk / JetBrains Mono, voir [TYPOGRAPHY.md](./TYPOGRAPHY.md).
 
 ---
 
 ## 🇬🇧 English
 
-### Brand DNA
+### The 5 graphic principles
 
-Maxime Jolivet is a senior full-stack web developer (10 years of experience, mostly in digital agencies), a Drupal and WordPress expert, solid across modern PHP and JavaScript. His personal portfolio showcases that positioning: a developer who **thinks in terms of user experience, not just code** — UI/UX design is part of his core practice, not a side skill.
+1. **Two fixed brand colors** (gold, mint), never inverted between day and night — the one absolute visual constant.
+2. **Two fonts, not three** — Space Grotesk = prose, JetBrains Mono = data, never interchangeable.
+3. **Round actions, rounded content** — `rounded-full` for anything actionable, `rounded-2xl` for anything readable.
+4. **Borders over shadows** — shadow is reserved for genuine elevation (floating elements).
+5. **Visual honesty** — a placeholder says it's a placeholder; a site under construction says so.
 
-The DNA boils down to three ideas:
+### Pre-ship checklist
+
+- [ ] Semantic tokens (`bg-primary`, `text-muted-foreground`), never hardcoded colors — [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)
+- [ ] Rendering checked in day **and** night mode
+- [ ] Gold and mint only on what matters (CTA, focus, status) — scarcity gives them weight
+- [ ] Every strong claim (expertise, experience) backed by something concrete (case study, stack, CV)
+
+### Avoid
+
+**Visual**
+
+- ❌ A third brand color or a decorative gradient.
+- ❌ Mixing sharp and rounded corners on the same element type.
+- ❌ Multiplying emoji — one deliberate use (🚧), see [ICONOGRAPHY.md](./ICONOGRAPHY.md).
+
+**Tech & tone**
+
+- ❌ Reintroducing an animation library (GSAP, motion-v removed on purpose — see `CLAUDE.md`). Native CSS.
+- ❌ Inflated marketing tone ("revolutionary", "disruptive") — see [BRAND_VOICE.md](./BRAND_VOICE.md).
+- ❌ Pulling the site out of its deliberate sobriety (no maximum-reach strategy; client work stays `noindex, nofollow`).
+
+### DNA
+
+Maxime Jolivet: senior full-stack web developer, 10 years of experience (mostly in digital agencies), Drupal and WordPress expert, solid in modern PHP and JavaScript. A developer who **thinks user experience, not just code** — UI/UX is part of his core practice.
 
 1. **Technical rigor** — quality code, durable choices, accessibility, performance.
-2. **Design sensibility** — a developer who can also design, not just execute a mockup.
+2. **Design sensibility** — designs, doesn't just execute a mockup.
 3. **Deliberate sobriety** — no overpromising, no marketing jargon, the work speaks.
-
-### Objectives
-
-- Prove through evidence (case studies, real tech stack, 10 years of experience) rather than through claims.
-- Position as a versatile senior profile: both technical (PHP/JS/Drupal/WordPress) and design-sensitive (UI/UX).
-- Reassure on reliability and long-term durability of technical choices — a differentiator for B2B clients who've already been burned by throwaway code.
-- Stay credible for both a recruiter (salaried role) and a B2B decision-maker (freelance engagement) — a dual reading without a double discourse.
 
 ### Positioning
 
-**"The senior developer who thinks product, not just code."** Neither an agency nor a pure technical executor: a hybrid dev/design profile, able to own a project from scoping through long-term maintenance. The positioning stands out through:
+**"The senior developer who thinks product, not just code."** Neither an agency nor a pure executor: a hybrid dev/design profile, from scoping to long-term maintenance.
 
-- **Sharp CMS expertise** (Drupal, WordPress) on complex B2B projects — a precise technical niche, not a vague generalist.
-- **Durability-oriented approach** — "the durability of technical choices" is a phrase from the original bio, not a keyword bolted on afterward: it's a genuine professional conviction.
-- **UI/UX sensibility** on top of code — rare among purely backend/CMS profiles.
+- **Sharp CMS expertise** (Drupal, WordPress) on complex B2B projects — a precise niche, not a vague generalist.
+- **Durability-oriented** — "the durability of technical choices" comes from the original bio: a conviction, not a bolted-on keyword.
+- **UI/UX sensibility** on top of code — rare among backend/CMS profiles.
+
+### Objectives
+
+1. Prove (case studies, real stack, 10 years of experience) rather than claim.
+2. Position as a versatile senior: technical (PHP/JS/Drupal/WordPress) + design (UI/UX).
+3. Reassure on reliability and durability — a differentiator for B2B clients burned by throwaway code.
+4. Stay credible for a recruiter (salaried) and a B2B decision-maker (freelance) — dual reading, no double discourse.
 
 ### Target audience
 
@@ -125,53 +152,24 @@ The DNA boils down to three ideas:
 | **Technical/marketing decision-makers at an agency or B2B company** | A reliable senior developer for a complex mission or project (often CMS) | Concrete case studies, mastered stack, long track record                                                             |
 | **Recruiters / technical managers (salaried role)**                 | A senior profile capable of autonomy and technical leadership            | Career path (5 roles, `ExperienceSection`), downloadable CV, full stack breakdown (`TechStackSection`, 9 categories) |
 
-The site doesn't pick a side between the two audiences — it honestly documents a career and lets each visitor project their own need onto it (mission or hire).
+The site doesn't pick a side: it honestly documents a career, each visitor projects their own need (mission or hire).
 
-### Brand personality
+### Personality
 
-| Trait                            | Translates into                                                                                                                     | Does NOT translate into                              |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| **Rigorous**                     | Quality code, palette and type consistent everywhere, accessibility built in (contrasts, visible focus)                             | Visual rigidity, lack of personality                 |
-| **Warm**                         | Gold + mint, smiling portrait on brand-color background, direct and personal phrasing ("Hi, I'm Maxime")                            | Excessive familiarity, artificial "startup fun" tone |
-| **Technical without being cold** | JetBrains Mono on metadata (a constant nod to the trade), logo built from code chevrons                                             | Technical jargon imposed on non-dev visitors         |
-| **Honest**                       | Explicit placeholders ("capture coming soon"), "site under construction 🚧" badge, raw captures with no mockup staging              | Overpromising, artificially staging the work         |
-| **Discreet**                     | Site deliberately set to `noindex, nofollow` — not an SEO visibility showcase but a conversation aid with people already in contact | Chasing broad reach                                  |
+| Trait                            | Translates into                                                                                                                                                                                           | Does NOT translate into                              |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| **Rigorous**                     | Quality code, palette and type consistent everywhere, accessibility built in (contrasts, visible focus)                                                                                                   | Visual rigidity, lack of personality                 |
+| **Warm**                         | Gold + mint, smiling portrait on brand-color background, direct and personal phrasing ("Hi, I'm Maxime")                                                                                                  | Excessive familiarity, artificial "startup fun" tone |
+| **Technical without being cold** | JetBrains Mono on metadata (a constant nod to the trade), logo built from code chevrons                                                                                                                   | Technical jargon imposed on non-dev visitors         |
+| **Honest**                       | Explicit placeholders ("capture coming soon"), "site under construction 🚧" badge, raw captures with no mockup staging                                                                                    | Overpromising, artificially staging the work         |
+| **Discreet**                     | Site indexable, but client work stays confidential: `pro` projects, `/projects`, `/cv` set to `noindex, nofollow`, client logos kept out of image search — a conversation aid rather than an SEO showcase | Chasing broad reach                                  |
 
 ### Visual world
 
-- **Palette**: a warm neutral background (cream/deep ink depending on theme) carried by two fixed brand colors — gold and mint — never mixed decoratively, always used as targeted accents (see [COLOR_PALETTE.md](./COLOR_PALETTE.md)).
-- **Typography**: the Space Grotesk (prose) / JetBrains Mono (data) duo, see [TYPOGRAPHY.md](./TYPOGRAPHY.md).
-- **Shapes**: organic circles (logo), generous and consistent radii (`rounded-2xl` on cards, `rounded-full` on actions) — nothing angular or hard.
-- **Density**: airy sections (`py-16`/`py-24`), no information over-density — rigor comes through clarity, not visual exhaustiveness.
+- **Style** — functional minimalism with warm touches. Neutral, discreet background; content carries the message; gold and mint guide the eye (CTA, focus, accents), never decorate.
+- **Mood** — a senior dev's studio, not an agency showcase: sober, clean, a touch "terminal chic" (JetBrains Mono, blinking cursor, status dots) without the black/neon-green "hacker" cliché.
+- **Palette** — warm neutral background (cream / deep ink by theme) + gold and mint as targeted accents, never mixed decoratively ([COLOR_PALETTE.md](./COLOR_PALETTE.md)).
+- **Shapes** — organic circles (logo), generous consistent radii (`rounded-2xl` cards, `rounded-full` actions) — nothing angular.
+- **Density** — airy sections (`py-16`/`py-24`); rigor through clarity, not exhaustiveness.
 
-### General style
-
-Functional minimalism with warm touches. The background stays neutral and discreet so the content (case studies, stack, experience) carries the message; gold and mint appear only to guide the eye (CTA, focus, accents) — never to decorate.
-
-### Mood
-
-A senior developer's studio rather than an agency showcase: sober, clean, a touch "terminal chic" (JetBrains Mono, blinking cursor, system-indicator-style status dots) without ever tipping into the clichéd black/neon-green "hacker" aesthetic.
-
-### Graphic principles
-
-1. **Two fixed brand colors** (gold, mint) that never invert between day/night theme — the system's one absolute visual constant.
-2. **Two fonts, not three** — each font has a fixed role (Space Grotesk = prose, JetBrains Mono = data), never interchangeable.
-3. **Round actions, rounded-but-square content** — `rounded-full` for anything actionable, `rounded-2xl` for anything readable.
-4. **Borders over shadows** for content separation — shadow is reserved for genuine elevation (floating elements).
-5. **Visual honesty** — a placeholder says it's a placeholder, a site under construction says so.
-
-### Best practices
-
-- Always use semantic tokens (`bg-primary`, `text-muted-foreground`) rather than hardcoded colors — see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md).
-- Always check rendering in day **and** night mode before shipping a new visual element.
-- Reserve gold and mint for moments that matter (CTA, focus, status) — their scarcity is what gives them weight.
-- Keep the "proof" tone: every strong claim (expertise, experience) should be backed by something concrete on the site (case study, stack, CV).
-
-### What to avoid
-
-- ❌ Adding a third brand color or a decorative gradient.
-- ❌ Reintroducing an animation library (GSAP, motion-v were deliberately removed — see `CLAUDE.md`) — stay on native CSS.
-- ❌ Using inflated marketing tone ("revolutionary", "disruptive") — see [BRAND_VOICE.md](./BRAND_VOICE.md) for the expected real tone.
-- ❌ Breaking the radius rule (mixing sharp and rounded corners on the same element type).
-- ❌ Multiplying emoji across the UI — currently a single deliberate use (🚧), see [ICONOGRAPHY.md](./ICONOGRAPHY.md).
-- ❌ Pulling the site out of its deliberate sobriety (`noindex, nofollow` is intentional, not a maximum-reach strategy).
+Typography: the Space Grotesk / JetBrains Mono duo, see [TYPOGRAPHY.md](./TYPOGRAPHY.md).
