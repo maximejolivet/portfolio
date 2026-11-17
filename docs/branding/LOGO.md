@@ -1,72 +1,86 @@
 # Logo
 
-> Fichier source réel : [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) — SVG inline `viewBox="0 0 1040 1040"`. Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) pour les couleurs et [ASSETS.md](./ASSETS.md) pour les exports à produire.
+**🇫🇷 Utiliser le logo : `<LogoMark />` (36px par défaut), couleur héritée du texte parent, ~18px de marge libre autour.** · **🇬🇧 Use the logo: `<LogoMark />` (36px default), color inherited from parent text, ~18px clear space around.**
+
+> Source réelle / real source: [`components/ui/LogoMark.vue`](../../components/ui/LogoMark.vue) — inline SVG `viewBox="0 0 1040 1040"`. Couleurs / colors: [COLOR_PALETTE.md](./COLOR_PALETTE.md). Exports à produire / exports to produce: [ASSETS.md](./ASSETS.md).
 
 ---
 
 ## 🇫🇷 Français
 
-### Concept
+### Règles d'usage
 
-Le logo est un **monogramme M** inscrit dans un cercle organique légèrement irrégulier (pas un cercle géométrique parfait — le contour respire, comme tracé à main levée puis vectorisé). À l'intérieur, deux formes : un **M** composé de deux pointes descendantes qui rappellent aussi des chevrons `< >` (le code), et une **barre horizontale** en dessous qui évoque un curseur de terminal ou une ligne de base.
+| Règle                  | Valeur                                                                                                |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Couleur**            | Une seule, `currentColor` — le logo se comporte comme un caractère typographique, pas une image figée |
+| **Zone de protection** | Moitié de la hauteur du cercle (~50 % de la taille) avant tout élément, texte ou bord. À 36px : ~18px |
+| **Taille min. écran**  | 24×24px. En dessous le M + barre devient illisible ; favicon extrême (16px) : cercle plein seul       |
+| **Taille min. print**  | 10mm de diamètre                                                                                      |
+| **Ratio**              | 1:1 strict                                                                                            |
 
-Le logo n'utilise **qu'une seule couleur** (`currentColor`) — il hérite toujours de la couleur du texte environnant plutôt que d'imposer sa propre palette. C'est un choix fort : le logo est traité comme un caractère typographique, pas comme une image figée.
+### Interdictions
 
-### Symbolique
+**Forme & couleur**
 
-- **Le M** : initiale de Maxime — lisible sans être criant, un détecteur de forme le voit avant de le "lire" comme lettre.
-- **Le cercle organique** : la continuité, la fiabilité, l'absence d'angles morts — cohérent avec le positionnement "code qui dure" (voir [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md)).
-- **Les chevrons implicites** : lecture seconde en `< M >`, un clin d'œil discret au développement sans tomber dans le cliché `</>` trop utilisé par les portfolios dev.
-- **L'animation `logo-letters`** (`--animate-logo-letters`, 3s ease-in-out infinite, `scale(1)` → `scale(0.82)` → `scale(1)`) : le M "respire" légèrement à l'intérieur du cercle fixe. Utilisée sur l'écran d'intro (voir mémoire du projet : timing d'animation d'intro retravaillé). Symbolise un système vivant plutôt qu'un logo statique — cohérent avec un développeur qui maintient et fait évoluer ses projets dans la durée plutôt que de les livrer et les oublier.
+- ❌ Recolorer le cercle et le M en deux couleurs différentes (casse le "monochrome par construction").
+- ❌ Étirer hors du ratio 1:1.
+- ❌ Ajouter ombre portée, contour (stroke), dégradé ou effet 3D.
+- ❌ Gold sur fond gold, mint sur fond mint (perte de contraste).
 
-### Construction
+**Usage**
 
-- **Grille** : `viewBox 0 0 1040 1040` — carré, ratio 1:1 strict.
-- **Deux groupes de tracés** :
-  1. Le contour circulaire organique (path unique, fond du cercle en `currentColor`).
-  2. Le groupe `.animate-logo-letters` (M + barre), qui pulse indépendamment du cercle — `transform-origin: center`, `transform-box: view-box`.
-- **Épaisseur des traits** : formes pleines (fill), pas de contour (stroke) — cohérent avec le style d'icônes plates du reste du système (voir [ICONOGRAPHY.md](./ICONOGRAPHY.md)).
-- **Taille par défaut du composant** : `size="36"` (36×36px), utilisé dans la nav ; scalable à n'importe quelle taille sans perte car SVG vectoriel pur.
+- ❌ Répéter le logo en motif décoratif — c'est un identifiant unique, pas une texture.
+- ❌ Utiliser l'animation `logo-letters` hors de l'écran d'intro / des points d'entrée — elle reste un moment, pas un état permanent.
 
 ### Variantes
 
-| Variante                         | Description                                                                                         | Statut                                                                                                                           |
-| -------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Version couleur / marque**     | `currentColor` réglé sur `--gold` ou `--ink` selon le contexte                                      | ✅ Existe (usage actuel dans la nav)                                                                                             |
-| **Version claire (fond sombre)** | `currentColor` réglé sur `--on-panel` (`#F3F4F0`)                                                   | ✅ Native via `currentColor`, aucun asset séparé requis                                                                          |
-| **Version sombre (fond clair)**  | `currentColor` réglé sur `--ink` (`#1D3540`)                                                        | ✅ Native via `currentColor`                                                                                                     |
-| **Version monochrome**           | Le logo _est_ nativement monochrome — une seule couleur à la fois, jamais de dégradé ni de bicolore | ✅ Par construction                                                                                                              |
-| **Wordmark (logo + nom)**        | "Maxime Jolivet" à côté du monogramme, en Space Grotesk 600                                         | ⚠️ À produire — actuellement le monogramme est utilisé seul dans la nav, le nom complet apparaît en texte séparé (hero)          |
-| **Favicon**                      | Version simplifiée pour petites tailles (16-32px)                                                   | ✅ Existe (`public/favicon.ico`, `public/favicon.png`, `public/maxime.svg`) — à vérifier que le detail du M reste lisible à 16px |
+**Natives via `currentColor`** (aucun asset séparé)
 
-### Zone de protection
+| Variante                 | `currentColor`                                 | Statut              |
+| ------------------------ | ---------------------------------------------- | ------------------- |
+| **Couleur / marque**     | `--gold` ou `--ink` selon contexte             | ✅ Existe (nav)     |
+| **Claire (fond sombre)** | `--on-panel` (`#F3F4F0`)                       | ✅ Native           |
+| **Sombre (fond clair)**  | `--ink` (`#1D3540`)                            | ✅ Native           |
+| **Monochrome**           | Une couleur à la fois, jamais dégradé/bicolore | ✅ Par construction |
 
-Réserver un espace libre autour du logo égal à **la moitié de la hauteur du cercle** (soit ~50% de la taille du logo) avant tout autre élément graphique, texte ou bord de fenêtre. À 36px d'usage courant (nav), cela signifie ~18px de marge minimale.
+**Assets dédiés**
 
-### Taille minimale
+| Variante                  | Description                                              | Statut                                                                                                      |
+| ------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Wordmark (logo + nom)** | "Maxime Jolivet" à côté du monogramme, Space Grotesk 600 | ⚠️ À produire — le monogramme est seul dans la nav, le nom complet est un texte séparé (hero)               |
+| **Favicon**               | Version simplifiée 16-32px                               | ✅ `public/favicon.ico`, `public/favicon.png`, `public/maxime.svg` — vérifier que le M reste lisible à 16px |
 
-- **Écran** : 24×24px. En dessous, le détail intérieur (M + barre) devient illisible ; ne conserver que le cercle plein en usage favicon extrême (16px).
-- **Print** : 10mm de diamètre.
+### Où il apparaît
 
-### Interdictions d'utilisation
+- **Navigation** — `LogoMark.vue`, 36px, couleur héritée du header
+- **Écran d'intro** — animation `intro-logo-in` : fade + scale depuis 0.85, `cubic-bezier(0.16, 1, 0.3, 1)`, 700ms (timing retravaillé, voir mémoire de session)
+- **Favicon** — `public/favicon.ico`, `public/favicon.png`
+- **Open Graph** — `public/open-graph-maximejolivet.jpg` (vérifier que le monogramme y figure si la reconnaissance sociale compte)
 
-- ❌ Ne jamais recolorer le cercle et le M en deux couleurs différentes (rompt la règle "monochrome par construction").
-- ❌ Ne jamais étirer le logo hors de son ratio 1:1.
-- ❌ Ne jamais ajouter d'ombre portée, de contour (stroke), de dégradé ou d'effet 3D.
-- ❌ Ne jamais poser le logo en gold sur un fond gold, ou en mint sur un fond mint (perte de contraste).
-- ❌ Ne jamais dupliquer/répéter le logo en pattern décoratif — c'est un identifiant unique, pas une texture.
-- ❌ Ne jamais figer l'animation `logo-letters` en dehors de l'écran d'intro / des points d'entrée du site (elle doit rester un moment, pas un état permanent).
+### Concept
 
-### Exemples d'application
+- **Monogramme M** dans un cercle organique légèrement irrégulier (contour qui respire, comme tracé à main levée puis vectorisé).
+- **Le M** : deux pointes descendantes qui se lisent aussi comme des chevrons `< >`.
+- **Une barre horizontale** dessous : curseur de terminal ou ligne de base.
 
-- **Navigation** (`LogoMark.vue`, 36px, couleur héritée du header)
-- **Écran d'intro** (animation `intro-logo-in` : fade + scale depuis 0.85, `cubic-bezier(0.16, 1, 0.3, 1)`, 700ms — voir mémoire de session sur le timing retravaillé)
-- **Favicon** (`public/favicon.ico`, `public/favicon.png`)
-- **Open Graph** (`public/open-graph-maximejolivet.jpg` — à vérifier que le monogramme y apparaît si besoin de reconnaissance sociale)
+### Symbolique
 
-### Prompts IA pour générer le logo
+- **Le M** — initiale de Maxime ; on perçoit la forme avant de la "lire" comme lettre.
+- **Le cercle organique** — continuité, fiabilité, pas d'angle mort ; cohérent avec "code qui dure" ([BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md)).
+- **Les chevrons implicites** — seconde lecture `< M >`, clin d'œil au dev sans le cliché `</>`.
+- **L'animation `logo-letters`** (`--animate-logo-letters`, 3s ease-in-out infinite, `scale(1)` → `scale(0.82)` → `scale(1)`) — le M "respire" dans le cercle fixe sur l'écran d'intro. Système vivant : un dev qui maintient ses projets dans la durée plutôt que de les livrer et les oublier.
 
-À utiliser pour explorer des variations ou produire des déclinaisons (packaging, goodies) — **le SVG existant reste la source de vérité**, ces prompts servent à l'exploration créative ou à des supports dérivés, pas à remplacer l'asset codé.
+### Construction
+
+1. **Grille** : `viewBox 0 0 1040 1040`, carré 1:1.
+2. **Groupe 1** : contour circulaire organique (path unique, rempli en `currentColor`).
+3. **Groupe 2** : `.animate-logo-letters` (M + barre), pulse indépendamment — `transform-origin: center`, `transform-box: view-box`.
+4. **Formes pleines** (fill), pas de stroke — comme les icônes plates du système ([ICONOGRAPHY.md](./ICONOGRAPHY.md)).
+5. **Taille par défaut** : `size="36"` (nav) ; SVG pur, scalable sans perte.
+
+### Prompts IA
+
+**Exploration créative ou supports dérivés uniquement** (packaging, goodies). Le SVG codé reste la source de vérité.
 
 ```
 Minimalist single-color monogram logo, letter "M" abstracted into two
@@ -99,64 +113,76 @@ flat design, developer personal brand, minimal and confident
 
 ## 🇬🇧 English
 
-### Concept
+### Usage rules
 
-The logo is an **M monogram** set inside a slightly irregular organic circle (not a perfect geometric circle — the outline breathes, as if hand-drawn then vectorized). Inside: two shapes — an **M** built from two downward points that also read as chevrons `< >` (code), and a **horizontal bar** underneath evoking a terminal cursor or baseline.
+| Rule                 | Value                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------- |
+| **Color**            | One only, `currentColor` — the logo behaves like a typographic character, not a fixed image |
+| **Clear space**      | Half the circle's height (~50% of size) before any element, text or edge. At 36px: ~18px    |
+| **Min. screen size** | 24×24px. Below, M + bar becomes illegible; extreme favicon (16px): solid circle only        |
+| **Min. print size**  | 10mm diameter                                                                               |
+| **Ratio**            | Strict 1:1                                                                                  |
 
-The logo uses **only one color** (`currentColor`) — it always inherits the surrounding text color rather than imposing its own palette. That's a deliberate choice: the logo is treated as a typographic character, not a fixed image.
+### Restrictions
 
-### Symbolism
+**Shape & color**
 
-- **The M**: Maxime's initial — legible without shouting, a viewer registers the shape before "reading" it as a letter.
-- **The organic circle**: continuity, reliability, no blind corners — consistent with the "code that lasts" positioning (see [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md)).
-- **The implicit chevrons**: a second reading as `< M >`, a subtle nod to development without falling into the overused `</>` portfolio cliché.
-- **The `logo-letters` animation** (`--animate-logo-letters`, 3s ease-in-out infinite, `scale(1)` → `scale(0.82)` → `scale(1)`): the M "breathes" gently inside the fixed circle. Used on the intro screen (see project memory: intro animation timing reworked). It symbolizes a living system rather than a static logo — consistent with a developer who maintains and evolves projects over time rather than shipping and forgetting them.
+- ❌ Recolor the circle and the M in two different colors (breaks "monochrome by construction").
+- ❌ Stretch out of 1:1.
+- ❌ Add drop shadows, outline strokes, gradients or 3D effects.
+- ❌ Gold on gold, mint on mint (loses contrast).
 
-### Construction
+**Usage**
 
-- **Grid**: `viewBox 0 0 1040 1040` — square, strict 1:1 ratio.
-- **Two path groups**:
-  1. The organic circular outline (single path, filled with `currentColor`).
-  2. The `.animate-logo-letters` group (M + bar), pulsing independently of the circle — `transform-origin: center`, `transform-box: view-box`.
-- **Stroke weight**: solid filled shapes, no outline strokes — consistent with the flat icon style used across the rest of the system (see [ICONOGRAPHY.md](./ICONOGRAPHY.md)).
-- **Default component size**: `size="36"` (36×36px), used in the nav; scales to any size losslessly since it's a pure vector SVG.
+- ❌ Tile the logo as a decorative pattern — it's a unique identifier, not a texture.
+- ❌ Use the `logo-letters` animation outside the intro screen / entry points — it's a moment, not a permanent state.
 
 ### Variants
 
-| Variant                             | Description                                                                           | Status                                                                                                                  |
-| ----------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| **Color / brand version**           | `currentColor` set to `--gold` or `--ink` depending on context                        | ✅ Exists (current nav usage)                                                                                           |
-| **Light version (dark background)** | `currentColor` set to `--on-panel` (`#F3F4F0`)                                        | ✅ Native via `currentColor`, no separate asset needed                                                                  |
-| **Dark version (light background)** | `currentColor` set to `--ink` (`#1D3540`)                                             | ✅ Native via `currentColor`                                                                                            |
-| **Monochrome version**              | The logo _is_ natively monochrome — one color at a time, never a gradient or two-tone | ✅ By construction                                                                                                      |
-| **Wordmark (logo + name)**          | "Maxime Jolivet" next to the monogram, in Space Grotesk 600                           | ⚠️ To be produced — currently the monogram is used alone in nav, the full name appears as separate text (hero)          |
-| **Favicon**                         | Simplified version for small sizes (16-32px)                                          | ✅ Exists (`public/favicon.ico`, `public/favicon.png`, `public/maxime.svg`) — verify the M detail stays legible at 16px |
+**Native via `currentColor`** (no separate asset)
 
-### Clear space
+| Variant                     | `currentColor`                               | Status             |
+| --------------------------- | -------------------------------------------- | ------------------ |
+| **Color / brand**           | `--gold` or `--ink` by context               | ✅ Exists (nav)    |
+| **Light (dark background)** | `--on-panel` (`#F3F4F0`)                     | ✅ Native          |
+| **Dark (light background)** | `--ink` (`#1D3540`)                          | ✅ Native          |
+| **Monochrome**              | One color at a time, never gradient/two-tone | ✅ By construction |
 
-Reserve free space around the logo equal to **half the circle's height** (~50% of the logo's size) before any other graphic element, text, or window edge. At the common 36px nav usage, that's ~18px minimum margin.
+**Dedicated assets**
 
-### Minimum size
+| Variant                    | Description                                              | Status                                                                                                  |
+| -------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Wordmark (logo + name)** | "Maxime Jolivet" next to the monogram, Space Grotesk 600 | ⚠️ To produce — the monogram stands alone in nav, the full name is separate text (hero)                 |
+| **Favicon**                | Simplified 16-32px version                               | ✅ `public/favicon.ico`, `public/favicon.png`, `public/maxime.svg` — verify the M stays legible at 16px |
 
-- **Screen**: 24×24px. Below that, the inner detail (M + bar) becomes illegible; keep only the solid circle for extreme favicon usage (16px).
-- **Print**: 10mm diameter.
+### Where it appears
 
-### Usage restrictions
+- **Navigation** — `LogoMark.vue`, 36px, color inherited from the header
+- **Intro screen** — `intro-logo-in` animation: fade + scale from 0.85, `cubic-bezier(0.16, 1, 0.3, 1)`, 700ms (reworked timing, see session memory)
+- **Favicon** — `public/favicon.ico`, `public/favicon.png`
+- **Open Graph** — `public/open-graph-maximejolivet.jpg` (verify the monogram appears if social recognition matters)
 
-- ❌ Never recolor the circle and the M in two different colors (breaks the "monochrome by construction" rule).
-- ❌ Never stretch the logo out of its 1:1 ratio.
-- ❌ Never add drop shadows, outline strokes, gradients, or 3D effects.
-- ❌ Never place a gold logo on a gold background, or mint on mint (loses contrast).
-- ❌ Never repeat/tile the logo as a decorative pattern — it's a unique identifier, not a texture.
-- ❌ Never freeze the `logo-letters` animation outside the intro screen / site entry points (it should stay a moment, not a permanent state).
+### Concept
 
-### Application examples
+- **M monogram** inside a slightly irregular organic circle (the outline breathes, as if hand-drawn then vectorized).
+- **The M**: two downward points that also read as chevrons `< >`.
+- **A horizontal bar** below: terminal cursor or baseline.
 
-- **Navigation** (`LogoMark.vue`, 36px, color inherited from the header)
-- **Intro screen** (`intro-logo-in` animation: fade + scale from 0.85, `cubic-bezier(0.16, 1, 0.3, 1)`, 700ms — see session memory on reworked timing)
-- **Favicon** (`public/favicon.ico`, `public/favicon.png`)
-- **Open Graph** (`public/open-graph-maximejolivet.jpg` — verify the monogram appears there if social recognition is needed)
+### Symbolism
 
-### AI prompts to generate the logo
+- **The M** — Maxime's initial; the shape registers before it's "read" as a letter.
+- **The organic circle** — continuity, reliability, no blind corners; fits "code that lasts" ([BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md)).
+- **The implicit chevrons** — second reading `< M >`, a nod to dev without the `</>` cliché.
+- **The `logo-letters` animation** (`--animate-logo-letters`, 3s ease-in-out infinite, `scale(1)` → `scale(0.82)` → `scale(1)`) — the M "breathes" inside the fixed circle on the intro screen. A living system: a developer who maintains projects over time rather than shipping and forgetting them.
 
-For exploring variations or producing derivative assets (packaging, goodies) — **the existing SVG remains the source of truth**; these prompts are for creative exploration or derivative collateral, not for replacing the coded asset. See the FR section above for the three ready-to-use prompts (identical in either language, written directly for AI image tools).
+### Construction
+
+1. **Grid**: `viewBox 0 0 1040 1040`, square 1:1.
+2. **Group 1**: organic circular outline (single path, filled with `currentColor`).
+3. **Group 2**: `.animate-logo-letters` (M + bar), pulses independently — `transform-origin: center`, `transform-box: view-box`.
+4. **Solid shapes** (fill), no strokes — like the system's flat icons ([ICONOGRAPHY.md](./ICONOGRAPHY.md)).
+5. **Default size**: `size="36"` (nav); pure SVG, scales losslessly.
+
+### AI prompts
+
+**Creative exploration or derivative collateral only** (packaging, goodies). The coded SVG stays the source of truth. The three prompts in the FR section above are identical in either language — copy them from there.

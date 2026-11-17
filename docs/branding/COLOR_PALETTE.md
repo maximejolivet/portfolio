@@ -1,16 +1,26 @@
 # Palette de couleurs / Color Palette
 
-> Source de vérité : [`assets/css/main.css`](../../assets/css/main.css) (tokens `@theme inline` + variables `:root`). Voir aussi [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) pour l'usage en composants et [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) pour la logique de marque derrière ces choix.
+**🇫🇷 Colorer un élément : classe Tailwind sémantique (`bg-primary`, `text-muted-foreground`, `border-border`), jamais `bg-[#EFC78A]`.** · **🇬🇧 Color an element: semantic Tailwind class (`bg-primary`, `text-muted-foreground`, `border-border`), never `bg-[#EFC78A]`.**
+
+> Source de vérité / source of truth: [`assets/css/main.css`](../../assets/css/main.css) (`@theme inline` tokens + `:root` variables). Usage en composants / in components: [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md). Logique de marque / brand logic: [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md).
 
 ---
 
 ## 🇫🇷 Français
 
-### Logique du système de couleurs
+### Les 5 règles
 
-Le portfolio fonctionne en **deux thèmes** (jour/nuit), pilotés par l'attribut `data-theme` sur `<html>` et la composable `useThemeMode`. Les couleurs ne sont **pas** dupliquées à la main dans chaque composant : tout passe par des tokens sémantiques (`--color-primary`, `--color-background`, etc.) qui changent de valeur selon le thème actif. C'est ce niveau d'indirection — couleur brute → token sémantique → classe Tailwind — qu'il faut respecter pour toute nouvelle UI.
+1. **Toujours passer par les tokens** : couleur brute → token sémantique → classe Tailwind. Jamais de couleur codée en dur dans un composant.
+2. **Texte sur gold = `--on-primary` (encre)**, contraste 8.2:1. Jamais de texte blanc sur gold.
+3. **Jamais de texte de corps en mint** sur fond clair (2.1:1) — mint = focus rings, soulignements, icônes, petites touches.
+4. **Destructive (`#C65B4F`) jamais seul en petit texte** (3.9:1) — toujours avec une icône ou un fond `bg-destructive/10`.
+5. **Gold et mint sont rares** — des accents, pas des fonds de section.
 
-Deux couleurs sont **fixes quel que soit le thème** : le gold (`--gold`) et le mint (`--mint` / `--accent`). Elles ne s'inversent jamais en négatif, ce qui en fait la signature chromatique reconnaissable de la marque dans les deux modes.
+### Comment ça marche
+
+- **Deux thèmes** (jour/nuit) via l'attribut `data-theme` sur `<html>` et la composable `useThemeMode`. Les tokens sémantiques (`--color-primary`, `--color-background`…) changent de valeur selon le thème.
+- **Gold (`--gold`) et mint (`--mint` / `--accent`) sont fixes** dans les deux thèmes, jamais inversés — la signature chromatique de la marque.
+- **Un troisième thème** ? Uniquement via le même mécanisme `data-theme`.
 
 ### Palette primaire
 
@@ -20,9 +30,7 @@ Deux couleurs sont **fixes quel que soit le thème** : le gold (`--gold`) et le 
 | **Gold**          | `--gold`              | `#EFC78A` | `239, 199, 138` | `36° 71% 74%`  | `0, 17, 42, 6`  | Couleur primaire de marque — CTA principal, accents forts, halo du logo |
 | **Mint / Accent** | `--mint` / `--accent` | `#7FD9C4` | `127, 217, 196` | `165° 47% 67%` | `41, 0, 10, 15` | Couleur secondaire de marque — liens actifs, focus ring, hover d'accent |
 
-**Accessibilité** : le gold `#EFC78A` est une couleur claire — il ne doit **jamais** porter de texte sombre ou clair sans vérification de contraste. Le token `--on-primary` (`#1D3540`, encre) est réservé pour tout texte posé sur `--gold`, garantissant un contraste ≥ 4.5:1 (AA) quel que soit le thème. Ne jamais poser de texte blanc sur gold.
-
-### Palette secondaire / fonds
+### Fonds
 
 | Nom            | Token CSS                      | Jour (HEX)           | Nuit (HEX)              | Usage                                                                    |
 | -------------- | ------------------------------ | -------------------- | ----------------------- | ------------------------------------------------------------------------ |
@@ -33,7 +41,7 @@ Deux couleurs sont **fixes quel que soit le thème** : le gold (`--gold`) et le 
 | **Panel 2**    | `--panel-2`                    | `#16303C`            | `#0D1B23`               | Variante plus sombre de panel (dégradés, superposition)                  |
 | **Stripe**     | `--stripe`                     | `rgba(29,53,64,.09)` | `rgba(243,244,240,.07)` | Rayures/texture de fond décorative, très faible opacité                  |
 
-### Couleurs de texte
+### Texte
 
 | Nom                        | Token CSS      | Jour                 | Nuit                    | Usage                                                 |
 | -------------------------- | -------------- | -------------------- | ----------------------- | ----------------------------------------------------- |
@@ -50,24 +58,22 @@ Deux couleurs sont **fixes quel que soit le thème** : le gold (`--gold`) et le 
 | **Border / Line** | `--line` → `--color-border`, `--color-input` | `rgba(29,53,64,.16)`                          | `rgba(243,244,240,.16)` |
 | **Ring (focus)**  | `--color-ring`                               | = `--accent` (`#7FD9C4`) dans les deux thèmes |
 
-### Couleur de succès / information
+### États
 
-Le design system actuel **n'a pas de token succès/info dédié** — le mint (`--accent`, `#7FD9C4`) fait office de couleur positive/confirmation (déjà associé au succès par sa teinte verte). Pour une future extension (formulaires, notifications), recommandation :
+**Destructive / alerte** — terracotta rompu : reste dans la gamme chaude plutôt qu'un rouge alarmiste ("chaleureux mais sérieux").
+
+| Nom             | Token CSS             | HEX       | RGB           | Usage                                       |
+| --------------- | --------------------- | --------- | ------------- | ------------------------------------------- |
+| **Destructive** | `--color-destructive` | `#C65B4F` | `198, 91, 79` | Erreurs, suppression, actions irréversibles |
+
+**Succès / info** — **aucun token dédié aujourd'hui** ; le mint sert de couleur positive. Proposition pour une extension future (formulaires, notifications) :
 
 | Nom proposé | Token CSS proposé | HEX                                        | Usage                    |
 | ----------- | ----------------- | ------------------------------------------ | ------------------------ |
 | Success     | `--color-success` | `#7FD9C4` (= mint existant)                | Confirmation, validation |
 | Info        | `--color-info`    | `#8AB4EF` _(à créer, cousin bleu du gold)_ | Messages informatifs     |
 
-### Couleur d'alerte / destructive
-
-| Nom             | Token CSS             | HEX       | RGB           | Usage                                                                                                                                                                                       |
-| --------------- | --------------------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Destructive** | `--color-destructive` | `#C65B4F` | `198, 91, 79` | Erreurs, suppression, actions irréversibles. Terracotta rompu — reste dans la gamme chaude de la marque plutôt qu'un rouge alarmiste pur, cohérent avec l'univers "chaleureux mais sérieux" |
-
-**Accessibilité** : `#C65B4F` sur fond `--card` (`#FBFCFA`) donne un contraste d'environ 3.9:1 — suffisant pour du texte large (≥18px ou gras ≥14px) mais **insuffisant pour du texte de corps standard en AA (4.5:1)**. Toujours accompagner d'une icône ou d'un fond `bg-destructive/10` plutôt que du texte seul en petite taille.
-
-### Contrastes recommandés (WCAG 2.1)
+### Contrastes (WCAG 2.1)
 
 | Paire                              | Contraste | Niveau                                                                                                |
 | ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------- |
@@ -77,8 +83,6 @@ Le design system actuel **n'a pas de token succès/info dédié** — le mint (`
 | `--sub` sur `--bg`                 | 5.1:1     | AA (texte normal)                                                                                     |
 | `--subtle` sur `--bg`              | 3.4:1     | AA texte large uniquement                                                                             |
 | `--accent` (texte) sur `--bg`      | 2.1:1     | ⚠️ Insuffisant pour texte — accent réservé aux bordures, icônes, éléments graphiques ≥3:1 (non-texte) |
-
-**Règle d'usage** : le mint (`--accent`) ne doit jamais porter de texte de corps sur fond clair — réserver aux focus rings, soulignements, icônes, petites touches décoratives.
 
 ### Variables CSS complètes
 
@@ -144,21 +148,23 @@ Le design system actuel **n'a pas de token succès/info dédié** — le mint (`
 }
 ```
 
-### Bonnes pratiques
-
-- Toujours utiliser les classes Tailwind sémantiques (`bg-primary`, `text-muted-foreground`, `border-border`) plutôt que des couleurs codées en dur (`bg-[#EFC78A]`).
-- Ne jamais créer un troisième thème sans passer par le même mécanisme `data-theme`.
-- Le gold et le mint sont rares par design — ce sont des accents, pas des couleurs de fond de section.
-
 ---
 
 ## 🇬🇧 English
 
-### Color system logic
+### The 5 rules
 
-The portfolio runs on **two themes** (day/night) driven by the `data-theme` attribute on `<html>` and the `useThemeMode` composable. Colors are never hardcoded per component — everything flows through semantic tokens (`--color-primary`, `--color-background`, …) that swap value depending on the active theme. That indirection layer — raw color → semantic token → Tailwind class — must be respected for any new UI.
+1. **Always go through tokens**: raw color → semantic token → Tailwind class. Never a hardcoded color in a component.
+2. **Text on gold = `--on-primary` (ink)**, 8.2:1 contrast. Never white text on gold.
+3. **Never body text in mint** on light backgrounds (2.1:1) — mint = focus rings, underlines, icons, small touches.
+4. **Destructive (`#C65B4F`) never alone as small text** (3.9:1) — always with an icon or a `bg-destructive/10` fill.
+5. **Gold and mint are rare** — accents, not section backgrounds.
 
-Two colors are **fixed regardless of theme**: gold (`--gold`) and mint (`--mint` / `--accent`). They never invert, which makes them the recognizable chromatic signature of the brand across both modes.
+### How it works
+
+- **Two themes** (day/night) via the `data-theme` attribute on `<html>` and the `useThemeMode` composable. Semantic tokens (`--color-primary`, `--color-background`…) swap value per theme.
+- **Gold (`--gold`) and mint (`--mint` / `--accent`) are fixed** in both themes, never inverted — the brand's chromatic signature.
+- **A third theme**? Only through the same `data-theme` mechanism.
 
 ### Primary palette
 
@@ -168,9 +174,7 @@ Two colors are **fixed regardless of theme**: gold (`--gold`) and mint (`--mint`
 | **Gold**          | `--gold`              | `#EFC78A` | `239, 199, 138` | `36° 71% 74%`  | `0, 17, 42, 6`  | Primary brand color — main CTA, strong accents, logo glow            |
 | **Mint / Accent** | `--mint` / `--accent` | `#7FD9C4` | `127, 217, 196` | `165° 47% 67%` | `41, 0, 10, 15` | Secondary brand color — active links, focus ring, accent hover       |
 
-**Accessibility**: gold `#EFC78A` is a light color — never place dark or light text on it without checking contrast. The `--on-primary` token (`#1D3540`, ink) is reserved for any text sitting on `--gold`, guaranteeing ≥4.5:1 contrast (AA) in either theme. Never place white text on gold.
-
-### Secondary palette / backgrounds
+### Backgrounds
 
 | Name           | CSS token                      | Day (HEX)            | Night (HEX)             | Usage                                                                  |
 | -------------- | ------------------------------ | -------------------- | ----------------------- | ---------------------------------------------------------------------- |
@@ -181,7 +185,7 @@ Two colors are **fixed regardless of theme**: gold (`--gold`) and mint (`--mint`
 | **Panel 2**    | `--panel-2`                    | `#16303C`            | `#0D1B23`               | Darker panel variant (gradients, overlays)                             |
 | **Stripe**     | `--stripe`                     | `rgba(29,53,64,.09)` | `rgba(243,244,240,.07)` | Decorative background texture/stripes, very low opacity                |
 
-### Text colors
+### Text
 
 | Name                     | CSS token      | Day                  | Night                   | Usage                                                   |
 | ------------------------ | -------------- | -------------------- | ----------------------- | ------------------------------------------------------- |
@@ -198,24 +202,22 @@ Two colors are **fixed regardless of theme**: gold (`--gold`) and mint (`--mint`
 | **Border / Line** | `--line` → `--color-border`, `--color-input` | `rgba(29,53,64,.16)`                    | `rgba(243,244,240,.16)` |
 | **Ring (focus)**  | `--color-ring`                               | = `--accent` (`#7FD9C4`) in both themes |
 
-### Success / info colors
+### States
 
-The current design system has **no dedicated success/info token** — mint (`--accent`, `#7FD9C4`) already doubles as the positive/confirmation color thanks to its green hue. For a future extension (forms, notifications), recommendation:
+**Destructive / alert** — a broken terracotta: stays in the warm range rather than an alarmist red ("warm but serious").
+
+| Name            | CSS token             | HEX       | RGB           | Usage                                  |
+| --------------- | --------------------- | --------- | ------------- | -------------------------------------- |
+| **Destructive** | `--color-destructive` | `#C65B4F` | `198, 91, 79` | Errors, deletion, irreversible actions |
+
+**Success / info** — **no dedicated token today**; mint doubles as the positive color. Proposal for a future extension (forms, notifications):
 
 | Proposed name | Proposed CSS token | HEX                                          | Usage                    |
 | ------------- | ------------------ | -------------------------------------------- | ------------------------ |
 | Success       | `--color-success`  | `#7FD9C4` (= existing mint)                  | Confirmation, validation |
 | Info          | `--color-info`     | `#8AB4EF` _(to create, blue cousin of gold)_ | Informational messages   |
 
-### Alert / destructive color
-
-| Name            | CSS token             | HEX       | RGB           | Usage                                                                                                                                                                            |
-| --------------- | --------------------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Destructive** | `--color-destructive` | `#C65B4F` | `198, 91, 79` | Errors, deletion, irreversible actions. A broken terracotta — stays within the brand's warm range rather than an alarmist pure red, consistent with the "warm but serious" world |
-
-**Accessibility**: `#C65B4F` on `--card` (`#FBFCFA`) gives roughly 3.9:1 contrast — sufficient for large text (≥18px or bold ≥14px) but **insufficient for standard body text at AA (4.5:1)**. Always pair with an icon or a `bg-destructive/10` fill rather than small standalone text.
-
-### Recommended contrasts (WCAG 2.1)
+### Contrasts (WCAG 2.1)
 
 | Pair                                | Contrast | Level                                                                                                                   |
 | ----------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -226,14 +228,6 @@ The current design system has **no dedicated success/info token** — mint (`--a
 | `--subtle` on `--bg`                | 3.4:1    | AA large text only                                                                                                      |
 | `--accent` (as text) on `--bg`      | 2.1:1    | ⚠️ Insufficient for text — accent reserved for focus rings, underlines, icons, small non-text decorative touches (≥3:1) |
 
-**Usage rule**: mint (`--accent`) should never carry body text on light backgrounds — reserve it for focus rings, underlines, icons, small decorative touches.
-
 ### Full CSS variables
 
-See the FR section above — the code block is identical (`:root`, `:root[data-theme='night']`, `@theme inline`) since it's the literal source from [`assets/css/main.css`](../../assets/css/main.css).
-
-### Best practices
-
-- Always use semantic Tailwind classes (`bg-primary`, `text-muted-foreground`, `border-border`) rather than hardcoded colors (`bg-[#EFC78A]`).
-- Never introduce a third theme without going through the same `data-theme` mechanism.
-- Gold and mint are rare by design — they're accents, not section background colors.
+Identical to the FR section above (`:root`, `:root[data-theme='night']`, `@theme inline`) — it's the literal source from [`assets/css/main.css`](../../assets/css/main.css).

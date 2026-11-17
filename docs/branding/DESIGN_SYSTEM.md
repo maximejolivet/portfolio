@@ -1,12 +1,36 @@
 # Design System
 
-> Stack : Nuxt 4 + Tailwind v4 (`@tailwindcss/vite`, tokens `@theme inline` dans [`assets/css/main.css`](../../assets/css/main.css)) + primitives `Ui*` maison dans `components/ui/` (style "new-york", à l'origine scaffoldées depuis shadcn-vue, dépendance retirée depuis - classes Tailwind inlinées directement). Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) et [TYPOGRAPHY.md](./TYPOGRAPHY.md) pour les tokens couleur/texte détaillés, [ICONOGRAPHY.md](./ICONOGRAPHY.md) pour les icônes.
+**🇫🇷 Construire un composant : partir de `components/ui/` (`Button`, `Card`, `Badge`), tokens sémantiques uniquement, `rounded-full` si ça s'actionne / `rounded-2xl` si ça se lit.**
+**🇬🇧 Build a component: start from `components/ui/` (`Button`, `Card`, `Badge`), semantic tokens only, `rounded-full` if actionable / `rounded-2xl` if readable.**
+
+> Stack : Nuxt 4 + Tailwind v4 (`@tailwindcss/vite`, tokens `@theme inline` in [`assets/css/main.css`](../../assets/css/main.css)) + hand-rolled `Ui*` primitives in `components/ui/` (style "new-york", originally scaffolded from shadcn-vue; dependency removed, Tailwind classes inlined). Couleurs / colors: [COLOR_PALETTE.md](./COLOR_PALETTE.md). Texte / text: [TYPOGRAPHY.md](./TYPOGRAPHY.md). Icônes / icons: [ICONOGRAPHY.md](./ICONOGRAPHY.md).
 
 ---
 
 ## 🇫🇷 Français
 
-### Grid
+### Les 5 règles
+
+1. **Un seul conteneur** : `Container.vue` (max 1180px, `px-4`). Jamais de largeur max ad hoc.
+2. **Actions en `rounded-full`** (boutons, badges, FAB) ; **contenus** (cartes, panneaux, menus) sur l'échelle `--radius-*`, jamais `rounded-full`.
+3. **Bordure, pas ombre** pour séparer le contenu. L'ombre = éléments flottants au-dessus du flux uniquement (FAB, menu mobile, curseur).
+4. **Focus toujours visible** : `ring-3 ring-ring/50` (mint). Jamais supprimé.
+5. **CSS natif uniquement** pour l'animation — GSAP et motion-v ont été retirés exprès (`CLAUDE.md`).
+
+### Tokens en bref
+
+```
+Couleur     → voir COLOR_PALETTE.md (tokens sémantiques @theme)
+Typographie → voir TYPOGRAPHY.md (--font-sans, --font-mono, --text-*)
+Radius      → --radius: 1rem (+ sm/md/lg/xl dérivés)
+Spacing     → échelle Tailwind par défaut (4/8/12/16/24/32/48/64/96px)
+Shadow      → échelle Tailwind par défaut (xs/sm/md/lg), shadow-none par défaut sur cards
+Animation   → 5 keyframes custom (marquee, blink, pulse-dot, logo-letters, intro-logo-in)
+```
+
+### Fondations
+
+#### Grid
 
 | Breakpoint Tailwind | Largeur min | Usage                                                                           |
 | ------------------- | ----------- | ------------------------------------------------------------------------------- |
@@ -23,7 +47,7 @@
 - **Tablet** (640-1023px) : généralement 1-2 colonnes, la nav bascule en `MobileMenu`.
 - **Mobile** (<640px) : 1 colonne stricte, empilement vertical, `Container` garde son `px-4`.
 
-### Spacing
+#### Spacing
 
 Échelle Tailwind standard (multiples de 4px), utilisée telle quelle sans extension custom :
 
@@ -47,7 +71,7 @@
 - Padding des boutons pill : `px-6.5 py-3` (~26px/12px).
 - Espacement vertical entre sections de page : 64-96px (`py-16` à `py-24`) selon la densité.
 
-### Radius
+#### Radius
 
 Basé sur un token racine `--radius: 1rem` (16px), décliné :
 
@@ -70,7 +94,7 @@ Basé sur un token racine `--radius: 1rem` (16px), décliné :
 
 **Règle** : les éléments d'action (boutons, badges, FAB) sont **toujours** en `rounded-full` — c'est une signature du système. Les conteneurs de contenu (cartes, panneaux, menus) utilisent l'échelle `--radius-*`, jamais `rounded-full`.
 
-### Ombres / Elevation
+#### Ombres / Élévation
 
 Le système n'a **pas** de token d'ombre custom dans `@theme` — il s'appuie sur l'échelle Tailwind native (`shadow-xs`, `shadow-sm`, `shadow-md`, `shadow-lg`) appliquée au cas par cas, plus une ombre custom colorée pour le curseur personnalisé.
 
@@ -84,13 +108,15 @@ Le système n'a **pas** de token d'ombre custom dans `@theme` — il s'appuie su
 
 **Principe d'élévation** : le z-index et l'ombre montent ensemble uniquement pour les éléments _flottants au-dessus du flux_ (FAB, menu mobile, curseur). Le contenu structurel (cartes, sections) reste plat avec des bordures — évite l'effet "skeuomorphique" sur un site qui se veut net et technique.
 
-### Bordures
+#### Bordures
 
 - Couleur unique : `border-border` (= `--line`, voir [COLOR_PALETTE.md](./COLOR_PALETTE.md)).
 - Épaisseur par défaut : `1px` (`border`), jamais de `border-2`+ observé dans le système actuel.
 - `* { border-color: var(--color-border); }` est posé globalement au niveau `@layer base` — toute classe `border` sans couleur explicite hérite automatiquement de la bonne teinte de thème.
 
-### Boutons
+### Composants
+
+#### Boutons
 
 Deux familles de variantes coexistent : les variantes **shadcn standard** (héritage du kit, utile pour usages génériques/futurs) et les variantes **de marque**, réellement utilisées sur le site.
 
@@ -109,16 +135,7 @@ Tailles : `default` (36px), `xs` (24px), `sm` (32px), `lg` (40px), `icon`/`icon-
 
 **État hover** systématique : changement de fond (`bg-primary` → `bg-accent` pour `pill`) plutôt que simple assombrissement — le hover bascule littéralement vers la couleur de marque secondaire, renforçant le duo gold/mint à chaque interaction.
 
-### Inputs
-
-_(Non encore massivement implémentés dans les pages actuelles — recommandation basée sur les tokens existants pour cohérence future.)_
-
-- Bordure : `border-input` (= `--line`).
-- Focus : `ring-3 ring-ring/50` avec `--color-ring = --accent` — le mint sert de couleur de focus dans tout le système (cohérent avec son rôle d'accent interactif).
-- Radius : `rounded-md` (aligné boutons standard, pas `pill`).
-- État erreur : `aria-invalid:border-destructive aria-invalid:ring-destructive/20`.
-
-### Cards
+#### Cards
 
 `Card.vue` : `flex flex-col gap-3.5 rounded-2xl border bg-card p-6 text-card-foreground shadow-none`, tout en un (plus de wrapper séparé autour d'un `Card` shadcn).
 
@@ -127,17 +144,7 @@ _(Non encore massivement implémentés dans les pages actuelles — recommandati
 - Padding interne généreux : 24px, jamais moins.
 - Gap interne entre éléments empilés : 14px (`gap-3.5`).
 
-### Navigation
-
-- **Desktop** : nav horizontale, logo (`LogoMark`, 36px) + liens + switch de thème + sélecteur de langue.
-- **Mobile** (`MobileMenu.vue`) : panneau flottant `rounded-2xl border bg-background shadow-lg`, positionné `absolute right-0 top-[calc(100%+10px)]`, `gap-4`, `p-5`, `z-50`.
-- **Actions flottantes** (`FloatingActions.vue`) : FAB primaire `size-11` mobile / `size-14` desktop, `bg-primary shadow-lg`, hover `scale-105` ; FAB secondaire caché sur mobile (`hidden md:flex`), fond `bg-background border shadow-md`.
-
-### Modales
-
-_(Pattern shadcn-vue disponible via Dialog, non massivement déployé actuellement.)_ Recommandation de cohérence : `rounded-2xl`, `shadow-lg`, overlay `bg-ink/40` (jour) ou `bg-black/60` (nuit), animation d'entrée `intro-logo-in`-like (fade + scale léger) plutôt qu'un slide, pour rester cohérent avec le langage d'animation du logo.
-
-### Badges / Tags
+#### Badges / Tags
 
 `Badge.vue` : `rounded-full border px-2 py-0.5`, forcé en `font-mono text-[0.7812rem] font-medium tracking-wide normal-case` — **toujours monospace, jamais de majuscules forcées** (déviation assumée du défaut shadcn). Variant par défaut : `outline`.
 
@@ -148,15 +155,29 @@ _(Pattern shadcn-vue disponible via Dialog, non massivement déployé actuelleme
 | `secondary`          | Statut neutre                |
 | `destructive`        | Statut erreur / urgent       |
 
-### Alertes
+#### Navigation
 
-_(Pas de composant Alert dédié actuellement.)_ Recommandation basée sur `--color-destructive` et le mint comme succès (voir [COLOR_PALETTE.md](./COLOR_PALETTE.md)) : fond `bg-destructive/10` + bordure `border-destructive/30` + texte `text-destructive` pour les erreurs ; `bg-accent/10` + `border-accent/30` pour succès/info.
+- **Desktop** : nav horizontale, logo (`LogoMark`, 36px) + liens + switch de thème + sélecteur de langue.
+- **Mobile** (`MobileMenu.vue`) : panneau flottant `rounded-2xl border bg-background shadow-lg`, positionné `absolute right-0 top-[calc(100%+10px)]`, `gap-4`, `p-5`, `z-50`.
+- **Actions flottantes** (`FloatingActions.vue`) : FAB primaire `size-11` mobile / `size-14` desktop, `bg-primary shadow-lg`, hover `scale-105` ; FAB secondaire caché sur mobile (`hidden md:flex`), fond `bg-background border shadow-md`.
 
-### Icônes
+#### Icônes
 
 Voir [ICONOGRAPHY.md](./ICONOGRAPHY.md) pour le détail complet. Résumé : `lucide` via `@iconify-json/lucide` + composant `AppIcon.vue` (résolution dynamique par nom de string), taille standard `size-8` en en-tête de section, `size-4`/`size-3` dans les boutons.
 
-### Animations
+### Comportement
+
+#### États
+
+| État         | Traitement                                                                                                                                                                                                                                                                                                       |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Hover**    | Changement de fond/couleur vers la palette de marque (gold→mint sur `pill`), `scale-105` sur éléments circulaires, `translate-x-1` sur l'icône de flèche des boutons (`group-hover:translate-x-1`)                                                                                                               |
+| **Active**   | Hérite du hover shadcn standard (`active:` peu utilisé explicitement — à renforcer si interactions tactiles fréquentes)                                                                                                                                                                                          |
+| **Focus**    | `ring-3 ring-ring/50` (mint), `focus-visible:border-ring` — focus toujours visible, jamais supprimé (`outline-none` compensé par le ring)                                                                                                                                                                        |
+| **Disabled** | `disabled:pointer-events-none disabled:opacity-50` — pattern shadcn standard, cohérent partout                                                                                                                                                                                                                   |
+| **Loading**  | Géré au niveau page (voir mémoire projet : "improved loading states and error handling" sur blog/projets) plutôt qu'au niveau composant atomique — pas de spinner de bouton standardisé actuellement, à définir si besoin (recommandation : `animate-pulse-dot` réutilisé comme indicateur de chargement inline) |
+
+#### Animations
 
 Aucune librairie d'animation (GSAP et motion-v ont été délibérément retirées — voir `CLAUDE.md`) : uniquement CSS natif (`@keyframes` + transitions Tailwind).
 
@@ -170,32 +191,32 @@ Aucune librairie d'animation (GSAP et motion-v ont été délibérément retiré
 
 Transitions ponctuelles (hover, focus) : `transition-all` / `transition-colors` / `transition-transform`, durées `duration-300`, easing `ease-out` par défaut. `scale-105` est le pattern standard de hover sur les éléments circulaires (FAB, logo).
 
-### Responsive
+#### Responsive
 
 Mobile-first strict : classes de base = mobile, préfixes `sm:`/`md:`/`lg:` ajoutent la complexité. Pas de breakpoints custom — échelle Tailwind par défaut (640/768/1024/1280/1536). `Container` garde une largeur max fixe (1180px) plutôt que de scaler indéfiniment sur très grands écrans.
 
-### États
+### Pas encore implémenté (recommandations)
 
-| État         | Traitement                                                                                                                                                                                                                                                                                                       |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Hover**    | Changement de fond/couleur vers la palette de marque (gold→mint sur `pill`), `scale-105` sur éléments circulaires, `translate-x-1` sur l'icône de flèche des boutons (`group-hover:translate-x-1`)                                                                                                               |
-| **Active**   | Hérite du hover shadcn standard (`active:` peu utilisé explicitement — à renforcer si interactions tactiles fréquentes)                                                                                                                                                                                          |
-| **Focus**    | `ring-3 ring-ring/50` (mint), `focus-visible:border-ring` — focus toujours visible, jamais supprimé (`outline-none` compensé par le ring)                                                                                                                                                                        |
-| **Disabled** | `disabled:pointer-events-none disabled:opacity-50` — pattern shadcn standard, cohérent partout                                                                                                                                                                                                                   |
-| **Loading**  | Géré au niveau page (voir mémoire projet : "improved loading states and error handling" sur blog/projets) plutôt qu'au niveau composant atomique — pas de spinner de bouton standardisé actuellement, à définir si besoin (recommandation : `animate-pulse-dot` réutilisé comme indicateur de chargement inline) |
+#### Inputs
 
-### Tokens Design (résumé)
+_(Non encore massivement implémentés dans les pages actuelles — recommandation basée sur les tokens existants pour cohérence future.)_
 
-```
-Couleur     → voir COLOR_PALETTE.md (tokens sémantiques @theme)
-Typographie → voir TYPOGRAPHY.md (--font-sans, --font-mono, --text-*)
-Radius      → --radius: 1rem (+ sm/md/lg/xl dérivés)
-Spacing     → échelle Tailwind par défaut (4/8/12/16/24/32/48/64/96px)
-Shadow      → échelle Tailwind par défaut (xs/sm/md/lg), shadow-none par défaut sur cards
-Animation   → 5 keyframes custom (marquee, blink, pulse-dot, logo-letters, intro-logo-in)
-```
+- Bordure : `border-input` (= `--line`).
+- Focus : `ring-3 ring-ring/50` avec `--color-ring = --accent` — le mint sert de couleur de focus dans tout le système (cohérent avec son rôle d'accent interactif).
+- Radius : `rounded-md` (aligné boutons standard, pas `pill`).
+- État erreur : `aria-invalid:border-destructive aria-invalid:ring-destructive/20`.
 
-### Variables CSS (extrait complet, hors couleurs déjà documentées)
+#### Modales
+
+_(Pattern shadcn-vue disponible via Dialog, non massivement déployé actuellement.)_ Recommandation de cohérence : `rounded-2xl`, `shadow-lg`, overlay `bg-ink/40` (jour) ou `bg-black/60` (nuit), animation d'entrée `intro-logo-in`-like (fade + scale léger) plutôt qu'un slide, pour rester cohérent avec le langage d'animation du logo.
+
+#### Alertes
+
+_(Pas de composant Alert dédié actuellement.)_ Recommandation basée sur `--color-destructive` et le mint comme succès (voir [COLOR_PALETTE.md](./COLOR_PALETTE.md)) : fond `bg-destructive/10` + bordure `border-destructive/30` + texte `text-destructive` pour les erreurs ; `bg-accent/10` + `border-accent/30` pour succès/info.
+
+### Variables CSS
+
+#### Extrait complet, hors couleurs
 
 ```css
 @theme inline {
@@ -237,7 +258,28 @@ Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) pour le bloc complet des tokens coul
 
 ## 🇬🇧 English
 
-### Grid
+### The 5 rules
+
+1. **One container**: `Container.vue` (max 1180px, `px-4`). Never an ad hoc max-width.
+2. **Actions in `rounded-full`** (buttons, badges, FABs); **content** (cards, panels, menus) on the `--radius-*` scale, never `rounded-full`.
+3. **Borders, not shadows** to separate content. Shadow = elements floating above the flow only (FAB, mobile menu, cursor).
+4. **Focus always visible**: `ring-3 ring-ring/50` (mint). Never removed.
+5. **Native CSS only** for animation — GSAP and motion-v were removed on purpose (`CLAUDE.md`).
+
+### Tokens at a glance
+
+```
+Color       → see COLOR_PALETTE.md (semantic @theme tokens)
+Typography  → see TYPOGRAPHY.md (--font-sans, --font-mono, --text-*)
+Radius      → --radius: 1rem (+ derived sm/md/lg/xl)
+Spacing     → default Tailwind scale (4/8/12/16/24/32/48/64/96px)
+Shadow      → default Tailwind scale (xs/sm/md/lg), shadow-none by default on cards
+Animation   → 5 custom keyframes (marquee, blink, pulse-dot, logo-letters, intro-logo-in)
+```
+
+### Foundations
+
+#### Grid
 
 | Tailwind breakpoint | Min width | Usage                                                                      |
 | ------------------- | --------- | -------------------------------------------------------------------------- |
@@ -254,7 +296,7 @@ Voir [COLOR_PALETTE.md](./COLOR_PALETTE.md) pour le bloc complet des tokens coul
 - **Tablet** (640-1023px): generally 1-2 columns, nav switches to `MobileMenu`.
 - **Mobile** (<640px): strict 1 column, vertical stack, `Container` keeps its `px-4`.
 
-### Spacing
+#### Spacing
 
 Standard Tailwind scale (multiples of 4px), used as-is with no custom extension:
 
@@ -278,7 +320,7 @@ Standard Tailwind scale (multiples of 4px), used as-is with no custom extension:
 - Pill button padding: `px-6.5 py-3` (~26px/12px).
 - Vertical spacing between page sections: 64-96px (`py-16` to `py-24`) depending on density.
 
-### Radius
+#### Radius
 
 Based on a root token `--radius: 1rem` (16px), derived into:
 
@@ -301,7 +343,7 @@ Based on a root token `--radius: 1rem` (16px), derived into:
 
 **Rule**: action elements (buttons, badges, FABs) are **always** `rounded-full` — that's a system signature. Content containers (cards, panels, menus) use the `--radius-*` scale, never `rounded-full`.
 
-### Shadows / Elevation
+#### Shadows / Elevation
 
 The system has **no** custom shadow token in `@theme` — it relies on the native Tailwind scale (`shadow-xs`, `shadow-sm`, `shadow-md`, `shadow-lg`) applied case by case, plus one custom colored shadow for the cursor.
 
@@ -315,13 +357,15 @@ The system has **no** custom shadow token in `@theme` — it relies on the nativ
 
 **Elevation principle**: z-index and shadow rise together only for elements _floating above the flow_ (FAB, mobile menu, cursor). Structural content (cards, sections) stays flat with borders — avoids a skeuomorphic feel on a site meant to read as clean and technical.
 
-### Borders
+#### Borders
 
 - Single color: `border-border` (= `--line`, see [COLOR_PALETTE.md](./COLOR_PALETTE.md)).
 - Default weight: `1px` (`border`), no `border-2`+ observed anywhere in the current system.
 - `* { border-color: var(--color-border); }` is set globally at `@layer base` — any `border` class without an explicit color automatically inherits the correct theme tint.
 
-### Buttons
+### Components
+
+#### Buttons
 
 Two variant families coexist: standard **shadcn variants** (kit inheritance, useful for generic/future use) and **brand variants**, the ones actually used across the site.
 
@@ -340,16 +384,7 @@ Sizes: `default` (36px), `xs` (24px), `sm` (32px), `lg` (40px), `icon`/`icon-xs`
 
 **Systematic hover state**: background change (`bg-primary` → `bg-accent` for `pill`) rather than simple darkening — hover literally flips to the secondary brand color, reinforcing the gold/mint duo on every interaction.
 
-### Inputs
-
-_(Not yet heavily implemented across current pages — recommendation based on existing tokens for future consistency.)_
-
-- Border: `border-input` (= `--line`).
-- Focus: `ring-3 ring-ring/50` with `--color-ring = --accent` — mint serves as the focus color across the whole system (consistent with its role as the interactive accent).
-- Radius: `rounded-md` (aligned with standard buttons, not `pill`).
-- Error state: `aria-invalid:border-destructive aria-invalid:ring-destructive/20`.
-
-### Cards
+#### Cards
 
 `Card.vue`: `flex flex-col gap-3.5 rounded-2xl border bg-card p-6 text-card-foreground shadow-none`, all in one component (no separate wrapper around a shadcn `Card` anymore).
 
@@ -358,17 +393,7 @@ _(Not yet heavily implemented across current pages — recommendation based on e
 - Generous inner padding: 24px, never less.
 - Inner gap between stacked elements: 14px (`gap-3.5`).
 
-### Navigation
-
-- **Desktop**: horizontal nav, logo (`LogoMark`, 36px) + links + theme switch + language selector.
-- **Mobile** (`MobileMenu.vue`): floating panel `rounded-2xl border bg-background shadow-lg`, positioned `absolute right-0 top-[calc(100%+10px)]`, `gap-4`, `p-5`, `z-50`.
-- **Floating actions** (`FloatingActions.vue`): primary FAB `size-11` mobile / `size-14` desktop, `bg-primary shadow-lg`, hover `scale-105`; secondary FAB hidden on mobile (`hidden md:flex`), `bg-background border shadow-md`.
-
-### Modals
-
-_(shadcn-vue Dialog pattern available, not heavily deployed yet.)_ Consistency recommendation: `rounded-2xl`, `shadow-lg`, overlay `bg-ink/40` (day) or `bg-black/60` (night), entrance animation similar to `intro-logo-in` (fade + slight scale) rather than a slide, to stay consistent with the logo's animation language.
-
-### Badges / Tags
+#### Badges / Tags
 
 `Badge.vue`: `rounded-full border px-2 py-0.5`, forced to `font-mono text-[0.7812rem] font-medium tracking-wide normal-case` — **always monospace, never forced uppercase** (a deliberate deviation from the shadcn default). Default variant: `outline`.
 
@@ -379,15 +404,29 @@ _(shadcn-vue Dialog pattern available, not heavily deployed yet.)_ Consistency r
 | `secondary`           | Neutral status              |
 | `destructive`         | Error / urgent status       |
 
-### Alerts
+#### Navigation
 
-_(No dedicated Alert component currently.)_ Recommendation based on `--color-destructive` and mint as success (see [COLOR_PALETTE.md](./COLOR_PALETTE.md)): `bg-destructive/10` fill + `border-destructive/30` border + `text-destructive` text for errors; `bg-accent/10` + `border-accent/30` for success/info.
+- **Desktop**: horizontal nav, logo (`LogoMark`, 36px) + links + theme switch + language selector.
+- **Mobile** (`MobileMenu.vue`): floating panel `rounded-2xl border bg-background shadow-lg`, positioned `absolute right-0 top-[calc(100%+10px)]`, `gap-4`, `p-5`, `z-50`.
+- **Floating actions** (`FloatingActions.vue`): primary FAB `size-11` mobile / `size-14` desktop, `bg-primary shadow-lg`, hover `scale-105`; secondary FAB hidden on mobile (`hidden md:flex`), `bg-background border shadow-md`.
 
-### Icons
+#### Icons
 
 See [ICONOGRAPHY.md](./ICONOGRAPHY.md) for full detail. Summary: `lucide` via `@iconify-json/lucide` + `AppIcon.vue` component (dynamic resolution by string name), standard size `size-8` in section headers, `size-4`/`size-3` inside buttons.
 
-### Animations
+### Behavior
+
+#### States
+
+| State        | Treatment                                                                                                                                                                                                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Hover**    | Background/color shift toward the brand palette (gold→mint on `pill`), `scale-105` on circular elements, `translate-x-1` on button arrow icons (`group-hover:translate-x-1`)                                                                                                                           |
+| **Active**   | Inherits standard shadcn hover (`active:` rarely used explicitly — worth reinforcing if touch interactions become frequent)                                                                                                                                                                            |
+| **Focus**    | `ring-3 ring-ring/50` (mint), `focus-visible:border-ring` — focus is always visible, never suppressed (`outline-none` compensated by the ring)                                                                                                                                                         |
+| **Disabled** | `disabled:pointer-events-none disabled:opacity-50` — standard shadcn pattern, consistent everywhere                                                                                                                                                                                                    |
+| **Loading**  | Handled at the page level (see project memory: "improved loading states and error handling" on blog/projects) rather than at the atomic component level — no standardized button spinner currently, to be defined if needed (recommendation: reuse `animate-pulse-dot` as an inline loading indicator) |
+
+#### Animations
 
 No animation library (GSAP and motion-v were deliberately removed — see `CLAUDE.md`): native CSS only (`@keyframes` + Tailwind transitions).
 
@@ -401,31 +440,31 @@ No animation library (GSAP and motion-v were deliberately removed — see `CLAUD
 
 One-off transitions (hover, focus): `transition-all` / `transition-colors` / `transition-transform`, `duration-300`, default `ease-out` easing. `scale-105` is the standard hover pattern on circular elements (FAB, logo).
 
-### Responsive
+#### Responsive
 
 Strict mobile-first: base classes = mobile, `sm:`/`md:`/`lg:` prefixes add complexity. No custom breakpoints — default Tailwind scale (640/768/1024/1280/1536). `Container` keeps a fixed max-width (1180px) rather than scaling indefinitely on very large screens.
 
-### States
+### Not yet implemented (recommendations)
 
-| State        | Treatment                                                                                                                                                                                                                                                                                              |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Hover**    | Background/color shift toward the brand palette (gold→mint on `pill`), `scale-105` on circular elements, `translate-x-1` on button arrow icons (`group-hover:translate-x-1`)                                                                                                                           |
-| **Active**   | Inherits standard shadcn hover (`active:` rarely used explicitly — worth reinforcing if touch interactions become frequent)                                                                                                                                                                            |
-| **Focus**    | `ring-3 ring-ring/50` (mint), `focus-visible:border-ring` — focus is always visible, never suppressed (`outline-none` compensated by the ring)                                                                                                                                                         |
-| **Disabled** | `disabled:pointer-events-none disabled:opacity-50` — standard shadcn pattern, consistent everywhere                                                                                                                                                                                                    |
-| **Loading**  | Handled at the page level (see project memory: "improved loading states and error handling" on blog/projects) rather than at the atomic component level — no standardized button spinner currently, to be defined if needed (recommendation: reuse `animate-pulse-dot` as an inline loading indicator) |
+#### Inputs
 
-### Design Tokens (summary)
+_(Not yet heavily implemented across current pages — recommendation based on existing tokens for future consistency.)_
 
-```
-Color       → see COLOR_PALETTE.md (semantic @theme tokens)
-Typography  → see TYPOGRAPHY.md (--font-sans, --font-mono, --text-*)
-Radius      → --radius: 1rem (+ derived sm/md/lg/xl)
-Spacing     → default Tailwind scale (4/8/12/16/24/32/48/64/96px)
-Shadow      → default Tailwind scale (xs/sm/md/lg), shadow-none by default on cards
-Animation   → 5 custom keyframes (marquee, blink, pulse-dot, logo-letters, intro-logo-in)
-```
+- Border: `border-input` (= `--line`).
+- Focus: `ring-3 ring-ring/50` with `--color-ring = --accent` — mint serves as the focus color across the whole system (consistent with its role as the interactive accent).
+- Radius: `rounded-md` (aligned with standard buttons, not `pill`).
+- Error state: `aria-invalid:border-destructive aria-invalid:ring-destructive/20`.
 
-### CSS Variables (full excerpt, colors excluded — see palette doc)
+#### Modals
+
+_(shadcn-vue Dialog pattern available, not heavily deployed yet.)_ Consistency recommendation: `rounded-2xl`, `shadow-lg`, overlay `bg-ink/40` (day) or `bg-black/60` (night), entrance animation similar to `intro-logo-in` (fade + slight scale) rather than a slide, to stay consistent with the logo's animation language.
+
+#### Alerts
+
+_(No dedicated Alert component currently.)_ Recommendation based on `--color-destructive` and mint as success (see [COLOR_PALETTE.md](./COLOR_PALETTE.md)): `bg-destructive/10` fill + `border-destructive/30` border + `text-destructive` text for errors; `bg-accent/10` + `border-accent/30` for success/info.
+
+### CSS variables
+
+#### Full excerpt, colors excluded
 
 See the FR section above for the complete `@theme inline` code block (identical in both languages, taken directly from the source file). Color tokens (`:root`, `:root[data-theme='night']`) are documented in full in [COLOR_PALETTE.md](./COLOR_PALETTE.md).
