@@ -184,9 +184,9 @@ export default defineNuxtConfig({
     '/fr': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
     '/en': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
     '/br': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
-    '/fr/projects': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
+    '/fr/projets': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
     '/en/projects': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
-    '/br/projects': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
+    '/br/raktresou': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
   },
 
   devServer: {
