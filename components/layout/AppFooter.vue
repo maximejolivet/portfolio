@@ -37,10 +37,10 @@ const linkClass = 'text-[#1d3540] underline underline-offset-4 decoration-2 tran
       </div>
 
       <div class="mt-16 flex flex-col gap-4 font-sans text-sm text-[#1d3540]">
-        <p class="text-base font-semibold text-[#1d3540]">
+        <p class="text-lg leading-tight font-semibold text-[#1d3540]">
           {{ $t('footer.taglineRole') }}
         </p>
-        <p>{{ $t('footer.taglineDetails') }}</p>
+        <p class="text-lg leading-tight">{{ $t('footer.taglineDetails') }}</p>
         <p class="flex flex-wrap items-center gap-x-2 gap-y-1">
           {{ $t('footer.madeInPrefix') }}
           <span class="inline-flex rounded-sm bg-panel-foreground p-0.5">
@@ -113,7 +113,7 @@ const linkClass = 'text-[#1d3540] underline underline-offset-4 decoration-2 tran
         <NavigationThemeToggle />
         <button
           type="button"
-          class="inline-flex min-h-6 items-center py-2 font-sans text-sm underline underline-offset-4 decoration-2 transition-colors hover:text-[#0f5f52] focus-visible:rounded-sm focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-foreground"
+          class="hidden min-h-6 items-center py-2 font-sans text-sm underline md:inline-flex underline-offset-4 decoration-2 transition-colors hover:text-[#0f5f52] focus-visible:rounded-sm focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-foreground"
           @click="scrollToTop"
         >
           {{ $t('footer.backToTop') }}

@@ -178,6 +178,8 @@ useHead({
             v-if="article.cover_image_url"
             :src="article.cover_image_url"
             :alt="title"
+            loading="lazy"
+            decoding="async"
             class="mt-10 w-full rounded-2xl border border-border object-cover"
           />
           <!-- eslint-disable vue/no-v-html -- content is passed through sanitizeHtml() before rendering -->

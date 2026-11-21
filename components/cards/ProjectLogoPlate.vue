@@ -28,6 +28,8 @@ const plateStyle = computed(() => ({
     <img
       :src="logo"
       :alt="alt"
+      loading="lazy"
+      decoding="async"
       class="h-full max-h-24 min-h-16 w-32 object-contain sm:max-h-32 sm:min-h-20 sm:w-44"
     />
   </div>
