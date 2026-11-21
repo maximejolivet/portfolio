@@ -113,7 +113,7 @@ const linkClass = 'text-[#1d3540] underline underline-offset-4 decoration-2 tran
         <NavigationThemeToggle />
         <button
           type="button"
-          class="inline-flex min-h-6 items-center py-2 font-sans text-sm underline underline-offset-4 decoration-2 transition-colors hover:text-[#0f5f52] focus-visible:rounded-sm focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-foreground"
+          class="hidden min-h-6 items-center py-2 font-sans text-sm underline md:inline-flex underline-offset-4 decoration-2 transition-colors hover:text-[#0f5f52] focus-visible:rounded-sm focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-foreground"
           @click="scrollToTop"
         >
           {{ $t('footer.backToTop') }}
