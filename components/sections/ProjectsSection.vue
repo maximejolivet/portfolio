@@ -51,7 +51,7 @@ function titleImageSrc(id: string) {
           :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
           rel="nofollow"
           :style="{ viewTransitionName: `project-${project.id}` }"
-          :aria-label="`${project.category === 'personal' ? project.title : project.type} (${project.year}) - ${$t('projectsPage.viewProject')}`"
+          :aria-label="project.category === 'personal' ? `${project.title} (${project.year}) - ${$t('projectsPage.viewProject')}` : undefined"
           class="group flex flex-col gap-3.5"
         >
           <div class="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
