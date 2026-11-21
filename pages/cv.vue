@@ -38,7 +38,11 @@ const workerSrc = typeof window !== 'undefined'
   ? `${window.location.origin}/generated/pdf.worker.min.mjs`
   : undefined
 
-onMounted(() => {
+onMounted(async () => {
+  // The PDF viewer (~2 MB of pdf.js) is only needed on this page, so it is
+  // loaded here rather than from a global plugin that every page would pay for.
+  await import('pdfjs-viewer-element')
+
   // pdfjs-viewer-element defaults `wasmUrl` to a `../web/wasm/` path that
   // isn't shipped in the published package, unlike pdf.js itself (which
   // defaults it to null, i.e. disabled). That forces pdf.js to attempt
