@@ -21,7 +21,7 @@ function scrollToTop() {
   window.scrollTo({ top: 0, left: 0 })
 }
 
-const linkClass = 'text-foreground transition-colors hover:text-accent focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint'
+const linkClass = 'text-foreground underline underline-offset-4 decoration-1 transition-colors hover:text-[#0f5f52] hover:decoration-2 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground'
 </script>
 
 <template>
@@ -30,7 +30,7 @@ const linkClass = 'text-foreground transition-colors hover:text-accent focus-vis
       <div class="flex items-center gap-4 sm:gap-6">
         <UiLogoMark :size="56" class="shrink-0 text-mint sm:size-[72px] md:size-[96px]" />
         <p
-          class="font-sans text-[clamp(3rem,10vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-balance text-[#cdd3cf]"
+          class="font-sans text-[clamp(3rem,10vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-balance text-[#7d8e94]"
         >
           Maxime Jolivet
         </p>
@@ -113,7 +113,7 @@ const linkClass = 'text-foreground transition-colors hover:text-accent focus-vis
         <NavigationThemeToggle />
         <button
           type="button"
-          class="font-sans text-sm transition-colors hover:text-accent focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint"
+          class="inline-flex min-h-6 items-center py-2 font-sans text-sm underline underline-offset-4 transition-colors hover:text-[#0f5f52] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
           @click="scrollToTop"
         >
           {{ $t('footer.backToTop') }}

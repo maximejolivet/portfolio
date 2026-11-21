@@ -224,6 +224,6 @@ flowchart TD
 
 <!-- releases:start -->
 
-![v1.2.14](https://img.shields.io/badge/v1.2.14-2026--11--21-F97316)
+![v1.2.15](https://img.shields.io/badge/v1.2.15-2026--11--21-F97316)
 
 <!-- releases:end -->
