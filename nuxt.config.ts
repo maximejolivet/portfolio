@@ -170,6 +170,17 @@ export default defineNuxtConfig({
         },
       },
     },
+    // Pages that render the Cal.com booking widget (ContactSection on the home
+    // page, the project list's "book a call" button). Same reason as the CV
+    // routes above: the widget is loaded by the tarteaucitron job in app.vue,
+    // and the global 'strict-dynamic' makes browsers ignore the host allowlist
+    // (app.cal.eu) for it, so these routes drop it and list the hosts instead.
+    '/fr': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
+    '/en': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
+    '/br': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
+    '/fr/projets': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
+    '/en/projects': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
+    '/br/raktresou': { security: { headers: { contentSecurityPolicy: { 'script-src': ['\'self\'', '\'unsafe-inline\'', 'https://app.cal.eu', 'https://www.googletagmanager.com', 'https://ia.maxime.bzh'] } } } },
   },
 
   devServer: {
