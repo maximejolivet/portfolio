@@ -15,8 +15,10 @@ export interface ResolvedIcon {
   height: number
 }
 
-export function resolveIcon(ref: string): ResolvedIcon {
-  const parts = ref.split(':')
+export function resolveIcon(ref?: string | null): ResolvedIcon {
+  // A missing ref (undefined from a lookup table) or an unknown name must render
+  // an empty icon, not throw during SSR.
+  const parts = (ref ?? '').split(':')
   const prefix = parts[0]
   const name = parts[1]
 
@@ -25,12 +27,11 @@ export function resolveIcon(ref: string): ResolvedIcon {
   }
 
   const collection = COLLECTIONS[prefix as keyof typeof COLLECTIONS]
+  const icon = collection?.icons?.[name]
 
-  if (!name || !collection?.icons) {
+  if (!collection || !icon) {
     return { body: '', width: collection?.width ?? 24, height: collection?.height ?? 24 }
   }
-
-  const icon = collection.icons[name]!
 
   return {
     body: icon.body,

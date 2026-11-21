@@ -15,6 +15,7 @@ export const CLIENT_SECTORS: ClientSector[] = [
       'Airelec',
       'Groupe SAMSE',
       'Akena',
+      'Oïka Solaire',
       'Andrety',
       'Wibaie',
       'Fenetrea',
