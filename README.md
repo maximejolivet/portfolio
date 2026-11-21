@@ -4,6 +4,18 @@
 
 Portfolio personnel de Maxime Jolivet, développeur web full-stack. Bilingue (FR/EN), SSR sur Vercel.
 
+
+<div align="center">
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://maxime.bzh"><img src="https://www.maxime.bzh/maxime-black.svg" alt="Maxime" height="80" align="middle"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/maximejolivet"><img src="https://wsrv.nl/?url=github.com/maximejolivet.png&w=160&h=160&fit=cover&mask=circle" alt="maximejolivet" width="80" height="80" align="middle"></a>
+
+<br>
+
+</div>
+
 [![License](https://img.shields.io/badge/license-MIT-b8860b?logo=opensourceinitiative&logoColor=white)](LICENSE.md)
 ![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
 [![CI](https://github.com/maximejolivet/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/maximejolivet/portfolio/actions/workflows/ci.yml)
@@ -224,6 +236,6 @@ flowchart TD
 
 <!-- releases:start -->
 
-![v1.2.20](https://img.shields.io/badge/v1.2.20-2026--11--21-F97316)
+![v1.2.21](https://img.shields.io/badge/v1.2.21-2026--11--21-F97316)
 
 <!-- releases:end -->

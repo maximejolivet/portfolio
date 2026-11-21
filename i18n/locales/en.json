@@ -2,7 +2,10 @@
   "welcome": "Welcome",
   "about": "About me",
   "seo": {
-    "homeTitle": "Senior full-stack web developer - PHP / JavaScript / Drupal & WordPress expert"
+    "homeTitle": "Senior full-stack web developer - PHP / JavaScript / Drupal & WordPress expert",
+    "cvTitle": "Curriculum vitæ - Maxime Jolivet",
+    "cvOgTitle": "CV - Maxime Jolivet, Senior full-stack PHP / JavaScript Developer, Drupal Expert",
+    "cvDescription": "Web developer with 10 years of experience in digital agencies, solid foundations in computer science and web development - Read Maxime Jolivet's CV 🚀"
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -164,7 +167,7 @@
           "Code review and mentoring of developers: documentation, best practices and quality",
           "Industrialization of CMS starter kits: standardized foundations, reusable components and CI/CD pipelines",
           "CMS configuration and adaptation, REST API development and integration with business tools",
-          "TMA and application maintenance: analyzing and resolving issues and incidents, corrective and evolutive maintenance",
+          "TMA and application maintenance: analyzing and resolving issues and incidents, corrective and evolutionary maintenance",
           "Integration of agentic AI into the development workflow on client projects",
           "Quality and compliance audits: performance, security, RGAA, tracking and performance analysis",
           "Technical watch and knowledge sharing within the Tech team",
@@ -197,7 +200,7 @@
         "title": "Back-End Web Developer",
         "organization": "Centre Hospitalier Simone Veil",
         "location": "Vitré · Internship",
-        "description": "Corrective and evolutive maintenance of an internal medical-transport request management application."
+        "description": "Corrective and evolutionary maintenance of an internal medical-transport request management application."
       }
     }
   },
@@ -336,7 +339,7 @@
   "blog": {
     "eyebrow": "BLOG - NOTES FROM THE FIELD",
     "title": "What the code teaches me",
-    "subtitle": "Practical insights from real-world experience with migrations, modern CSS, developer tooling, and AI. No listicles—just thoughtful analysis, hands-on experiments, and proven solutions from real projects.",
+    "subtitle": "Practical insights from real-world experience with migrations, modern CSS, developer tooling, and AI. No listicles, just thoughtful analysis, hands-on experiments, and proven solutions from real projects.",
     "back_to_list": "all articles",
     "read_more": "read the article",
     "loading": "Loading articles...",
