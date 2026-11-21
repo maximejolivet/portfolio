@@ -149,6 +149,7 @@ export const TECH_CATEGORIES: TechCategory[] = [
       { id: 'bruno', name: 'Bruno', icon: 'devicon:bruno' },
       { id: 'phpunit', name: 'PHPUnit', icon: 'material-icon-theme:phpunit' },
       { id: 'vitest', name: 'Vitest', icon: 'logos:vitest' },
+      { id: 'playwright', name: 'Playwright', icon: 'logos:playwright' },
       { id: 'functional-tests', name: 'Tests fonctionnels', icon: 'lucide:clipboard-check' },
       { id: 'uat', name: 'Recette fonctionnelle', icon: 'lucide:clipboard-list' },
       { id: 'debugging', name: 'Débogage', icon: 'lucide:search-code' },
