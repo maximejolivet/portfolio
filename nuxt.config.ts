@@ -116,10 +116,6 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // NUXT_PAGESPEED_API_KEY - free key from Google Cloud Console
-    // ("PageSpeed Insights API"), needed because the unauthenticated tier
-    // rate-limits almost immediately.
-    pagespeedApiKey: '',
     public: {
       supabaseUrl: '',
       supabaseKey: '',
@@ -144,7 +140,7 @@ export default defineNuxtConfig({
     // silently blocked and the CV never renders. Drop nonce/strict-dynamic for
     // this route so 'unsafe-inline' is actually honored in Safari too.
     // Dropping 'strict-dynamic' also drops its blanket trust of scripts loaded
-    // by tarteaucitron (app.vue), so the Cal.com and GTM hosts it loads
+    // by tarteaucitron (app.vue), so the GTM and ia.maxime.bzh hosts it loads
     // sitewide need to be listed explicitly here.
     '/fr/cv': {
       security: {
@@ -153,7 +149,6 @@ export default defineNuxtConfig({
             'script-src': [
               '\'self\'',
               '\'unsafe-inline\'',
-              'https://app.cal.eu',
               'https://www.googletagmanager.com',
               'https://ia.maxime.bzh',
             ],
@@ -168,7 +163,6 @@ export default defineNuxtConfig({
             'script-src': [
               '\'self\'',
               '\'unsafe-inline\'',
-              'https://app.cal.eu',
               'https://www.googletagmanager.com',
               'https://ia.maxime.bzh',
             ],
@@ -196,18 +190,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-10-26',
-
-  nitro: {
-    // Default Vercel function timeout (10s) is too short for a live
-    // PageSpeed Insights audit (lighthouse-badge.svg.get.ts) - a real
-    // Lighthouse run against the page routinely takes 15-40s.
-    vercel: {
-      functions: {
-        maxDuration: 60,
-      },
-    },
-  },
+  compatibilityDate: '2026-11-21',
 
   vite: {
     plugins: [tailwindcss(), fixPdfjsViewerElementAssetUrls(), copyPdfjsViewerImages()],
@@ -276,6 +259,12 @@ export default defineNuxtConfig({
     csrf: true,
     headers: {
       crossOriginEmbedderPolicy: false,
+      // One year (was ~6 months by default). `preload` is deliberately left
+      // out: adding it also needs a manual submission at hstspreload.org.
+      strictTransportSecurity: {
+        maxAge: 31536000,
+        includeSubdomains: true,
+      },
       contentSecurityPolicy: {
         'script-src': [
           // self             => Fallback value, will be ignored by most modern browsers (level 3)
@@ -306,7 +295,6 @@ export default defineNuxtConfig({
         'connect-src': [
           '\'self\'',
           '*.supabase.co',
-          'https://app.cal.eu',
           'https://www.googletagmanager.com',
           'https://*.google-analytics.com',
           'https://*.analytics.google.com',
@@ -320,7 +308,7 @@ export default defineNuxtConfig({
         'worker-src': ['\'self\'', 'blob:'],
         'object-src': ['\'none\''],
         'script-src-attr': ['\'none\''],
-        'frame-src': ['\'self\'', 'https://app.cal.eu', 'https://ia.maxime.bzh'],
+        'frame-src': ['\'self\'', 'https://ia.maxime.bzh'],
         'frame-ancestors': ['\'self\''],
         'upgrade-insecure-requests': true,
       },

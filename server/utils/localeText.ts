@@ -1,4 +1,4 @@
-// Shared between the CV JSON resume and the full-content llms.txt companion -
+// Used by the full-content llms.txt companion -
 // both walk the same locale JSON files by dotted i18n key.
 import fr from '~/i18n/locales/fr.json'
 import en from '~/i18n/locales/en.json'

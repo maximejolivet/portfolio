@@ -372,6 +372,7 @@ onUnmounted(() => {
               autocomplete="off"
               spellcheck="false"
               :placeholder="TERMINAL_COMMANDS.join(' · ')"
+              :aria-label="$t('a11y.terminalInput')"
               class="min-w-0 flex-1 bg-transparent text-panel-foreground caret-mint placeholder:text-panel-foreground/25 focus:outline-none"
             />
             <span class="animate-blink text-panel-foreground">▎</span>

@@ -5,7 +5,8 @@
     "homeTitle": "Diorroer web full-stack uhel PHP / JavaScript / Ekspert Drupal - WordPress"
   },
   "a11y": {
-    "skipToContent": "Mont d'an endalc'had"
+    "skipToContent": "Mont d'an endalc'had",
+    "terminalInput": "Skrivañ ur gourc'hemenn an termenal"
   },
   "intro": {
     "skipHint": "SPACE PE ESC EVIT TREMEN · STOKañ EVIT TREMEN"
@@ -46,8 +47,7 @@
     "accessibility": "Haezadusted",
     "manageCookies": "Merañ ar cookies",
     "changelog": "Hizivadennoù",
-    "status": "Stad",
-    "viewSource": "Gwelet kod ar bajenn-mañ"
+    "status": "Stad"
   },
   "social": {
     "github": "Gwelet ma GitHub",
@@ -274,8 +274,8 @@
       "subtitle": "Développeur Web Full-Stack Senior · Lead Developer · Développeur IA agentique",
       "subtitleSecondary": "Prompt Engineering · AI Engineer · AI Product Engineer",
       "subtitleTertiary": "PHP, JavaScript · Expert Drupal & WordPress",
-      "subtitleQuaternary": "PHP, JavaScript · Expert Drupal & WordPress",
       "bookCall": "Ober un emgav",
+      "subtitleQuaternary": "PHP, JavaScript · Expert Drupal & WordPress",
       "chat": "Kaozeal gant ar skoazeller IA"
     }
   },
@@ -283,11 +283,6 @@
     "context": "Ar c'hontekst",
     "solution": "Ar pezh am eus savet",
     "result": "An disoc'h",
-    "specSheet": "FOLLENN DEKNIKEL",
-    "year": "bloavezh",
-    "role": "roll",
-    "duration": "padelezh",
-    "team": "skipailh",
     "prev": "raktres kent",
     "next": "raktres da heul"
   },
@@ -392,12 +387,12 @@
       "data": {
         "title": "Roadennoù personel",
         "intro": "N'eus roadenn bersonel ebet dastumet gant al lec'hienn-mañ evit palioù bruderezh pe profilañ.",
-        "body": "Ar roadennoù nemetañ a c'hell bezañ dastumet eo ar re a gasit dre ho youl mat dre bostel pe dre ar furmulenn darempred pe emgav. Implijet int hepken evit respont d'ho koulenn ha ne vezont na gwerzhet na roet da drede.",
+        "body": "Ar roadennoù nemetañ a c'hell bezañ dastumet eo ar re a gasit dre ho youl mat dre bostel pe dre ar furmulenn darempred pe dre skoazeller IA. Implijet int hepken evit respont d'ho koulenn ha ne vezont na gwerzhet na roet da drede. Ar messaj skrivet en skoazeller IA a vez kaset da servij trede a brosesas anezho evit sevel an respontoù: arabat skrivañ roadennoù personel sensitivus ebet.",
         "closing": "Hervez ar Reolenn hollek war wareziñ ar roadennoù (RGPD), e c'hellit implijout ho kwirioù haeziñ, reizhañ, diverkañ pe enebiñ dre skrivañ da {email}."
       },
       "cookies": {
         "title": "Cookies",
-        "intro": "Al lec'hienn-mañ a implij Google Tag Manager hag ar servij ober emgav Cal.eu, a c'hell lakaat cookies, hepken goude ho aotre.",
+        "intro": "Al lec'hienn-mañ a implij Google Tag Manager, a c'hell lakaat cookies, hepken goude ho aotre.",
         "body": "Ur bandenn a aotre deoc'h asantiñ, nac'hañ pe zibaboù personelaat ar cookies-mañ adalek ho kweladenn kentañ. E c'hellit kemmañ ho tibaboù bepred dre al liamm « Merañ ar cookies » en traoñ ar bajenn. Cookies dre ret hepken evit mont en-dro al lec'hienn (derc'hel soñj eus ho yezh hag ho aotre) a zo lakaet hep aotre a-raok."
       },
       "ip": {
@@ -476,16 +471,7 @@
     "version": "Stumm",
     "commit": "Commit",
     "buildDate": "Deiziad ar build",
-    "lighthouse": "Merkoù Lighthouse",
-    "lighthouseUnavailable": "Merkoù dihegerz evit ar mare.",
-    "viewJson": "Gwelet e JSON",
-    "viewFullReport": "Gwelet an danevell PageSpeed a-bezh",
-    "metrics": {
-      "performance": "Performañs",
-      "accessibility": "Haezadusted",
-      "bestPractices": "Mentoù mat",
-      "seo": "SEO"
-    }
+    "viewJson": "Gwelet e JSON"
   },
   "error": {
     "back_home": "Distreiñ d'ar bajenn degemer",

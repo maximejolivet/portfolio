@@ -5,7 +5,8 @@
     "homeTitle": "Développeur web full-stack senior PHP / JavaScript / Expert Drupal - WordPress"
   },
   "a11y": {
-    "skipToContent": "Aller au contenu"
+    "skipToContent": "Aller au contenu",
+    "terminalInput": "Saisir une commande du terminal"
   },
   "intro": {
     "skipHint": "ESPACE OU ÉCHAP POUR PASSER · TAP POUR PASSER"
@@ -46,8 +47,7 @@
     "accessibility": "Accessibilité",
     "manageCookies": "Gérer les cookies",
     "changelog": "Nouveautés",
-    "status": "Statut",
-    "viewSource": "Voir le code de cette page"
+    "status": "Statut"
   },
   "social": {
     "github": "Voir mon GitHub",
@@ -283,11 +283,6 @@
     "context": "Le contexte",
     "solution": "Ce que j'ai construit",
     "result": "Le résultat",
-    "specSheet": "FICHE TECHNIQUE",
-    "year": "année",
-    "role": "rôle",
-    "duration": "durée",
-    "team": "équipe",
     "prev": "projet précédent",
     "next": "projet suivant"
   },
@@ -392,12 +387,12 @@
       "data": {
         "title": "Données personnelles",
         "intro": "Ce site ne collecte aucune donnée personnelle à des fins publicitaires ou de profilage.",
-        "body": "Les seules données susceptibles d'être recueillies sont celles que vous transmettez volontairement par email ou via le formulaire de contact ou de prise de rendez-vous. Elles sont utilisées uniquement pour répondre à votre demande et ne sont ni vendues ni cédées à des tiers.",
+        "body": "Les seules données susceptibles d'être recueillies sont celles que vous transmettez volontairement par email, via le formulaire de contact ou via l'assistant IA. Elles sont utilisées uniquement pour répondre à votre demande et ne sont ni vendues ni cédées à des tiers. Les messages saisis dans l'assistant IA sont transmis à un service tiers qui les traite pour générer les réponses : évitez d'y saisir des données personnelles sensibles.",
         "closing": "Conformément au Règlement général sur la protection des données (RGPD), vous pouvez exercer vos droits d'accès, de rectification, d'effacement ou d'opposition en écrivant à {email}."
       },
       "cookies": {
         "title": "Cookies",
-        "intro": "Ce site utilise Google Tag Manager et le service de prise de rendez-vous Cal.eu, susceptibles de déposer des cookies, uniquement après votre consentement.",
+        "intro": "Ce site utilise Google Tag Manager, susceptible de déposer des cookies, uniquement après votre consentement.",
         "body": "Un bandeau vous permet d'accepter, de refuser ou de personnaliser ces cookies dès votre première visite. Vous pouvez modifier vos choix à tout moment via le lien « Gérer les cookies » en bas de page. Seuls des cookies strictement nécessaires au fonctionnement du site (mémorisation de votre langue et de votre consentement) sont déposés sans consentement préalable."
       },
       "ip": {
@@ -476,16 +471,7 @@
     "version": "Version",
     "commit": "Commit",
     "buildDate": "Date de build",
-    "lighthouse": "Scores Lighthouse",
-    "lighthouseUnavailable": "Scores indisponibles pour le moment.",
-    "viewJson": "Voir en JSON",
-    "viewFullReport": "Voir le rapport PageSpeed complet",
-    "metrics": {
-      "performance": "Performance",
-      "accessibility": "Accessibilité",
-      "bestPractices": "Bonnes pratiques",
-      "seo": "SEO"
-    }
+    "viewJson": "Voir en JSON"
   },
   "error": {
     "back_home": "Retour à l'accueil",

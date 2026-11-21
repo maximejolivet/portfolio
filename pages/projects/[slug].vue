@@ -35,16 +35,6 @@ const hasCaseStudy = computed(() =>
   Boolean(project.value?.contexte || project.value?.solution || project.value?.points.length),
 )
 
-const specSheet = computed(() => {
-  if (!project.value) return []
-  return [
-    { label: t('projectDetail.year'), value: project.value.year },
-    { label: t('projectDetail.role'), value: project.value.role },
-    { label: t('projectDetail.duration'), value: project.value.duree },
-    { label: t('projectDetail.team'), value: project.value.equipe },
-  ].filter((item) => item.value)
-})
-
 const orderedProjects = computed(() =>
   [...allRows.value]
     .sort((a, b) => b.year.localeCompare(a.year))
@@ -166,18 +156,6 @@ useSeoMeta({
             {{ $t('projectsPage.viewProject') }}
             <UiAppIcon icon="lucide:external-link" class="size-3.5 shrink-0" />
           </a>
-
-          <div v-if="specSheet.length" class="mt-10 rounded-2xl border border-border p-6">
-            <p class="mb-4 font-mono text-xs font-bold tracking-[1.5px] text-subtle">
-              {{ $t('projectDetail.specSheet').toUpperCase() }}
-            </p>
-            <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <div v-for="item in specSheet" :key="item.label" class="flex flex-col gap-1">
-                <span class="font-sans text-sm font-semibold text-foreground">{{ item.value }}</span>
-                <span class="font-mono text-[0.6875rem] text-subtle">{{ item.label }}</span>
-              </div>
-            </div>
-          </div>
 
           <!-- eslint-disable vue/no-v-html -- content is passed through sanitizeHtml() before rendering -->
           <div v-if="hasCaseStudy" class="mt-10 flex flex-col gap-10 pb-16">

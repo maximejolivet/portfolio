@@ -9,11 +9,19 @@ const CHAR_WIDTH = 11.5
 const PADDING_X = 2
 const HEIGHT = 28
 const FONT_SIZE = 20
+// Supabase ids are opaque and short - anything else is rejected before it
+// reaches the database, and invalid values share one cache key so arbitrary
+// query strings can't grow the cache.
+const ID_PATTERN = /^[A-Za-z0-9-]{1,64}$/
+
+function validId(value: unknown): string {
+  return typeof value === 'string' && ID_PATTERN.test(value) ? value : ''
+}
 
 export default defineCachedEventHandler(
   async (event) => {
     const query = getQuery(event)
-    const id = typeof query.id === 'string' ? query.id : ''
+    const id = validId(query.id)
     const lang = query.lang === 'en' ? 'en' : 'fr'
 
     setHeader(event, 'Content-Type', 'image/svg+xml')
@@ -36,7 +44,7 @@ export default defineCachedEventHandler(
   },
   { maxAge: 60 * 60 * 24 * 30, swr: true, getKey: (event) => {
     const query = getQuery(event)
-    return `${query.id ?? ''}-${query.lang === 'en' ? 'en' : 'fr'}`
+    return `${validId(query.id) || 'invalid'}-${query.lang === 'en' ? 'en' : 'fr'}`
   } },
 )
 

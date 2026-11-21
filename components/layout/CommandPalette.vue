@@ -225,6 +225,7 @@ onUnmounted(() => {
           autocomplete="off"
           spellcheck="false"
           :placeholder="t('commandPalette.placeholder')"
+          :aria-label="t('commandPalette.placeholder')"
           class="min-w-0 flex-1 bg-transparent text-panel-foreground placeholder:text-panel-foreground/35 focus:outline-none"
           @keydown.down.prevent="moveActive(1)"
           @keydown.up.prevent="moveActive(-1)"

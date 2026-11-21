@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: Use this agent to audit this Nuxt 4 + i18n (fr/en/br) portfolio for SEO problems — missing or inconsistent meta tags, indexing policy drift (noindex/noimageindex/robots.txt/sitemap out of sync), SEO-affecting data fetched client-only so crawlers never see it, broken structured-data files (llms.txt, llms-full.txt, humans.txt, status.json, cv.json), and i18n gaps in SEO copy. Use when the user asks for an SEO audit, indexing review, or "why isn't X showing up in search" style question. Read-only reconnaissance and reporting — does not apply fixes itself.
+description: Use this agent to audit this Nuxt 4 + i18n (fr/en/br) portfolio for SEO problems — missing or inconsistent meta tags, indexing policy drift (noindex/noimageindex/robots.txt/sitemap out of sync), SEO-affecting data fetched client-only so crawlers never see it, broken structured-data files (llms.txt, llms-full.txt, humans.txt, status.json), and i18n gaps in SEO copy. Use when the user asks for an SEO audit, indexing review, or "why isn't X showing up in search" style question. Read-only reconnaissance and reporting — does not apply fixes itself.
 tools: Read, Grep, Glob, Bash
 ---
 
@@ -58,7 +58,7 @@ Context: Nuxt 4 SSR on Vercel, three locales via `@nuxtjs/i18n` with `/fr`, `/en
 
 **Data**
 
-- `server/routes/llms-full.txt.get.ts`, `server/api/cv.json.get.ts`, `server/api/status.json.get.ts` — still match real content (e.g. a field renamed in `shared/utils/projects.ts` makes `llms-full.txt` silently stale)
+- `server/routes/llms-full.txt.get.ts`, `server/api/status.json.get.ts` — still match real content (e.g. a field renamed in `shared/utils/projects.ts` makes `llms-full.txt` silently stale)
 - `composables/useProjects.ts`, `useArticles.ts`, `useArticle.ts` — `server:` option
 - `components/**/*.vue` with `<NuxtImg>`/`<img>` — alt text
 - `i18n/locales/{fr,en,br}.json` — SEO copy (`seo.*`, page titles/descriptions) non-empty in all three

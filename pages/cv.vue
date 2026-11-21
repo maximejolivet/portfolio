@@ -1,6 +1,6 @@
 <script setup>
 import QRCode from 'qrcode'
-import { CAL_LINK, CAL_NAMESPACE, CONTACT_EMAIL } from '~/constants/contact'
+import { BOOKING_URL, CONTACT_EMAIL } from '~/constants/contact'
 import { EXPERIENCE_TIMELINE } from '~/constants/experience'
 
 definePageMeta({
@@ -10,7 +10,6 @@ definePageMeta({
 const { t } = useI18n()
 const localePath = useLocalePath()
 const siteConfig = useSiteConfig()
-const { refused: calRefused } = useCalConsent()
 
 const pdfViewer = ref(null)
 const summaryOpen = ref(false)
@@ -53,14 +52,6 @@ onMounted(() => {
 
 useHead({
   meta: [{ name: 'robots', content: 'noindex, nofollow' }],
-  link: [
-    {
-      rel: 'alternate',
-      type: 'application/json',
-      title: 'CV (JSON Resume)',
-      href: '/api/cv.json',
-    },
-  ],
 })
 
 useSeoMeta({
@@ -88,17 +79,9 @@ ref="pdfViewer"
       :worker-src="workerSrc" viewer-css-theme="DARK" zoom="auto" class="block h-[calc(100vh-58px)] w-full"
 />
 
-    <a
-href="/api/cv.json" target="_blank" rel="noopener noreferrer"
-      class="fixed bottom-62 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
->
-      <UiAppIcon icon="lucide:braces" class="size-3.5" />
-      JSON Resume
-    </a>
-
     <button
 type="button"
-      class="fixed bottom-76 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
+      class="fixed bottom-62 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
       @click="summaryOpen = true"
 >
       <UiAppIcon icon="lucide:zap" class="size-3.5" />
@@ -154,21 +137,17 @@ v-if="qrDataUrl" :src="qrDataUrl" :alt="t('cv.quickView.qrAlt')" width="140" hei
           <a :href="`mailto:${CONTACT_EMAIL}`" class="text-accent hover:underline">
             {{ CONTACT_EMAIL }}
           </a>
-          <a href="/api/cv.json" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
-            JSON Resume
-          </a>
         </div>
       </div>
     </div>
 
-    <button
-v-if="!calRefused" type="button"
+    <a
+      :href="BOOKING_URL" target="_blank" rel="noopener noreferrer"
       class="fixed bottom-18 right-0 z-50 flex size-11 items-center justify-center gap-2 rounded-l-full border-y border-l-0 border-r border-primary bg-primary font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:border-accent hover:bg-accent md:bottom-44 md:right-6 md:size-auto md:rounded-full md:border md:px-5 md:py-3.5"
-      :aria-label="$t('home.contact.bookCall')" :data-cal-link="CAL_LINK" :data-cal-namespace="CAL_NAMESPACE"
-      data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
->
+      :aria-label="$t('home.contact.bookCall')"
+    >
       <UiAppIcon icon="lucide:calendar" class="pointer-events-none size-4" />
       <span class="hidden md:inline">{{ $t('home.contact.bookCall') }}</span>
-    </button>
+    </a>
   </div>
 </template>
