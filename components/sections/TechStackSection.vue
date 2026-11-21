@@ -35,7 +35,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   security: 'lucide:shield',
   testing: 'lucide:flask-conical',
   tools: 'lucide:wrench',
-  watch: 'lucide:telescope',
+  methods: 'lucide:kanban',
 }
 
 // These logos ship with no brand color baked in (they rely on currentColor),
