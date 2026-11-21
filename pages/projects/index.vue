@@ -43,6 +43,17 @@ const employerFilter = computed<string>({
   set: (value) => updateQuery({ employer: value === 'all' ? undefined : value, page: undefined }),
 })
 
+const yearFilter = computed<string>({
+  get: () => (typeof route.query.year === 'string' ? route.query.year : 'all'),
+  set: (value) => updateQuery({ year: value === 'all' ? undefined : value, page: undefined }),
+})
+
+const years = computed(() =>
+  Array.from(new Set(projects.value.map((p) => p.year).filter(Boolean))).sort((a, b) =>
+    b.localeCompare(a),
+  ),
+)
+
 const techFilter = computed<string | undefined>({
   get: () => (typeof route.query.tech === 'string' ? route.query.tech : undefined),
   set: (value) => updateQuery({ tech: value, page: undefined }),
@@ -76,6 +87,7 @@ const filteredProjects = computed(() => {
     .filter((p) => {
       if (categoryFilter.value !== 'all' && p.category !== categoryFilter.value) return false
       if (employerFilter.value !== 'all' && p.employer !== employerFilter.value) return false
+      if (yearFilter.value !== 'all' && p.year !== yearFilter.value) return false
       if (techMatches && !techMatches.includes(p)) return false
       return true
     })
@@ -143,21 +155,21 @@ const pageItems = computed(() => {
         <div ref="resultsAnchor" class="flex flex-wrap items-center justify-between gap-4">
           <div class="flex flex-wrap items-center gap-2">
             <UiButton
-              size="pill-md"
+              size="pill-md" class="min-h-10"
               :variant="categoryFilter === 'all' ? 'pill' : 'pill-outline'"
               @click="categoryFilter = 'all'"
             >
               {{ $t('projectsPage.filterAll') }}
             </UiButton>
             <UiButton
-              size="pill-md"
+              size="pill-md" class="min-h-10"
               :variant="categoryFilter === 'pro' ? 'pill' : 'pill-outline'"
               @click="categoryFilter = 'pro'"
             >
               {{ $t('projectsPage.categoryPro') }}
             </UiButton>
             <UiButton
-              size="pill-md"
+              size="pill-md" class="min-h-10"
               :variant="categoryFilter === 'personal' ? 'pill' : 'pill-outline'"
               @click="categoryFilter = 'personal'"
             >
@@ -167,7 +179,7 @@ const pageItems = computed(() => {
             <span class="mx-1 h-5 w-px bg-border" />
 
             <UiButton
-              size="pill-md"
+              size="pill-md" class="min-h-10"
               :variant="employerFilter === 'all' ? 'pill' : 'pill-outline'"
               @click="employerFilter = 'all'"
             >
@@ -176,12 +188,34 @@ const pageItems = computed(() => {
             <UiButton
               v-for="employer in employers"
               :key="employer"
-              size="pill-md"
+              size="pill-md" class="min-h-10"
               :variant="employerFilter === employer ? 'pill' : 'pill-outline'"
               @click="employerFilter = employer"
             >
               {{ employer }}
             </UiButton>
+
+            <span class="mx-1 h-5 w-px bg-border" />
+
+            <div class="relative inline-flex">
+              <select
+                v-model="yearFilter"
+                :aria-label="$t('projectsPage.filterYear')"
+                :class="[
+                  'h-10 cursor-pointer appearance-none rounded-full border py-0 pl-4 pr-10 font-mono text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground',
+                  yearFilter === 'all'
+                    ? 'border-border bg-transparent text-foreground hover:border-accent hover:text-accent'
+                    : 'border-primary bg-primary text-primary-foreground',
+                ]"
+              >
+                <option value="all" class="bg-background text-foreground">{{ $t('projectsPage.filterAllYears') }}</option>
+                <option v-for="year in years" :key="year" :value="year" class="bg-background text-foreground">{{ year }}</option>
+              </select>
+              <UiAppIcon
+                icon="lucide:chevron-down"
+                class="pointer-events-none absolute right-3.5 top-1/2 size-3.5 -translate-y-1/2"
+              />
+            </div>
           </div>
 
           <div class="flex items-center gap-1.5">
@@ -244,7 +278,7 @@ const pageItems = computed(() => {
 
         <nav
           v-if="totalPages > 1"
-          class="flex items-center justify-center gap-2"
+          class="flex flex-wrap items-center justify-center gap-2"
           :aria-label="$t('projectsPage.pagination')"
         >
           <button

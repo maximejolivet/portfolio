@@ -38,7 +38,11 @@ const workerSrc = typeof window !== 'undefined'
   ? `${window.location.origin}/generated/pdf.worker.min.mjs`
   : undefined
 
-onMounted(() => {
+onMounted(async () => {
+  // The PDF viewer (~2 MB of pdf.js) is only needed on this page, so it is
+  // loaded here rather than from a global plugin that every page would pay for.
+  await import('pdfjs-viewer-element')
+
   // pdfjs-viewer-element defaults `wasmUrl` to a `../web/wasm/` path that
   // isn't shipped in the published package, unlike pdf.js itself (which
   // defaults it to null, i.e. disabled). That forces pdf.js to attempt
@@ -55,15 +59,10 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Curriculum vitæ - Maxime Jolivet',
-  ogTitle:
-    'CV - Maxime Jolivet, Développeur web full-stack senior PHP - JavaScript / Expert Drupal',
-  description:
-    'Développeur web avec 10 ans d\'expérience en agence digitale, solides bases en '
-    + 'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
-  ogDescription:
-    'Développeur web avec 10 ans d\'expérience en agence digitale, solides bases en '
-    + 'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
+  title: () => t('seo.cvTitle'),
+  ogTitle: () => t('seo.cvOgTitle'),
+  description: () => t('seo.cvDescription'),
+  ogDescription: () => t('seo.cvDescription'),
   ogImage: 'https://www.maxime.bzh/open-graph-maximejolivet.jpg',
   ogType: 'website',
   twitterCard: 'summary_large_image',
@@ -76,7 +75,7 @@ useSeoMeta({
     <pdfjs-viewer-element
 ref="pdfViewer"
       src="/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-php-symfony-drupal-wordpress-javascript-vuejs-ia.pdf"
-      :worker-src="workerSrc" viewer-css-theme="DARK" zoom="auto" class="block h-[calc(100vh-58px)] w-full"
+      :worker-src="workerSrc" viewer-css-theme="DARK" zoom="auto" class="block h-[calc(100dvh-4.5rem)] w-full"
 />
 
     <button
@@ -144,7 +143,7 @@ v-if="qrDataUrl" :src="qrDataUrl" :alt="t('cv.quickView.qrAlt')" width="140" hei
     <a
       :href="BOOKING_URL" target="_blank" rel="noopener noreferrer"
       class="fixed bottom-18 right-0 z-50 flex size-11 items-center justify-center gap-2 rounded-l-full border-y border-l-0 border-r border-primary bg-primary font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:border-accent hover:bg-accent md:bottom-44 md:right-6 md:size-auto md:rounded-full md:border md:px-5 md:py-3.5"
-      :aria-label="$t('home.contact.bookCall')"
+      :aria-label="`${$t('home.contact.bookCall')} ${$t('a11y.newWindow')}`"
     >
       <UiAppIcon icon="lucide:calendar" class="pointer-events-none size-4" />
       <span class="hidden md:inline">{{ $t('home.contact.bookCall') }}</span>

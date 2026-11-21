@@ -14,7 +14,7 @@ const switchLocalePath = useSwitchLocalePath()
 const { theme, toggleTheme } = useThemeMode()
 const { openChat } = useChatIntro()
 
-const LOCALE_CYCLE = ['fr', 'en', 'br'] as const
+const LOCALE_CYCLE = ['fr', 'en'] as const
 
 const open = ref(false)
 const query = ref('')
@@ -226,7 +226,7 @@ onUnmounted(() => {
           spellcheck="false"
           :placeholder="t('commandPalette.placeholder')"
           :aria-label="t('commandPalette.placeholder')"
-          class="min-w-0 flex-1 bg-transparent text-panel-foreground placeholder:text-panel-foreground/35 focus:outline-none"
+          class="min-w-0 flex-1 bg-transparent text-panel-foreground placeholder:text-panel-foreground/35"
           @keydown.down.prevent="moveActive(1)"
           @keydown.up.prevent="moveActive(-1)"
           @keydown.enter.prevent="runActive"

@@ -16,7 +16,7 @@ import { SOCIAL_LINKS } from '~/constants/social'
           :href="social.href"
           target="_blank"
           rel="noopener noreferrer"
-          :aria-label="$t(`social.${social.id}`)"
+          :aria-label="`${$t(`social.${social.id}`)} ${$t('a11y.newWindow')}`"
           class="flex items-center justify-center p-2 text-white transition-colors hover:text-subtle md:p-0"
         >
           <UiAppIcon :icon="social.icon" class="size-8 md:size-14" />

@@ -229,7 +229,6 @@ export default defineNuxtConfig({
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
       { code: 'fr', language: 'fr-FR', name: 'French', file: 'fr.json' },
-      { code: 'br', language: 'br-FR', name: 'Brezhoneg', file: 'br.json' },
     ],
     detectBrowserLanguage: {
       useCookie: true,
@@ -239,7 +238,7 @@ export default defineNuxtConfig({
     customRoutes: 'config', // disable custom route with page components
     // routes.json values type as plain `string` once imported, but @nuxtjs/i18n's
     // typed `pages` option expects each locale path as a `/${string}` literal.
-    pages: routes as Record<string, Partial<Record<'en' | 'fr' | 'br', false | `/${string}`>>>,
+    pages: routes as Record<string, Partial<Record<'en' | 'fr', false | `/${string}`>>>,
   },
 
   security: {
@@ -257,11 +256,11 @@ export default defineNuxtConfig({
       contentSecurityPolicy: {
         'script-src': [
           // self             => Fallback value, will be ignored by most modern browsers (level 3)
-          // unsafe-inline    => Fallback value, will be ignored by almost any browser (level 2)
+          // (no 'unsafe-inline': browsers that honour the nonce ignore it anyway,
+          // so listing it only weakened the policy for browsers without nonce support)
           // strict-dynamic   => Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
           // nonce-{{nonce}}  => Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
           '\'self\'',
-          '\'unsafe-inline\'',
           '\'strict-dynamic\'',
           '\'nonce-{{nonce}}\'',
           'https://ia.maxime.bzh',
@@ -323,11 +322,11 @@ export default defineNuxtConfig({
     // entries in the first place (see the dynamic source above), so they
     // don't need an exclude pattern of their own.
     exclude: [
-      '/*/projets', '/*/projects', '/*/raktresou',
+      '/*/projets', '/*/projects',
       '/*/cv',
-      '/*/accessibilite', '/*/accessibility', '/*/haezadusted',
-      '/*/mentions-legales', '/*/legal-notice', '/*/menegou-lezennel',
-      '/*/nouveautes', '/*/changelog', '/*/kemmou-nevez',
+      '/*/accessibilite', '/*/accessibility',
+      '/*/mentions-legales', '/*/legal-notice',
+      '/*/nouveautes', '/*/changelog',
       '/*/status',
       '/*/blog',
     ],

@@ -91,7 +91,7 @@ const formattedDate = (value: string) =>
                 autocomplete="off"
                 :placeholder="$t('blog.searchPlaceholder')"
                 :aria-label="$t('blog.searchPlaceholder')"
-                class="w-full rounded-full border border-border bg-background py-2.5 pl-10 pr-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none"
+                class="w-full rounded-full border border-border bg-background py-2.5 pl-10 pr-4 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:border-accent"
               >
             </div>
           </div>

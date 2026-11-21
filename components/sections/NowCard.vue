@@ -44,7 +44,7 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
         <div class="truncate font-mono text-xs leading-[1.5] text-panel-foreground/55">
           {{ shipped.message }}
         </div>
-      </a>
+      <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
     </template>
 
     <template v-else>
@@ -57,7 +57,7 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
       >
         <span v-if="item === 'shipped'" class="size-2 shrink-0 animate-pulse-dot rounded-full bg-mint" />
         <span class="truncate">{{ title }}</span>
-      </a>
+      <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
       <div v-else class="flex min-w-0 items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold">
         <span v-if="item === 'shipped'" class="size-2 shrink-0 animate-pulse-dot rounded-full bg-mint" />
         <span class="truncate">{{ title }}</span>

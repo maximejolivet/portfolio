@@ -187,3 +187,16 @@ html {
     font-family: var(--font-sans);
   }
 }
+
+/* Reduced motion (RGAA 13 / WCAG 2.2.2, 2.3.3): finish animations and
+   transitions immediately, and stop looping ones such as the blinking caret. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
