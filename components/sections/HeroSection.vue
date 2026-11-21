@@ -155,7 +155,7 @@ const jsonLines = computed<JsonLine[]>(() => {
 <template>
   <section id="ide">
     <div class="grid md:min-h-[620px] md:grid-cols-[2fr_3fr]">
-      <div class="flex flex-col justify-center gap-6 px-4 py-16 sm:px-18">
+      <div class="flex flex-col justify-center gap-6 px-4 py-16 md:px-6 lg:px-18">
         <h1
           class="text-balance font-sans text-[clamp(2.5rem,4.4vw,3.875rem)] font-bold leading-[1.1] tracking-[-1.8px] text-foreground"
         >
@@ -164,7 +164,7 @@ const jsonLines = computed<JsonLine[]>(() => {
         <button
           v-if="chatIntroReady"
           type="button"
-          class="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold text-accent transition-colors hover:bg-accent/20 cursor-pointer"
+          class="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold text-accent transition-colors hover:bg-accent/20 min-h-10 cursor-pointer"
           @click="openChat"
         >
           <UiAppIcon icon="lucide:sparkles" class="size-3.5" />

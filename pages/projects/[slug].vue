@@ -134,14 +134,14 @@ useSeoMeta({
             <NuxtImg
               v-if="project.image"
               :src="project.image"
-              :alt="project.title"
+              :alt="project.category === 'personal' ? project.title : ''"
               class="w-full rounded-2xl border border-border object-cover"
             />
             <CardsProjectLogoPlate
               v-else-if="project.logo"
               :logo="project.logo"
               :logo-color="project.logoColor ?? '#1d3540'"
-              :alt="project.title"
+              :alt="project.category === 'personal' ? project.title : ''"
               class="aspect-video w-full"
             />
           </div>
@@ -218,7 +218,7 @@ useSeoMeta({
               v-if="prevProject"
               :to="localePath({ name: 'projects-slug', params: { slug: prevProject.slug } })"
               :rel="prevProject.category === 'pro' ? 'nofollow' : undefined"
-              class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+              class="inline-flex min-h-10 items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
             >
               <UiAppIcon icon="lucide:arrow-left" class="size-3" />
               {{ $t('projectDetail.prev') }}
@@ -229,7 +229,7 @@ useSeoMeta({
               v-if="nextProject"
               :to="localePath({ name: 'projects-slug', params: { slug: nextProject.slug } })"
               :rel="nextProject.category === 'pro' ? 'nofollow' : undefined"
-              class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+              class="inline-flex min-h-10 items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
             >
               {{ $t('projectDetail.next') }}
               <UiAppIcon icon="lucide:arrow-right" class="size-3" />

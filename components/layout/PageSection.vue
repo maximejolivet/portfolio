@@ -13,7 +13,7 @@ const props = withDefaults(
 </script>
 
 <template>
-  <section :id="id" :class="cn('scroll-mt-[58px]', props.class)">
+  <section :id="id" :class="cn('scroll-mt-18', props.class)">
     <UiContainer v-if="!bare" :class="containerClass">
       <slot />
     </UiContainer>

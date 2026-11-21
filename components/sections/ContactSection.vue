@@ -39,7 +39,7 @@ import { SOCIAL_LINKS } from '~/constants/social'
         :href="social.href"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1 font-mono text-[0.875rem] font-semibold text-muted-foreground hover:text-accent"
+        class="inline-flex min-h-10 items-center gap-1 font-mono text-[0.875rem] font-semibold text-muted-foreground hover:text-accent"
       >
         {{ social.label }}
         <UiAppIcon icon="lucide:external-link" class="size-3.5" />

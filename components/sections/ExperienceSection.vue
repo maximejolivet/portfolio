@@ -92,7 +92,7 @@ onUnmounted(stop)
               :aria-expanded="isOpen(entry.item.id)"
               :aria-controls="`experience-${entry.item.id}`"
               :aria-label="t('experienceSection.toggleDetails', { organization: t(entry.item.organizationKey) })"
-              class="ml-auto flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md text-panel-foreground/50 transition-colors hover:text-panel-foreground"
+              class="ml-auto flex size-10 -my-1.5 shrink-0 cursor-pointer items-center justify-center rounded-md text-panel-foreground/50 transition-colors hover:text-panel-foreground"
               @click.stop="onToggle(entry)"
             >
               <UiAppIcon
