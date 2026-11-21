@@ -49,7 +49,7 @@ function titleImageSrc(id: string) {
           v-for="project in previewCaseStudies"
           :key="project.id"
           :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
-          rel="nofollow"
+          :rel="project.category === 'pro' ? 'nofollow' : undefined"
           :style="{ viewTransitionName: `project-${project.id}` }"
           :aria-label="project.category === 'personal' ? `${project.title} (${project.year}) - ${$t('projectsPage.viewProject')}` : undefined"
           class="group flex flex-col gap-3.5"
@@ -71,6 +71,7 @@ function titleImageSrc(id: string) {
             />
             <UiImagePlaceholder
               v-else
+              :label="$t('projectsPage.capturesPending')"
               :dot-class="dotClass(project.dot)"
               class="size-full rounded-none border-0"
             />

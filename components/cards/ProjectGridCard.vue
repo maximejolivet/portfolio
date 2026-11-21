@@ -20,7 +20,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
     <div v-if="project.image" class="aspect-video overflow-hidden rounded-2xl border border-border">
       <NuxtImg
         :src="project.image"
-        :alt="project.title"
+        :alt="project.category === 'personal' ? project.title : ''"
         loading="lazy"
         class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
@@ -29,7 +29,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
       v-else-if="project.logo"
       :logo="project.logo"
       :logo-color="project.logoColor ?? '#1d3540'"
-      :alt="project.title"
+      :alt="project.category === 'personal' ? project.title : ''"
       class="aspect-video"
     />
     <UiImagePlaceholder

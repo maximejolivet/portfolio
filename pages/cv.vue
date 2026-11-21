@@ -59,15 +59,10 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Curriculum vitæ - Maxime Jolivet',
-  ogTitle:
-    'CV - Maxime Jolivet, Développeur web full-stack senior PHP - JavaScript / Expert Drupal',
-  description:
-    'Développeur web avec 10 ans d\'expérience en agence digitale, solides bases en '
-    + 'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
-  ogDescription:
-    'Développeur web avec 10 ans d\'expérience en agence digitale, solides bases en '
-    + 'informatique et développement web - Consultez le CV de Maxime Jolivet 🚀',
+  title: () => t('seo.cvTitle'),
+  ogTitle: () => t('seo.cvOgTitle'),
+  description: () => t('seo.cvDescription'),
+  ogDescription: () => t('seo.cvDescription'),
   ogImage: 'https://www.maxime.bzh/open-graph-maximejolivet.jpg',
   ogType: 'website',
   twitterCard: 'summary_large_image',
@@ -80,7 +75,7 @@ useSeoMeta({
     <pdfjs-viewer-element
 ref="pdfViewer"
       src="/cv-maximejolivet-developpeur-web-fullstack-senior-lead-dev-php-symfony-drupal-wordpress-javascript-vuejs-ia.pdf"
-      :worker-src="workerSrc" viewer-css-theme="DARK" zoom="auto" class="block h-[calc(100vh-58px)] w-full"
+      :worker-src="workerSrc" viewer-css-theme="DARK" zoom="auto" class="block h-[calc(100dvh-4.5rem)] w-full"
 />
 
     <button

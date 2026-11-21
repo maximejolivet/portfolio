@@ -21,7 +21,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
       <NuxtImg
         v-if="project.image"
         :src="project.image"
-        :alt="project.title"
+        :alt="project.category === 'personal' ? project.title : ''"
         loading="lazy"
         class="aspect-video size-full object-cover transition-transform duration-500 group-hover:scale-105 sm:aspect-auto sm:h-full"
       />
@@ -29,7 +29,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
         v-else-if="project.logo"
         :logo="project.logo"
         :logo-color="project.logoColor ?? '#1d3540'"
-        :alt="project.title"
+        :alt="project.category === 'personal' ? project.title : ''"
         class="aspect-video size-full rounded-none border-0 sm:aspect-auto sm:h-full"
       />
       <UiImagePlaceholder

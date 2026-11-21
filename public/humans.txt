@@ -22,7 +22,7 @@ Components: Vue.js, Nuxt
 /* TECHNOLOGY COLOPHON */
 
 Framework: Nuxt 4, Vue 3
-Styling: Tailwind CSS v4, shadcn-vue
+Styling: Tailwind CSS v4
 Language: TypeScript
 Data: Supabase
 Hosting: Vercel

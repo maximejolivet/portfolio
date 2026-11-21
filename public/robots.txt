@@ -15,3 +15,5 @@ Disallow: /api/project-title.svg
 # English version - carve them out of the blanket query-string disallow
 # above so agents that honor robots.txt can actually reach them.
 Allow: /llms-full.txt?lang=en
+
+Sitemap: https://www.maxime.bzh/sitemap_index.xml
