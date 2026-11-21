@@ -37,8 +37,8 @@
     "askIa": "Ask the AI"
   },
   "footer": {
-    "taglineRole": "Web developer",
-    "taglineDetails": "Senior full-stack / Lead Dev / Tech Lead",
+    "taglineRole": "Senior full-stack web developer",
+    "taglineDetails": "Lead Dev / Agentic AI developer",
     "madeInPrefix": "Made in",
     "madeInPlace": "Brittany",
     "madeInSuffix": "between two Kouign-amann",
@@ -48,7 +48,8 @@
     "accessibility": "Accessibility",
     "manageCookies": "Manage cookies",
     "changelog": "Changelog",
-    "status": "Status"
+    "status": "Status",
+    "navLabel": "Footer links"
   },
   "social": {
     "github": "View my GitHub",

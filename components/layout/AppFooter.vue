@@ -6,86 +6,136 @@ const localePath = useLocalePath()
 const { public: { appVersion, commitSha, buildDate } } = useRuntimeConfig()
 
 const shortSha = computed(() => commitSha.slice(0, 7))
-const shortBuildDate = computed(() => buildDate.slice(0, 10))
+const buildDay = computed(() => buildDate.slice(0, 10))
 
 function openCookieSettings() {
   window.tarteaucitron?.userInterface?.openPanel()
 }
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, left: 0 })
+}
 </script>
 
 <template>
-  <footer class="px-8 py-6">
+  <footer class="bg-background text-foreground">
     <div
-      class="mx-auto flex max-w-[1180px] flex-col items-center gap-3 font-sans text-[0.75rem] text-subtle sm:flex-row sm:justify-between sm:gap-4"
+      class="mx-auto grid max-w-[1180px] gap-12 px-4 pb-14 pt-16 sm:px-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-16 md:pb-20 md:pt-24"
     >
-      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-        <NuxtLink :to="localePath('mentions-legales')" rel="nofollow" class="transition-colors hover:text-accent">
-          {{ $t('footer.legalMentions') }}
-        </NuxtLink>
-        <NuxtLink :to="localePath('accessibilite')" rel="nofollow" class="transition-colors hover:text-accent">
-          {{ $t('footer.accessibility') }}
-        </NuxtLink>
-        <NuxtLink :to="localePath('changelog')" rel="nofollow" class="transition-colors hover:text-accent">
-          {{ $t('footer.changelog') }}
-        </NuxtLink>
-        <NuxtLink :to="localePath('status')" rel="nofollow" class="transition-colors hover:text-accent">
-          {{ $t('footer.status') }}
-        </NuxtLink>
-        <button
-          type="button"
-          class="cursor-pointer transition-colors hover:text-accent"
-          @click="openCookieSettings"
-        >
-          {{ $t('footer.manageCookies') }}
-        </button>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <span class="sr-only">{{ $t('footer.taglineRole') }} {{ $t('footer.taglineDetails') }}</span>
-        <div class="flex items-center gap-2">
-          <span
-            class="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 rounded-2xl border border-border bg-white px-3 py-2 text-center font-mono text-[0.6875rem] font-semibold text-primary-foreground sm:h-9 sm:flex-nowrap sm:gap-2 sm:rounded-full sm:px-3.5 sm:py-0 sm:text-xs sm:whitespace-nowrap"
-          >
-            {{ $t('footer.madeInPrefix') }}
-            <img
-              src="/flag-br.svg"
-              :alt="$t('footer.madeInPlace')"
-              :title="$t('footer.madeInPlace')"
-              width="29"
-              height="20"
-              class="h-5 w-auto"
-            />
-            {{ $t('footer.madeInSuffix') }}
-          </span>
+      <div class="flex flex-col gap-6">
+        <p class="font-sans text-[2rem] font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
+          Maxime Jolivet
+        </p>
+        <div class="flex flex-col gap-1 font-sans text-sm text-muted-foreground">
+          <p>{{ $t('footer.taglineRole') }}</p>
+          <p>{{ $t('footer.taglineDetails') }}</p>
+        </div>
+        <p class="flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-sm text-muted-foreground">
+          {{ $t('footer.madeInPrefix') }}
+          <img
+            src="/flag-br.svg"
+            :alt="$t('footer.madeInPlace')"
+            width="29"
+            height="20"
+            class="h-5 w-auto"
+          />
+          {{ $t('footer.madeInSuffix') }}
+        </p>
+        <div class="self-start">
           <NavigationThemeToggle />
         </div>
       </div>
-      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-        <NavigationNavLink
-          v-for="item in NAV_ITEMS"
-          :key="item.id"
-          :to="item.to"
-          :href="item.href"
-          :hash="item.hash"
-          :open-chat="item.openChat"
-          :rel="item.rel"
-        >
-          {{ $t(item.labelKey) }}
-        </NavigationNavLink>
-      </div>
+
+      <nav :aria-label="$t('footer.navLabel')">
+        <ul class="grid grid-cols-2 gap-x-8 gap-y-4 font-sans text-sm sm:grid-cols-3">
+          <li v-for="item in NAV_ITEMS" :key="item.id">
+            <NavigationNavLink
+              :to="item.to"
+              :href="item.href"
+              :hash="item.hash"
+              :open-chat="item.openChat"
+              :rel="item.rel"
+              large
+            >
+              {{ $t(item.labelKey) }}
+            </NavigationNavLink>
+          </li>
+          <li>
+            <NuxtLink
+              :to="localePath('mentions-legales')"
+              rel="nofollow"
+              class="text-muted-foreground transition-colors hover:text-accent"
+            >
+              {{ $t('footer.legalMentions') }}
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              :to="localePath('accessibilite')"
+              rel="nofollow"
+              class="text-muted-foreground transition-colors hover:text-accent"
+            >
+              {{ $t('footer.accessibility') }}
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              :to="localePath('changelog')"
+              rel="nofollow"
+              class="text-muted-foreground transition-colors hover:text-accent"
+            >
+              {{ $t('footer.changelog') }}
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              :to="localePath('status')"
+              rel="nofollow"
+              class="text-muted-foreground transition-colors hover:text-accent"
+            >
+              {{ $t('footer.status') }}
+            </NuxtLink>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="cursor-pointer text-muted-foreground transition-colors hover:text-accent"
+              @click="openCookieSettings"
+            >
+              {{ $t('footer.manageCookies') }}
+            </button>
+          </li>
+        </ul>
+      </nav>
     </div>
 
-    <div
-      class="mx-auto mt-3 flex max-w-[1180px] flex-wrap items-center justify-center gap-x-3 font-mono text-[0.6875rem] text-subtle/70"
-    >
-      <a
-        v-if="commitSha"
-        :href="`${GITHUB_REPO_URL}/commit/${commitSha}`"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition-colors hover:text-accent"
+    <div class="bg-panel text-panel-foreground">
+      <div
+        class="mx-auto flex max-w-[1180px] flex-col gap-3 px-4 py-4 font-mono text-xs sm:flex-row sm:items-center sm:justify-between sm:px-8"
       >
-        v{{ appVersion }} · {{ shortSha }} · {{ shortBuildDate }}
-      <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
+        <p class="min-w-0 wrap-break-word">
+          <span class="text-mint" aria-hidden="true">$</span>
+          git log -1 --oneline
+          <template v-if="commitSha">
+            <a
+              :href="`${GITHUB_REPO_URL}/commit/${commitSha}`"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="ml-2 underline-offset-4 transition-colors hover:text-mint hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint"
+            >
+              {{ shortSha }}<span class="sr-only">{{ $t('a11y.newWindow') }}</span>
+            </a>
+          </template>
+          <span class="ml-2 text-panel-foreground/60">v{{ appVersion }} ({{ buildDay }})</span>
+        </p>
+        <button
+          type="button"
+          class="self-start text-panel-foreground/70 transition-colors hover:text-mint focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint sm:self-auto"
+          @click="scrollToTop"
+        >
+          {{ $t('footer.backToTop') }}
+        </button>
+      </div>
     </div>
   </footer>
 </template>

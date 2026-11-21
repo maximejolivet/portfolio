@@ -37,8 +37,8 @@
     "askIa": "Goulenn digant an IA"
   },
   "footer": {
-    "taglineRole": "Diorroer web",
-    "taglineDetails": "full-stack senior / Lead Dev / Tech Lead",
+    "taglineRole": "Diorroer web full-stack uhel",
+    "taglineDetails": "Lead Dev / Diorroer IA agentek",
     "madeInPrefix": "Graet e",
     "madeInPlace": "Breizh",
     "madeInSuffix": "etre daou Kouign-amann",
@@ -48,7 +48,8 @@
     "accessibility": "Haezadusted",
     "manageCookies": "Merañ ar cookies",
     "changelog": "Hizivadennoù",
-    "status": "Stad"
+    "status": "Stad",
+    "navLabel": "Liammoù an droed-bajenn"
   },
   "social": {
     "github": "Gwelet ma GitHub",
