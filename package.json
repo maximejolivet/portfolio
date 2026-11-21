@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "type": "module",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "repository": "git@github.com:maximejolivet/portfolio.git",
   "author": "Maxime JOLIVET <maximejolivet.pro@gmail.com>",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "node": "24.x.x"
   },
   "overrides": {
-    "html-encoding-sniffer": "4.0.0",
+    "html-encoding-sniffer": "7.0.0",
     "jsdom": "31.0.1",
     "@intlify/shared": "11.4.23",
     "@intlify/core-base": "11.4.23",
