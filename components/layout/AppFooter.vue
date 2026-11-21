@@ -37,7 +37,7 @@ const linkClass = 'text-[#1d3540] underline underline-offset-4 decoration-2 tran
       </div>
 
       <div class="mt-16 flex flex-col gap-4 font-sans text-sm text-[#1d3540]">
-        <p class="text-base font-semibold text-[#1d3540]">
+        <p class="text-lg leading-tight font-semibold text-[#1d3540]">
           {{ $t('footer.taglineRole') }}
         </p>
         <p class="text-lg leading-tight">{{ $t('footer.taglineDetails') }}</p>
