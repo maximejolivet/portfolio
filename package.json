@@ -31,7 +31,7 @@
     "node": "24.x.x"
   },
   "overrides": {
-    "html-encoding-sniffer": "4.0.0",
+    "html-encoding-sniffer": "7.0.0",
     "jsdom": "26.1.0",
     "@intlify/shared": "11.4.23",
     "@intlify/core-base": "11.4.23",
