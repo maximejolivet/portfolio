@@ -85,7 +85,7 @@ function openCookieSettings() {
         class="transition-colors hover:text-accent"
       >
         v{{ appVersion }} · {{ shortSha }} · {{ shortBuildDate }}
-      </a>
+      <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
     </div>
   </footer>
 </template>

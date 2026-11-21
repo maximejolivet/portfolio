@@ -6,7 +6,8 @@
   },
   "a11y": {
     "skipToContent": "Mont d'an endalc'had",
-    "terminalInput": "Skrivañ ur gourc'hemenn an termenal"
+    "terminalInput": "Skrivañ ur gourc'hemenn an termenal",
+    "newWindow": "(prenestr nevez)"
   },
   "intro": {
     "skipHint": "SPACE PE ESC EVIT TREMEN · STOKañ EVIT TREMEN"

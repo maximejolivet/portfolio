@@ -144,7 +144,7 @@ v-if="qrDataUrl" :src="qrDataUrl" :alt="t('cv.quickView.qrAlt')" width="140" hei
     <a
       :href="BOOKING_URL" target="_blank" rel="noopener noreferrer"
       class="fixed bottom-18 right-0 z-50 flex size-11 items-center justify-center gap-2 rounded-l-full border-y border-l-0 border-r border-primary bg-primary font-sans text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-300 hover:scale-105 hover:border-accent hover:bg-accent md:bottom-44 md:right-6 md:size-auto md:rounded-full md:border md:px-5 md:py-3.5"
-      :aria-label="$t('home.contact.bookCall')"
+      :aria-label="`${$t('home.contact.bookCall')} ${$t('a11y.newWindow')}`"
     >
       <UiAppIcon icon="lucide:calendar" class="pointer-events-none size-4" />
       <span class="hidden md:inline">{{ $t('home.contact.bookCall') }}</span>

@@ -68,6 +68,7 @@ const isExternal = computed(() => props.href?.startsWith('http'))
     :class="cn(BASE_CLASSES, VARIANT_CLASSES[variant], SIZE_CLASSES[size], 'group', props.class)"
   >
     <slot />
+    <span v-if="isExternal" class="sr-only">{{ $t('a11y.newWindow') }}</span>
     <UiAppIcon
       v-if="icon"
       :icon="icon"

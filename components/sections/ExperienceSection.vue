@@ -72,11 +72,12 @@ onUnmounted(stop)
               :href="entry.item.organizationUrl"
               target="_blank"
               rel="noopener noreferrer"
-              :aria-label="entry.item.logo ? t(entry.item.organizationKey) : undefined"
+              :aria-label="entry.item.logo ? `${t(entry.item.organizationKey)} ${$t('a11y.newWindow')}` : undefined"
               class="inline-flex items-center gap-2 text-primary underline decoration-dotted underline-offset-2 transition-colors hover:text-mint"
               @click.stop
             >
               <span :class="entry.item.logo && 'hidden'">{{ t(entry.item.organizationKey) }}</span>
+              <span v-if="!entry.item.logo" class="sr-only">{{ $t('a11y.newWindow') }}</span>
               <span
                 v-if="entry.item.logo"
                 aria-hidden="true"

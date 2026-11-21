@@ -59,7 +59,7 @@ const currentMonth = computed(() =>
         >
           <UiAppIcon icon="lucide:github" class="size-3.5" />
           {{ $t('home.now.viewGithub') }}
-        </a>
+        <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
       </div>
 
       <div class="grid gap-9 sm:grid-cols-2 lg:grid-cols-4">

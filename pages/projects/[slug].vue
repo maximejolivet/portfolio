@@ -155,7 +155,7 @@ useSeoMeta({
           >
             {{ $t('projectsPage.viewProject') }}
             <UiAppIcon icon="lucide:external-link" class="size-3.5 shrink-0" />
-          </a>
+          <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
 
           <!-- eslint-disable vue/no-v-html -- content is passed through sanitizeHtml() before rendering -->
           <div v-if="hasCaseStudy" class="mt-10 flex flex-col gap-10 pb-16">
