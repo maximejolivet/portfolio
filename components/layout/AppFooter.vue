@@ -40,7 +40,7 @@ const linkClass = 'text-[#1d3540] underline underline-offset-4 decoration-2 tran
         <p class="text-base font-semibold text-[#1d3540]">
           {{ $t('footer.taglineRole') }}
         </p>
-        <p>{{ $t('footer.taglineDetails') }}</p>
+        <p class="text-lg leading-tight">{{ $t('footer.taglineDetails') }}</p>
         <p class="flex flex-wrap items-center gap-x-2 gap-y-1">
           {{ $t('footer.madeInPrefix') }}
           <span class="inline-flex rounded-sm bg-panel-foreground p-0.5">
