@@ -55,7 +55,7 @@ Vitest, environment `node`. Tests in `test/**/*.spec.ts`.
 **Indexing (per page, not global)**
 
 - Site is indexable by default — no site-wide `noindex` in `nuxt.config.ts`.
-- `noindex, nofollow` via `useHead`: `/projects` list, `pro`-category project pages (client work may be confidential), `/cv`, `/accessibilite`, `/changelog`, `/status`, `/mentions-legales`. `personal` project pages are indexed.
+- `noindex, nofollow` via `useHead`: `/projects` list, `pro`-category project pages (client work may be confidential), `/cv`, `/accessibilite`, `/changelog`, `/status`, `/mentions-legales`, and the whole blog (`/blog`, `/blog/:slug`, deliberate since `289a68c`). `personal` project pages are indexed.
 - Homepage sets `noimageindex`; `robots.txt` disallows `/logo-project-*` and `/api/project-title.svg` — client logos stay out of image search.
 
 **Build & tooling**
