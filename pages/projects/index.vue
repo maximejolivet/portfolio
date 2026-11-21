@@ -43,6 +43,17 @@ const employerFilter = computed<string>({
   set: (value) => updateQuery({ employer: value === 'all' ? undefined : value, page: undefined }),
 })
 
+const yearFilter = computed<string>({
+  get: () => (typeof route.query.year === 'string' ? route.query.year : 'all'),
+  set: (value) => updateQuery({ year: value === 'all' ? undefined : value, page: undefined }),
+})
+
+const years = computed(() =>
+  Array.from(new Set(projects.value.map((p) => p.year).filter(Boolean))).sort((a, b) =>
+    b.localeCompare(a),
+  ),
+)
+
 const techFilter = computed<string | undefined>({
   get: () => (typeof route.query.tech === 'string' ? route.query.tech : undefined),
   set: (value) => updateQuery({ tech: value, page: undefined }),
@@ -76,6 +87,7 @@ const filteredProjects = computed(() => {
     .filter((p) => {
       if (categoryFilter.value !== 'all' && p.category !== categoryFilter.value) return false
       if (employerFilter.value !== 'all' && p.employer !== employerFilter.value) return false
+      if (yearFilter.value !== 'all' && p.year !== yearFilter.value) return false
       if (techMatches && !techMatches.includes(p)) return false
       return true
     })
@@ -182,6 +194,17 @@ const pageItems = computed(() => {
             >
               {{ employer }}
             </UiButton>
+
+            <span class="mx-1 h-5 w-px bg-border" />
+
+            <select
+              v-model="yearFilter"
+              :aria-label="$t('projectsPage.filterYear')"
+              class="h-9 cursor-pointer rounded-full border border-border bg-background px-4 font-mono text-xs font-semibold text-foreground transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+            >
+              <option value="all">{{ $t('projectsPage.filterAllYears') }}</option>
+              <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+            </select>
           </div>
 
           <div class="flex items-center gap-1.5">

@@ -221,7 +221,9 @@
     "pagination": "Pagination",
     "pageLabel": "Page",
     "techFilterLabel": "Filtered by tech:",
-    "clearTechFilter": "Clear tech filter"
+    "clearTechFilter": "Clear tech filter",
+    "filterYear": "Year",
+    "filterAllYears": "All years"
   },
   "clientsSection": {
     "eyebrow": "Projects I've contributed to",
@@ -418,7 +420,7 @@
   "a11yPage": {
     "eyebrow": "ACCESSIBILITY",
     "title": "Accessibility statement",
-    "updated": "Last updated: August 2026",
+    "updated": "Last updated: {date}",
     "sections": {
       "intro": {
         "title": "About this statement",

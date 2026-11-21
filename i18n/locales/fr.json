@@ -221,7 +221,9 @@
     "pagination": "Pagination",
     "pageLabel": "Page",
     "techFilterLabel": "Filtré par technologie :",
-    "clearTechFilter": "Retirer le filtre technologie"
+    "clearTechFilter": "Retirer le filtre technologie",
+    "filterYear": "Année",
+    "filterAllYears": "Toutes les années"
   },
   "clientsSection": {
     "eyebrow": "Les projets auxquels j'ai collaboré",
@@ -418,7 +420,7 @@
   "a11yPage": {
     "eyebrow": "ACCESSIBILITÉ",
     "title": "Déclaration d'accessibilité",
-    "updated": "Dernière mise à jour : août 2026",
+    "updated": "Dernière mise à jour : {date}",
     "sections": {
       "intro": {
         "title": "À propos de cette déclaration",

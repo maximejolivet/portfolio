@@ -1,7 +1,19 @@
 <script setup lang="ts">
+import { A11Y_LAST_REVIEW } from '~/constants/accessibility'
 import { CONTACT_EMAIL } from '~/constants/contact'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const updatedLabel = computed(() =>
+  t('a11yPage.updated', {
+    date: new Date(A11Y_LAST_REVIEW).toLocaleDateString(resolveDateLocale(locale.value), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    }),
+  }),
+)
 
 useHead({
   meta: [{ name: 'robots', content: 'noindex, nofollow' }],
@@ -24,7 +36,7 @@ const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
   <div>
     <SectionsPageIntro
 :eyebrow="$t('a11yPage.eyebrow')" :title="$t('a11yPage.title')"
-      :subtitle="$t('a11yPage.updated')"
+      :subtitle="updatedLabel"
 />
 
     <LayoutPageSection bare>

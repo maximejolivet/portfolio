@@ -221,7 +221,9 @@
     "pagination": "Pajennaouiñ",
     "pageLabel": "Pajenn",
     "techFilterLabel": "Silet dre deknik :",
-    "clearTechFilter": "Lemel ar sil teknik"
+    "clearTechFilter": "Lemel ar sil teknik",
+    "filterYear": "Bloavezh",
+    "filterAllYears": "An holl bloavezhioù"
   },
   "clientsSection": {
     "eyebrow": "Ar raktresoù ma em eus kemeret perzh enno",
@@ -418,7 +420,7 @@
   "a11yPage": {
     "eyebrow": "HAEZADUSTED",
     "title": "Disklêriadur haezadusted",
-    "updated": "Hizivadenn diwezhañ : Eost 2026",
+    "updated": "Hizivadenn diwezhañ : {date}",
     "sections": {
       "intro": {
         "title": "Diwar-benn an disklêriadur-mañ",
