@@ -37,8 +37,8 @@
     "askIa": "Demander à l'IA"
   },
   "footer": {
-    "taglineRole": "Développeur web",
-    "taglineDetails": "full-stack senior / Lead Dev / Tech Lead",
+    "taglineRole": "Développeur web full-stack senior",
+    "taglineDetails": "Lead Dev / Développeur IA agentique",
     "madeInPrefix": "Fabriqué en",
     "madeInPlace": "Bretagne",
     "madeInSuffix": "entre deux Kouign-amann",
@@ -48,7 +48,8 @@
     "accessibility": "Accessibilité",
     "manageCookies": "Gérer les cookies",
     "changelog": "Nouveautés",
-    "status": "Statut"
+    "status": "Statut",
+    "navLabel": "Liens du pied de page"
   },
   "social": {
     "github": "Voir mon GitHub",
