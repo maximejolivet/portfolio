@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { CAL_LINK, CAL_NAMESPACE, CONTACT_EMAIL } from '~/constants/contact'
+import { BOOKING_URL, CONTACT_EMAIL } from '~/constants/contact'
 import { TECH_CATEGORIES } from '~/constants/techstack'
 
 const { t, locale } = useI18n()
-const { refused: calRefused } = useCalConsent()
 const route = useRoute()
 const router = useRouter()
 const { data: projects } = await useProjects()
@@ -302,14 +301,7 @@ const pageItems = computed(() => {
             <UiButton :href="`mailto:${CONTACT_EMAIL}`">
               {{ CONTACT_EMAIL }}
             </UiButton>
-            <UiButton
-              v-if="!calRefused"
-              variant="pill-outline"
-              icon="lucide:arrow-right"
-              :data-cal-link="CAL_LINK"
-              :data-cal-namespace="CAL_NAMESPACE"
-              data-cal-config="{&quot;layout&quot;:&quot;month_view&quot;,&quot;useSlotsViewOnSmallScreen&quot;:&quot;true&quot;}"
-            >
+            <UiButton :href="BOOKING_URL" variant="pill-outline" icon="lucide:arrow-right">
               {{ $t('home.contact.bookCall') }}
             </UiButton>
           </div>

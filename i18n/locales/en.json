@@ -5,7 +5,8 @@
     "homeTitle": "Senior full-stack web developer - PHP / JavaScript / Drupal & WordPress expert"
   },
   "a11y": {
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "terminalInput": "Enter a terminal command"
   },
   "intro": {
     "skipHint": "SPACE OR ESC TO SKIP · TAP TO SKIP"
@@ -46,8 +47,7 @@
     "accessibility": "Accessibility",
     "manageCookies": "Manage cookies",
     "changelog": "Changelog",
-    "status": "Status",
-    "viewSource": "View this page's source"
+    "status": "Status"
   },
   "social": {
     "github": "View my GitHub",
@@ -274,8 +274,8 @@
       "subtitle": "Senior Full-Stack Web Developer · Lead Developer · AI Agentic Developer",
       "subtitleSecondary": "Prompt Engineering · AI Engineer · AI Product Engineer",
       "subtitleTertiary": "PHP, JavaScript · Drupal & WordPress Expert",
-      "subtitleQuaternary": "PHP, JavaScript · Expert Drupal & WordPress",
       "bookCall": "Book a meeting",
+      "subtitleQuaternary": "PHP, JavaScript · Expert Drupal & WordPress",
       "chat": "Chat with the AI assistant"
     }
   },
@@ -283,11 +283,6 @@
     "context": "The context",
     "solution": "What I built",
     "result": "The result",
-    "specSheet": "SPEC SHEET",
-    "year": "year",
-    "role": "role",
-    "duration": "duration",
-    "team": "team",
     "prev": "previous project",
     "next": "next project"
   },
@@ -392,12 +387,12 @@
       "data": {
         "title": "Personal data",
         "intro": "This site does not collect any personal data for advertising or profiling purposes.",
-        "body": "The only data that may be collected is what you voluntarily share by email or through the contact or booking form. It is used solely to respond to your request and is never sold or shared with third parties.",
+        "body": "The only data that may be collected is what you voluntarily share by email or through the contact form or the AI assistant. It is used solely to respond to your request and is never sold or shared with third parties. Messages typed into the AI assistant are sent to a third-party service that processes them to generate replies: avoid entering sensitive personal data.",
         "closing": "In accordance with the General Data Protection Regulation (GDPR), you may exercise your rights of access, rectification, erasure or objection by writing to {email}."
       },
       "cookies": {
         "title": "Cookies",
-        "intro": "This site uses Google Tag Manager and the Cal.eu scheduling service, which may set cookies, only after you give consent.",
+        "intro": "This site uses Google Tag Manager, which may set cookies, only after you give consent.",
         "body": "A banner lets you accept, decline, or customize these cookies on your first visit. You can change your choices at any time via the \"Manage cookies\" link at the bottom of the page. Only cookies strictly necessary for the site to function (remembering your language and consent choice) are set without prior consent."
       },
       "ip": {
@@ -476,16 +471,7 @@
     "version": "Version",
     "commit": "Commit",
     "buildDate": "Build date",
-    "lighthouse": "Lighthouse scores",
-    "lighthouseUnavailable": "Scores unavailable right now.",
-    "viewJson": "View as JSON",
-    "viewFullReport": "View the full PageSpeed report",
-    "metrics": {
-      "performance": "Performance",
-      "accessibility": "Accessibility",
-      "bestPractices": "Best practices",
-      "seo": "SEO"
-    }
+    "viewJson": "View as JSON"
   },
   "error": {
     "back_home": "Back to home",
