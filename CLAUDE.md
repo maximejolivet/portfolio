@@ -97,4 +97,4 @@ Vitest, environment `node`. Tests in `test/**/*.spec.ts`.
 
 ## Node
 
-Node 24 (`engines.node: "24.x.x"`).
+Node 26 (`engines.node: "26.x"`, `.nvmrc` = 26).
