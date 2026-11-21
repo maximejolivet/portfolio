@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { NAV_ITEMS } from '~/constants/nav'
-import { GITHUB_REPO_URL } from '~/constants/pageSource'
 
 const localePath = useLocalePath()
-const { public: { appVersion, commitSha, buildDate } } = useRuntimeConfig()
+const { openChat } = useChatIntro()
 
-const shortSha = computed(() => commitSha.slice(0, 7))
-const buildDay = computed(() => buildDate.slice(0, 10))
+// Only the labelled items: the icon-only home link is already the header's logo.
+const siteLinks = NAV_ITEMS.filter((item) => !item.iconOnly)
+
+function onChatClick(event: MouseEvent, shouldOpenChat?: boolean) {
+  if (!shouldOpenChat) return
+  event.preventDefault()
+  openChat()
+}
 
 function openCookieSettings() {
   window.tarteaucitron?.userInterface?.openPanel()
@@ -15,122 +20,100 @@ function openCookieSettings() {
 function scrollToTop() {
   window.scrollTo({ top: 0, left: 0 })
 }
+
+const linkClass = 'text-foreground transition-colors hover:text-accent focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint'
 </script>
 
 <template>
-  <footer class="bg-background text-foreground">
-    <div
-      class="mx-auto grid max-w-[1180px] gap-12 px-4 pb-14 pt-16 sm:px-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-16 md:pb-20 md:pt-24"
-    >
-      <div class="flex flex-col gap-6">
-        <p class="font-sans text-[2rem] font-bold leading-[1.05] tracking-[-0.03em] text-foreground">
+  <footer class="bg-white text-foreground">
+    <div class="mx-auto max-w-[1180px] px-4 pb-12 pt-20 sm:px-8 md:pt-28">
+      <div class="flex items-center gap-4 sm:gap-6">
+        <UiLogoMark :size="56" class="shrink-0 text-mint sm:size-[72px] md:size-[96px]" />
+        <p
+          class="font-sans text-[clamp(3rem,10vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-balance text-[#cdd3cf]"
+        >
           Maxime Jolivet
         </p>
-        <div class="flex flex-col gap-1 font-sans text-sm text-muted-foreground">
-          <p>{{ $t('footer.taglineRole') }}</p>
-          <p>{{ $t('footer.taglineDetails') }}</p>
-        </div>
-        <p class="flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-sm text-muted-foreground">
-          {{ $t('footer.madeInPrefix') }}
-          <img
-            src="/flag-br.svg"
-            :alt="$t('footer.madeInPlace')"
-            width="29"
-            height="20"
-            class="h-5 w-auto"
-          />
-          {{ $t('footer.madeInSuffix') }}
-        </p>
-        <div class="self-start">
-          <NavigationThemeToggle />
-        </div>
       </div>
 
-      <nav :aria-label="$t('footer.navLabel')">
-        <ul class="grid grid-cols-2 gap-x-8 gap-y-4 font-sans text-sm sm:grid-cols-3">
-          <li v-for="item in NAV_ITEMS" :key="item.id">
-            <NavigationNavLink
-              :to="item.to"
+      <div class="mt-16 flex flex-col gap-4 font-sans text-sm text-foreground">
+        <p class="text-base font-semibold text-foreground">
+          {{ $t('footer.taglineRole') }}
+        </p>
+        <p>{{ $t('footer.taglineDetails') }}</p>
+        <p class="flex flex-wrap items-center gap-x-2 gap-y-1">
+          {{ $t('footer.madeInPrefix') }}
+          <span class="inline-flex rounded-sm bg-panel-foreground p-0.5">
+            <img
+              src="/flag-br.svg"
+              :alt="$t('footer.madeInPlace')"
+              width="29"
+              height="20"
+              class="h-4 w-auto"
+            />
+          </span>
+          {{ $t('footer.madeInSuffix') }}
+        </p>
+      </div>
+
+      <nav :aria-label="$t('footer.navLabel')" class="mt-12">
+        <ul class="grid grid-cols-1 gap-x-10 gap-y-4 font-sans text-base sm:grid-cols-2 lg:grid-cols-3">
+          <li v-for="item in siteLinks" :key="item.id">
+            <a
+              v-if="item.href"
               :href="item.href"
-              :hash="item.hash"
-              :open-chat="item.openChat"
-              :rel="item.rel"
-              large
+              target="_blank"
+              rel="noopener noreferrer"
+              :class="linkClass"
+              @click="onChatClick($event, item.openChat)"
+            >
+              {{ $t(item.labelKey) }}<span class="sr-only">{{ $t('a11y.newWindow') }}</span>
+            </a>
+            <NuxtLink
+              v-else
+              :to="item.hash ? { path: localePath(item.to), hash: item.hash } : localePath(item.to)"
+              :class="linkClass"
             >
               {{ $t(item.labelKey) }}
-            </NavigationNavLink>
+            </NuxtLink>
           </li>
           <li>
             <NuxtLink
               :to="localePath('mentions-legales')"
               rel="nofollow"
-              class="text-muted-foreground transition-colors hover:text-accent"
+              :class="linkClass"
             >
               {{ $t('footer.legalMentions') }}
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              :to="localePath('accessibilite')"
-              rel="nofollow"
-              class="text-muted-foreground transition-colors hover:text-accent"
-            >
+            <NuxtLink :to="localePath('accessibilite')" rel="nofollow" :class="linkClass">
               {{ $t('footer.accessibility') }}
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              :to="localePath('changelog')"
-              rel="nofollow"
-              class="text-muted-foreground transition-colors hover:text-accent"
-            >
+            <NuxtLink :to="localePath('changelog')" rel="nofollow" :class="linkClass">
               {{ $t('footer.changelog') }}
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              :to="localePath('status')"
-              rel="nofollow"
-              class="text-muted-foreground transition-colors hover:text-accent"
-            >
+            <NuxtLink :to="localePath('status')" rel="nofollow" :class="linkClass">
               {{ $t('footer.status') }}
             </NuxtLink>
           </li>
           <li>
-            <button
-              type="button"
-              class="cursor-pointer text-muted-foreground transition-colors hover:text-accent"
-              @click="openCookieSettings"
-            >
+            <button type="button" class="cursor-pointer" :class="linkClass" @click="openCookieSettings">
               {{ $t('footer.manageCookies') }}
             </button>
           </li>
         </ul>
       </nav>
-    </div>
 
-    <div class="bg-panel text-panel-foreground">
-      <div
-        class="mx-auto flex max-w-[1180px] flex-col gap-3 px-4 py-4 font-mono text-xs sm:flex-row sm:items-center sm:justify-between sm:px-8"
-      >
-        <p class="min-w-0 wrap-break-word">
-          <span class="text-mint" aria-hidden="true">$</span>
-          git log -1 --oneline
-          <template v-if="commitSha">
-            <a
-              :href="`${GITHUB_REPO_URL}/commit/${commitSha}`"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="ml-2 underline-offset-4 transition-colors hover:text-mint hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint"
-            >
-              {{ shortSha }}<span class="sr-only">{{ $t('a11y.newWindow') }}</span>
-            </a>
-          </template>
-          <span class="ml-2 text-panel-foreground/60">v{{ appVersion }} ({{ buildDay }})</span>
-        </p>
+      <div class="mt-12 flex flex-wrap items-center justify-between gap-6">
+        <NavigationThemeToggle />
         <button
           type="button"
-          class="self-start text-panel-foreground/70 transition-colors hover:text-mint focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint sm:self-auto"
+          class="font-sans text-sm transition-colors hover:text-accent focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint"
           @click="scrollToTop"
         >
           {{ $t('footer.backToTop') }}
