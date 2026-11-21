@@ -28,7 +28,7 @@ import { SOCIAL_LINKS } from '~/constants/social'
       <UiButton :href="`mailto:${CONTACT_EMAIL}`">
         {{ CONTACT_EMAIL }}
       </UiButton>
-      <UiButton :href="BOOKING_URL" variant="pill-outline">
+      <UiButton :href="BOOKING_URL" variant="pill-outline" icon="lucide:external-link">
         {{ $t('home.contact.bookCall') }}
       </UiButton>
     </div>

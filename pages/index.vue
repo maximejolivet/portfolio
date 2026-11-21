@@ -55,9 +55,9 @@ useSeoMeta({
     <SectionsHeroSection />
     <SectionsAboutSection />
     <SectionsExperienceSection />
-    <SectionsRecommendationsSection />
     <SectionsTechStackSection />
     <SectionsProjectsSection />
+    <SectionsRecommendationsSection />
     <SectionsNowSection />
     <SectionsSocialLinksSection />
     <SectionsContactSection />

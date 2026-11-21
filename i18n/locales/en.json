@@ -150,16 +150,22 @@
   },
   "recommendationsSection": {
     "eyebrow": "Recommendations",
+    "imageAlt": "Testimonial (image)",
+    "pause": "Pause slideshow",
+    "play": "Resume slideshow",
+    "previous": "Previous recommendation",
+    "next": "Next recommendation",
+    "goTo": "Show recommendation {n}",
     "items": {
       "thibaut": {
         "quote": "« I managed Maxime for 5 years at GINGERMINDS and I'm glad to take the time to write this recommendation. Maxime is first and foremost a source of positive energy in a team. Someone you can count on, who genuinely invests in projects and creates a healthy, collaborative working atmosphere around him. He has a rare ability to rally people without forcing it, to bring them along naturally. Technically, he knows his stuff: he contributed to many client projects that are still running in production today (Akena, Vygon, Boralex, PiLeJe, SAUR, Samoa Nantes, LNA Santé…) across varied technologies. But his real added value is his attitude: always curious, always eager to improve, and above all, always attentive to others. Over 5 years, I watched him grow, gain confidence and take a real place in the team dynamic. Maxime makes projects better because he makes teams better. I warmly recommend him. »",
         "name": "Thibaut Monier",
-        "role": "Director of Operations and Production, Gingerminds"
+        "role": "Director of Operations and Production"
       },
       "lucie": {
         "quote": "« I had the pleasure of working alongside Maxime on several projects, and I can only recommend his collaboration. Beyond his solid technical skills as a senior web developer, Maxime is a colleague who is particularly pleasant to work with: always smiling, reliable, involved, and someone you can truly count on. His professionalism and commitment make him an important member of project teams. We collaborated on several projects, notably for PiLeJe, Malakoff Humanis Courtage and Intuis. Maxime has always shown initiative, not hesitating to contact clients directly to smooth exchanges and move topics forward more efficiently. An important member of the Team Happiness, he actively contributed to well-being and internal cohesion, and I can only thank him for it. Maxime is a complete, committed and human professional, whom I recommend without hesitation. »",
         "name": "Lucie Magadur",
-        "role": "Director of Operations and Projects / Senior Product Owner, Gingerminds"
+        "role": "Director of Operations and Projects / Senior Product Owner"
       }
     }
   },
