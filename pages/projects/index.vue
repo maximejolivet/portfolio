@@ -197,14 +197,25 @@ const pageItems = computed(() => {
 
             <span class="mx-1 h-5 w-px bg-border" />
 
-            <select
-              v-model="yearFilter"
-              :aria-label="$t('projectsPage.filterYear')"
-              class="h-9 cursor-pointer rounded-full border border-border bg-background px-4 font-mono text-xs font-semibold text-foreground transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-            >
-              <option value="all">{{ $t('projectsPage.filterAllYears') }}</option>
-              <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
-            </select>
+            <div class="relative inline-flex">
+              <select
+                v-model="yearFilter"
+                :aria-label="$t('projectsPage.filterYear')"
+                :class="[
+                  'h-9 cursor-pointer appearance-none rounded-full border py-0 pl-4 pr-10 font-mono text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground',
+                  yearFilter === 'all'
+                    ? 'border-border bg-transparent text-foreground hover:border-accent hover:text-accent'
+                    : 'border-primary bg-primary text-primary-foreground',
+                ]"
+              >
+                <option value="all" class="bg-background text-foreground">{{ $t('projectsPage.filterAllYears') }}</option>
+                <option v-for="year in years" :key="year" :value="year" class="bg-background text-foreground">{{ year }}</option>
+              </select>
+              <UiAppIcon
+                icon="lucide:chevron-down"
+                class="pointer-events-none absolute right-3.5 top-1/2 size-3.5 -translate-y-1/2"
+              />
+            </div>
           </div>
 
           <div class="flex items-center gap-1.5">
