@@ -6,7 +6,6 @@ Portfolio personnel de Maxime Jolivet, développeur web full-stack. Multilingue 
 
 [![License](https://img.shields.io/badge/license-MIT-b8860b?logo=opensourceinitiative&logoColor=white)](LICENSE.md)
 ![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
-[![Lighthouse](https://www.maxime.bzh/api/lighthouse-badge.svg)](https://www.maxime.bzh)
 [![CI](https://github.com/maximejolivet/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/maximejolivet/portfolio/actions/workflows/ci.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=maximejolivet_portfolio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=maximejolivet_portfolio)
 
@@ -134,7 +133,6 @@ flowchart TD
   subgraph engagement["Visitor engagement"]
     chat["AI chat widget"]
     contact["Contact section<br/>ContactSection.vue"]
-    cal["Cal.eu booking"]
   end
 
   subgraph content["Content and projects"]
@@ -162,7 +160,6 @@ flowchart TD
   home -->|renders sections| sections
   home -->|translates content| locale
 
-  contact -.->|books call| cal
 
   app -->|renders route| projects
   app -->|renders route| study
@@ -192,7 +189,7 @@ flowchart TD
   classDef contentNode fill:#fef3c7,stroke:#d97706,color:#78350f
   classDef ssrNode fill:#dcfce7,stroke:#16a34a,color:#14532d
   class app,home,sections,locale presentationNode
-  class chat,contact,cal engagementNode
+  class chat,contact engagementNode
   class projects,study,blog,article,clients,cards,projectQ,articleQ,listQ contentNode
   class api,llm,db ssrNode
 ```
@@ -227,6 +224,6 @@ flowchart TD
 
 <!-- releases:start -->
 
-![v1.2.3](https://img.shields.io/badge/v1.2.3-2026--11--17-F97316)
+![v1.2.4](https://img.shields.io/badge/v1.2.4-2026--11--21-F97316)
 
 <!-- releases:end -->
