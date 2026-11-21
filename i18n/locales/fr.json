@@ -6,7 +6,8 @@
   },
   "a11y": {
     "skipToContent": "Aller au contenu",
-    "terminalInput": "Saisir une commande du terminal"
+    "terminalInput": "Saisir une commande du terminal",
+    "newWindow": "(nouvelle fenêtre)"
   },
   "intro": {
     "skipHint": "ESPACE OU ÉCHAP POUR PASSER · TAP POUR PASSER"

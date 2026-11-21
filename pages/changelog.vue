@@ -82,7 +82,7 @@ const formattedDate = (value: string) =>
                 {{ entry.description }}
               </span>
             </div>
-          </a>
+          <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
         </div>
       </UiContainer>
     </LayoutPageSection>

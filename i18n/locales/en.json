@@ -6,7 +6,8 @@
   },
   "a11y": {
     "skipToContent": "Skip to content",
-    "terminalInput": "Enter a terminal command"
+    "terminalInput": "Enter a terminal command",
+    "newWindow": "(opens in a new window)"
   },
   "intro": {
     "skipHint": "SPACE OR ESC TO SKIP · TAP TO SKIP"

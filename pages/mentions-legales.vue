@@ -76,7 +76,7 @@ v-if="section === 'technologies' && $te('legalPage.sections.technologies.bretonN
 href="https://niverel.brezhoneg.bzh/br/home/" target="_blank" rel="noopener noreferrer"
                 class="underline decoration-dotted underline-offset-2 hover:text-accent"
 >{{
-                  $t('legalPage.sections.technologies.bretonLinkText') }}</a>
+                  $t('legalPage.sections.technologies.bretonLinkText') }}<span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
             </template>
           </i18n-t>
 

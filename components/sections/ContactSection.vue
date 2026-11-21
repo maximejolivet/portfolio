@@ -43,7 +43,7 @@ import { SOCIAL_LINKS } from '~/constants/social'
       >
         {{ social.label }}
         <UiAppIcon icon="lucide:external-link" class="size-3.5" />
-      </a>
+      <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
     </div>
   </LayoutPageSection>
 </template>

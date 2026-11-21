@@ -65,7 +65,7 @@ v-if="data.commit" :href="data.commit.url" target="_blank" rel="noopener norefer
                     class="text-accent hover:underline"
 >
                     {{ data.commit.shortSha }}
-                  </a>
+                  <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
                   <span v-else class="text-foreground">—</span>
                 </dd>
               </div>
@@ -83,7 +83,7 @@ v-if="data.commit" :href="data.commit.url" target="_blank" rel="noopener norefer
           <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-subtle">
             <a href="/api/status.json" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
               {{ $t('statusPage.viewJson') }}
-            </a>
+            <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
           </div>
         </template>
       </UiContainer>

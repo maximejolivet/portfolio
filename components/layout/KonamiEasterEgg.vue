@@ -103,7 +103,7 @@ onUnmounted(() => {
       >
         <UiAppIcon icon="lucide:github" class="size-3.5" />
         {{ t('konami.cta') }}
-      </a>
+      <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
     </div>
   </Transition>
 </template>
