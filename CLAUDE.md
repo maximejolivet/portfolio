@@ -41,9 +41,8 @@ Vitest, environment `node`. Tests in `test/**/*.spec.ts`.
 
 ## i18n
 
-- Locales: `fr` (default), `en` (BCP47 `en-US`), `br` (Breton, BCP47 `br-FR`). URL prefixes `/fr/...`, `/en/...`, `/br/...`.
-- Files: `i18n/locales/en.json`, `fr.json`, `br.json`. **Always update all three.**
-- Breton is best-effort (not native-reviewed): flag new/changed `br` copy for review, don't treat it as final.
+- Locales: `fr` (default), `en` (BCP47 `en-US`). URL prefixes `/fr/...`, `/en/...`.
+- Files: `i18n/locales/en.json`, `fr.json`. **Always update both.**
 
 ## Non-obvious gotchas
 
@@ -51,7 +50,7 @@ Vitest, environment `node`. Tests in `test/**/*.spec.ts`.
 
 - **CSP with nonce** — `nuxt-security` enforces a strict CSP. Inline scripts/styles need nonce wiring.
 - **`v-html` → sanitize first** — blog articles and project case studies hold WYSIWYG HTML. Always pass it through `sanitizeHtml()` (`utils/sanitizeHtml.ts`, `isomorphic-dompurify`, fixed allowlist). Never bind `v-html` to Supabase content directly.
-- **Supabase** — `@supabase/supabase-js` serves blog articles and project case studies. `projects` mirrors `articles`' `_fr`/`_en` columns (no Breton columns on either). CSP allows `*.supabase.co` for `connect-src`/`img-src`; any new external call needs the CSP extended.
+- **Supabase** — `@supabase/supabase-js` serves blog articles and project case studies. `projects` mirrors `articles`' `_fr`/`_en` columns. CSP allows `*.supabase.co` for `connect-src`/`img-src`; any new external call needs the CSP extended.
 
 **Indexing (per page, not global)**
 

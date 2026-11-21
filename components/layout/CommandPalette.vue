@@ -14,7 +14,7 @@ const switchLocalePath = useSwitchLocalePath()
 const { theme, toggleTheme } = useThemeMode()
 const { openChat } = useChatIntro()
 
-const LOCALE_CYCLE = ['fr', 'en', 'br'] as const
+const LOCALE_CYCLE = ['fr', 'en'] as const
 
 const open = ref(false)
 const query = ref('')

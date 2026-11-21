@@ -377,9 +377,7 @@
       },
       "technologies": {
         "title": "Technologies",
-        "body": "This site was designed and developed by Maxime Jolivet. The site was built using JavaScript / Vue.js technology, via the Nuxt framework.",
-        "bretonNote": "The Breton technical vocabulary is based on {link}.",
-        "bretonLinkText": "Niverel, a digital glossary in Breton"
+        "body": "This site was designed and developed by Maxime Jolivet. The site was built using JavaScript / Vue.js technology, via the Nuxt framework."
       },
       "ai": {
         "title": "Use of artificial intelligence",
@@ -433,17 +431,18 @@
       "results": {
         "title": "Automated test results",
         "items": [
-          "Home: 96/100",
-          "CV, Projects, Blog, Legal notice: 100/100",
           "Color contrast: passes everywhere except the homepage (see known non-conformities below)",
-          "HTML structure, ARIA attributes, page language, viewport: pass"
+          "HTML structure, ARIA attributes, page language, viewport: pass",
+          "Home: results of the last automated check, to be re-run after the November 2026 fixes.",
+          "CV, Projects, Blog, Legal notice: to be re-run after the November 2026 fixes."
         ]
       },
       "nonConformities": {
         "title": "Known non-conformities",
         "items": [
           "On the homepage, some decorative elements of the \"code editor\" panels (indent dots, punctuation, line numbers) are deliberately dimmed below the WCAG AA contrast threshold (4.5:1), to preserve the dimmed source-code look - an intentional design choice, not an oversight.",
-          "Some tech-stack badge colors, matched to real brand colors (GitHub, OpenAI...), fall under that same threshold to stay faithful to those tools' visual identity."
+          "Some tech-stack badge colors, matched to real brand colors (GitHub, OpenAI...), fall under that same threshold to stay faithful to those tools' visual identity.",
+          "Pro project names: the title is an image without alternative text, so client names are not exposed. Screen readers announce the project type and year instead."
         ]
       },
       "contact": {

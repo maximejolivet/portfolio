@@ -5,7 +5,6 @@ const switchLocalePath = useSwitchLocalePath()
 const LOCALES = [
   { code: 'fr', flag: '/flag-fr.svg' },
   { code: 'en', flag: '/flag-us.svg' },
-  { code: 'br', flag: '/flag-br.svg' },
 ] as const
 </script>
 

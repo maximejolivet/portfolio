@@ -32,7 +32,7 @@ useHead({
           '@type': 'WebSite',
           'name': 'Maxime Jolivet',
           'url': 'https://www.maxime.bzh',
-          'inLanguage': ['fr-FR', 'en-US', 'br-FR'],
+          'inLanguage': ['fr-FR', 'en-US'],
         },
       ]),
     },

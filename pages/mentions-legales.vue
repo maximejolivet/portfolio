@@ -66,20 +66,6 @@ v-if="$te(`legalPage.sections.${section}.body`)"
             {{ $t(`legalPage.sections.${section}.body`, { email: CONTACT_EMAIL }) }}
           </p>
 
-          <i18n-t
-v-if="section === 'technologies' && $te('legalPage.sections.technologies.bretonNote')"
-            keypath="legalPage.sections.technologies.bretonNote" tag="p"
-            class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"
->
-            <template #link>
-              <a
-href="https://niverel.brezhoneg.bzh/br/home/" target="_blank" rel="noopener noreferrer"
-                class="underline decoration-dotted underline-offset-2 hover:text-accent"
->{{
-                  $t('legalPage.sections.technologies.bretonLinkText') }}<span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
-            </template>
-          </i18n-t>
-
           <p
 v-if="$te(`legalPage.sections.${section}.closing`)"
             class="mt-2 text-pretty font-sans text-[0.9375rem] leading-[1.7] text-muted-foreground"

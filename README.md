@@ -2,7 +2,7 @@
 
 **Lancer le site en local : `npm install` → copier `.env.example` en `.env` → `npm run dev` → http://localhost:8000**
 
-Portfolio personnel de Maxime Jolivet, développeur web full-stack. Multilingue (FR/EN/BR), SSR sur Vercel.
+Portfolio personnel de Maxime Jolivet, développeur web full-stack. Bilingue (FR/EN), SSR sur Vercel.
 
 [![License](https://img.shields.io/badge/license-MIT-b8860b?logo=opensourceinitiative&logoColor=white)](LICENSE.md)
 ![Deployed on Vercel](https://img.shields.io/badge/deployed_on-Vercel-black?logo=vercel&logoColor=white)
@@ -97,25 +97,25 @@ make clean         # Supprime .nuxt, .output, node_modules
 
 **Transverse**
 
-- **i18n** : `@nuxtjs/i18n`, trois locales (`fr` par défaut, `en-US`, `br-FR`), préfixe d'URL (`/fr/...`, `/en/...`, `/br/...`)
+- **i18n** : `@nuxtjs/i18n`, deux locales (`fr` par défaut, `en-US`), préfixe d'URL (`/fr/...`, `/en/...`)
 - **Sécurité** : `nuxt-security` (CSP stricte avec nonce)
 - **SEO** : `@nuxtjs/sitemap`, `@nuxt/image`
 - **Icônes** : `@iconify-json/*` (devicon, devicon-plain, logos, lucide, material-icon-theme, selfhst, skill-icons), via `utils/resolveIcon.ts` et un sous-ensemble généré (voir [Icônes](#icônes))
 
 ## Pages
 
-| Route (FR)          | Route (EN)        | Route (BR)          | Contenu                                      |
-| ------------------- | ----------------- | ------------------- | -------------------------------------------- |
-| `/`                 | `/`               | `/`                 | Accueil (hero, à propos, expérience, stack)  |
-| `/cv`               | `/cv`             | `/cv`               | Curriculum vitæ                              |
-| `/projets`          | `/projects`       | `/raktresou`        | Liste des projets (noindex - travail client) |
-| `/projets/:slug`    | `/projects/:slug` | `/raktresou/:slug`  | Étude de cas projet (noindex si `pro`)       |
-| `/blog`             | `/blog`           | `/blog`             | Liste des articles                           |
-| `/blog/:slug`       | `/blog/:slug`     | `/blog/:slug`       | Article de blog                              |
-| `/mentions-legales` | `/legal-notice`   | `/menegou-lezennel` | Mentions légales                             |
-| `/accessibilite`    | `/accessibility`  | `/haezadusted`      | Déclaration d'accessibilité                  |
-| `/nouveautes`       | `/changelog`      | `/kemmou-nevez`     | Journal des mises à jour (généré depuis Git) |
-| `/status`           | `/status`         | `/status`           | État du build/déploiement                    |
+| Route (FR)          | Route (EN)        | Contenu                                      |
+| ------------------- | ----------------- | -------------------------------------------- |
+| `/`                 | `/`               | Accueil (hero, à propos, expérience, stack)  |
+| `/cv`               | `/cv`             | Curriculum vitæ                              |
+| `/projets`          | `/projects`       | Liste des projets (noindex - travail client) |
+| `/projets/:slug`    | `/projects/:slug` | Étude de cas projet (noindex si `pro`)       |
+| `/blog`             | `/blog`           | Liste des articles                           |
+| `/blog/:slug`       | `/blog/:slug`     | Article de blog                              |
+| `/mentions-legales` | `/legal-notice`   | Mentions légales                             |
+| `/accessibilite`    | `/accessibility`  | Déclaration d'accessibilité                  |
+| `/nouveautes`       | `/changelog`      | Journal des mises à jour (généré depuis Git) |
+| `/status`           | `/status`         | État du build/déploiement                    |
 
 ## Architecture
 
@@ -224,6 +224,6 @@ flowchart TD
 
 <!-- releases:start -->
 
-![v1.2.14](https://img.shields.io/badge/v1.2.14-2026--11--21-F97316)
+![v1.2.15](https://img.shields.io/badge/v1.2.15-2026--11--21-F97316)
 
 <!-- releases:end -->

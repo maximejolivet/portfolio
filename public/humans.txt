@@ -14,7 +14,7 @@ Full disclosure: https://www.maxime.bzh/fr/mentions-legales
 
 /* SITE */
 
-Language: French (default), English, Breton
+Language: French (default), English
 Doctype: HTML5
 Standards: Responsive layout, WCAG/RGAA-informed accessibility (see /accessibilite)
 Components: Vue.js, Nuxt

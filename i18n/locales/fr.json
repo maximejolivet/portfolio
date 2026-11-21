@@ -377,9 +377,7 @@
       },
       "technologies": {
         "title": "Technologies",
-        "body": "Ce site a été conçu et développé par Maxime Jolivet. Le site a été développé via la technologie JavaScript / Vue.js, via le framework Nuxt.",
-        "bretonNote": "Le vocabulaire technique en breton s'appuie sur {link}.",
-        "bretonLinkText": "Niverel, lexique numérique en breton"
+        "body": "Ce site a été conçu et développé par Maxime Jolivet. Le site a été développé via la technologie JavaScript / Vue.js, via le framework Nuxt."
       },
       "ai": {
         "title": "Utilisation de l'intelligence artificielle",
@@ -433,17 +431,18 @@
       "results": {
         "title": "Résultats des tests automatisés",
         "items": [
-          "Accueil : 96/100",
-          "CV, Projets, Blog, Mentions légales : 100/100",
           "Contraste des couleurs : conforme partout sauf sur l'accueil (voir non-conformités ci-dessous)",
-          "Structure HTML, attributs ARIA, langue de la page, viewport : conformes"
+          "Structure HTML, attributs ARIA, langue de la page, viewport : conformes",
+          "Accueil : résultats du dernier contrôle automatisé, à refaire après les corrections de novembre 2026.",
+          "CV, Projets, Blog, Mentions légales : à refaire après les corrections de novembre 2026."
         ]
       },
       "nonConformities": {
         "title": "Non-conformités connues",
         "items": [
           "Sur l'accueil, certains éléments décoratifs des panneaux \"éditeur de code\" (points d'indentation, ponctuation, numéros de ligne) sont volontairement atténués sous le seuil de contraste WCAG AA (4,5:1), pour préserver l'esthétique de code source atténué - un choix de design assumé, pas un oubli.",
-          "Certaines couleurs de badges de la section stack technique, calées sur des couleurs de marque réelles (GitHub, OpenAI...), tombent sous ce même seuil pour rester fidèles à l'identité visuelle de ces outils."
+          "Certaines couleurs de badges de la section stack technique, calées sur des couleurs de marque réelles (GitHub, OpenAI...), tombent sous ce même seuil pour rester fidèles à l'identité visuelle de ces outils.",
+          "Noms des projets pro : le titre est une image sans texte alternatif, pour ne pas exposer le nom des clients. Les lecteurs d'écran annoncent le type de projet et l'année à la place."
         ]
       },
       "contact": {

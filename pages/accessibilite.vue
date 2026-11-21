@@ -28,7 +28,7 @@ const SECTIONS = ['intro', 'methodology', 'results', 'nonConformities', 'contact
 
 const ITEM_COUNTS: Partial<Record<(typeof SECTIONS)[number], number>> = {
   results: 4,
-  nonConformities: 2,
+  nonConformities: 3,
 }
 </script>
 

@@ -1,47 +1,38 @@
 {
   "home": {
     "en": "/",
-    "fr": "/",
-    "br": "/"
+    "fr": "/"
   },
   "cv": {
     "en": "/cv",
-    "fr": "/cv",
-    "br": "/cv"
+    "fr": "/cv"
   },
   "projects": {
     "en": "/projects",
-    "fr": "/projets",
-    "br": "/raktresou"
+    "fr": "/projets"
   },
   "projects-slug": {
     "en": "/projects/[slug]",
-    "fr": "/projets/[slug]",
-    "br": "/raktresou/[slug]"
+    "fr": "/projets/[slug]"
   },
   "blog": {
     "en": "/blog",
-    "fr": "/blog",
-    "br": "/blog"
+    "fr": "/blog"
   },
   "blog-slug": {
     "en": "/blog/[slug]",
-    "fr": "/blog/[slug]",
-    "br": "/blog/[slug]"
+    "fr": "/blog/[slug]"
   },
   "mentions-legales": {
     "en": "/legal-notice",
-    "fr": "/mentions-legales",
-    "br": "/menegou-lezennel"
+    "fr": "/mentions-legales"
   },
   "accessibilite": {
     "en": "/accessibility",
-    "fr": "/accessibilite",
-    "br": "/haezadusted"
+    "fr": "/accessibilite"
   },
   "changelog": {
     "en": "/changelog",
-    "fr": "/nouveautes",
-    "br": "/kemmou-nevez"
+    "fr": "/nouveautes"
   }
 }
