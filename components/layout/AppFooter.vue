@@ -21,23 +21,23 @@ function scrollToTop() {
   window.scrollTo({ top: 0, left: 0 })
 }
 
-const linkClass = 'text-foreground underline underline-offset-4 decoration-1 transition-colors hover:text-[#0f5f52] hover:decoration-2 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground'
+const linkClass = 'text-[#1d3540] underline underline-offset-4 decoration-2 transition-colors hover:text-[#0f5f52] hover:decoration-[3px] focus-visible:rounded-sm focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-foreground'
 </script>
 
 <template>
-  <footer class="bg-white text-foreground">
+  <footer class="bg-white text-[#1d3540]">
     <div class="mx-auto max-w-[1180px] px-4 pb-12 pt-20 sm:px-8 md:pt-28">
       <div class="flex items-center gap-4 sm:gap-6">
-        <UiLogoMark :size="56" class="shrink-0 text-mint sm:size-[72px] md:size-[96px]" />
+        <UiLogoMark :size="56" class="shrink-0 text-[#1d3540] sm:size-[72px] md:size-[96px]" />
         <p
-          class="font-sans text-[clamp(3rem,10vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-balance text-[#7d8e94]"
+          class="font-sans text-[clamp(3rem,10vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-balance text-[#1d3540]"
         >
           Maxime Jolivet
         </p>
       </div>
 
-      <div class="mt-16 flex flex-col gap-4 font-sans text-sm text-foreground">
-        <p class="text-base font-semibold text-foreground">
+      <div class="mt-16 flex flex-col gap-4 font-sans text-sm text-[#1d3540]">
+        <p class="text-base font-semibold text-[#1d3540]">
           {{ $t('footer.taglineRole') }}
         </p>
         <p>{{ $t('footer.taglineDetails') }}</p>
@@ -113,7 +113,7 @@ const linkClass = 'text-foreground underline underline-offset-4 decoration-1 tra
         <NavigationThemeToggle />
         <button
           type="button"
-          class="inline-flex min-h-6 items-center py-2 font-sans text-sm underline underline-offset-4 transition-colors hover:text-[#0f5f52] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+          class="inline-flex min-h-6 items-center py-2 font-sans text-sm underline underline-offset-4 decoration-2 transition-colors hover:text-[#0f5f52] focus-visible:rounded-sm focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-foreground"
           @click="scrollToTop"
         >
           {{ $t('footer.backToTop') }}
