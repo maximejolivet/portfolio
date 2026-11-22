@@ -20,6 +20,26 @@ const hovered = ref(false)
 const focused = ref(false)
 const paused = computed(() => !playing.value || hovered.value || focused.value)
 
+// The track is as tall as the slide being shown, not as tall as the tallest slide.
+const trackHeight = ref<number | null>(null)
+let observer: ResizeObserver | null = null
+
+function measure() {
+  const slide = track.value?.children[index.value] as HTMLElement | undefined
+  if (slide) trackHeight.value = slide.offsetHeight
+}
+
+// Re-measure when a slide's size changes (image loaded, viewport resized).
+watch(track, (el) => {
+  observer?.disconnect()
+  if (!el) return
+  observer = new ResizeObserver(measure)
+  for (const child of el.children) observer.observe(child)
+  measure()
+})
+
+onBeforeUnmount(() => observer?.disconnect())
+
 onMounted(() => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) playing.value = false
 })
@@ -40,6 +60,7 @@ function syncIndex() {
   const el = track.value
   if (!el || !el.clientWidth) return
   index.value = Math.round(el.scrollLeft / el.clientWidth)
+  measure()
 }
 
 function goTo(i: number) {
@@ -87,7 +108,8 @@ function onRingEnd() {
         <div
           ref="track"
           tabindex="0"
-          class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          class="flex items-start snap-x snap-mandatory overflow-x-auto scroll-smooth transition-[height] duration-300 motion-reduce:transition-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          :style="trackHeight ? { height: `${trackHeight}px` } : undefined"
           @scroll.passive="syncIndex"
         >
           <figure
