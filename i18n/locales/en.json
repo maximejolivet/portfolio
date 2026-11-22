@@ -142,20 +142,15 @@
         "label": "Tools",
         "description": "My day-to-day working environment."
       },
-      "methods": {
-        "label": "Methodologies",
-        "description": "The working frameworks and team practices I apply day to day."
+      "watch": {
+        "label": "Self-training and skill growth",
+        "description": "Learning and hands-on practice through personal projects"
       }
     }
   },
   "recommendationsSection": {
     "eyebrow": "Recommendations",
     "imageAlt": "Testimonial (image)",
-    "pause": "Pause slideshow",
-    "play": "Resume slideshow",
-    "previous": "Previous recommendation",
-    "next": "Next recommendation",
-    "goTo": "Show recommendation {n}",
     "items": {
       "thibaut": {
         "quote": "« I managed Maxime for 5 years at GINGERMINDS and I'm glad to take the time to write this recommendation. Maxime is first and foremost a source of positive energy in a team. Someone you can count on, who genuinely invests in projects and creates a healthy, collaborative working atmosphere around him. He has a rare ability to rally people without forcing it, to bring them along naturally. Technically, he knows his stuff: he contributed to many client projects that are still running in production today (Akena, Vygon, Boralex, PiLeJe, SAUR, Samoa Nantes, LNA Santé…) across varied technologies. But his real added value is his attitude: always curious, always eager to improve, and above all, always attentive to others. Over 5 years, I watched him grow, gain confidence and take a real place in the team dynamic. Maxime makes projects better because he makes teams better. I warmly recommend him. »",
