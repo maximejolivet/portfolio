@@ -14,7 +14,7 @@ describe('resolveIcon', () => {
   })
 
   it('resolves a known icon from the generated subset', () => {
-    const icon = resolveIcon('lucide:kanban')
+    const icon = resolveIcon('lucide:quote')
     expect(icon.body).not.toBe('')
     expect(icon.width).toBeGreaterThan(0)
     expect(icon.height).toBeGreaterThan(0)

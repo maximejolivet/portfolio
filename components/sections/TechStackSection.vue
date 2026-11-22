@@ -35,7 +35,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   security: 'lucide:shield',
   testing: 'lucide:flask-conical',
   tools: 'lucide:wrench',
-  methods: 'lucide:kanban',
+  watch: 'lucide:telescope',
 }
 
 // These logos ship with no brand color baked in (they rely on currentColor),
@@ -110,7 +110,7 @@ const caption = computed(() =>
                 : undefined
             "
             :rel="matchCounts[item.id] ? 'nofollow' : undefined"
-            class="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-sm transition-transform"
+            class="inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-sm transition-transform"
             :class="matchCounts[item.id] && 'cursor-pointer hover:scale-105'"
             :style="tagStyle(item.id, index)"
             :title="
