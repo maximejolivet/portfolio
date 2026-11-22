@@ -5,7 +5,7 @@
     "homeTitle": "Développeur web full-stack senior PHP / JavaScript / Expert Drupal & WordPress",
     "cvTitle": "Curriculum vitæ - Maxime Jolivet",
     "cvOgTitle": "CV - Maxime Jolivet, Développeur web full-stack senior PHP - JavaScript / Expert Drupal",
-    "cvDescription": "Développeur web avec 10 ans d'expérience en agence digitale, solides bases en informatique et développement web - Consultez le CV de Maxime Jolivet 🚀"
+    "cvDescription": "Développeur web avec 9 ans d'expérience en agence digitale, solides bases en informatique et développement web - Consultez le CV de Maxime Jolivet 🚀"
   },
   "a11y": {
     "skipToContent": "Aller au contenu",
@@ -19,6 +19,7 @@
     "home": "Accueil",
     "blog": "Blog",
     "projects": "Projets",
+    "recommendations": "Recommandations",
     "ia": "IA",
     "contact": "Contact",
     "openMenu": "Ouvrir le menu",
@@ -65,7 +66,7 @@
     "role": "Développeur web full-stack senior",
     "location": "Nantes, France",
     "bio": "Je conçois et fais évoluer des sites de marque, des sites produits, des interfaces utilisateur et des outils métiers, en intégrant l'IA agentique au workflow de développement.",
-    "subtitle": "10 ans d'expérience, dont plusieurs années comme Lead Développeur / Tech Lead, principalement en agence digitale. Expertise PHP, JavaScript et CMS sur des projets complexes et exigeants, avec un souci constant de la qualité du code, de la sécurité et de l'accessibilité. Je pratique l'IA agentique au quotidien (Claude Code, GitHub Copilot, Cursor, Codex), en gardant la main sur la revue du code produit par les agents.",
+    "subtitle": "9 ans d'expérience, dont plusieurs années comme Lead Développeur / Tech Lead, principalement en agence digitale. Expertise PHP, JavaScript et CMS sur des projets complexes et exigeants, avec un souci constant de la qualité du code, de la sécurité et de l'accessibilité. Je pratique l'IA agentique au quotidien (Claude Code, GitHub Copilot, Cursor, Codex), en gardant la main sur la revue du code produit par les agents.",
     "ctaSecondary": "Voir les projets",
     "ctaContact": "me contacter"
   },
@@ -74,9 +75,9 @@
     "titleStart": "Un développeur qui pense à",
     "titleHighlight": "l'expérience utilisateur",
     "titleEnd": ", pas juste code.",
-    "paragraph1": "Depuis 10 ans, j'accompagne des entreprises B2B de tous secteurs sur des projets web complexes, du cadrage technique jusqu'à la maintenance.",
+    "paragraph1": "Depuis 9 ans, j'accompagne des entreprises B2B de tous secteurs sur des projets web complexes, du cadrage technique jusqu'à la maintenance.",
     "paragraph2": "Expert Drupal et WordPress, à l'aise sur les stacks PHP / JavaScript modernes, je conçois des sites et applications web faits pour durer : performants, accessibles, et faciles à faire évoluer.",
-    "highlight1": "10 ans d'expérience en agence digitale",
+    "highlight1": "9 ans d'expérience en agence digitale",
     "highlight2": "Expert Drupal et WordPress, solide en PHP & JavaScript",
     "highlight3": "Approche orientée performance et accessibilité",
     "imageAlt": "Portrait de Maxime Jolivet",
@@ -142,20 +143,15 @@
         "label": "Outils",
         "description": "Mon environnement de travail au quotidien."
       },
-      "methods": {
-        "label": "Méthodologies",
-        "description": "Les cadres de travail et pratiques d'équipe que j'applique au quotidien."
+      "watch": {
+        "label": "Autoformation et montée en compétences",
+        "description": "Apprentissage et mise en pratique à travers des projets personnels"
       }
     }
   },
   "recommendationsSection": {
     "eyebrow": "Recommandations",
     "imageAlt": "Témoignage (image)",
-    "pause": "Mettre en pause le défilement",
-    "play": "Reprendre le défilement",
-    "previous": "Recommandation précédente",
-    "next": "Recommandation suivante",
-    "goTo": "Afficher la recommandation {n}",
     "items": {
       "thibaut": {
         "quote": "« J'ai managé Maxime pendant 5 ans chez GINGERMINDS et c'est avec plaisir que je prends le temps de cette recommandation. Maxime, c'est avant tout une énergie positive dans une équipe. Quelqu'un sur qui on peut compter, qui s'implique sincèrement dans les projets et qui crée autour de lui un climat de travail sain et collaboratif. Il a cette capacité assez rare de fédérer sans forcer, d'embarquer les gens naturellement. Techniquement, il sait faire, il a contribué à de nombreux projets clients qui tournent encore aujourd'hui en production (Akena, Vygon, Boralex, PiLeJe, SAUR, Samoa Nantes, LNA Santé…) sur des technos variées. Mais sa vraie valeur ajoutée, c'est sa posture : toujours curieux, toujours dans l'envie de progresser, et surtout toujours attentif aux autres. En 5 ans, je l'ai vu évoluer, gagner en assurance et prendre une vraie place dans la dynamique d'équipe. Maxime rend les projets meilleurs parce qu'il rend les équipes meilleures. Je le recommande chaleureusement. »",
@@ -172,13 +168,13 @@
   "experienceSection": {
     "eyebrow": "Parcours",
     "toggleDetails": "Afficher ou masquer le détail : {organization}",
-    "titleStart": "Dix ans à",
+    "titleStart": "Neuf ans à",
     "titleHighlight": "construire pour de vrais clients",
     "titleEnd": ".",
     "items": {
       "gingerminds": {
         "period": "2017 - Févr. 2026",
-        "title": "Développeur web full-stack senior PHP - Lead Développeur (Brand Content)",
+        "title": "Développeur web full-stack senior PHP - JavaScript / Expert Drupal & WordPress (Brand Content)",
         "organization": "Gingerminds",
         "location": "Nantes (Hybride) · Agence digitale",
         "intro": "Contribution sur plus de 50 projets clients chez Gingerminds, dans des secteurs variés tels que le bâtiment, l'industrie, la santé, l'énergie, les mutuelles et assurances, ainsi que l'agriculture et l'agroalimentaire, dont une grande partie est toujours en production aujourd'hui.",
@@ -188,8 +184,8 @@
           "Revue de code et encadrement des développeurs : documentation, bonnes pratiques et qualité",
           "Industrialisation des starter kits CMS : socles standardisés, composants réutilisables et pipelines CI/CD",
           "Adaptation et paramétrage de CMS, développement d'API REST et intégration aux outils métiers",
-          "TMA et maintenance applicative : analyse et résolution d'anomalies et d'incidents, maintenance corrective et évolutive",
-          "Intégration de l'IA agentique dans le workflow de développement sur projets clients",
+          "Maintenance : analyse et résolution d'anomalies et d'incidents, maintenance corrective et évolutive",
+          "Mise en œuvre de GitHub Copilot pour accélérer le développement et intégration de l'IA agentique dans des projets de R&D",
           "Audits qualité et conformité : performance, sécurité, RGAA, tracking et analyse de performance",
           "Veille technique et partage de connaissances au sein de l'équipe Tech",
           "Vie d'agence : onboarding des nouveaux arrivants et participation à l'équipe Happiness"
@@ -200,28 +196,28 @@
         "title": "Webdesigner, Développeur web",
         "organization": "Don Jigi Fest",
         "location": "Vitré (Hybride) · Festival, bénévolat",
-        "description": "Conception graphique et développement d'un thème WordPress sur mesure pour le site du festival, pour les éditions 2018, 2019 et 2020."
+        "description": "Site internet du festival de musique pour les éditions 2018, 2019 et 2020, en collaboration avec l'équipe de communication"
       },
       "greentech": {
-        "period": "Janv. 2016",
+        "period": "2016",
         "title": "Webdesigner, Développeur web",
         "organization": "Greentech",
         "location": "Dakar, Sénégal · Stage",
-        "description": "Développement en PHP orienté objet d'une boutique en ligne sur mesure, avec réservation en click and collect."
+        "description": "Site e-commerce avec réservation en click and collect"
       },
       "laSalleSaintJoseph": {
-        "period": "Janv. 2015",
+        "period": "2015",
         "title": "Développeur web full-stack",
         "organization": "Groupe Scolaire La Salle Saint Joseph",
         "location": "Argentré-du-Plessis · Stage",
-        "description": "Mise en place d'un portail d'information multi-site sous WordPress, migré depuis Overblog, avec un blog d'actualité et une chaîne de publication pour l'établissement."
+        "description": "Portail d'information, blog d'actualité multi-site"
       },
       "chSimoneVeil": {
-        "period": "Janv. 2014",
+        "period": "2014",
         "title": "Développeur web back-end",
         "organization": "Centre Hospitalier Simone Veil",
         "location": "Vitré · Stage",
-        "description": "Conception et mise en service d'un outil interne de gestion digitalisée des demandes de transport sanitaire, qui traite plus de 50 demandes par jour."
+        "description": "Application interne de gestion de demandes de transport sanitaire"
       }
     }
   },
@@ -248,6 +244,8 @@
     "techFilterLabel": "Filtré par technologie :",
     "clearTechFilter": "Retirer le filtre technologie",
     "filterYear": "Année",
+    "filterAllTechs": "Toutes les technologies",
+    "filterTechCount": "{count} technologie(s)",
     "filterAllYears": "Toutes les années"
   },
   "clientsSection": {

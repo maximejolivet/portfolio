@@ -23,29 +23,14 @@ test.describe('homepage (fr)', () => {
     expect(errors).toEqual([])
   })
 
-  test('recommendations slider moves to the next testimonial', async ({ page }) => {
+  test('recommendations show both quotes with their signatures', async ({ page }) => {
     await page.goto('/fr')
 
-    const next = page.getByRole('button', { name: 'Recommandation suivante' })
-    await next.scrollIntoViewIfNeeded()
-    await next.click()
-
-    await expect(
-      page.getByRole('button', { name: 'Afficher la recommandation 2' }),
-    ).toHaveAttribute('aria-current', 'true')
-  })
-
-  test('recommendations autoplay can be paused and resumed', async ({ page }) => {
-    await page.goto('/fr')
-
-    const toggle = page.getByRole('button', { name: 'Mettre en pause le défilement' })
-    await toggle.scrollIntoViewIfNeeded()
-    await expect(toggle).toHaveAttribute('aria-pressed', 'false')
-
-    await toggle.click()
-    await expect(
-      page.getByRole('button', { name: 'Reprendre le défilement' }),
-    ).toHaveAttribute('aria-pressed', 'true')
+    const articles = page.locator('#recommendations article')
+    await articles.first().scrollIntoViewIfNeeded()
+    await expect(articles).toHaveCount(2)
+    await expect(articles.nth(1).locator('img')).toHaveAttribute('src', /id=m3x9/)
+    await expect(articles.nth(0).getByRole('link', { name: /LinkedIn/ })).toBeVisible()
   })
 })
 

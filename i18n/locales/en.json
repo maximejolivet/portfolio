@@ -5,7 +5,7 @@
     "homeTitle": "Senior full-stack web developer - PHP / JavaScript / Drupal & WordPress expert",
     "cvTitle": "Curriculum vitæ - Maxime Jolivet",
     "cvOgTitle": "CV - Maxime Jolivet, Senior full-stack PHP / JavaScript Developer, Drupal Expert",
-    "cvDescription": "Web developer with 10 years of experience in digital agencies, solid foundations in computer science and web development - Read Maxime Jolivet's CV 🚀"
+    "cvDescription": "Web developer with 9 years of experience in digital agencies, solid foundations in computer science and web development - Read Maxime Jolivet's CV 🚀"
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -19,6 +19,7 @@
     "home": "Home",
     "blog": "Blog",
     "projects": "Projects",
+    "recommendations": "Recommendations",
     "ia": "AI",
     "contact": "Contact",
     "openMenu": "Open menu",
@@ -65,7 +66,7 @@
     "role": "Senior Full-Stack Web Developer",
     "location": "Nantes, France",
     "bio": "I design and maintain brand sites, product sites, user interfaces and business tools, with agentic AI built into the development workflow.",
-    "subtitle": "10 years of experience, including several years as Lead Developer / Tech Lead, mostly in digital agencies. Expertise in PHP, JavaScript and CMS on complex, demanding projects, with constant attention to code quality, security and accessibility. I practice agentic AI daily (Claude Code, GitHub Copilot, Cursor, Codex), keeping control over the code review of what the agents produce.",
+    "subtitle": "9 years of experience, including several years as Lead Developer / Tech Lead, mostly in digital agencies. Expertise in PHP, JavaScript and CMS on complex, demanding projects, with constant attention to code quality, security and accessibility. I practice agentic AI daily (Claude Code, GitHub Copilot, Cursor, Codex), keeping control over the code review of what the agents produce.",
     "ctaSecondary": "See the projects",
     "ctaContact": "get in touch"
   },
@@ -74,9 +75,9 @@
     "titleStart": "A developer who thinks",
     "titleHighlight": "user experience",
     "titleEnd": ", not just code.",
-    "paragraph1": "For 10 years I've supported B2B companies across every sector on complex web projects, from technical scoping through to maintenance.",
+    "paragraph1": "For 9 years I've supported B2B companies across every sector on complex web projects, from technical scoping through to maintenance.",
     "paragraph2": "A Drupal and WordPress expert, comfortable with modern PHP/JavaScript stacks, I build websites and web apps meant to last: fast, accessible, and easy to evolve.",
-    "highlight1": "10 years of experience in digital agencies",
+    "highlight1": "9 years of experience in digital agencies",
     "highlight2": "Drupal & WordPress expert, strong in PHP & JavaScript",
     "highlight3": "Performance and accessibility-first approach",
     "imageAlt": "Portrait of Maxime Jolivet",
@@ -142,20 +143,15 @@
         "label": "Tools",
         "description": "My day-to-day working environment."
       },
-      "methods": {
-        "label": "Methodologies",
-        "description": "The working frameworks and team practices I apply day to day."
+      "watch": {
+        "label": "Self-training and skill growth",
+        "description": "Learning and hands-on practice through personal projects"
       }
     }
   },
   "recommendationsSection": {
     "eyebrow": "Recommendations",
     "imageAlt": "Testimonial (image)",
-    "pause": "Pause slideshow",
-    "play": "Resume slideshow",
-    "previous": "Previous recommendation",
-    "next": "Next recommendation",
-    "goTo": "Show recommendation {n}",
     "items": {
       "thibaut": {
         "quote": "« I managed Maxime for 5 years at GINGERMINDS and I'm glad to take the time to write this recommendation. Maxime is first and foremost a source of positive energy in a team. Someone you can count on, who genuinely invests in projects and creates a healthy, collaborative working atmosphere around him. He has a rare ability to rally people without forcing it, to bring them along naturally. Technically, he knows his stuff: he contributed to many client projects that are still running in production today (Akena, Vygon, Boralex, PiLeJe, SAUR, Samoa Nantes, LNA Santé…) across varied technologies. But his real added value is his attitude: always curious, always eager to improve, and above all, always attentive to others. Over 5 years, I watched him grow, gain confidence and take a real place in the team dynamic. Maxime makes projects better because he makes teams better. I warmly recommend him. »",
@@ -172,13 +168,13 @@
   "experienceSection": {
     "eyebrow": "Career",
     "toggleDetails": "Show or hide details: {organization}",
-    "titleStart": "Ten years of",
+    "titleStart": "Nine years of",
     "titleHighlight": "building for real clients",
     "titleEnd": ".",
     "items": {
       "gingerminds": {
         "period": "2017 - Feb 2026",
-        "title": "Senior Full-Stack Web Developer, PHP - Lead Developer (Brand Content)",
+        "title": "Senior Full-Stack Web Developer, PHP - JavaScript / Expert Drupal & WordPress (Brand Content)",
         "organization": "Gingerminds",
         "location": "Nantes (Hybrid) · Digital agency",
         "intro": "Contributed to more than 50 client projects across a range of sectors such as construction, industry, healthcare, energy, insurance & mutual funds, and agriculture and agri-food, many of which are still in production today.",
@@ -188,8 +184,8 @@
           "Code review and mentoring of developers: documentation, best practices and quality",
           "Industrialization of CMS starter kits: standardized foundations, reusable components and CI/CD pipelines",
           "CMS configuration and adaptation, REST API development and integration with business tools",
-          "TMA and application maintenance: analyzing and resolving issues and incidents, corrective and evolutionary maintenance",
-          "Integration of agentic AI into the development workflow on client projects",
+          "Maintenance: analysis and resolution of issues and incidents, corrective and evolutionary maintenance",
+          "Use of GitHub Copilot to speed up development, and integration of agentic AI into R&D projects",
           "Quality and compliance audits: performance, security, RGAA, tracking and performance analysis",
           "Technical watch and knowledge sharing within the Tech team",
           "Agency life: onboarding new joiners and taking part in the Happiness team"
@@ -200,28 +196,28 @@
         "title": "Webdesigner, Web Developer",
         "organization": "Don Jigi Fest",
         "location": "Vitré (Hybrid) · Music festival, volunteer",
-        "description": "Graphic design and a custom WordPress theme for the festival's website, for the 2018, 2019 and 2020 editions."
+        "description": "Website for the music festival, for the 2018, 2019 and 2020 editions, built with the communication team"
       },
       "greentech": {
-        "period": "Jan 2016",
+        "period": "2016",
         "title": "Webdesigner, Web Developer",
         "organization": "Greentech",
         "location": "Dakar, Senegal · Internship",
-        "description": "Built a custom online shop in object-oriented PHP, with click-and-collect reservation."
+        "description": "E-commerce website with click-and-collect reservation"
       },
       "laSalleSaintJoseph": {
-        "period": "Jan 2015",
+        "period": "2015",
         "title": "Full-Stack Web Developer",
         "organization": "Groupe Scolaire La Salle Saint Joseph",
         "location": "Argentré-du-Plessis · Internship",
-        "description": "Set up a multi-site WordPress information portal, migrated from Overblog, with a news blog and a publishing workflow for the school."
+        "description": "Multi-site information portal and news blog"
       },
       "chSimoneVeil": {
-        "period": "Jan 2014",
+        "period": "2014",
         "title": "Back-End Web Developer",
         "organization": "Centre Hospitalier Simone Veil",
         "location": "Vitré · Internship",
-        "description": "Designed and rolled out an internal tool to digitize medical-transport request management, handling more than 50 requests a day."
+        "description": "Internal application for managing medical-transport requests"
       }
     }
   },
@@ -248,6 +244,8 @@
     "techFilterLabel": "Filtered by tech:",
     "clearTechFilter": "Clear tech filter",
     "filterYear": "Year",
+    "filterAllTechs": "All technologies",
+    "filterTechCount": "{count} technology(ies)",
     "filterAllYears": "All years"
   },
   "clientsSection": {

@@ -11,6 +11,20 @@ const previewCaseStudies = computed(() =>
     .map((p) => localizeProject(p, locale.value)),
 )
 
+// Phone: the three projects become a swipeable row (1.5 slides visible, so the next
+// card peeks in). Wider screens keep the grid. Decided on the client, so the server
+// renders the grid and the phone switches after mount.
+const isMobile = ref(false)
+const swiperAttrs = { 'slides-per-view': '1.5', 'space-between': '0' }
+
+onMounted(() => {
+  const query = window.matchMedia('(max-width: 639px)')
+  isMobile.value = query.matches
+  query.addEventListener('change', (e) => {
+    isMobile.value = e.matches
+  })
+})
+
 const dotClass = (dot: 'mint' | 'gold') => (dot === 'mint' ? 'bg-mint' : 'bg-primary')
 
 // Rendered as pixels (server/api/project-title.svg.get.ts) rather than DOM
@@ -24,7 +38,7 @@ function titleImageSrc(id: string) {
 </script>
 
 <template>
-  <LayoutPageSection id="projects-list" bare class="pt-24">
+  <LayoutPageSection id="projects-list" bare class="overflow-hidden pt-24">
     <UiContainer>
       <UiSectionHeading
         :title="$t('home.projects.sectionTitle')"
@@ -44,11 +58,19 @@ function titleImageSrc(id: string) {
     </UiContainer>
 
     <UiContainer>
-      <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-        <NuxtLink
+      <component
+        :is="isMobile ? 'swiper-container' : 'div'"
+        v-bind="isMobile ? swiperAttrs : {}"
+        :class="isMobile ? 'block -mr-4' : 'grid gap-7 sm:grid-cols-2 lg:grid-cols-3'"
+      >
+        <component
+          :is="isMobile ? 'swiper-slide' : 'div'"
           v-for="project in previewCaseStudies"
           :key="project.id"
-          :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
+          :class="isMobile ? 'pr-4' : 'contents'"
+        >
+          <NuxtLink
+            :to="localePath({ name: 'projects-slug', params: { slug: project.slug } })"
           :rel="project.category === 'pro' ? 'nofollow' : undefined"
           :style="{ viewTransitionName: `project-${project.id}` }"
           :aria-label="project.category === 'personal' ? `${project.title} (${project.year}) - ${$t('projectsPage.viewProject')}` : undefined"
@@ -109,8 +131,9 @@ function titleImageSrc(id: string) {
               />
             </span>
           </div>
-        </NuxtLink>
-      </div>
+          </NuxtLink>
+        </component>
+      </component>
     </UiContainer>
   </LayoutPageSection>
 </template>
