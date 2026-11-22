@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { NAV_ITEMS } from '~/constants/nav'
 
-// The header shows the main links only; recommendations stay in the mobile menu and footer.
+// The header and the footer show the main links only; recommendations stay in the mobile menu.
 const HEADER_ITEMS = NAV_ITEMS.filter((item) => item.id !== 'recommendations')
 
 const localePath = useLocalePath()
