@@ -126,12 +126,6 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // The CV is only served under a locale prefix (strategy: 'prefix'), so a
-    // bare /cv link (shared by hand, cached, or typed) would 404. Send it to
-    // the French page; 302 because the right locale is not known here.
-    '/cv': {
-      redirect: { to: '/fr/cv', statusCode: 302 },
-    },
     // pdfjs-viewer-element bootstraps its viewer by injecting unnonced inline
     // <script> tags into an internal srcdoc iframe. Chrome/Firefox allow this
     // via 'strict-dynamic' (script-inserted scripts inherit trust), but Safari
@@ -179,7 +173,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-11-21',
+  compatibilityDate: '2026-11-22',
 
   vite: {
     plugins: [tailwindcss(), fixPdfjsViewerElementAssetUrls(), copyPdfjsViewerImages()],
