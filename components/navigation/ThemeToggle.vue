@@ -3,7 +3,7 @@ const { theme } = useThemeMode()
 </script>
 
 <template>
-  <div class="flex h-10 items-center gap-0.5 rounded-full border border-border bg-white p-0.5">
+  <div class="flex h-10 items-center gap-0.5 rounded-full border border-border bg-white">
     <button
       type="button"
       class="flex items-center justify-center rounded-full p-3 transition-colors"

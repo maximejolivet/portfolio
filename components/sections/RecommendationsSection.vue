@@ -99,7 +99,7 @@ function onRingEnd() {
         role="region"
         aria-roledescription="carousel"
         :aria-label="$t('recommendationsSection.eyebrow')"
-        class="flex flex-col gap-8"
+        class="flex flex-col gap-8 overflow-hidden"
         @pointerenter="(e) => e.pointerType === 'mouse' && (hovered = true)"
         @pointerleave="(e) => e.pointerType === 'mouse' && (hovered = false)"
         @focusin="(e) => (focused = (e.target as HTMLElement).matches(':focus-visible'))"
