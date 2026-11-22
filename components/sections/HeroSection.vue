@@ -44,12 +44,6 @@ const MARQUEE_STACK = [
   'IA',
 ]
 
-const marqueeAutoplay = { delay: 1, disableOnInteraction: false, pauseOnMouseEnter: false }
-// Repeated so the slide track always overflows the viewport - Swiper locks
-// (disables) sliding entirely when the real content is narrower than its
-// container, which it is here on wide screens with only 11 short labels.
-const MARQUEE_LOOP_STACK = Array.from({ length: 10 }, () => MARQUEE_STACK).flat()
-
 const key = 'text-mint'
 const str = 'text-primary'
 const dateKey = 'text-highlight'
@@ -153,7 +147,7 @@ const jsonLines = computed<JsonLine[]>(() => {
 </script>
 
 <template>
-  <section id="ide">
+  <section id="ide" class="overflow-x-clip">
     <div class="grid md:min-h-[620px] md:grid-cols-[2fr_3fr]">
       <div class="flex flex-col justify-center gap-6 px-4 py-16 md:px-6 lg:px-18">
         <h1
@@ -164,7 +158,7 @@ const jsonLines = computed<JsonLine[]>(() => {
         <button
           v-if="chatIntroReady"
           type="button"
-          class="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold text-accent transition-colors hover:bg-accent/20 min-h-10 cursor-pointer"
+          class="inline-flex min-h-11 w-fit items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold text-accent transition-colors hover:bg-accent/20 min-h-10 cursor-pointer"
           @click="openChat"
         >
           <UiAppIcon icon="lucide:sparkles" class="size-3.5" />
@@ -181,7 +175,7 @@ const jsonLines = computed<JsonLine[]>(() => {
           </UiButton>
           <a
             href="#contact"
-            class="border-b-2 border-mint pb-0.5 font-sans text-sm font-semibold text-foreground"
+            class="inline-flex min-h-11 items-center border-b-2 border-mint pb-0.5 font-sans text-sm font-semibold text-foreground"
           >
             {{ $t('hero.ctaContact') }}
           </a>
@@ -191,41 +185,17 @@ const jsonLines = computed<JsonLine[]>(() => {
       <SectionsHeroJsonPanel :lines="jsonLines" />
     </div>
 
-    <ClientOnly>
-      <div class="overflow-hidden bg-panel-2 py-6">
-        <swiper-container
-          slides-per-view="auto"
-          :space-between="32"
-          :loop="true"
-          :speed="2500"
-          :allow-touch-move="false"
-          :autoplay="marqueeAutoplay"
-        >
-          <swiper-slide
-            v-for="(name, i) in MARQUEE_LOOP_STACK"
-            :key="`${i}-${name}`"
-            class="w-auto pl-8"
-          >
-            <span
-              class="whitespace-nowrap font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
-              >{{ name.toUpperCase() }}</span>
-          </swiper-slide>
-        </swiper-container>
-      </div>
-
-      <template #fallback>
-        <div class="flex items-center overflow-hidden bg-panel-2 py-6">
-          <div class="flex animate-marquee whitespace-nowrap will-change-transform">
-            <div v-for="rep in 2" :key="rep" class="flex items-center gap-8 pr-8">
-              <span
-                v-for="name in MARQUEE_STACK"
-                :key="`${rep}-${name}`"
-                class="font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
-                >{{ name.toUpperCase() }}</span>
-            </div>
-          </div>
+    <!-- Pure CSS marquee: a bounded translate (0 to -50%) that never drifts, so it cannot widen the mobile layout. -->
+    <div class="overflow-hidden bg-panel-2 py-6" aria-hidden="true">
+      <div class="flex w-max animate-marquee will-change-transform">
+        <div v-for="rep in 2" :key="rep" class="flex shrink-0 items-center">
+          <span
+            v-for="name in MARQUEE_STACK"
+            :key="`${rep}-${name}`"
+            class="whitespace-nowrap pl-8 font-mono text-[0.7812rem] font-semibold tracking-[2px] text-panel-foreground/75"
+            >{{ name.toUpperCase() }}</span>
         </div>
-      </template>
-    </ClientOnly>
+      </div>
+    </div>
   </section>
 </template>

@@ -10,14 +10,14 @@ const LOCALES = [
 </script>
 
 <template>
-  <div class="flex h-11 items-center gap-0.5 rounded-full border border-border bg-white">
+  <div class="flex h-12 items-center gap-0.5 rounded-full border border-border bg-white">
     <NuxtLink
       v-for="item in LOCALES"
       :key="item.code"
       :to="switchLocalePath(item.code)"
       :aria-label="item.name"
       :aria-current="item.code === locale ? 'true' : undefined"
-      class="flex items-center justify-center rounded-full p-3 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      class="flex size-11 items-center justify-center rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       :class="
         item.code === locale
           ? 'bg-primary text-primary-foreground'

@@ -187,6 +187,8 @@ html {
     background: var(--bg);
     color: var(--ink);
     font-family: var(--font-sans);
+    /* Safeguard for browsers that still pan sideways: clip, so sticky elements keep working. */
+    overflow-x: clip;
   }
 }
 

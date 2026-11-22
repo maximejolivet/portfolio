@@ -271,7 +271,7 @@ onUnmounted(() => {
 
       <!-- editor -->
       <div class="flex min-w-0 flex-1 flex-col">
-        <div class="flex shrink-0 border-b border-panel-foreground/10 bg-panel-2">
+        <div class="flex shrink-0 border-b border-panel-foreground/10 bg-panel-2 [&>button]:min-h-11">
           <button
             type="button"
             class="flex items-center gap-2 border-r border-t-2 border-panel-foreground/10 px-3.5 py-2 font-mono text-xs"
@@ -311,7 +311,7 @@ onUnmounted(() => {
 
         <div
           v-if="activeTab === 'profile.json'"
-          class="min-h-0 flex-1 overflow-auto py-8 pl-4 font-mono text-[clamp(0.7812rem,1vw,0.9375rem)] leading-[2.05] md:pl-6"
+          class="min-h-0 flex-1 overflow-auto py-8 pl-4 [contain:paint] font-mono text-[clamp(0.7812rem,1vw,0.9375rem)] leading-[2.05] md:pl-6"
         >
           <div
             v-for="(line, i) in renderLines"

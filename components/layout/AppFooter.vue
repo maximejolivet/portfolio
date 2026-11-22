@@ -21,7 +21,7 @@ function scrollToTop() {
   window.scrollTo({ top: 0, left: 0 })
 }
 
-const linkClass = 'text-[#1d3540] underline underline-offset-4 decoration-2 transition-colors hover:text-[#0f5f52] hover:decoration-[3px] focus-visible:rounded-sm focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-foreground'
+const linkClass = 'inline-flex min-h-11 min-w-11 items-center text-[#1d3540] underline underline-offset-4 decoration-2 transition-colors hover:text-[#0f5f52] hover:decoration-[3px] focus-visible:rounded-sm focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-foreground'
 </script>
 
 <template>

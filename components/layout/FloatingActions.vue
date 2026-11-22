@@ -38,7 +38,7 @@ onUnmounted(() => {
         <span
           v-if="chatIntroReady"
           aria-hidden="true"
-          class="pointer-events-none absolute -top-0.5 -right-0.5 flex size-3"
+          class="pointer-events-none absolute -top-0.5 -right-0.5 flex size-3 overflow-hidden rounded-full"
         >
           <span
             class="absolute inline-flex size-full animate-ping motion-reduce:hidden rounded-full bg-accent opacity-75"

@@ -3,10 +3,10 @@ const { theme } = useThemeMode()
 </script>
 
 <template>
-  <div class="flex h-10 items-center gap-0.5 rounded-full border border-border bg-white">
+  <div class="flex h-12 items-center gap-0.5 rounded-full border border-border bg-white">
     <button
       type="button"
-      class="flex items-center justify-center rounded-full p-3 transition-colors"
+      class="flex size-11 items-center justify-center rounded-full transition-colors"
       :class="
         theme === 'day'
           ? 'bg-primary text-primary-foreground'
@@ -20,7 +20,7 @@ const { theme } = useThemeMode()
     </button>
     <button
       type="button"
-      class="flex items-center justify-center rounded-full p-3 transition-colors"
+      class="flex size-11 items-center justify-center rounded-full transition-colors"
       :class="
         theme === 'night'
           ? 'bg-primary text-primary-foreground'
