@@ -9,7 +9,7 @@
     <LayoutAppHeader />
     <main
       id="main-content"
-      class="flex flex-1 flex-col items-center justify-center gap-6 bg-background px-8 text-center"
+      class="flex flex-1 flex-col items-center justify-center gap-6 bg-background px-8 py-16 text-center"
     >
       <span class="font-mono text-sm font-bold text-accent">404</span>
       <h1
