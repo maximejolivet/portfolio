@@ -243,6 +243,8 @@
     "techFilterLabel": "Filtered by tech:",
     "clearTechFilter": "Clear tech filter",
     "filterYear": "Year",
+    "filterAllTechs": "All technologies",
+    "filterTechCount": "{count} technology(ies)",
     "filterAllYears": "All years"
   },
   "clientsSection": {

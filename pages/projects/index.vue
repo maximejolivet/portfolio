@@ -54,18 +54,44 @@ const years = computed(() =>
   ),
 )
 
-const techFilter = computed<string | undefined>({
-  get: () => (typeof route.query.tech === 'string' ? route.query.tech : undefined),
-  set: (value) => updateQuery({ tech: value, page: undefined }),
+// Selected technologies, stored in the URL as ?tech=php,drupal (a single ?tech=id still works).
+const selectedTechs = computed<string[]>(() =>
+  typeof route.query.tech === 'string' ? route.query.tech.split(',').filter(Boolean) : [],
+)
+
+function setSelectedTechs(next: string[]) {
+  updateQuery({ tech: next.length ? next.join(',') : undefined, page: undefined })
+}
+
+function toggleTech(id: string, checked: boolean) {
+  const next = checked ? [...selectedTechs.value, id] : selectedTechs.value.filter((t) => t !== id)
+  setSelectedTechs(Array.from(new Set(next)))
+}
+
+// Technologies that appear on at least one project, in catalogue order.
+const techOptions = computed(() => {
+  const seen = new Map<string, { id: string, name: string, count: number }>()
+  for (const category of TECH_CATEGORIES) {
+    for (const item of category.items) {
+      if (seen.has(item.id)) continue
+      const count = projectsForTech(item.id, projects.value).length
+      if (count > 0) seen.set(item.id, { id: item.id, name: item.name, count })
+    }
+  }
+  return Array.from(seen.values())
 })
 
 const techFilterLabel = computed(() => {
-  if (!techFilter.value) return undefined
-  for (const category of TECH_CATEGORIES) {
-    const item = category.items.find((i) => i.id === techFilter.value)
-    if (item) return item.name
-  }
-  return techFilter.value
+  if (!selectedTechs.value.length) return undefined
+  return selectedTechs.value
+    .map((id) => {
+      for (const category of TECH_CATEGORIES) {
+        const item = category.items.find((i) => i.id === id)
+        if (item) return item.name
+      }
+      return id
+    })
+    .join(', ')
 })
 
 function setViewMode(value: 'grid' | 'list') {
@@ -81,14 +107,16 @@ const employers = computed(() =>
 )
 
 const filteredProjects = computed(() => {
-  const techMatches = techFilter.value ? projectsForTech(techFilter.value, projects.value) : null
+  const techMatches = selectedTechs.value.length
+    ? new Set(selectedTechs.value.flatMap((id) => projectsForTech(id, projects.value)))
+    : null
 
   return projects.value
     .filter((p) => {
       if (categoryFilter.value !== 'all' && p.category !== categoryFilter.value) return false
       if (employerFilter.value !== 'all' && p.employer !== employerFilter.value) return false
       if (yearFilter.value !== 'all' && p.year !== yearFilter.value) return false
-      if (techMatches && !techMatches.includes(p)) return false
+      if (techMatches && !techMatches.has(p)) return false
       return true
     })
     .sort((a, b) => b.year.localeCompare(a.year))
@@ -197,6 +225,39 @@ const pageItems = computed(() => {
 
             <span class="mx-1 h-5 w-px bg-border" />
 
+            <details class="group relative">
+              <summary
+                class="flex h-10 cursor-pointer list-none items-center rounded-full border py-0 pl-4 pr-10 font-mono text-xs font-semibold transition-colors [&::-webkit-details-marker]:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                :class="
+                  selectedTechs.length
+                    ? 'border-primary bg-primary text-primary-foreground'
+                    : 'border-border text-foreground hover:border-accent hover:text-accent'
+                "
+              >
+                {{ selectedTechs.length ? $t('projectsPage.filterTechCount', { count: selectedTechs.length }) : $t('projectsPage.filterAllTechs') }}
+              </summary>
+              <UiAppIcon
+                icon="lucide:chevron-down"
+                class="pointer-events-none absolute right-3.5 top-1/2 size-3.5 -translate-y-1/2 transition-transform group-open:rotate-180"
+              />
+              <div class="absolute left-0 z-20 mt-2 flex max-h-72 w-64 flex-col gap-1 overflow-y-auto rounded-2xl border border-border bg-background p-3 shadow-lg">
+                <label
+                  v-for="option in techOptions"
+                  :key="option.id"
+                  class="flex cursor-pointer items-center gap-3 rounded-lg px-2 py-2 font-sans text-sm text-foreground hover:bg-muted/40"
+                >
+                  <input
+                    type="checkbox"
+                    class="size-4 accent-primary"
+                    :checked="selectedTechs.includes(option.id)"
+                    @change="toggleTech(option.id, ($event.target as HTMLInputElement).checked)"
+                  >
+                  <span class="flex-1">{{ option.name }}</span>
+                  <span class="font-mono text-xs text-muted-foreground">{{ option.count }}</span>
+                </label>
+              </div>
+            </details>
+
             <div class="relative inline-flex">
               <select
                 v-model="yearFilter"
@@ -254,7 +315,7 @@ const pageItems = computed(() => {
             type="button"
             :aria-label="$t('projectsPage.clearTechFilter')"
             class="flex items-center gap-1 rounded-full border border-border px-2 py-1 text-foreground transition-colors hover:border-accent hover:text-accent"
-            @click="techFilter = undefined"
+            @click="setSelectedTechs([])"
           >
             {{ techFilterLabel }}
             <UiAppIcon icon="lucide:x" class="size-3" />

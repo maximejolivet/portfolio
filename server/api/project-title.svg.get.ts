@@ -5,7 +5,6 @@ import { createClient } from '@supabase/supabase-js'
 // crawlable as page text (see components/sections/ProjectsSection.vue).
 // Looked up by the project's opaque Supabase id (not slug/title) so the
 // name never appears in the <img src>/page source either.
-const CHAR_WIDTH = 11.5
 const PADDING_X = 2
 const HEIGHT = 28
 const FONT_SIZE = 20
@@ -40,7 +39,7 @@ export default defineCachedEventHandler(
     if (error || !data) return emptySvg()
 
     const text = (lang === 'en' ? data.title_en : data.title_fr) ?? ''
-    return renderSvg(text)
+    return await renderSvg(text)
   },
   { maxAge: 60 * 60 * 24 * 30, swr: true, getKey: (event) => {
     const query = getQuery(event)
@@ -48,10 +47,16 @@ export default defineCachedEventHandler(
   } },
 )
 
-function renderSvg(text: string): string {
-  const width = Math.max(10, Math.round(text.length * CHAR_WIDTH + PADDING_X * 2))
+// The title is drawn as vector outlines (no <text>), so it needs no installed fonts and
+// carries no selectable or indexable text.
+async function renderSvg(text: string): Promise<string> {
+  const font = await loadOutlineFont('semibold')
+  const width = Math.max(10, Math.ceil(measureText(font, text, FONT_SIZE) + PADDING_X * 2))
+  const { defs, ids } = outlineDefs(font, [text], FONT_SIZE)
+  const uses = outlineUses(font, ids, text, PADDING_X, HEIGHT - 8, FONT_SIZE)
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${HEIGHT}" viewBox="0 0 ${width} ${HEIGHT}" role="img" aria-hidden="true">
-  <text x="${PADDING_X}" y="${HEIGHT - 8}" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="700" font-size="${FONT_SIZE}" fill="#1d3540">${escapeXml(text)}</text>
+  <defs>${defs}</defs>
+  <g fill="#1d3540">${uses}</g>
 </svg>`
 }
 

@@ -243,6 +243,8 @@
     "techFilterLabel": "Filtré par technologie :",
     "clearTechFilter": "Retirer le filtre technologie",
     "filterYear": "Année",
+    "filterAllTechs": "Toutes les technologies",
+    "filterTechCount": "{count} technologie(s)",
     "filterAllYears": "Toutes les années"
   },
   "clientsSection": {
