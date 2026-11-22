@@ -12,7 +12,17 @@ const SLIDE_MS = 8000
 const RING_RADIUS = 20
 const RING_LENGTH = 2 * Math.PI * RING_RADIUS
 
-const track = useTemplateRef<HTMLElement>('track')
+// Swiper web component (registered by plugins/swiper.client.ts), same as the hero marquee.
+interface SwiperInstance {
+  realIndex: number
+  autoplay: { running: boolean, paused: boolean, start: () => void, stop: () => void, pause: () => void, resume: () => void }
+  slideTo: (index: number) => void
+  slideNext: () => void
+  slidePrev: () => void
+}
+type SwiperEl = HTMLElement & { swiper?: SwiperInstance }
+const swiperEl = useTemplateRef<SwiperEl>('swiper')
+
 const index = ref(0)
 // Autoplay runs unless the visitor prefers reduced motion or pauses it.
 const playing = ref(true)
@@ -20,33 +30,51 @@ const hovered = ref(false)
 const focused = ref(false)
 const paused = computed(() => !playing.value || hovered.value || focused.value)
 
-// The track is as tall as the slide being shown, not as tall as the tallest slide.
-const trackHeight = ref<number | null>(null)
-let observer: ResizeObserver | null = null
-
-function measure() {
-  const slide = track.value?.children[index.value] as HTMLElement | undefined
-  if (slide) trackHeight.value = slide.offsetHeight
-}
-
-// Re-measure when a slide's size changes (image loaded, viewport resized).
-watch(track, (el) => {
-  observer?.disconnect()
-  if (!el) return
-  observer = new ResizeObserver(measure)
-  for (const child of el.children) observer.observe(child)
-  measure()
-})
-
-onBeforeUnmount(() => observer?.disconnect())
-
 onMounted(() => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) playing.value = false
 })
 
-// Quote image URL; `w` picks the phone (360) or desktop (720) render, see the srcset below.
-function quoteUrl(imageId: string, w: number) {
-  return `/api/recommendation.svg?id=${imageId}&lang=${locale.value === 'en' ? 'en' : 'fr'}&w=${w}`
+// Apply the visitor's state to Swiper's autoplay. Each call checks the current flags
+// so pause/resume never runs twice (Swiper would otherwise schedule duplicate timers).
+function applyAutoplay() {
+  const s = swiperEl.value?.swiper
+  if (!s?.autoplay) return
+  if (!playing.value) {
+    if (s.autoplay.running) s.autoplay.stop()
+  }
+  else if (paused.value) {
+    if (s.autoplay.running && !s.autoplay.paused) s.autoplay.pause()
+  }
+  else if (!s.autoplay.running) {
+    s.autoplay.start()
+  }
+  else if (s.autoplay.paused) {
+    s.autoplay.resume()
+  }
+}
+
+watch([playing, paused], applyAutoplay)
+
+function onSwiperInit() {
+  applyAutoplay()
+}
+
+// Swiper dispatches "swiperslidechange" on the element; the instance is on event.target.
+function onSlideChange(event: Event) {
+  const s = (event.target as SwiperEl).swiper
+  if (s) index.value = s.realIndex
+}
+
+function goTo(i: number) {
+  swiperEl.value?.swiper?.slideTo(i)
+}
+
+function next() {
+  swiperEl.value?.swiper?.slideNext()
+}
+
+function prev() {
+  swiperEl.value?.swiper?.slidePrev()
 }
 
 // "Thibaut Monier" -> "Thibaut M."
@@ -56,32 +84,16 @@ function shortName(full: string) {
   return `${parts[0]} ${parts[parts.length - 1]?.charAt(0)}.`
 }
 
-function syncIndex() {
-  const el = track.value
-  if (!el || !el.clientWidth) return
-  index.value = Math.round(el.scrollLeft / el.clientWidth)
-  measure()
+// Quote image URL; `w` picks the phone (360) or desktop (720) render, see the picture sources below.
+function quoteUrl(imageId: string, w: number) {
+  return `/api/recommendation.svg?id=${imageId}&lang=${locale.value === 'en' ? 'en' : 'fr'}&w=${w}`
 }
 
-function goTo(i: number) {
-  const el = track.value
-  if (!el) return
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  el.scrollTo({ left: i * el.clientWidth, behavior: reduce ? 'auto' : 'smooth' })
-}
-
-function next() {
-  goTo((index.value + 1) % items.length)
-}
-
-function prev() {
-  goTo((index.value - 1 + items.length) % items.length)
-}
-
-// The ring is keyed by the slide index, so it restarts on every slide. When it
-// finishes, the carousel moves on; the "animationend" event is the only timer.
-function onRingEnd() {
-  if (!paused.value) next()
+// Swiper options as properties: the same pattern as the hero marquee.
+const autoplayOptions = {
+  delay: SLIDE_MS,
+  disableOnInteraction: false,
+  pauseOnMouseEnter: false,
 }
 </script>
 
@@ -105,57 +117,64 @@ function onRingEnd() {
         @focusin="(e) => (focused = (e.target as HTMLElement).matches(':focus-visible'))"
         @focusout="focused = false"
       >
-        <div
-          ref="track"
-          tabindex="0"
-          class="flex items-start snap-x snap-mandatory overflow-x-auto scroll-smooth transition-[height] duration-300 motion-reduce:transition-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-          :style="trackHeight ? { height: `${trackHeight}px` } : undefined"
-          @scroll.passive="syncIndex"
+        <swiper-container
+          ref="swiper"
+          slides-per-view="1"
+          rewind
+          auto-height
+          speed="500"
+          :autoplay="autoplayOptions"
+          class="block"
+          @init="onSwiperInit"
+          @swiperslidechange="onSlideChange"
         >
-          <figure
+          <swiper-slide
             v-for="(item, i) in items"
             :key="item.key"
             role="group"
             aria-roledescription="slide"
             :aria-label="`${i + 1} / ${items.length}`"
-            class="flex w-full shrink-0 snap-start snap-always flex-col gap-6 sm:pr-16"
+            class="sm:pr-16"
           >
-            <!-- Width is picked by CSS viewport (media), not srcset/sizes, which follow device pixel density
-                 and would choose the largest render on phones, shrinking the text. -->
-            <picture>
-              <source media="(max-width: 480px)" :srcset="quoteUrl(item.imageId, 360)">
-              <source media="(max-width: 640px)" :srcset="quoteUrl(item.imageId, 480)">
-              <source media="(max-width: 1024px)" :srcset="quoteUrl(item.imageId, 600)">
-              <img
-                :src="quoteUrl(item.imageId, 720)"
-                :alt="$t('recommendationsSection.imageAlt')"
-                :width="720"
-                loading="lazy"
-                decoding="async"
-                class="h-auto w-full max-w-[45rem]"
-              >
-            </picture>
-            <figcaption data-nosnippet class="flex flex-wrap items-baseline gap-x-4 gap-y-1 font-sans">
-              <span class="font-bold text-foreground">{{
-                shortName($t(`recommendationsSection.items.${item.key}.name`))
-              }}</span>
-              <span class="text-sm text-muted-foreground">{{
-                $t(`recommendationsSection.items.${item.key}.role`)
-              }}</span>
-              <span aria-hidden="true" class="h-4 w-px self-center bg-border" />
-              <a
-                :href="item.linkedin"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex min-h-10 items-center gap-1 font-mono text-[0.875rem] font-semibold text-muted-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              >
-                LinkedIn
-                <UiAppIcon icon="lucide:external-link" class="size-3.5" />
-                <span class="sr-only">{{ $t('a11y.newWindow') }}</span>
-              </a>
-            </figcaption>
-          </figure>
-        </div>
+            <div class="flex flex-col gap-6">
+              <!-- Width is picked by CSS viewport (media), not srcset/sizes, which follow device pixel density
+                   and would choose the largest render on phones, shrinking the text. -->
+              <picture>
+                <source media="(max-width: 480px)" :srcset="quoteUrl(item.imageId, 360)">
+                <source media="(max-width: 640px)" :srcset="quoteUrl(item.imageId, 480)">
+                <source media="(max-width: 1024px)" :srcset="quoteUrl(item.imageId, 600)">
+                <img
+                  :src="quoteUrl(item.imageId, 720)"
+                  :alt="$t('recommendationsSection.imageAlt')"
+                  :width="720"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-auto w-full max-w-[45rem]"
+                >
+              </picture>
+              <figcaption data-nosnippet class="flex flex-wrap items-baseline gap-x-4 gap-y-1 font-sans">
+                <span class="font-bold text-foreground">{{
+                  shortName($t(`recommendationsSection.items.${item.key}.name`))
+                }}</span>
+                <span class="text-sm text-muted-foreground">{{
+                  $t(`recommendationsSection.items.${item.key}.role`)
+                }}</span>
+                <span aria-hidden="true" class="h-4 w-px self-center bg-border" />
+                <a
+                  :href="item.linkedin"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                  data-nosnippet
+                  class="inline-flex min-h-10 items-center gap-1 font-mono text-[0.875rem] font-semibold text-muted-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  LinkedIn
+                  <UiAppIcon icon="lucide:external-link" class="size-3.5" />
+                  <span class="sr-only">{{ $t('a11y.newWindow') }}</span>
+                </a>
+              </figcaption>
+            </div>
+          </swiper-slide>
+        </swiper-container>
 
         <div class="flex items-center gap-4">
           <button
@@ -196,7 +215,6 @@ function onRingEnd() {
                   animationDuration: `${SLIDE_MS}ms`,
                   animationPlayState: paused ? 'paused' : 'running',
                 }"
-                @animationend="onRingEnd"
               />
             </svg>
             <UiAppIcon :icon="playing ? 'lucide:pause' : 'lucide:play'" class="size-4" />
@@ -238,6 +256,9 @@ function onRingEnd() {
 }
 
 @keyframes rec-ring {
+  from {
+    stroke-dashoffset: v-bind('RING_LENGTH');
+  }
   to {
     stroke-dashoffset: 0;
   }
