@@ -36,7 +36,7 @@ const linkClass = 'inline-flex min-h-11 min-w-11 items-center text-[#1d3540] und
         </p>
       </div>
 
-      <div class="mt-16 flex flex-col gap-4 font-sans text-sm text-[#1d3540]">
+      <div class="mt-16 flex flex-col gap-1 font-sans text-sm text-[#1d3540] sm:gap-4">
         <p class="text-lg leading-tight font-semibold text-[#1d3540]">
           {{ $t('footer.taglineRole') }}
         </p>
@@ -57,7 +57,9 @@ const linkClass = 'inline-flex min-h-11 min-w-11 items-center text-[#1d3540] und
       </div>
 
       <nav :aria-label="$t('footer.navLabel')" class="mt-12">
-        <ul class="grid grid-cols-1 gap-x-10 gap-y-4 font-sans text-base sm:grid-cols-2 lg:grid-cols-3">
+        <ul
+          class="grid grid-cols-1 gap-x-10 gap-y-1 font-sans text-base sm:grid-cols-2 sm:gap-y-4 lg:grid-cols-3"
+        >
           <li v-for="item in siteLinks" :key="item.id">
             <a
               v-if="item.href"
@@ -78,11 +80,7 @@ const linkClass = 'inline-flex min-h-11 min-w-11 items-center text-[#1d3540] und
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              :to="localePath('mentions-legales')"
-              rel="nofollow"
-              :class="linkClass"
-            >
+            <NuxtLink :to="localePath('mentions-legales')" rel="nofollow" :class="linkClass">
               {{ $t('footer.legalMentions') }}
             </NuxtLink>
           </li>
@@ -102,14 +100,19 @@ const linkClass = 'inline-flex min-h-11 min-w-11 items-center text-[#1d3540] und
             </NuxtLink>
           </li>
           <li>
-            <button type="button" class="cursor-pointer" :class="linkClass" @click="openCookieSettings">
+            <button
+              type="button"
+              class="cursor-pointer"
+              :class="linkClass"
+              @click="openCookieSettings"
+            >
               {{ $t('footer.manageCookies') }}
             </button>
           </li>
         </ul>
       </nav>
 
-      <div class="mt-12 flex flex-wrap items-center justify-between gap-6">
+      <div class="mt-12 flex flex-wrap items-center justify-between gap-2 sm:gap-6">
         <NavigationThemeToggle />
         <button
           type="button"
