@@ -5,7 +5,7 @@ const localePath = useLocalePath()
 const { openChat } = useChatIntro()
 
 // Only the labelled items: the icon-only home link is already the header's logo.
-const siteLinks = NAV_ITEMS.filter((item) => !item.iconOnly)
+const siteLinks = NAV_ITEMS.filter((item) => !item.iconOnly && item.id !== 'recommendations')
 
 function onChatClick(event: MouseEvent, shouldOpenChat?: boolean) {
   if (!shouldOpenChat) return
