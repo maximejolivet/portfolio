@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { NAV_ITEMS } from '~/constants/nav'
 
+// The header shows the main links only; recommendations stay in the mobile menu and footer.
+const HEADER_ITEMS = NAV_ITEMS.filter((item) => item.id !== 'recommendations')
+
 const localePath = useLocalePath()
 
 const hidden = ref(false)
@@ -42,7 +45,7 @@ onUnmounted(() => {
         </UiButton>
         <nav class="hidden items-center gap-6 md:flex">
           <NavigationNavLink
-            v-for="item in NAV_ITEMS"
+            v-for="item in HEADER_ITEMS"
             :key="item.id"
             :to="item.to"
             :href="item.href"
