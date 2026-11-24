@@ -1,49 +1,37 @@
 @reference './main.css';
 
+/*
+ * Consent UI — "le registre".
+ * A question set large, two choices of equal weight, and services listed as
+ * plain rows. Mobile: a full-width bottom banner. Tablet and desktop: a
+ * floating card bottom-left. The panel is full screen on mobile.
+ * Palette and type come from the site.
+ */
+
 #tarteaucitronRoot {
   @apply font-sans text-foreground;
 }
 
 #tarteaucitronRoot a {
-  @apply text-accent;
+  @apply text-accent underline underline-offset-4 decoration-2;
 }
 
 #tarteaucitronRoot button {
   @apply cursor-pointer;
 }
 
-#tarteaucitronRoot a:focus-visible,
-#tarteaucitronRoot button:focus-visible {
+#tarteaucitronRoot :focus-visible {
   @apply outline-2 outline-accent outline-offset-2;
 }
 
-html body #tarteaucitronRoot #tarteaucitronAlertBig {
-  @apply hidden fixed left-3 right-19 bottom-3 z-2147483000 items-center gap-x-3
-    gap-y-2.5 rounded-lg border border-border bg-card p-5 text-sm text-foreground
-    shadow-[0_20px_60px_rgba(0,0,0,0.18)]
-    sm:left-5 sm:right-auto sm:bottom-5 sm:w-[calc(100%-40px)] sm:max-w-95;
-}
-
-html body #tarteaucitronRoot #tarteaucitronAlertBig[style*='display: block'] {
-  @apply flex! flex-row flex-wrap;
-}
-
-body.tarteaucitron-modal-open #tarteaucitronRoot #tarteaucitronAlertBig {
-  @apply z-1;
-}
-
-#tarteaucitronDisclaimerAlert {
-  @apply w-full basis-full text-[0.875rem] text-muted-foreground;
-}
+/* ---- Shared CTA shape ---------------------------------------------------- */
+/* Accept, refuse and save share height, radius and type. Only the fill differs. */
 
 .tarteaucitronAllow,
 .tarteaucitronDeny {
-  @apply m-0 w-auto whitespace-nowrap rounded-full border border-border bg-transparent
-    px-4.5 py-2.5 font-sans text-xs leading-none font-semibold text-foreground;
-}
-
-.tarteaucitronAllow {
-  @apply border-primary bg-primary text-primary-foreground;
+  @apply m-0 inline-flex h-14 w-full items-center justify-center whitespace-nowrap
+    rounded-full border px-5 font-sans text-base leading-none font-semibold
+    transition-colors duration-150;
 }
 
 .tarteaucitronCheck,
@@ -52,68 +40,106 @@ body.tarteaucitron-modal-open #tarteaucitronRoot #tarteaucitronAlertBig {
   @apply hidden;
 }
 
-.tarteaucitronIsAllowed .tarteaucitronAllow,
-.tarteaucitronIsDenied .tarteaucitronDeny,
-#tarteaucitronServices_mandatory .tarteaucitronAllow {
+/* ---- First layer (banner) ----------------------------------------------- */
+
+html body #tarteaucitronRoot #tarteaucitronAlertBig {
+  display: none;
+  @apply fixed bottom-0 left-0 z-2147483000 w-full grid-cols-2
+    grid-rows-[auto_auto_auto] content-start gap-x-3 gap-y-4 bg-panel px-6 pt-8
+    pb-[max(1.5rem,env(safe-area-inset-bottom))] text-panel-foreground
+    sm:bottom-5 sm:left-5 sm:w-[min(420px,calc(100%-40px))] sm:gap-y-4 sm:rounded-xl sm:p-6
+    sm:shadow-[0_24px_48px_-16px_rgba(16,32,42,0.45)];
+}
+
+html body #tarteaucitronRoot #tarteaucitronAlertBig[style*='display: block'] {
+  @apply grid!;
+}
+
+body.tarteaucitron-modal-open #tarteaucitronRoot #tarteaucitronAlertBig {
+  @apply z-1;
+}
+
+#tarteaucitronDisclaimerAlert {
+  @apply col-span-2 block self-start text-[1.5rem] leading-[1.2] font-semibold
+    tracking-tight text-panel-foreground
+    sm:text-[1.125rem] sm:leading-snug;
+}
+
+#tarteaucitronAlertBig .tarteaucitronAllow {
   @apply border-primary bg-primary text-primary-foreground;
 }
 
-.tarteaucitronIsAllowed .tarteaucitronDeny,
-.tarteaucitronIsDenied .tarteaucitronAllow {
-  @apply border-border bg-transparent text-foreground;
+#tarteaucitronAlertBig .tarteaucitronDeny {
+  @apply border-panel-foreground/40 bg-transparent text-panel-foreground;
 }
 
-#tarteaucitronServices_mandatory .tarteaucitronAllow[disabled],
-#tarteaucitronServices_mandatory .tarteaucitronDeny {
-  @apply cursor-not-allowed opacity-50;
+#tarteaucitronAlertBig .tarteaucitronDeny:hover,
+#tarteaucitronAlertBig .tarteaucitronDeny:focus-visible {
+  @apply border-panel-foreground bg-panel-foreground/10;
 }
 
+/* "Personnaliser" is visible text, never an icon. */
 #tarteaucitronCloseAlert {
-  @apply m-0 inline-flex h-9.5 w-9.5 cursor-pointer items-center justify-center
-    rounded-full border border-border bg-transparent p-0 font-sans text-[0px]
-    text-foreground no-underline;
+  @apply col-span-2 m-0 h-auto w-auto justify-self-center border-0 bg-transparent p-2
+    font-sans text-sm font-semibold text-panel-foreground underline
+    decoration-accent decoration-2 underline-offset-4;
 }
 
-#tarteaucitronCloseAlert::before {
-  @apply inline-block h-3.75 w-3.75 shrink-0 bg-current content-[''];
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M9.671 4.136a2.34 2.34 0 0 1 4.659 0a2.34 2.34 0 0 0 3.319 1.915a2.34 2.34 0 0 1 2.33 4.033a2.34 2.34 0 0 0 0 3.831a2.34 2.34 0 0 1-2.33 4.033a2.34 2.34 0 0 0-3.319 1.915a2.34 2.34 0 0 1-4.659 0a2.34 2.34 0 0 0-3.32-1.915a2.34 2.34 0 0 1-2.33-4.033a2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/g%3E%3C/svg%3E")
-    no-repeat center / contain;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M9.671 4.136a2.34 2.34 0 0 1 4.659 0a2.34 2.34 0 0 0 3.319 1.915a2.34 2.34 0 0 1 2.33 4.033a2.34 2.34 0 0 0 0 3.831a2.34 2.34 0 0 1-2.33 4.033a2.34 2.34 0 0 0-3.319 1.915a2.34 2.34 0 0 1-4.659 0a2.34 2.34 0 0 0-3.32-1.915a2.34 2.34 0 0 1-2.33-4.033a2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/g%3E%3C/svg%3E")
-    no-repeat center / contain;
+#tarteaucitronCloseAlert:hover {
+  @apply decoration-[3px];
 }
+
+/* Mobile: the bottom banner spans the full width, flush to the bottom edge. */
+@media (width < 40rem) {
+  html body #tarteaucitronRoot #tarteaucitronAlertBig.tarteaucitronAlertBigBottom {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+/* ---- Backdrop & second layer (panel) ------------------------------------ */
 
 #tarteaucitronBack {
-  @apply hidden fixed inset-0 z-2147483000 cursor-pointer bg-black/40 backdrop-blur-sm;
-  -webkit-backdrop-filter: blur(4px);
+  @apply hidden fixed inset-0 z-2147483000 cursor-pointer bg-panel-2/60;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 
 #tarteaucitron {
-  @apply hidden fixed top-0 left-1/2 z-2147483001 h-auto w-[min(600px,92vw)]
-    max-h-[min(85vh,700px)] -translate-x-1/2 overflow-hidden rounded-lg bg-card
-    text-foreground shadow-[0_20px_60px_rgba(0,0,0,0.35)]
-    max-sm:left-0 max-sm:h-full max-sm:w-full max-sm:max-h-full max-sm:translate-x-0
-    max-sm:rounded-none;
+  display: none;
+  @apply fixed inset-0 z-2147483001 h-dvh w-full flex-col overflow-hidden
+    bg-background text-foreground
+    sm:inset-x-auto sm:left-1/2 sm:h-auto sm:max-h-[min(85vh,720px)]
+    sm:w-[min(640px,92vw)] sm:-translate-x-1/2 sm:rounded-xl
+    sm:shadow-[0_32px_80px_-24px_rgba(16,32,42,0.55)];
+}
+
+#tarteaucitron[style*='display: block'] {
+  @apply flex!;
 }
 
 #tarteaucitronClosePanel {
-  @apply absolute top-3 right-3 z-1 rounded-full border border-border bg-card px-3.5 py-1.5
-    text-[0.75rem] font-semibold text-foreground;
+  @apply absolute top-4 right-4 z-1 rounded-full border border-border bg-background px-4 py-2
+    text-sm font-semibold text-foreground;
 }
 
 #tarteaucitronServices {
-  @apply flex h-full flex-col;
+  @apply flex h-full min-h-0 flex-col;
 }
 
 #tarteaucitronMainLineOffset {
-  @apply flex-none border-b border-border bg-card pt-6 pr-22.5 pb-5 pl-6;
+  @apply flex-none bg-card px-6 pt-8 pb-6 pr-28 border-b border-border;
 }
 
 .tarteaucitronH1 {
-  @apply mb-2 block text-[1.125rem] font-bold;
+  @apply mb-2 block text-2xl font-semibold tracking-tight text-foreground;
 }
 
 #tarteaucitronInfo {
-  @apply mb-4 block text-[0.875rem] text-muted-foreground;
+  @apply mb-5 block text-sm leading-normal text-muted-foreground;
 }
 
 #tarteaucitronMainLineOffset .tarteaucitronName {
@@ -121,17 +147,36 @@ body.tarteaucitron-modal-open #tarteaucitronRoot #tarteaucitronAlertBig {
 }
 
 #tarteaucitronMainLineOffset .tarteaucitronAsk {
-  @apply flex flex-wrap gap-2;
+  @apply grid grid-cols-2 gap-3 border-0 bg-transparent p-0;
+}
+
+#tarteaucitronMainLineOffset .tarteaucitronAllow {
+  @apply border-primary bg-primary text-primary-foreground;
+}
+
+#tarteaucitronMainLineOffset .tarteaucitronDeny {
+  @apply border-border bg-transparent text-foreground;
+}
+
+/* Same 56px footprint as the banner choices. Specific selector beats the bundled css. */
+html body #tarteaucitronRoot #tarteaucitronMainLineOffset .tarteaucitronAsk .tarteaucitronAllow,
+html body #tarteaucitronRoot #tarteaucitronMainLineOffset .tarteaucitronAsk .tarteaucitronDeny {
+  @apply h-14! w-full px-5 text-base;
 }
 
 .tarteaucitronBorder {
   @apply min-h-0 flex-auto overflow-y-auto bg-background;
 }
 
+/* Category headers: quiet rows with a hairline, not navy bars. */
 #tarteaucitronServices .tarteaucitronTitle,
 #tarteaucitronRoot .asCatToggleBtn {
-  @apply block w-full bg-panel px-5 py-3 text-left text-[0.875rem] font-semibold
-    text-panel-foreground;
+  @apply block w-full border-b border-border bg-transparent px-6 py-4 text-left text-base
+    font-semibold text-foreground;
+}
+
+#tarteaucitronServices .tarteaucitronTitle {
+  @apply relative;
 }
 
 #tarteaucitronServices .tarteaucitronTitle button {
@@ -140,38 +185,77 @@ body.tarteaucitron-modal-open #tarteaucitronRoot #tarteaucitronAlertBig {
   font-size: inherit;
 }
 
-#tarteaucitronServices .tarteaucitronLine {
-  @apply flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-b border-border
-    bg-card px-5 py-3.5;
+/* Service rows: name on the left, a two-state control on the right. */
+.tarteaucitronLine {
+  @apply flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-border
+    bg-card px-6 py-5;
 }
 
 #tarteaucitronServices .tarteaucitronName {
   @apply flex-[1_1_220px] text-left;
 }
 
-#tarteaucitronServices .tarteaucitronAsk {
-  @apply flex flex-none gap-2;
+.tarteaucitronLine .tarteaucitronAsk {
+  @apply inline-flex flex-none gap-1 rounded-full border border-border bg-background p-1;
+}
+
+.tarteaucitronLine .tarteaucitronAsk .tarteaucitronAllow,
+.tarteaucitronLine .tarteaucitronAsk .tarteaucitronDeny {
+  @apply h-10 w-auto px-4 text-sm;
+}
+
+/* The active choice takes the gold fill; the other stays quiet. */
+.tarteaucitronLine .tarteaucitronAllow,
+.tarteaucitronLine .tarteaucitronDeny {
+  @apply border-transparent bg-transparent text-muted-foreground;
+}
+
+/* The library puts the state class on the row itself (li.tarteaucitronLine.tarteaucitronIsDenied),
+   so the selector must not require two separate ancestors. */
+.tarteaucitronIsAllowed .tarteaucitronAllow,
+.tarteaucitronIsDenied .tarteaucitronDeny,
+#tarteaucitronServices_mandatory .tarteaucitronAllow {
+  @apply border-primary bg-primary text-primary-foreground;
+}
+
+.tarteaucitronIsAllowed .tarteaucitronDeny,
+.tarteaucitronIsDenied .tarteaucitronAllow {
+  @apply bg-transparent text-muted-foreground;
+}
+
+/* Panel-level "Tout accepter / Tout refuser": the library marks the chosen one with tarteaucitronIsSelected. */
+#tarteaucitronMainLineOffset .tarteaucitronAsk .tarteaucitronAllow {
+  @apply border-border bg-transparent text-foreground;
+}
+
+#tarteaucitronMainLineOffset .tarteaucitronAsk .tarteaucitronDeny {
+  @apply border-border bg-transparent text-foreground;
+}
+
+#tarteaucitronMainLineOffset .tarteaucitronAsk .tarteaucitronIsSelected {
+  @apply border-primary bg-primary text-primary-foreground;
+}
+
+#tarteaucitronServices_mandatory .tarteaucitronAllow[disabled],
+#tarteaucitronServices_mandatory .tarteaucitronDeny {
+  @apply cursor-not-allowed opacity-50;
 }
 
 .tarteaucitronH3 {
-  @apply block text-sm font-semibold;
+  @apply block text-base font-semibold;
 }
 
 .tarteaucitronServiceDescription {
-  @apply mt-0.5 block text-xs text-muted-foreground;
+  @apply mt-1 block text-sm leading-normal text-muted-foreground;
 }
 
 .tarteaucitronStatusInfo {
-  @apply mt-1 block text-[0.75rem] text-subtle;
+  @apply mt-1 block text-xs text-subtle;
 }
 
 .tarteaucitronReadmoreInfo,
 .tarteaucitronReadmoreOfficial {
-  @apply text-[0.75rem] underline;
-}
-
-#tarteaucitronServices .tarteaucitronTitle {
-  @apply relative;
+  @apply text-xs underline underline-offset-4;
 }
 
 .tarteaucitronDetails {
@@ -179,12 +263,18 @@ body.tarteaucitron-modal-open #tarteaucitronRoot #tarteaucitronAlertBig {
 }
 
 .tarteaucitronInfoBox {
-  @apply absolute top-full right-3 left-3 z-2 mt-1 rounded-md border border-border bg-card
-    px-4 py-3.5 text-xs text-foreground shadow-[0_12px_30px_rgba(0,0,0,0.2)];
+  @apply absolute top-full right-4 left-4 z-2 mt-1 rounded-lg border border-border bg-card
+    px-4 py-3.5 text-xs text-foreground shadow-[0_12px_30px_rgba(16,32,42,0.2)];
 }
 
+/* Save bar: sticky at the bottom, full width on mobile. */
 #tarteaucitronSave {
-  @apply flex-none border-t border-border bg-card px-6 py-4 text-right;
+  @apply flex-none border-t border-border bg-card px-6 pt-4
+    pb-[max(1rem,env(safe-area-inset-bottom))] text-right;
+}
+
+#tarteaucitronSave .tarteaucitronAllow {
+  @apply inline-flex w-full px-6 sm:w-auto;
 }
 
 #tarteaucitronPercentage {
@@ -205,4 +295,11 @@ html.tarteaucitron-modal-open-noscroll {
 
 body.tarteaucitron-modal-open {
   @apply overflow-hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarteaucitronAllow,
+  .tarteaucitronDeny {
+    transition: none;
+  }
 }
