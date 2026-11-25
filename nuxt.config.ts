@@ -173,7 +173,7 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  compatibilityDate: '2026-11-22',
+  compatibilityDate: '2026-11-25',
 
   vite: {
     plugins: [tailwindcss(), fixPdfjsViewerElementAssetUrls(), copyPdfjsViewerImages()],

@@ -16,8 +16,9 @@ const matchCounts = computed(() => {
   return counts
 })
 
-const LABEL_COLORS = ['text-[#c99a4a]', 'text-[#5097ae]', 'text-[#3fa98c]']
-const LABEL_COLOR_HEX = ['#c99a4a', '#4d94ab', '#3fa98c']
+// Theme tokens (assets/css/main.css), each one checked against the light and night surfaces.
+const LABEL_COLORS = ['text-label-1', 'text-label-2', 'text-label-3']
+const LABEL_COLOR_HEX = ['var(--label-1)', 'var(--label-2)', 'var(--label-3)']
 
 function labelColor(index: number) {
   return LABEL_COLORS[index % LABEL_COLORS.length]
@@ -47,15 +48,21 @@ const ICON_COLOR_OVERRIDES: Record<string, string> = {
   'vercel': '#e759b6',
 }
 
-function tagStyle(itemId: string, categoryIndex: number) {
-  const color
-    = ICON_COLOR_OVERRIDES[itemId] ?? LABEL_COLOR_HEX[categoryIndex % LABEL_COLOR_HEX.length]
+// The chip text always uses the category label colour, so it stays readable on the page.
+function tagStyle(categoryIndex: number) {
+  const color = LABEL_COLOR_HEX[categoryIndex % LABEL_COLOR_HEX.length]
 
   return {
     color,
     borderColor: `color-mix(in srgb, ${color} 35%, transparent)`,
-    backgroundColor: `color-mix(in srgb, ${color} 10%, transparent)`,
+    backgroundColor: `color-mix(in srgb, ${color} 6%, transparent)`,
   }
+}
+
+// Brand colours only tint the icon (decorative), never the text.
+function iconStyle(itemId: string) {
+  const color = ICON_COLOR_OVERRIDES[itemId]
+  return color ? { color } : undefined
 }
 
 const caption = computed(() =>
@@ -112,18 +119,18 @@ const caption = computed(() =>
             :rel="matchCounts[item.id] ? 'nofollow' : undefined"
             class="inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-sm transition-transform"
             :class="matchCounts[item.id] && 'cursor-pointer hover:scale-105'"
-            :style="tagStyle(item.id, index)"
+            :style="tagStyle(index)"
             :title="
               matchCounts[item.id]
                 ? t('techSection.viewProjects', { count: matchCounts[item.id] })
                 : undefined
             "
           >
-            <UiAppIcon :icon="item.icon" class="size-4 shrink-0" />
+            <UiAppIcon :icon="item.icon" class="size-4 shrink-0" :style="iconStyle(item.id)" />
             {{ item.name }}
             <span
               v-if="matchCounts[item.id]"
-              class="flex size-4 shrink-0 items-center justify-center rounded-full bg-current/20 text-[0.6875rem] leading-none"
+              class="flex size-4 shrink-0 items-center justify-center rounded-full bg-card text-foreground text-[0.6875rem] leading-none"
             >{{ matchCounts[item.id] }}</span>
           </component>
         </div>

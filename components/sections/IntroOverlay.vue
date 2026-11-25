@@ -90,7 +90,7 @@ class="absolute left-8 top-7 flex items-center gap-2.5 transition-opacity durati
       {{ pct }}%<span class="animate-blink text-panel-foreground"> ▎</span>
     </div>
     <div
-      class="absolute bottom-8 font-mono text-[0.7188rem] font-medium tracking-[2px] text-panel-foreground/45 transition-opacity duration-500 ease-out"
+      class="absolute bottom-8 font-mono text-[0.7188rem] font-medium tracking-[2px] text-panel-foreground/60 transition-opacity duration-500 ease-out"
       :class="detailsVisible ? 'opacity-100' : 'opacity-0'"
 >
       {{ $t('intro.skipHint') }}

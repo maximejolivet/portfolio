@@ -35,7 +35,7 @@ const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   'link': 'text-primary underline-offset-4 hover:underline',
   'pill': 'rounded-full bg-primary font-sans font-semibold text-primary-foreground hover:bg-accent hover:text-background',
   'pill-outline':
-    'rounded-full border border-border bg-transparent font-mono font-semibold text-foreground hover:border-accent hover:text-accent',
+    'rounded-full border border-border bg-transparent font-mono font-semibold text-foreground hover:border-accent hover:text-accent-text',
 }
 
 const SIZE_CLASSES: Record<ButtonSize, string> = {

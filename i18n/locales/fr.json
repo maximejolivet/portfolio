@@ -9,6 +9,8 @@
   },
   "a11y": {
     "skipToContent": "Aller au contenu",
+    "pauseMarquee": "Mettre en pause la liste des technologies",
+    "playMarquee": "Lire la liste des technologies",
     "terminalInput": "Saisir une commande du terminal",
     "newWindow": "(nouvelle fenêtre)"
   },
@@ -38,7 +40,8 @@
     "ide": "IDE & terminal",
     "toggleTheme": "Basculer le thème",
     "switchLanguage": "Changer de langue",
-    "askIa": "Demander à l'IA"
+    "askIa": "Demander à l'IA",
+    "inspect": "Inspecter l'accessibilité"
   },
   "footer": {
     "taglineRole": "Développeur web full-stack senior",
@@ -243,6 +246,8 @@
     "pageLabel": "Page",
     "techFilterLabel": "Filtré par technologie :",
     "clearTechFilter": "Retirer le filtre technologie",
+    "removeTechFilter": "Retirer le filtre {tech}",
+    "clearAllTechFilters": "Tout effacer",
     "filterYear": "Année",
     "filterAllTechs": "Toutes les technologies",
     "filterTechCount": "{count} technologie(s)",
@@ -325,11 +330,15 @@
       "qrCaption": "Scannez pour ouvrir ce CV sur votre téléphone"
     }
   },
+  "explorer": {
+    "close": "Fermer {tab}"
+  },
   "terminal": {
     "title": "guest — maxime.bzh terminal",
     "toggle": "Ouvrir le terminal",
     "hint": "Tapez 'help' pour voir les commandes disponibles.",
-    "help": "Commandes disponibles : help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit",
+    "skillsLegend": "Le chiffre à droite de chaque barre est le nombre de projets.",
+    "help": "Commandes disponibles : help, whoami, cv, projects, skills, timeline, contact, ia, theme, sudo, clear, exit",
     "whoami": "Maxime Jolivet — {role}",
     "notFound": "commande introuvable : {cmd}",
     "ia": "Ouverture de l'assistant IA…",
@@ -337,6 +346,26 @@
     "themeDay": "jour",
     "themeNight": "nuit",
     "sudo": "Permission refusée : même en sudo, on ne déploie pas en prod un vendredi soir. 😏"
+  },
+  "inspector": {
+    "title": "Inspecteur d'accessibilité",
+    "intro": "Analyse cette page et signale les problèmes détectables automatiquement. Les contrastes sur fond en image ou en dégradé ne sont pas évalués.",
+    "close": "Fermer l'inspecteur",
+    "rescan": "Relancer l'analyse",
+    "summary": "{fail} échec(s) · {warn} avertissement(s)",
+    "none": "Aucun problème détecté par les contrôles automatiques.",
+    "scrollTo": "aller à l'élément",
+    "categories": {
+      "target": "Cible trop petite",
+      "image": "Image sans alt",
+      "name": "Nom accessible manquant",
+      "contrast": "Contraste insuffisant"
+    },
+    "severity": {
+      "fail": "échec",
+      "warn": "avertissement"
+    },
+    "limits": "Contrôles automatiques, limités à {count} éléments. Ils ne remplacent pas un test manuel au clavier ou avec un lecteur d'écran."
   },
   "shortcuts": {
     "title": "Raccourcis clavier",

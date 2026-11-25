@@ -8,6 +8,12 @@ useHead({
   meta: computed(() => i18nHead.value.meta),
   script: [
     {
+      // Chromium only: prerenders case studies on hover (see shared/utils/speculationRules.ts).
+      key: 'speculation-rules',
+      type: 'speculationrules',
+      innerHTML: JSON.stringify(buildSpeculationRules()),
+    },
+    {
       key: 'tarteaucitron-lang',
       innerHTML: `window.tarteaucitronForceLanguage = ${JSON.stringify(locale.value)};`,
     },

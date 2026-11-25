@@ -11,7 +11,7 @@
       id="main-content"
       class="flex flex-1 flex-col items-center justify-center gap-6 bg-background px-8 py-16 text-center"
     >
-      <span class="font-mono text-sm font-bold text-accent">404</span>
+      <span class="font-mono text-sm font-bold text-accent-text">404</span>
       <h1
         class="text-balance font-sans text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-[-1px] text-foreground"
       >

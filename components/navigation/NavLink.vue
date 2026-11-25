@@ -41,12 +41,12 @@ function onClick(event: MouseEvent) {
     :href="href"
     :target="href ? '_blank' : undefined"
     :rel="href ? 'noopener noreferrer' : rel"
-    class="relative inline-flex items-center gap-1.5 pb-0.5 font-sans transition-colors"
+    class="relative inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 font-sans transition-colors"
     :class="[
       large ? 'text-sm' : 'text-xs',
-      isActive ? 'font-bold text-accent' : 'text-muted-foreground hover:text-accent',
+      isActive ? 'font-bold text-accent-text' : 'text-muted-foreground hover:text-accent-text',
       !iconOnly && [
-        'after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left',
+        'after:absolute after:inset-x-0 after:bottom-[0.6875rem] after:h-0.5 after:origin-left',
         'after:bg-mint after:transition-transform after:content-[\'\'] hover:after:scale-x-100',
         isActive ? 'after:scale-x-100' : 'after:scale-x-0',
       ],
