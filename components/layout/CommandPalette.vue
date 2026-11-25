@@ -23,6 +23,16 @@ const activeIndex = ref(0)
 const isMac = ref(false)
 const inputRef = ref<HTMLInputElement | null>(null)
 
+// Shared with the hero IDE panel, which pauses its code typing while a window is open above it.
+const overlayOpen = useState<boolean>('overlay-window-open', () => false)
+watch([open, inspectorOpen], ([palette, inspector]) => {
+  overlayOpen.value = palette || inspector
+}, { immediate: true })
+
+// Opened from elsewhere, e.g. the search icon of the hero IDE's activity bar.
+const paletteRequest = useState<number>('command-palette-request', () => 0)
+watch(paletteRequest, () => show())
+
 const shortcutKeys = computed(() => (isMac.value ? ['⇧', '⌘', 'P'] : ['Ctrl', 'Shift', 'P']))
 
 function close() {
@@ -207,11 +217,11 @@ onUnmounted(() => {
   <button
     type="button"
     :aria-label="t('commandPalette.toggle')"
-    class="fixed bottom-5 left-5 z-40 hidden min-h-11 items-center gap-1.5 rounded-full border border-border bg-card px-3 py-2font-mono text-xs text-muted-foreground opacity-40 transition-opacity hover:text-accent-text hover:opacity-100 min-[1460px]:flex"
+    class="fixed bottom-5 left-5 z-40 flex min-h-11 items-center gap-1.5 rounded-full border border-border bg-card px-3 py-2 font-mono text-xs text-muted-foreground opacity-40 transition-opacity hover:text-accent-text hover:opacity-100 focus-visible:opacity-100"
     @click="show"
   >
-    <UiAppIcon icon="lucide:command" class="size-3.5" />
-    <span class="flex items-center gap-0.5">
+    <UiAppIcon icon="lucide:search" class="size-3.5" />
+    <span class="hidden items-center gap-0.5 min-[1460px]:flex">
       <kbd
         v-for="key in shortcutKeys"
         :key="key"

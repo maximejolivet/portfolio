@@ -13,7 +13,13 @@ const tagKeys = [
 
 <template>
   <LayoutPageSection id="about" class="pt-24">
-    <UiSectionHeading :title="$t('aboutSection.eyebrow')" icon="lucide:user-round" diamond="gold" />
+    <UiSectionHeading
+      :title="$t('aboutSection.eyebrow')"
+      icon="lucide:user-round"
+      diamond="gold"
+      :icon-to="{ path: $localePath('/'), hash: '#tech' }"
+      :icon-label="$t('aboutSection.toStack')"
+    />
 
     <div class="grid items-start gap-14 md:grid-cols-[1.15fr_.85fr]">
       <div class="flex flex-col gap-5">

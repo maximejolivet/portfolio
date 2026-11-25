@@ -9,7 +9,7 @@ export interface PanelProject {
 
 export function renderProjectsFile(projects: PanelProject[]): string[] {
   return [
-    'export const projects = [',
+    'export const personalProjects = [',
     ...projects.map(
       (p) => `  { slug: ${JSON.stringify(p.slug)}, title: ${JSON.stringify(p.title)}, year: ${JSON.stringify(p.year)} },`,
     ),

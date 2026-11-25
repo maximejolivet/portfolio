@@ -179,7 +179,6 @@ export default defineNuxtConfig({
     plugins: [tailwindcss(), fixPdfjsViewerElementAssetUrls(), copyPdfjsViewerImages()],
     optimizeDeps: {
       exclude: ['pdfjs-viewer-element'],
-      include: ['@vue/devtools-core', '@vue/devtools-kit'],
     },
   },
 
