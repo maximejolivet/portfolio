@@ -1,4 +1,4 @@
-.PHONY: install dev build generate preview deploy lint lintfix prettier prettier-fix test icons clean infos
+.PHONY: install dev build generate preview deploy lint lintfix prettier prettier-fix test icons update clean infos
 
 infos:
 	@echo "Projet    : $$(node -p "require('./package.json').name")"
@@ -21,6 +21,7 @@ infos:
 	@echo "  prettier-fix  Corriger le formatage"
 	@echo "  test          Lancer les tests (vitest)"
 	@echo "  icons         Régénérer le subset d'icônes iconify"
+	@echo "  update        Mettre à jour les dépendances (ncu -u + npm install)"
 	@echo "  clean         Supprimer .nuxt, .output et node_modules"
 	@echo "  infos         Afficher ces informations"
 
@@ -59,6 +60,10 @@ prettier-fix:
 
 test:
 	npm run test
+
+update:
+	-ncu -u -e 2
+	npm install
 
 clean:
 	rm -rf .nuxt .output node_modules
