@@ -17,7 +17,7 @@ function toggleMarquee() {
 }
 
 onMounted(() => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) marqueePlaying.value = false
+  if (prefersReducedMotion()) marqueePlaying.value = false
 })
 
 // Empty on the server so SSR/hydration match exactly - filled in after mount,

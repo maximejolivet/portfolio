@@ -14,6 +14,7 @@ const switchLocalePath = useSwitchLocalePath()
 const { theme, toggleTheme } = useThemeMode()
 const { openChat } = useChatIntro()
 const inspectorOpen = ref(false)
+const { preferencesOpen } = usePreferences()
 
 const LOCALE_CYCLE = ['fr', 'en'] as const
 
@@ -155,6 +156,17 @@ const commands = computed<Command[]>(() => [
     run: () => {
       close()
       inspectorOpen.value = true
+    },
+  },
+  {
+    id: 'preferences',
+    group: 'action',
+    icon: 'lucide:sliders-horizontal',
+    label: t('commandPalette.preferences'),
+    keywords: 'display accessibility font size motion contrast',
+    run: () => {
+      close()
+      preferencesOpen.value = true
     },
   },
   {

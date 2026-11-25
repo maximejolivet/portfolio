@@ -41,7 +41,8 @@
     "toggleTheme": "Toggle theme",
     "switchLanguage": "Switch language",
     "askIa": "Ask the AI",
-    "inspect": "Inspect accessibility"
+    "inspect": "Inspect accessibility",
+    "preferences": "Display preferences"
   },
   "footer": {
     "taglineRole": "Senior full-stack web developer",
@@ -54,6 +55,7 @@
     "legalMentions": "Legal notice",
     "accessibility": "Accessibility",
     "manageCookies": "Manage cookies",
+    "displayPreferences": "Display preferences",
     "changelog": "Changelog",
     "status": "Status",
     "navLabel": "Footer links"
@@ -368,6 +370,36 @@
       "warn": "warning"
     },
     "limits": "Automatic checks, limited to {count} elements. They do not replace a manual keyboard or screen reader test."
+  },
+  "preferences": {
+    "title": "Display preferences",
+    "description": "Adjust how the site reads. These settings stay on this device.",
+    "close": "Close",
+    "textScale": {
+      "label": "Text size",
+      "options": {
+        "default": "Standard",
+        "large": "Large",
+        "xlarge": "Extra large"
+      }
+    },
+    "motion": {
+      "label": "Animations",
+      "options": {
+        "system": "Follow system",
+        "reduce": "Reduced",
+        "full": "Full"
+      }
+    },
+    "contrast": {
+      "label": "Contrast",
+      "options": {
+        "default": "Standard",
+        "high": "Increased"
+      }
+    },
+    "reset": "Reset",
+    "storageNote": "Saved in this browser only."
   },
   "shortcuts": {
     "title": "Keyboard shortcuts",

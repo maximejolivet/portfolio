@@ -227,15 +227,51 @@ html {
   }
 }
 
+/* Display preferences (usePreferences). Text sizes scale every rem-based value at once. */
+html[data-text-scale='large'] {
+  font-size: 18px;
+}
+
+html[data-text-scale='xlarge'] {
+  font-size: 20px;
+}
+
 /* Reduced motion (RGAA 13 / WCAG 2.2.2, 2.3.3): finish animations and
-   transitions immediately, and stop looping ones such as the blinking caret. */
+   transitions immediately, and stop looping ones such as the blinking caret.
+   Applies when the system asks for it, unless the visitor chose "full" in the
+   preferences; the second block applies when the visitor forces it. Keep both in sync. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  html:not([data-motion='full']) *,
+  html:not([data-motion='full']) *::before,
+  html:not([data-motion='full']) *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+html[data-motion='reduce'] *,
+html[data-motion='reduce'] *::before,
+html[data-motion='reduce'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Stronger contrast: muted text, hairlines and stripes. Declared after the theme blocks so it
+   wins over them; the night variant needs its own selector to stay ahead of the night block. */
+:root[data-contrast='high'] {
+  --sub: rgba(29, 53, 64, 0.9);
+  --subtle: rgba(29, 53, 64, 0.9);
+  --line: rgba(29, 53, 64, 0.55);
+  --stripe: rgba(29, 53, 64, 0.18);
+}
+
+:root[data-theme='night'][data-contrast='high'] {
+  --sub: rgba(243, 244, 240, 0.9);
+  --subtle: rgba(243, 244, 240, 0.9);
+  --line: rgba(243, 244, 240, 0.55);
+  --stripe: rgba(243, 244, 240, 0.2);
 }

@@ -41,7 +41,8 @@
     "toggleTheme": "Basculer le thème",
     "switchLanguage": "Changer de langue",
     "askIa": "Demander à l'IA",
-    "inspect": "Inspecter l'accessibilité"
+    "inspect": "Inspecter l'accessibilité",
+    "preferences": "Préférences d'affichage"
   },
   "footer": {
     "taglineRole": "Développeur web full-stack senior",
@@ -54,6 +55,7 @@
     "legalMentions": "Mentions légales",
     "accessibility": "Accessibilité",
     "manageCookies": "Gérer les cookies",
+    "displayPreferences": "Préférences d'affichage",
     "changelog": "Nouveautés",
     "status": "Statut",
     "navLabel": "Liens du pied de page"
@@ -368,6 +370,36 @@
       "warn": "avertissement"
     },
     "limits": "Contrôles automatiques, limités à {count} éléments. Ils ne remplacent pas un test manuel au clavier ou avec un lecteur d'écran."
+  },
+  "preferences": {
+    "title": "Préférences d'affichage",
+    "description": "Ajustez la lecture du site. Ces réglages restent sur cet appareil.",
+    "close": "Fermer",
+    "textScale": {
+      "label": "Taille du texte",
+      "options": {
+        "default": "Standard",
+        "large": "Grand",
+        "xlarge": "Très grand"
+      }
+    },
+    "motion": {
+      "label": "Animations",
+      "options": {
+        "system": "Selon le système",
+        "reduce": "Réduites",
+        "full": "Complètes"
+      }
+    },
+    "contrast": {
+      "label": "Contraste",
+      "options": {
+        "default": "Standard",
+        "high": "Renforcé"
+      }
+    },
+    "reset": "Réinitialiser",
+    "storageNote": "Enregistré dans ce navigateur uniquement."
   },
   "shortcuts": {
     "title": "Raccourcis clavier",

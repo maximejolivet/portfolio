@@ -35,7 +35,7 @@ onMounted(() => {
   }
 
   // The intro is a motion-only animation: skip it for users who asked for less motion.
-  const reducedMotion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+  const reducedMotion = prefersReducedMotion()
   if (alreadyShown || reducedMotion) return
 
   visible.value = true

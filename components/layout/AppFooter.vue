@@ -3,6 +3,7 @@ import { NAV_ITEMS } from '~/constants/nav'
 
 const localePath = useLocalePath()
 const { openChat } = useChatIntro()
+const { preferencesOpen } = usePreferences()
 
 // Only the labelled items: the icon-only home link is already the header's logo.
 const siteLinks = NAV_ITEMS.filter((item) => !item.iconOnly && item.id !== 'recommendations')
@@ -98,6 +99,16 @@ const linkClass = 'inline-flex min-h-11 min-w-11 items-center text-[#1d3540] und
             <NuxtLink :to="localePath('status')" rel="nofollow" :class="linkClass">
               {{ $t('footer.status') }}
             </NuxtLink>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="cursor-pointer"
+              :class="linkClass"
+              @click="preferencesOpen = true"
+            >
+              {{ $t('footer.displayPreferences') }}
+            </button>
           </li>
           <li>
             <button

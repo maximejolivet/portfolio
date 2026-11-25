@@ -377,7 +377,7 @@ function animateTyping() {
 }
 
 onMounted(() => {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reduceMotion = prefersReducedMotion()
   if (!reduceMotion) animateTyping()
 })
 
@@ -484,7 +484,7 @@ function animateFile() {
 
 watch(activeTab, (tab) => {
   if (tab === 'terminal') return
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reduceMotion = prefersReducedMotion()
   if (tab === 'profile.json') {
     // Same typing as the file views, every time the JSON tab is shown.
     if (reduceMotion) visibleChars.value = Infinity
