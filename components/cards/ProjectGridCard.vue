@@ -49,7 +49,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
         <span v-if="project.company">{{ project.company }}</span>
         <UiBadge
           :class="
-            project.category === 'pro' ? 'bg-primary/16 text-primary' : 'bg-mint/16 text-mint'
+            project.category === 'pro' ? 'bg-primary/8 text-primary-text' : 'bg-mint/8 text-accent-text'
           "
         >
           {{

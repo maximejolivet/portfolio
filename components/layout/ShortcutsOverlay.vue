@@ -67,7 +67,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
         </li>
       </ul>
 
-      <p class="border-t border-panel-foreground/10 pt-3 text-[0.6875rem] text-panel-foreground/40">
+      <p class="border-t border-panel-foreground/10 pt-3 text-[0.6875rem] text-panel-foreground/60">
         {{ t('shortcuts.terminalHint') }}
       </p>
     </div>

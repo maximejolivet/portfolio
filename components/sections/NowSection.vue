@@ -41,13 +41,13 @@ const currentMonth = computed(() =>
     <UiContainer class="py-16">
       <div class="mb-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
         <div class="flex items-center gap-4">
-          <UiAppIcon icon="lucide:radio" class="size-8 shrink-0 text-mint" />
+          <UiAppIcon icon="lucide:radio" class="size-8 shrink-0 text-accent-on-panel" />
           <h2 class="font-sans text-[2rem] font-bold leading-[1.1] tracking-tight">
             {{ $t('home.now.sectionTitle') }}
           </h2>
         </div>
         <div class="hidden h-px flex-1 bg-panel-foreground/[0.18] sm:block" />
-        <span class="hidden font-mono text-xs text-panel-foreground/50 sm:inline">{{
+        <span class="hidden font-mono text-xs text-panel-foreground/60 sm:inline">{{
           currentMonth
         }}</span>
         <a
@@ -55,7 +55,7 @@ const currentMonth = computed(() =>
           :href="githubProfileUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex shrink-0 items-center gap-1.5 font-mono text-xs text-panel-foreground/50 transition-colors hover:text-mint"
+          class="-my-3 flex min-h-11 shrink-0 items-center gap-1.5 font-mono text-xs text-panel-foreground/60 transition-colors hover:text-accent-on-panel"
         >
           <UiAppIcon icon="lucide:github" class="size-3.5" />
           {{ $t('home.now.viewGithub') }}

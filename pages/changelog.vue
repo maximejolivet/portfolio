@@ -77,7 +77,7 @@ const formattedDate = (value: string) =>
               </UiBadge>
               <span class="font-mono text-[0.75rem] text-subtle">{{ entry.scope }}</span>
               <span
-                class="text-pretty font-sans text-[0.9375rem] text-foreground group-hover:text-accent"
+                class="text-pretty font-sans text-[0.9375rem] text-foreground group-hover:text-accent-text"
               >
                 {{ entry.description }}
               </span>

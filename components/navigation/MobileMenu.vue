@@ -63,11 +63,11 @@ function onItemClick(item: NavItem, event: MouseEvent) {
           :href="item.href"
           :target="item.href ? '_blank' : undefined"
           :rel="item.href ? 'noopener noreferrer' : item.rel"
-          class="flex items-center gap-2.5 rounded-full px-3.5 py-3 font-mono text-xs font-semibold transition-colors"
+          class="flex min-h-11 items-center gap-2.5 rounded-full px-3.5 py-3 font-mono text-xs font-semibold transition-colors"
           :class="
             isActive(item)
               ? 'bg-primary text-primary-foreground'
-              : 'text-muted-foreground hover:bg-accent/10 hover:text-accent'
+              : 'text-muted-foreground hover:bg-accent/10 hover:text-accent-text'
           "
           @click="onItemClick(item, $event)"
         >

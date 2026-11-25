@@ -27,7 +27,7 @@ onUnmounted(stop)
       class="-mt-6 mb-8 max-w-[560px] text-pretty font-sans text-[1rem] leading-[1.6] text-muted-foreground"
     >
       {{ $t('experienceSection.titleStart') }}
-      <span class="text-primary">{{ $t('experienceSection.titleHighlight') }}</span>{{ $t('experienceSection.titleEnd') }}
+      <span class="text-primary-text">{{ $t('experienceSection.titleHighlight') }}</span>{{ $t('experienceSection.titleEnd') }}
     </p>
 
     <div class="overflow-hidden rounded-2xl bg-panel text-panel-foreground">
@@ -66,14 +66,14 @@ onUnmounted(stop)
             </span>
             <span class="shrink-0 text-rose-300">{{ t(entry.item.periodKey) }}</span>
             <span class="text-panel-foreground">{{ t(entry.item.titleKey) }}</span>
-            <span class="text-panel-foreground/40">@</span>
+            <span class="text-panel-foreground/60">@</span>
             <a
               v-if="entry.item.organizationUrl"
               :href="entry.item.organizationUrl"
               target="_blank"
               rel="noopener noreferrer"
               :aria-label="entry.item.logo ? `${t(entry.item.organizationKey)} ${$t('a11y.newWindow')}` : undefined"
-              class="inline-flex items-center gap-2 text-primary underline decoration-dotted underline-offset-2 transition-colors hover:text-mint"
+              class="-my-3 inline-flex items-center gap-2 py-3 text-primary underline decoration-dotted underline-offset-2 transition-colors hover:text-accent-on-panel"
               @click.stop
             >
               <span :class="entry.item.logo && 'hidden'">{{ t(entry.item.organizationKey) }}</span>
@@ -92,7 +92,7 @@ onUnmounted(stop)
               :aria-expanded="isOpen(entry.item.id)"
               :aria-controls="`experience-${entry.item.id}`"
               :aria-label="t('experienceSection.toggleDetails', { organization: t(entry.item.organizationKey) })"
-              class="ml-auto flex size-11 -my-2 shrink-0 cursor-pointer items-center justify-center rounded-md text-panel-foreground/50 transition-colors hover:text-panel-foreground"
+              class="ml-auto flex size-11 -my-2 shrink-0 cursor-pointer items-center justify-center rounded-md text-panel-foreground/60 transition-colors hover:text-panel-foreground"
               @click.stop="onToggle(entry)"
             >
               <UiAppIcon
@@ -111,7 +111,7 @@ onUnmounted(stop)
           >
             <div class="min-h-0 overflow-hidden">
 
-          <p v-show="entry.location.isStarted" class="pl-2 text-panel-foreground/55">
+          <p v-show="entry.location.isStarted" class="pl-2 text-panel-foreground/60">
             {{ entry.location.text
             }}<span v-if="!entry.location.isDone" class="animate-blink">▎</span>
           </p>
@@ -130,7 +130,7 @@ onUnmounted(stop)
             :key="li"
             class="flex gap-2 pl-2 text-pretty text-panel-foreground/70"
           >
-            <span class="shrink-0 text-panel-foreground/25">{{
+            <span class="shrink-0 text-panel-foreground/60">{{
               li === entry.points.length - 1 ? '└─' : '├─'
             }}</span>
             <span>{{ line.text }}<span v-if="!line.isDone" class="animate-blink">▎</span></span>
@@ -139,8 +139,8 @@ onUnmounted(stop)
           </div>
         </div>
 
-        <p class="mt-1 text-panel-foreground/30">
-          <span class="text-mint">$</span> <span class="animate-blink">▎</span>
+        <p class="mt-1 text-panel-foreground/60">
+          <span class="text-accent-on-panel">$</span> <span class="animate-blink">▎</span>
         </p>
       </div>
     </div>

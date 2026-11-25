@@ -113,7 +113,7 @@ const formattedDate = (value: string) =>
                 {{ formattedDate(article.published_at) }}
               </div>
               <h2
-                class="text-balance font-sans text-[1.5625rem] font-bold leading-[1.25] tracking-[-0.5px] text-foreground hover:text-accent"
+                class="text-balance font-sans text-[1.5625rem] font-bold leading-[1.25] tracking-[-0.5px] text-foreground hover:text-accent-text"
               >
                 {{ title(article) }}
               </h2>
@@ -121,7 +121,7 @@ const formattedDate = (value: string) =>
                 {{ excerpt(article) }}
               </p>
               <span
-                class="mt-0.5 inline-flex items-center gap-1 font-mono text-[0.8438rem] font-semibold text-accent"
+                class="mt-0.5 inline-flex items-center gap-1 font-mono text-[0.8438rem] font-semibold text-accent-text"
               >
                 {{ $t('blog.read_more') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
               </span>

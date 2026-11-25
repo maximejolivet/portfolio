@@ -10,7 +10,7 @@ const { theme } = useThemeMode()
       :class="
         theme === 'day'
           ? 'bg-primary text-primary-foreground'
-          : 'text-primary-foreground/60 hover:text-accent'
+          : 'text-primary-foreground/60 hover:text-accent-text'
       "
       :aria-label="$t('theme.day')"
       :aria-pressed="theme === 'day'"
@@ -24,7 +24,7 @@ const { theme } = useThemeMode()
       :class="
         theme === 'night'
           ? 'bg-primary text-primary-foreground'
-          : 'text-primary-foreground/60 hover:text-accent'
+          : 'text-primary-foreground/60 hover:text-accent-text'
       "
       :aria-label="$t('theme.night')"
       :aria-pressed="theme === 'night'"

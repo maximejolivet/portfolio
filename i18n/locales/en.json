@@ -9,6 +9,8 @@
   },
   "a11y": {
     "skipToContent": "Skip to content",
+    "pauseMarquee": "Pause the technologies list",
+    "playMarquee": "Play the technologies list",
     "terminalInput": "Enter a terminal command",
     "newWindow": "(opens in a new window)"
   },
@@ -38,7 +40,8 @@
     "ide": "IDE & terminal",
     "toggleTheme": "Toggle theme",
     "switchLanguage": "Switch language",
-    "askIa": "Ask the AI"
+    "askIa": "Ask the AI",
+    "inspect": "Inspect accessibility"
   },
   "footer": {
     "taglineRole": "Senior full-stack web developer",
@@ -243,6 +246,8 @@
     "pageLabel": "Page",
     "techFilterLabel": "Filtered by tech:",
     "clearTechFilter": "Clear tech filter",
+    "removeTechFilter": "Remove the {tech} filter",
+    "clearAllTechFilters": "Clear all",
     "filterYear": "Year",
     "filterAllTechs": "All technologies",
     "filterTechCount": "{count} technology(ies)",
@@ -325,11 +330,15 @@
       "qrCaption": "Scan to open this CV on your phone"
     }
   },
+  "explorer": {
+    "close": "Close {tab}"
+  },
   "terminal": {
     "title": "guest — maxime.bzh terminal",
     "toggle": "Open terminal",
     "hint": "Type 'help' to see available commands.",
-    "help": "Available commands: help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit",
+    "skillsLegend": "The number next to each bar is the number of projects.",
+    "help": "Available commands: help, whoami, cv, projects, skills, timeline, contact, ia, theme, sudo, clear, exit",
     "whoami": "Maxime Jolivet — {role}",
     "notFound": "command not found: {cmd}",
     "ia": "Opening the AI assistant…",
@@ -337,6 +346,26 @@
     "themeDay": "day",
     "themeNight": "night",
     "sudo": "Permission denied: not even sudo lets you deploy to prod on a Friday night. 😏"
+  },
+  "inspector": {
+    "title": "Accessibility inspector",
+    "intro": "Scans this page and flags problems that can be detected automatically. Contrast over background images or gradients is not evaluated.",
+    "close": "Close the inspector",
+    "rescan": "Run the scan again",
+    "summary": "{fail} failure(s) · {warn} warning(s)",
+    "none": "No problem found by the automatic checks.",
+    "scrollTo": "go to the element",
+    "categories": {
+      "target": "Target too small",
+      "image": "Image without alt",
+      "name": "Missing accessible name",
+      "contrast": "Insufficient contrast"
+    },
+    "severity": {
+      "fail": "failure",
+      "warn": "warning"
+    },
+    "limits": "Automatic checks, limited to {count} elements. They do not replace a manual keyboard or screen reader test."
   },
   "shortcuts": {
     "title": "Keyboard shortcuts",

@@ -79,7 +79,7 @@ useSeoMeta({
           <NuxtLink
             :to="localePath('projects')"
             rel="nofollow"
-            class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+            class="inline-flex min-h-11 items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent-text"
           >
             <UiAppIcon icon="lucide:arrow-left" class="size-3" />{{ $t('projectsPage.backToList') }}
           </NuxtLink>
@@ -103,7 +103,7 @@ useSeoMeta({
             </span>
             <UiBadge
               :class="
-                project.category === 'pro' ? 'bg-primary/16 text-primary' : 'bg-mint/16 text-mint'
+                project.category === 'pro' ? 'bg-primary/8 text-primary-text' : 'bg-mint/8 text-accent-text'
               "
             >
               {{
@@ -151,7 +151,7 @@ useSeoMeta({
             :href="project.websiteUrl"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            class="mt-6 inline-flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors hover:text-primary"
+            class="mt-6 inline-flex min-h-11 w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent-text transition-colors hover:text-primary-text"
           >
             {{ $t('projectsPage.viewProject') }}
             <UiAppIcon icon="lucide:external-link" class="size-3.5 shrink-0" />
@@ -164,7 +164,7 @@ useSeoMeta({
                 {{ $t('projectDetail.context') }}
               </h2>
               <div
-                class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
+                class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent-text [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
                 v-html="sanitizeHtml(project.contexte)"
               />
             </div>
@@ -175,7 +175,7 @@ useSeoMeta({
               </h2>
               <div
                 v-if="project.solution"
-                class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
+                class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent-text [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
                 v-html="sanitizeHtml(project.solution)"
               />
               <ul
@@ -191,7 +191,7 @@ useSeoMeta({
                 {{ $t('projectDetail.result') }}
               </h2>
               <div
-                class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
+                class="text-pretty font-sans text-[1rem] leading-[1.8] text-muted-foreground [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:mb-4 [&>ul]:flex [&>ul]:list-disc [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul]:pl-5 [&_a]:text-accent-text [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
                 v-html="sanitizeHtml(project.resultat)"
               />
             </div>
@@ -218,7 +218,7 @@ useSeoMeta({
               v-if="prevProject"
               :to="localePath({ name: 'projects-slug', params: { slug: prevProject.slug } })"
               :rel="prevProject.category === 'pro' ? 'nofollow' : undefined"
-              class="inline-flex min-h-10 items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+              class="inline-flex min-h-11 items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent-text"
             >
               <UiAppIcon icon="lucide:arrow-left" class="size-3" />
               {{ $t('projectDetail.prev') }}
@@ -229,7 +229,7 @@ useSeoMeta({
               v-if="nextProject"
               :to="localePath({ name: 'projects-slug', params: { slug: nextProject.slug } })"
               :rel="nextProject.category === 'pro' ? 'nofollow' : undefined"
-              class="inline-flex min-h-10 items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+              class="inline-flex min-h-11 items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground hover:text-accent-text"
             >
               {{ $t('projectDetail.next') }}
               <UiAppIcon icon="lucide:arrow-right" class="size-3" />
@@ -243,7 +243,7 @@ useSeoMeta({
       <UiContainer>
         <section class="flex flex-col items-center gap-4 py-20 text-center">
           <h2 class="font-sans text-[2.125rem] font-bold leading-[1.1] tracking-[-1px] text-foreground">
-            {{ $t('projectsPage.ctaTitle') }}<span class="text-accent"> ?</span>
+            {{ $t('projectsPage.ctaTitle') }}<span class="text-accent-text"> ?</span>
           </h2>
           <div class="flex flex-wrap items-center justify-center gap-6">
             <UiButton :href="`mailto:${CONTACT_EMAIL}`">

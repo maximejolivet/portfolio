@@ -68,6 +68,15 @@ function toggleTech(id: string, checked: boolean) {
   setSelectedTechs(Array.from(new Set(next)))
 }
 
+// Escape closes the technology list and gives focus back to its toggle button.
+const techMenu = ref<HTMLDetailsElement | null>(null)
+
+function closeTechMenu() {
+  if (!techMenu.value?.open) return
+  techMenu.value.open = false
+  techMenu.value.querySelector('summary')?.focus()
+}
+
 // Technologies that appear on at least one project, in catalogue order.
 const techOptions = computed(() => {
   const seen = new Map<string, { id: string, name: string, count: number }>()
@@ -81,18 +90,22 @@ const techOptions = computed(() => {
   return Array.from(seen.values())
 })
 
-const techFilterLabel = computed(() => {
-  if (!selectedTechs.value.length) return undefined
-  return selectedTechs.value
-    .map((id) => {
-      for (const category of TECH_CATEGORIES) {
-        const item = category.items.find((i) => i.id === id)
-        if (item) return item.name
-      }
-      return id
-    })
-    .join(', ')
-})
+function techName(id: string): string {
+  for (const category of TECH_CATEGORIES) {
+    const item = category.items.find((i) => i.id === id)
+    if (item) return item.name
+  }
+  return id
+}
+
+// One removable tag per selected technology.
+const selectedTechItems = computed(() =>
+  selectedTechs.value.map((id) => ({ id, name: techName(id) })),
+)
+
+function removeTech(id: string) {
+  setSelectedTechs(selectedTechs.value.filter((t) => t !== id))
+}
 
 function setViewMode(value: 'grid' | 'list') {
   const apply = () => updateQuery({ view: value === 'list' ? undefined : value })
@@ -183,21 +196,21 @@ const pageItems = computed(() => {
         <div ref="resultsAnchor" class="flex flex-wrap items-center justify-between gap-4">
           <div class="flex flex-wrap items-center gap-2">
             <UiButton
-              size="pill-md" class="min-h-10"
+              size="pill-md" class="min-h-11"
               :variant="categoryFilter === 'all' ? 'pill' : 'pill-outline'"
               @click="categoryFilter = 'all'"
             >
               {{ $t('projectsPage.filterAll') }}
             </UiButton>
             <UiButton
-              size="pill-md" class="min-h-10"
+              size="pill-md" class="min-h-11"
               :variant="categoryFilter === 'pro' ? 'pill' : 'pill-outline'"
               @click="categoryFilter = 'pro'"
             >
               {{ $t('projectsPage.categoryPro') }}
             </UiButton>
             <UiButton
-              size="pill-md" class="min-h-10"
+              size="pill-md" class="min-h-11"
               :variant="categoryFilter === 'personal' ? 'pill' : 'pill-outline'"
               @click="categoryFilter = 'personal'"
             >
@@ -207,7 +220,7 @@ const pageItems = computed(() => {
             <span class="mx-1 h-5 w-px bg-border" />
 
             <UiButton
-              size="pill-md" class="min-h-10"
+              size="pill-md" class="min-h-11"
               :variant="employerFilter === 'all' ? 'pill' : 'pill-outline'"
               @click="employerFilter = 'all'"
             >
@@ -216,7 +229,7 @@ const pageItems = computed(() => {
             <UiButton
               v-for="employer in employers"
               :key="employer"
-              size="pill-md" class="min-h-10"
+              size="pill-md" class="min-h-11"
               :variant="employerFilter === employer ? 'pill' : 'pill-outline'"
               @click="employerFilter = employer"
             >
@@ -225,33 +238,43 @@ const pageItems = computed(() => {
 
             <span class="mx-1 h-5 w-px bg-border" />
 
-            <details class="group relative">
+            <details ref="techMenu" class="group relative" @keydown.esc="closeTechMenu">
               <summary
-                class="flex h-10 cursor-pointer list-none items-center rounded-full border py-0 pl-4 pr-10 font-mono text-xs font-semibold transition-colors [&::-webkit-details-marker]:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                class="flex h-11 cursor-pointer list-none items-center gap-2 rounded-full border py-0 pl-4 pr-3.5 font-mono text-xs font-semibold transition-colors [&::-webkit-details-marker]:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                 :class="
                   selectedTechs.length
                     ? 'border-primary bg-primary text-primary-foreground'
-                    : 'border-border text-foreground hover:border-accent hover:text-accent'
+                    : 'border-border text-foreground hover:border-accent hover:text-accent-text'
                 "
               >
                 {{ selectedTechs.length ? $t('projectsPage.filterTechCount', { count: selectedTechs.length }) : $t('projectsPage.filterAllTechs') }}
+                <UiAppIcon
+                  icon="lucide:chevron-down"
+                  class="size-4 shrink-0 transition-transform group-open:rotate-180"
+                  aria-hidden="true"
+                />
               </summary>
-              <UiAppIcon
-                icon="lucide:chevron-down"
-                class="pointer-events-none absolute right-3.5 top-1/2 size-3.5 -translate-y-1/2 transition-transform group-open:rotate-180"
-              />
               <div class="absolute left-0 z-20 mt-2 flex max-h-72 w-64 flex-col gap-1 overflow-y-auto rounded-2xl border border-border bg-background p-3 shadow-lg">
+                <!-- The native checkbox covers the whole row (44px high), so the target is not 16px.
+                     Its visual is drawn by the sibling span; the input keeps focus and the label. -->
                 <label
                   v-for="option in techOptions"
                   :key="option.id"
-                  class="flex cursor-pointer items-center gap-3 rounded-lg px-2 py-2 font-sans text-sm text-foreground hover:bg-muted/40"
+                  class="relative flex min-h-11 cursor-pointer items-center gap-3 rounded-lg px-2 font-sans text-sm text-foreground hover:bg-muted/40 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-foreground"
                 >
                   <input
                     type="checkbox"
-                    class="size-4 accent-primary"
+                    class="peer absolute inset-0 size-full cursor-pointer opacity-0"
                     :checked="selectedTechs.includes(option.id)"
+                    @keydown.enter.prevent="($event.target as HTMLInputElement).click()"
                     @change="toggleTech(option.id, ($event.target as HTMLInputElement).checked)"
                   >
+                  <span
+                    aria-hidden="true"
+                    class="flex size-5 shrink-0 items-center justify-center rounded-[4px] border border-border bg-card text-primary-foreground peer-checked:border-primary peer-checked:bg-primary"
+                  >
+                    <UiAppIcon v-if="selectedTechs.includes(option.id)" icon="lucide:check" class="size-3.5" />
+                  </span>
                   <span class="flex-1">{{ option.name }}</span>
                   <span class="font-mono text-xs text-muted-foreground">{{ option.count }}</span>
                 </label>
@@ -263,9 +286,9 @@ const pageItems = computed(() => {
                 v-model="yearFilter"
                 :aria-label="$t('projectsPage.filterYear')"
                 :class="[
-                  'h-10 cursor-pointer appearance-none rounded-full border py-0 pl-4 pr-10 font-mono text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground',
+                  'h-11 cursor-pointer appearance-none rounded-full border py-0 pl-4 pr-10 font-mono text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground',
                   yearFilter === 'all'
-                    ? 'border-border bg-transparent text-foreground hover:border-accent hover:text-accent'
+                    ? 'border-border bg-transparent text-foreground hover:border-accent hover:text-accent-text'
                     : 'border-primary bg-primary text-primary-foreground',
                 ]"
               >
@@ -283,11 +306,11 @@ const pageItems = computed(() => {
             <button
               type="button"
               :aria-label="$t('projectsPage.viewList')"
-              class="flex size-10 items-center justify-center rounded-full border border-border transition-colors cursor-pointer"
+              class="flex size-11 items-center justify-center rounded-full border border-border transition-colors cursor-pointer"
               :class="
                 viewMode === 'list'
-                  ? 'border-accent text-accent'
-                  : 'text-muted-foreground hover:text-accent'
+                  ? 'border-accent text-accent-text'
+                  : 'text-muted-foreground hover:text-accent-text'
               "
               @click="setViewMode('list')"
             >
@@ -296,11 +319,11 @@ const pageItems = computed(() => {
             <button
               type="button"
               :aria-label="$t('projectsPage.viewGrid')"
-              class="flex size-10 items-center justify-center rounded-full border border-border transition-colors cursor-pointer"
+              class="flex size-11 items-center justify-center rounded-full border border-border transition-colors cursor-pointer"
               :class="
                 viewMode === 'grid'
-                  ? 'border-accent text-accent'
-                  : 'text-muted-foreground hover:text-accent'
+                  ? 'border-accent text-accent-text'
+                  : 'text-muted-foreground hover:text-accent-text'
               "
               @click="setViewMode('grid')"
             >
@@ -309,16 +332,26 @@ const pageItems = computed(() => {
           </div>
         </div>
 
-        <div v-if="techFilterLabel" class="-mt-4 flex items-center gap-2 font-mono text-xs text-muted-foreground">
-          {{ $t('projectsPage.techFilterLabel') }}
+        <div v-if="selectedTechItems.length" class="-mt-4 flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
+          <span>{{ $t('projectsPage.techFilterLabel') }}</span>
           <button
+            v-for="tech in selectedTechItems"
+            :key="tech.id"
             type="button"
-            :aria-label="$t('projectsPage.clearTechFilter')"
-            class="flex items-center gap-1 rounded-full border border-border px-2 py-1 text-foreground transition-colors hover:border-accent hover:text-accent"
+            class="flex min-h-11 items-center gap-1.5 rounded-full border border-border px-3 text-foreground transition-colors hover:border-accent hover:text-accent-text"
+            :aria-label="$t('projectsPage.removeTechFilter', { tech: tech.name })"
+            @click="removeTech(tech.id)"
+          >
+            {{ tech.name }}
+            <UiAppIcon icon="lucide:x" class="size-3.5" aria-hidden="true" />
+          </button>
+          <button
+            v-if="selectedTechItems.length > 1"
+            type="button"
+            class="flex min-h-11 items-center px-2 underline underline-offset-4 hover:text-accent-text"
             @click="setSelectedTechs([])"
           >
-            {{ techFilterLabel }}
-            <UiAppIcon icon="lucide:x" class="size-3" />
+            {{ $t('projectsPage.clearAllTechFilters') }}
           </button>
         </div>
 
@@ -345,7 +378,7 @@ const pageItems = computed(() => {
           <button
             type="button"
             :disabled="currentPage === 1"
-            class="flex size-9 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:text-accent disabled:pointer-events-none disabled:opacity-40"
+            class="flex size-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:text-accent-text disabled:pointer-events-none disabled:opacity-40"
             :aria-label="$t('projectDetail.prev')"
             @click="goToPage(currentPage - 1)"
           >
@@ -357,11 +390,11 @@ const pageItems = computed(() => {
             <button
               v-else
               type="button"
-              class="flex size-9 items-center justify-center rounded-full border font-mono text-xs transition-colors"
+              class="flex size-11 items-center justify-center rounded-full border font-mono text-xs transition-colors"
               :class="
                 item === currentPage
-                  ? 'border-accent text-accent'
-                  : 'border-border text-foreground hover:text-accent'
+                  ? 'border-accent text-accent-text'
+                  : 'border-border text-foreground hover:text-accent-text'
               "
               :aria-current="item === currentPage ? 'page' : undefined"
               :aria-label="`${$t('projectsPage.pageLabel')} ${item}`"
@@ -374,7 +407,7 @@ const pageItems = computed(() => {
           <button
             type="button"
             :disabled="currentPage === totalPages"
-            class="flex size-9 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:text-accent disabled:pointer-events-none disabled:opacity-40"
+            class="flex size-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:text-accent-text disabled:pointer-events-none disabled:opacity-40"
             :aria-label="$t('projectDetail.next')"
             @click="goToPage(currentPage + 1)"
           >
@@ -390,7 +423,7 @@ const pageItems = computed(() => {
           <h2
             class="font-sans text-[2.125rem] font-bold leading-[1.1] tracking-[-1px] text-foreground"
           >
-            {{ $t('projectsPage.ctaTitle') }}<span class="text-accent"> ?</span>
+            {{ $t('projectsPage.ctaTitle') }}<span class="text-accent-text"> ?</span>
           </h2>
           <div class="flex flex-wrap items-center justify-center gap-6">
             <UiButton :href="`mailto:${CONTACT_EMAIL}`">

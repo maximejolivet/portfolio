@@ -22,7 +22,7 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
 
 <template>
   <div class="flex min-w-0 flex-col gap-2.5">
-    <div class="font-mono text-[0.7188rem] font-bold tracking-[1.5px] text-panel-foreground/50">
+    <div class="font-mono text-[0.7188rem] font-bold tracking-[1.5px] text-panel-foreground/60">
       {{ $t(`home.now.items.${item}.label`) }}
     </div>
 
@@ -33,15 +33,15 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
         :href="shipped.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="group flex min-w-0 flex-col gap-0.5"
+        class="group -my-3 flex min-w-0 flex-col gap-0.5 py-3"
       >
         <div
-          class="flex min-w-0 items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold transition-colors group-hover:text-mint"
+          class="flex min-w-0 items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold transition-colors group-hover:text-accent-on-panel"
         >
           <span class="size-2 shrink-0 animate-pulse-dot rounded-full bg-mint" />
           <span class="truncate">{{ shipped.repo }}</span>
         </div>
-        <div class="truncate font-mono text-xs leading-[1.5] text-panel-foreground/55">
+        <div class="truncate font-mono text-xs leading-[1.5] text-panel-foreground/60">
           {{ shipped.message }}
         </div>
       <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
@@ -53,7 +53,7 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
         :href="linkOverride"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex min-w-0 items-center gap-2 font-sans text-[1rem] leading-[1.4] font-semibold transition-colors hover:text-mint"
+        class="-my-3 flex min-w-0 items-center gap-2 py-3 font-sans text-[1rem] leading-[1.4] font-semibold transition-colors hover:text-accent-on-panel"
       >
         <span v-if="item === 'shipped'" class="size-2 shrink-0 animate-pulse-dot rounded-full bg-mint" />
         <span class="truncate">{{ title }}</span>
@@ -62,7 +62,7 @@ const detail = computed(() => props.detailOverride || t(`home.now.items.${props.
         <span v-if="item === 'shipped'" class="size-2 shrink-0 animate-pulse-dot rounded-full bg-mint" />
         <span class="truncate">{{ title }}</span>
       </div>
-      <div class="font-mono text-xs leading-[1.5] text-panel-foreground/55">
+      <div class="font-mono text-xs leading-[1.5] text-panel-foreground/60">
         {{ detail }}
       </div>
     </template>

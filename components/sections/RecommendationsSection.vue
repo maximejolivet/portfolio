@@ -65,7 +65,7 @@ function onTabKeydown(event: KeyboardEvent) {
             :aria-selected="active === i"
             :aria-controls="`rec-${item.key}`"
             :tabindex="active === i ? 0 : -1"
-            class="-mb-px border-b-2 pb-3 text-base font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            class="-mb-px flex min-h-11 items-end border-b-2 pb-3 text-base font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             :class="active === i ? 'border-accent text-foreground' : 'border-transparent text-muted-foreground hover:text-foreground'"
             @click="active = i"
             @keydown="onTabKeydown"
@@ -118,7 +118,7 @@ function onTabKeydown(event: KeyboardEvent) {
                 :href="item.linkedin"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                class="justify-self-end inline-flex min-h-10 items-center gap-1.5 text-sm font-medium text-foreground underline underline-offset-4 decoration-mint decoration-2 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                class="justify-self-end inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-foreground underline underline-offset-4 decoration-mint decoration-2 hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 LinkedIn
                 <UiAppIcon icon="lucide:external-link" class="size-3.5" />

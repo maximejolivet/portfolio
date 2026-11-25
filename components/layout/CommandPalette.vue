@@ -13,6 +13,7 @@ const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 const { theme, toggleTheme } = useThemeMode()
 const { openChat } = useChatIntro()
+const inspectorOpen = ref(false)
 
 const LOCALE_CYCLE = ['fr', 'en'] as const
 
@@ -136,6 +137,17 @@ const commands = computed<Command[]>(() => [
     },
   },
   {
+    id: 'inspect',
+    group: 'action',
+    icon: 'lucide:scan-search',
+    label: t('commandPalette.inspect'),
+    keywords: 'accessibility a11y audit contrast inspector',
+    run: () => {
+      close()
+      inspectorOpen.value = true
+    },
+  },
+  {
     id: 'locale',
     group: 'action',
     icon: 'lucide:languages',
@@ -195,7 +207,7 @@ onUnmounted(() => {
   <button
     type="button"
     :aria-label="t('commandPalette.toggle')"
-    class="fixed bottom-5 left-5 z-40 hidden items-center gap-1.5 rounded-full border border-border bg-card px-3 py-2 font-mono text-xs text-muted-foreground opacity-40 transition-opacity hover:text-accent hover:opacity-100 min-[1460px]:flex"
+    class="fixed bottom-5 left-5 z-40 hidden min-h-11 items-center gap-1.5 rounded-full border border-border bg-card px-3 py-2font-mono text-xs text-muted-foreground opacity-40 transition-opacity hover:text-accent-text hover:opacity-100 min-[1460px]:flex"
     @click="show"
   >
     <UiAppIcon icon="lucide:command" class="size-3.5" />
@@ -217,7 +229,7 @@ onUnmounted(() => {
       class="flex w-full max-w-lg flex-col overflow-hidden rounded-xl border border-panel-foreground/10 bg-panel-2 font-mono text-sm text-panel-foreground shadow-2xl"
     >
       <div class="flex items-center gap-2 border-b border-panel-foreground/10 px-4 py-3">
-        <UiAppIcon icon="lucide:search" class="size-4 shrink-0 text-panel-foreground/40" />
+        <UiAppIcon icon="lucide:search" class="size-4 shrink-0 text-panel-foreground/60" />
         <input
           ref="inputRef"
           v-model="query"
@@ -226,14 +238,14 @@ onUnmounted(() => {
           spellcheck="false"
           :placeholder="t('commandPalette.placeholder')"
           :aria-label="t('commandPalette.placeholder')"
-          class="min-w-0 flex-1 bg-transparent text-panel-foreground placeholder:text-panel-foreground/35"
+          class="min-w-0 flex-1 bg-transparent text-panel-foreground placeholder:text-panel-foreground/60"
           @keydown.down.prevent="moveActive(1)"
           @keydown.up.prevent="moveActive(-1)"
           @keydown.enter.prevent="runActive"
           @keydown.esc="close"
         />
         <kbd
-          class="rounded border border-panel-foreground/15 px-1.5 py-0.5 text-[0.65rem] text-panel-foreground/40"
+          class="rounded border border-panel-foreground/15 px-1.5 py-0.5 text-[0.65rem] text-panel-foreground/60"
           >esc</kbd>
       </div>
 
@@ -241,7 +253,7 @@ onUnmounted(() => {
         <template v-if="filteredCommands.length">
           <div
             v-if="navCommands.length"
-            class="px-2 pb-1 pt-2 text-[0.6875rem] font-bold tracking-[1.5px] text-panel-foreground/35"
+            class="px-2 pb-1 pt-2 text-[0.6875rem] font-bold tracking-[1.5px] text-panel-foreground/60"
           >
             {{ t('commandPalette.groupNavigation') }}
           </div>
@@ -264,7 +276,7 @@ onUnmounted(() => {
 
           <div
             v-if="actionCommands.length"
-            class="px-2 pb-1 pt-3 text-[0.6875rem] font-bold tracking-[1.5px] text-panel-foreground/35"
+            class="px-2 pb-1 pt-3 text-[0.6875rem] font-bold tracking-[1.5px] text-panel-foreground/60"
           >
             {{ t('commandPalette.groupActions') }}
           </div>
@@ -285,10 +297,13 @@ onUnmounted(() => {
             {{ cmd.label }}
           </button>
         </template>
-        <div v-else class="px-3 py-6 text-center text-panel-foreground/40">
+        <div v-else class="px-3 py-6 text-center text-panel-foreground/60">
           {{ t('commandPalette.noResults') }}
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Loaded on demand: the audit code never ships in the initial bundle. -->
+  <LazyLayoutSiteInspector v-if="inspectorOpen" @close="inspectorOpen = false" />
 </template>

@@ -7,6 +7,19 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { ready: chatIntroReady, openChat } = useChatIntro()
 
+// The technologies marquee loops by default. Visitors who asked their system to reduce motion
+// start it paused, and can play it with the button next to it.
+const marqueePlaying = ref(true)
+const marqueeClass = computed(() => (marqueePlaying.value ? 'marquee-running' : 'marquee-paused'))
+
+function toggleMarquee() {
+  marqueePlaying.value = !marqueePlaying.value
+}
+
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) marqueePlaying.value = false
+})
+
 // Empty on the server so SSR/hydration match exactly - filled in after mount,
 // same pattern as the panel's own typing animation further down.
 const localTime = ref('')
@@ -44,11 +57,11 @@ const MARQUEE_STACK = [
   'IA',
 ]
 
-const key = 'text-mint'
+const key = 'text-accent-on-panel'
 const str = 'text-primary'
-const dateKey = 'text-highlight'
-const punct = 'text-panel-foreground/35'
-const headerKey = 'text-accent'
+const dateKey = 'text-highlight-on-panel'
+const punct = 'text-panel-foreground/60'
+const headerKey = 'text-accent-on-panel'
 
 const jsonLines = computed<JsonLine[]>(() => {
   const experienceRows = EXPERIENCE_TIMELINE.map((item) => ({
@@ -136,7 +149,7 @@ const jsonLines = computed<JsonLine[]>(() => {
         indent1,
         { text: 'availability', class: key },
         { text: ': ', class: punct },
-        { text: `"${AVAILABILITY_STATUS}"`, class: 'text-highlight' },
+        { text: `"${AVAILABILITY_STATUS}"`, class: 'text-highlight-on-panel' },
       ],
       statusDot: true,
       cursor: true,
@@ -153,12 +166,12 @@ const jsonLines = computed<JsonLine[]>(() => {
         <h1
           class="text-balance font-sans text-[clamp(2.5rem,4.4vw,3.875rem)] font-bold leading-[1.1] tracking-[-1.8px] text-foreground"
         >
-          {{ $t('hero.greeting') }}<span class="text-accent">.</span>
+          {{ $t('hero.greeting') }}<span class="text-accent-text">.</span>
         </h1>
         <button
           v-if="chatIntroReady"
           type="button"
-          class="inline-flex min-h-11 w-fit items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold text-accent transition-colors hover:bg-accent/20 min-h-10 cursor-pointer"
+          class="inline-flex min-h-11 w-fit items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold text-accent-text transition-colors hover:bg-accent/20 min-h-10 cursor-pointer"
           @click="openChat"
         >
           <UiAppIcon icon="lucide:sparkles" class="size-3.5" />
@@ -185,9 +198,11 @@ const jsonLines = computed<JsonLine[]>(() => {
       <SectionsHeroJsonPanel :lines="jsonLines" />
     </div>
 
-    <!-- Pure CSS marquee: a bounded translate (0 to -50%) that never drifts, so it cannot widen the mobile layout. -->
-    <div class="overflow-hidden bg-panel-2 py-6" aria-hidden="true">
-      <div class="flex w-max animate-marquee will-change-transform">
+    <!-- Pure CSS marquee: a bounded translate (0 to -50%) that never drifts, so it cannot widen the mobile layout.
+         It loops by default. Visitors who asked the system to reduce motion start it paused, and can play it. -->
+    <div class="relative bg-panel-2 py-6">
+      <div class="overflow-hidden" aria-hidden="true">
+      <div class="flex w-max animate-marquee will-change-transform" :class="marqueeClass">
         <div v-for="rep in 2" :key="rep" class="flex shrink-0 items-center">
           <span
             v-for="name in MARQUEE_STACK"
@@ -196,6 +211,16 @@ const jsonLines = computed<JsonLine[]>(() => {
             >{{ name.toUpperCase() }}</span>
         </div>
       </div>
+      </div>
+      <button
+        type="button"
+        class="absolute right-4 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-panel-foreground/20 bg-panel-2 text-panel-foreground transition-colors hover:text-accent-on-panel"
+        :aria-label="marqueePlaying ? $t('a11y.pauseMarquee') : $t('a11y.playMarquee')"
+        :aria-pressed="!marqueePlaying"
+        @click="toggleMarquee"
+      >
+        <UiAppIcon :icon="marqueePlaying ? 'lucide:pause' : 'lucide:play'" class="size-4" />
+      </button>
     </div>
   </section>
 </template>
