@@ -198,12 +198,13 @@ const jsonLines = computed<JsonLine[]>(() => {
       <SectionsHeroJsonPanel :lines="jsonLines" />
     </div>
 
-    <!-- Pure CSS marquee: a bounded translate (0 to -50%) that never drifts, so it cannot widen the mobile layout.
+    <!-- Pure CSS marquee: four identical copies, translated by one copy (0 to -25%) so the loop is seamless
+         and never drifts. Four copies keep the strip wider than any screen, so no blank gap shows on the right.
          It loops by default. Visitors who asked the system to reduce motion start it paused, and can play it. -->
     <div class="relative bg-panel-2 py-6">
       <div class="overflow-hidden" aria-hidden="true">
       <div class="flex w-max animate-marquee will-change-transform" :class="marqueeClass">
-        <div v-for="rep in 2" :key="rep" class="flex shrink-0 items-center">
+        <div v-for="rep in 4" :key="rep" class="flex shrink-0 items-center">
           <span
             v-for="name in MARQUEE_STACK"
             :key="`${rep}-${name}`"

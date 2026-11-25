@@ -84,14 +84,15 @@
     "highlight2": "Drupal & WordPress expert, strong in PHP & JavaScript",
     "highlight3": "Performance and accessibility-first approach",
     "imageAlt": "Portrait of Maxime Jolivet",
+    "toStack": "See my tech stack",
     "aiDisclosure": "IA",
     "tags": {
-      "conceptionUiUx": "Design & UI/UX",
+      "conceptionUiUx": "Technical scoping & consulting",
       "webDev": "Web development",
-      "problemSolving": "Problem solving",
-      "cloudDevops": "Cloud & DevOps",
-      "aiAutomation": "AI & Automation",
-      "vibeCoding": "Vibe coding / Low-code"
+      "problemSolving": "Maintenance",
+      "cloudDevops": "DevOps & production deployment",
+      "aiAutomation": "Agentic AI",
+      "vibeCoding": "Accessibility & quality"
     }
   },
   "techSection": {
@@ -331,7 +332,8 @@
     }
   },
   "explorer": {
-    "close": "Close {tab}"
+    "close": "Close {tab}",
+    "openProfile": "Open profile.json"
   },
   "terminal": {
     "title": "guest — maxime.bzh terminal",

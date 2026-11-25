@@ -149,7 +149,8 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    /* One of the four copies in HeroSection.vue: the loop seam is invisible. */
+    transform: translateX(-25%);
   }
 }
 

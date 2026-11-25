@@ -7,7 +7,7 @@ describe('renderProjectsFile', () => {
       { slug: 'saur', title: 'SAUR', year: '2025' },
       { slug: 'precia-molen', title: 'Precia Molen', year: '2026' },
     ])
-    expect(lines[0]).toBe('export const projects = [')
+    expect(lines[0]).toBe('export const personalProjects = [')
     expect(lines[lines.length - 1]).toBe(']')
     expect(lines).toHaveLength(4)
     expect(lines[1]).toContain('slug: "saur"')
@@ -19,7 +19,7 @@ describe('renderProjectsFile', () => {
   })
 
   it('returns an empty array body when there are no projects', () => {
-    expect(renderProjectsFile([])).toEqual(['export const projects = [', ']'])
+    expect(renderProjectsFile([])).toEqual(['export const personalProjects = [', ']'])
   })
 })
 

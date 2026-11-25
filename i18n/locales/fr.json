@@ -84,14 +84,15 @@
     "highlight2": "Expert Drupal et WordPress, solide en PHP & JavaScript",
     "highlight3": "Approche orientée performance et accessibilité",
     "imageAlt": "Portrait de Maxime Jolivet",
+    "toStack": "Voir mes technologies",
     "aiDisclosure": "IA",
     "tags": {
-      "conceptionUiUx": "Conception UI/UX",
+      "conceptionUiUx": "Cadrage & conseil technique",
       "webDev": "Développement web",
-      "problemSolving": "Résolution de problèmes",
-      "cloudDevops": "Cloud & DevOps",
-      "aiAutomation": "IA & Automatisation",
-      "vibeCoding": "Vibe coding / Low-code"
+      "problemSolving": "Maintenance",
+      "cloudDevops": "DevOps & mise en production",
+      "aiAutomation": "IA agentique",
+      "vibeCoding": "Accessibilité & qualité"
     }
   },
   "techSection": {
@@ -331,7 +332,8 @@
     }
   },
   "explorer": {
-    "close": "Fermer {tab}"
+    "close": "Fermer {tab}",
+    "openProfile": "Ouvrir profile.json"
   },
   "terminal": {
     "title": "guest — maxime.bzh terminal",
