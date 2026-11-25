@@ -49,7 +49,7 @@ function titleImageSrc(id: string) {
           <NuxtLink
             :to="localePath('projects')"
             rel="nofollow"
-            class="inline-flex items-center gap-1 hover:text-accent"
+            class="-my-3 inline-flex min-h-11 items-center gap-1 hover:text-accent-text"
           >
             {{ $t('home.projects.viewAll') }}<UiAppIcon icon="lucide:arrow-right" class="size-3" />
           </NuxtLink>
@@ -122,7 +122,7 @@ function titleImageSrc(id: string) {
               {{ project.tags.slice(0, 2).join(' · ') }}
             </div>
             <span
-              class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
+              class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent-text transition-colors group-hover:text-primary-text"
             >
               {{ $t('projectsPage.viewProject') }}
               <UiAppIcon

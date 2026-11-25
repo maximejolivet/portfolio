@@ -21,7 +21,7 @@ const LOCALES = [
       :class="
         item.code === locale
           ? 'bg-primary text-primary-foreground'
-          : 'text-primary-foreground/60 hover:text-accent'
+          : 'text-primary-foreground/60 hover:text-accent-text'
       "
     >
       <img :src="item.flag" alt="" class="h-4 w-6 object-contain" />

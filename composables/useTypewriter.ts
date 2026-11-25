@@ -1,4 +1,5 @@
 import { reactive } from 'vue'
+import { prefersReducedMotion } from '~/utils/motion'
 
 const CHARS_PER_TICK = 2
 const TICK_MS = 10
@@ -13,7 +14,7 @@ export function useTypewriter() {
 
   function type(id: string, total: number) {
     const skip
-      = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+      = prefersReducedMotion()
         || globalThis.matchMedia?.('(max-width: 767px)').matches
     if (skip) return
 

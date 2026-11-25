@@ -80,7 +80,7 @@ ref="pdfViewer"
 
     <button
 type="button"
-      class="fixed bottom-62 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent sm:flex"
+      class="fixed bottom-62 right-6 z-50 hidden items-center gap-1.5 rounded-full border border-border bg-background/90 min-h-11 px-3.5 py-2 font-mono text-xs font-semibold text-muted-foreground shadow-md backdrop-blur-sm transition-colors hover:text-accent-text sm:flex"
       @click="summaryOpen = true"
 >
       <UiAppIcon icon="lucide:zap" class="size-3.5" />
@@ -104,7 +104,7 @@ v-if="summaryOpen"
           </div>
           <button
 type="button" :aria-label="t('cv.quickView.close')"
-            class="flex size-8 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-accent"
+            class="flex size-11 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-accent-text"
             @click="summaryOpen = false"
 >
             <UiAppIcon icon="lucide:x" class="size-4" />
@@ -118,7 +118,7 @@ type="button" :aria-label="t('cv.quickView.close')"
         <p v-if="latestRole" class="font-mono text-xs text-subtle">
           {{ t('cv.quickView.previously') }} {{ t(latestRole.titleKey) }} @ {{ t(latestRole.organizationKey) }}
         </p>
-        <p class="font-mono text-xs text-mint">
+        <p class="font-mono text-xs text-accent-text">
           {{ t('cv.quickView.currentlyAt') }} {{ t('cv.quickView.jobSearch') }}
         </p>
 
@@ -133,7 +133,7 @@ v-if="qrDataUrl" :src="qrDataUrl" :alt="t('cv.quickView.qrAlt')" width="140" hei
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
-          <a :href="`mailto:${CONTACT_EMAIL}`" class="text-accent hover:underline">
+          <a :href="`mailto:${CONTACT_EMAIL}`" class="text-accent-text hover:underline">
             {{ CONTACT_EMAIL }}
           </a>
         </div>

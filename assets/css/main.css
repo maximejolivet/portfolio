@@ -15,6 +15,16 @@
 
   --color-mint: var(--mint);
 
+  /* Text-only tokens. The brand colours above stay for fills and borders; these
+     versions pass WCAG AA (4.5:1) on the surface they are used on. */
+  --color-accent-text: var(--accent-text);
+  --color-primary-text: var(--primary-text);
+  --color-accent-on-panel: var(--accent-on-panel);
+  --color-highlight-on-panel: var(--highlight-on-panel);
+  --color-label-1: var(--label-1);
+  --color-label-2: var(--label-2);
+  --color-label-3: var(--label-3);
+
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--on-panel);
 
@@ -34,7 +44,7 @@
   --color-input: var(--line);
   --color-ring: var(--accent);
 
-  --color-destructive: #c65b4f;
+  --color-destructive: #a8473d;
 
   --font-sans: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -78,8 +88,15 @@
   --accent: #4fb39c;
   --mint: #4fb39c;
   --highlight: #e08a5c;
+  --accent-text: #257565;
+  --primary-text: #866321;
+  --accent-on-panel: #6fc7b1;
+  --highlight-on-panel: #f0a277;
+  --label-1: #7d5f25;
+  --label-2: #2f6f85;
+  --label-3: #257565;
   --sub: rgba(29, 53, 64, 0.7);
-  --subtle: rgba(29, 53, 64, 0.58);
+  --subtle: rgba(29, 53, 64, 0.72);
   --line: rgba(29, 53, 64, 0.16);
   --card: #fbfcfa;
   --panel: #24414f;
@@ -93,8 +110,15 @@
   --ink: #f3f4f0;
   --accent: #4fb39c;
   --highlight: #e08a5c;
+  --accent-text: #4fb39c;
+  --primary-text: #efc78a;
+  --accent-on-panel: #6fc7b1;
+  --highlight-on-panel: #f0a277;
+  --label-1: #c99a4a;
+  --label-2: #5fa9c4;
+  --label-3: #3fa98c;
   --sub: rgba(243, 244, 240, 0.62);
-  --subtle: rgba(243, 244, 240, 0.5);
+  --subtle: rgba(243, 244, 240, 0.66);
   --line: rgba(243, 244, 240, 0.16);
   --card: #1e3945;
   --panel: #10202a;
@@ -125,7 +149,8 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    /* One of the four copies in HeroSection.vue: the loop seam is invisible. */
+    transform: translateX(-25%);
   }
 }
 
@@ -171,6 +196,16 @@
   }
 }
 
+/* Hero technologies marquee. Playing it wins over the reduced-motion rule below, on purpose:
+   the visitor chose to play it. Paused, it stops in place for everyone. */
+.marquee-running {
+  animation: marquee 26s linear infinite !important;
+}
+
+.marquee-paused {
+  animation-play-state: paused !important;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -192,15 +227,51 @@ html {
   }
 }
 
+/* Display preferences (usePreferences). Text sizes scale every rem-based value at once. */
+html[data-text-scale='large'] {
+  font-size: 18px;
+}
+
+html[data-text-scale='xlarge'] {
+  font-size: 20px;
+}
+
 /* Reduced motion (RGAA 13 / WCAG 2.2.2, 2.3.3): finish animations and
-   transitions immediately, and stop looping ones such as the blinking caret. */
+   transitions immediately, and stop looping ones such as the blinking caret.
+   Applies when the system asks for it, unless the visitor chose "full" in the
+   preferences; the second block applies when the visitor forces it. Keep both in sync. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  html:not([data-motion='full']) *,
+  html:not([data-motion='full']) *::before,
+  html:not([data-motion='full']) *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+html[data-motion='reduce'] *,
+html[data-motion='reduce'] *::before,
+html[data-motion='reduce'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Stronger contrast: muted text, hairlines and stripes. Declared after the theme blocks so it
+   wins over them; the night variant needs its own selector to stay ahead of the night block. */
+:root[data-contrast='high'] {
+  --sub: rgba(29, 53, 64, 0.9);
+  --subtle: rgba(29, 53, 64, 0.9);
+  --line: rgba(29, 53, 64, 0.55);
+  --stripe: rgba(29, 53, 64, 0.18);
+}
+
+:root[data-theme='night'][data-contrast='high'] {
+  --sub: rgba(243, 244, 240, 0.9);
+  --subtle: rgba(243, 244, 240, 0.9);
+  --line: rgba(243, 244, 240, 0.55);
+  --stripe: rgba(243, 244, 240, 0.2);
 }

@@ -36,7 +36,13 @@ export default defineCachedEventHandler(
       .eq('id', id)
       .maybeSingle()
 
-    if (error || !data) return emptySvg()
+    // A Supabase error must not be cached (a thrown error is not stored by the
+    // cached handler, unlike an empty SVG which would stay for 30 days).
+    if (error) {
+      console.error('[project-title] fetch failed', error)
+      throw createError({ statusCode: 503, statusMessage: 'Service unavailable' })
+    }
+    if (!data) return emptySvg()
 
     const text = (lang === 'en' ? data.title_en : data.title_fr) ?? ''
     return await renderSvg(text)

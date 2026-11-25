@@ -9,6 +9,8 @@
   },
   "a11y": {
     "skipToContent": "Skip to content",
+    "pauseMarquee": "Pause the technologies list",
+    "playMarquee": "Play the technologies list",
     "terminalInput": "Enter a terminal command",
     "newWindow": "(opens in a new window)"
   },
@@ -38,7 +40,9 @@
     "ide": "IDE & terminal",
     "toggleTheme": "Toggle theme",
     "switchLanguage": "Switch language",
-    "askIa": "Ask the AI"
+    "askIa": "Ask the AI",
+    "inspect": "Inspect accessibility",
+    "preferences": "Display preferences"
   },
   "footer": {
     "taglineRole": "Senior full-stack web developer",
@@ -51,6 +55,7 @@
     "legalMentions": "Legal notice",
     "accessibility": "Accessibility",
     "manageCookies": "Manage cookies",
+    "displayPreferences": "Display preferences",
     "changelog": "Changelog",
     "status": "Status",
     "navLabel": "Footer links"
@@ -81,14 +86,15 @@
     "highlight2": "Drupal & WordPress expert, strong in PHP & JavaScript",
     "highlight3": "Performance and accessibility-first approach",
     "imageAlt": "Portrait of Maxime Jolivet",
+    "toStack": "See my tech stack",
     "aiDisclosure": "IA",
     "tags": {
-      "conceptionUiUx": "Design & UI/UX",
+      "conceptionUiUx": "Technical scoping & consulting",
       "webDev": "Web development",
-      "problemSolving": "Problem solving",
-      "cloudDevops": "Cloud & DevOps",
-      "aiAutomation": "AI & Automation",
-      "vibeCoding": "Vibe coding / Low-code"
+      "problemSolving": "Maintenance",
+      "cloudDevops": "DevOps & production deployment",
+      "aiAutomation": "Agentic AI",
+      "vibeCoding": "Accessibility & quality"
     }
   },
   "techSection": {
@@ -243,6 +249,8 @@
     "pageLabel": "Page",
     "techFilterLabel": "Filtered by tech:",
     "clearTechFilter": "Clear tech filter",
+    "removeTechFilter": "Remove the {tech} filter",
+    "clearAllTechFilters": "Clear all",
     "filterYear": "Year",
     "filterAllTechs": "All technologies",
     "filterTechCount": "{count} technology(ies)",
@@ -325,11 +333,16 @@
       "qrCaption": "Scan to open this CV on your phone"
     }
   },
+  "explorer": {
+    "close": "Close {tab}",
+    "openProfile": "Open profile.json"
+  },
   "terminal": {
     "title": "guest — maxime.bzh terminal",
     "toggle": "Open terminal",
     "hint": "Type 'help' to see available commands.",
-    "help": "Available commands: help, whoami, cv, projects, contact, ia, theme, sudo, clear, exit",
+    "skillsLegend": "The number next to each bar is the number of projects.",
+    "help": "Available commands: help, whoami, cv, projects, skills, timeline, contact, ia, theme, sudo, clear, exit",
     "whoami": "Maxime Jolivet — {role}",
     "notFound": "command not found: {cmd}",
     "ia": "Opening the AI assistant…",
@@ -337,6 +350,56 @@
     "themeDay": "day",
     "themeNight": "night",
     "sudo": "Permission denied: not even sudo lets you deploy to prod on a Friday night. 😏"
+  },
+  "inspector": {
+    "title": "Accessibility inspector",
+    "intro": "Scans this page and flags problems that can be detected automatically. Contrast over background images or gradients is not evaluated.",
+    "close": "Close the inspector",
+    "rescan": "Run the scan again",
+    "summary": "{fail} failure(s) · {warn} warning(s)",
+    "none": "No problem found by the automatic checks.",
+    "scrollTo": "go to the element",
+    "categories": {
+      "target": "Target too small",
+      "image": "Image without alt",
+      "name": "Missing accessible name",
+      "contrast": "Insufficient contrast"
+    },
+    "severity": {
+      "fail": "failure",
+      "warn": "warning"
+    },
+    "limits": "Automatic checks, limited to {count} elements. They do not replace a manual keyboard or screen reader test."
+  },
+  "preferences": {
+    "title": "Display preferences",
+    "description": "Adjust how the site reads. These settings stay on this device.",
+    "close": "Close",
+    "textScale": {
+      "label": "Text size",
+      "options": {
+        "default": "Standard",
+        "large": "Large",
+        "xlarge": "Extra large"
+      }
+    },
+    "motion": {
+      "label": "Animations",
+      "options": {
+        "system": "Follow system",
+        "reduce": "Reduced",
+        "full": "Full"
+      }
+    },
+    "contrast": {
+      "label": "Contrast",
+      "options": {
+        "default": "Standard",
+        "high": "Increased"
+      }
+    },
+    "reset": "Reset",
+    "storageNote": "Saved in this browser only."
   },
   "shortcuts": {
     "title": "Keyboard shortcuts",

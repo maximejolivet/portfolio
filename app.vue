@@ -1,12 +1,19 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 const i18nHead = useLocaleHead()
+const { preferencesOpen } = usePreferences()
 
 useHead({
   htmlAttrs: computed(() => i18nHead.value.htmlAttrs),
   link: computed(() => i18nHead.value.link),
   meta: computed(() => i18nHead.value.meta),
   script: [
+    {
+      // Chromium only: prerenders case studies on hover (see shared/utils/speculationRules.ts).
+      key: 'speculation-rules',
+      type: 'speculationrules',
+      innerHTML: JSON.stringify(buildSpeculationRules()),
+    },
     {
       key: 'tarteaucitron-lang',
       innerHTML: `window.tarteaucitronForceLanguage = ${JSON.stringify(locale.value)};`,
@@ -68,6 +75,7 @@ document.addEventListener("googletagmanager_consentModeKo", function () {
   </NuxtLayout>
   <LayoutCustomCursor />
   <LayoutCommandPalette />
+  <LayoutPreferencesPanel v-if="preferencesOpen" />
   <LayoutShortcutsOverlay />
   <LayoutKonamiEasterEgg />
   <LayoutFloatingActions />

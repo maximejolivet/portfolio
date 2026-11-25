@@ -8,7 +8,7 @@ function updateProgress() {
 }
 
 onMounted(() => {
-  reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  reduceMotion = prefersReducedMotion()
   updateProgress()
   window.addEventListener('scroll', updateProgress, { passive: true })
   window.addEventListener('resize', updateProgress)

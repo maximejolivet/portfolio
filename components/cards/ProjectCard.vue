@@ -57,7 +57,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
         </span>
         <UiBadge
           :class="
-            project.category === 'pro' ? 'bg-primary/16 text-primary' : 'bg-mint/16 text-mint'
+            project.category === 'pro' ? 'bg-primary/8 text-primary-text' : 'bg-mint/8 text-accent-text'
           "
         >
           {{
@@ -83,7 +83,7 @@ const dotClass = computed(() => (props.project.dot === 'mint' ? 'bg-mint' : 'bg-
         </UiBadge>
       </div>
       <span
-        class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors group-hover:text-primary"
+        class="mt-1 flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent-text transition-colors group-hover:text-primary-text"
       >
         {{ $t('projectsPage.viewProject') }}
         <UiAppIcon

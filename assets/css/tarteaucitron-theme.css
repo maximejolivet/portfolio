@@ -80,7 +80,7 @@ body.tarteaucitron-modal-open #tarteaucitronRoot #tarteaucitronAlertBig {
 
 /* "Personnaliser" is visible text, never an icon. */
 #tarteaucitronCloseAlert {
-  @apply col-span-2 m-0 h-auto w-auto justify-self-center border-0 bg-transparent p-2
+  @apply col-span-2 m-0 h-auto min-h-11 w-auto justify-self-center border-0 bg-transparent p-2
     font-sans text-sm font-semibold text-panel-foreground underline
     decoration-accent decoration-2 underline-offset-4;
 }

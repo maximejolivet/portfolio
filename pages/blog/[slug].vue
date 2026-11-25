@@ -123,7 +123,7 @@ useHead({
           'datePublished': article.value.published_at,
           'inLanguage': locale.value,
           'author': { '@type': 'Person', 'name': 'Maxime Jolivet', 'url': 'https://www.maxime.bzh' },
-        }),
+        }).replace(/</g, '\\u003c'),
       }]
     : [],
 })
@@ -138,7 +138,7 @@ useHead({
         <div class="flex items-center justify-between py-8">
           <NuxtLink
             :to="localePath('blog')"
-            class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent"
+            class="inline-flex items-center gap-1 font-mono text-xs font-semibold text-muted-foreground hover:text-accent-text"
           >
             <UiAppIcon icon="lucide:arrow-left" class="size-3" />{{ $t('blog.back_to_list') }}
           </NuxtLink>
@@ -146,7 +146,7 @@ useHead({
           <button
             v-if="article"
             type="button"
-            class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground transition-colors hover:text-accent"
+            class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-muted-foreground transition-colors hover:text-accent-text"
             :aria-label="$t('blog.share')"
             @click="share"
           >

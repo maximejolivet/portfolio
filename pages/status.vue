@@ -62,7 +62,7 @@ function formattedDate(value: string | null | undefined) {
                 <dd>
                   <a
 v-if="data.commit" :href="data.commit.url" target="_blank" rel="noopener noreferrer"
-                    class="text-accent hover:underline"
+                    class="text-accent-text hover:underline"
 >
                     {{ data.commit.shortSha }}
                   <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
@@ -81,8 +81,7 @@ v-if="data.commit" :href="data.commit.url" target="_blank" rel="noopener norefer
           </UiCard>
 
           <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-subtle">
-            <a href="/api/status.json" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
-              {{ $t('statusPage.viewJson') }}
+            <a href="/api/status.json" target="_blank" rel="noopener noreferrer" class="-my-3 inline-flex min-h-11 items-center text-accent-text hover:underline">              {{ $t('statusPage.viewJson') }}
             <span class="sr-only">{{ $t('a11y.newWindow') }}</span></a>
           </div>
         </template>

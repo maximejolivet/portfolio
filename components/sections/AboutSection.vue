@@ -13,7 +13,13 @@ const tagKeys = [
 
 <template>
   <LayoutPageSection id="about" class="pt-24">
-    <UiSectionHeading :title="$t('aboutSection.eyebrow')" icon="lucide:user-round" diamond="gold" />
+    <UiSectionHeading
+      :title="$t('aboutSection.eyebrow')"
+      icon="lucide:user-round"
+      diamond="gold"
+      :icon-to="{ path: $localePath('/'), hash: '#tech' }"
+      :icon-label="$t('aboutSection.toStack')"
+    />
 
     <div class="grid items-start gap-14 md:grid-cols-[1.15fr_.85fr]">
       <div class="flex flex-col gap-5">
@@ -21,7 +27,7 @@ const tagKeys = [
           class="text-balance font-sans text-[1.5rem] font-bold leading-[1.35] tracking-[-0.4px] text-foreground"
         >
           {{ $t('aboutSection.titleStart') }}
-          <span class="text-primary">{{ $t('aboutSection.titleHighlight') }}</span>{{ $t('aboutSection.titleEnd') }}
+          <span class="text-primary-text">{{ $t('aboutSection.titleHighlight') }}</span>{{ $t('aboutSection.titleEnd') }}
         </h3>
 
         <p class="text-pretty font-sans text-[1rem] leading-[1.75] text-muted-foreground">
@@ -37,7 +43,7 @@ const tagKeys = [
             :key="key"
             class="flex items-center gap-3 font-mono text-[0.9062rem] text-foreground"
           >
-            <span class="text-mint">}}</span>
+            <span class="text-accent-text">}}</span>
             {{ $t(`aboutSection.${key}`) }}
           </div>
         </div>
@@ -72,7 +78,7 @@ const tagKeys = [
             class="absolute bottom-3 right-3 z-10 flex w-fit items-center gap-2 rounded-full bg-foreground py-1.5 pl-1.5 pr-4 text-background shadow-lg transition-colors hover:bg-foreground/85"
           >
             <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-white">
-              <UiAppIcon icon="ri:sparkling-2-line" class="size-5 text-accent" />
+              <UiAppIcon icon="ri:sparkling-2-line" class="size-5 text-accent-text" />
             </span>
             <span class="font-mono text-base font-bold leading-none tracking-wide">
               {{ $t('aboutSection.aiDisclosure') }}

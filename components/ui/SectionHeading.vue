@@ -5,6 +5,9 @@ withDefaults(
     icon: string
     diamond?: 'gold' | 'mint'
     caption?: string
+    // Optional: makes the icon a link (e.g. the About icon jumping to the tech stack).
+    iconTo?: string | { path: string, hash?: string }
+    iconLabel?: string
   }>(),
   { diamond: 'gold' },
 )
@@ -12,7 +15,12 @@ withDefaults(
 
 <template>
   <div class="mb-10 flex items-center gap-4">
+    <!-- A linked icon uses the accent colour, so it reads differently from the plain section icons. -->
+    <NuxtLink v-if="iconTo" :to="iconTo" :aria-label="iconLabel" class="shrink-0 rounded-full">
+      <UiAppIcon :icon="icon" class="size-8 text-accent-text" />
+    </NuxtLink>
     <UiAppIcon
+      v-else
       :icon="icon"
       class="size-8 shrink-0"
       :class="diamond === 'mint' ? 'text-mint' : 'text-primary'"

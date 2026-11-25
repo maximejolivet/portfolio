@@ -13,14 +13,14 @@ const expanded = ref(false)
   <UiCard :class="$props.class">
     <div class="flex flex-col items-start gap-3">
       <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent/12">
-        <UiAppIcon :icon="icon" class="size-6 text-accent" />
+        <UiAppIcon :icon="icon" class="size-6 text-accent-text" />
       </span>
       <h3 class="font-sans text-lg font-bold text-foreground">{{ title }}</h3>
     </div>
 
     <button
       type="button"
-      class="flex w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent transition-colors hover:text-primary"
+      class="flex min-h-11 w-fit items-center gap-1.5 font-mono text-xs font-semibold text-accent-text transition-colors hover:text-primary-text"
       :aria-expanded="expanded"
       @click="expanded = !expanded"
     >
